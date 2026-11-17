@@ -251,6 +251,8 @@ textarea.inp{min-height:90px;resize:vertical}
 .keylist code{background:#0e1620;padding:2px 6px;border-radius:2px}
 .bpick{display:grid;gap:6px;margin-top:6px;max-height:220px;overflow-y:auto;background:#0e1620;padding:8px;border-radius:3px}
 .bpick label{display:flex;gap:8px;align-items:center}
+.bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
+.bighelp summary{cursor:pointer;color:#c6d4df;font-size:13px}
 a.tag:hover{background:#4a6178;color:#fff}
 @media (max-width:860px){.co,.walletgrid{grid-template-columns:1fr}.award{grid-template-columns:110px 1fr}.coinpill b{font-size:12px}}
 .pill.luck{background:#1f4a35;color:#7dffb2}
@@ -442,7 +444,13 @@ e_NOT_OWNED:"Buy the game first.",e_NOT_AVAILABLE:"Not available right now.",e_P
 e_BAD_KEY:"That key doesn't exist.",e_KEY_USED:"That key was already used.",e_BUNDLE_SAME_STUDIO:"Bundles can only include approved games from your studio.",e_NO_USER:"User not found.",e_NOT_YOUR_GAME:"Not your game.",
 soon:"Coming soon",tba:"To be announced",daysleft:"{n} days left",anyday:"any day now",soonwish:"Add it to your wishlist so you don't miss the launch.",wishers:"people wishlisted",revAfter:"Reviews open after the game is released.",show:"Show",
 f_soon:"Coming soon page",f_soonhint:"Put the game page in the store before the game is ready. Players can see it and add it to their wishlist. The game file is not needed yet. When it's ready, uncheck this and upload the game.",f_rdate:"Planned release date",f_rdatehint:"Optional. Leave empty for \"To be announced\".",f_later:"(can be added later)",
-f_exe:"Upload EXE / ZIP (Windows)",f_exehint:"A Windows game: a single .exe, or a .zip with the .exe and its files. Max 50MB. Players download it to their computer.",f_toobig:"for bigger games, upload them to itch.io or GitHub Releases and use \"External link\".",download:"Download",smartscreen:"Windows may show a SmartScreen warning for indie games — click \"More info\" → \"Run anyway\"."});
+f_exe:"Upload EXE / ZIP (Windows)",f_exehint:"A Windows game: a single .exe, or a .zip with the .exe and its files. Max 50MB. Players download it to their computer.",f_toobig:"for bigger games, upload them to itch.io or GitHub Releases and use \"External link\".",
+bigT:"Game bigger than 50 MB? (up to 500 MB)",bigS:"Files here are limited to 50 MB. For a bigger game, upload it to one of these free sites and paste the link above:",
+big_itch:"create a project, upload the game (up to 1 GB), set it to Public and paste the page link.",
+big_gh:"create a repository → Releases → Draft a new release, attach the .exe/.zip (up to 2 GB) and paste the file link.",
+big_drive:"upload the file, Share → \"Anyone with the link\", and paste the link.",
+bigMax:"Please keep games up to 500 MB. The game still goes through review before it's published.",
+bigPicked:"The file is {s} — over 50 MB. Upload it to an outside site and paste the link (instructions below).",extFrom:"Downloads from",download:"Download",smartscreen:"Windows may show a SmartScreen warning for indie games — click \"More info\" → \"Run anyway\"."});
 Object.assign(T.he,{
 ctaS:"פותחים סטודיו, עוברים אימות ומגישים משחק. אחרי אישור הוא עולה לחנות.",f_save:"שלח לבדיקה",published:"המשחק נשלח לבדיקה! 🎉",
 s1:"יצירת סטודיו",s2:"אימות סטודיו",s3:"הגשת משחק",s4:"פרסום רשמי",hubT:"פרסום ב-Man Studio Store",hubS:"ארבעה שלבים. דרגת קושי: 4/10 טכנית, 7/10 סבלנות 😉",
@@ -491,7 +499,13 @@ e_NOT_OWNED:"צריך לקנות את המשחק קודם.",e_NOT_AVAILABLE:"ל�
 e_BAD_KEY:"הקוד לא קיים.",e_KEY_USED:"הקוד כבר מומש.",e_BUNDLE_SAME_STUDIO:"חבילה יכולה לכלול רק משחקים מאושרים מהסטודיו שלך.",e_NO_USER:"המשתמש לא נמצא.",e_NOT_YOUR_GAME:"זה לא המשחק שלך.",
 soon:"בקרוב",tba:"יוכרז בהמשך",daysleft:"עוד {n} ימים",anyday:"ממש בקרוב",soonwish:"הוסף לרשימת המשאלות כדי לא לפספס את ההשקה.",wishers:"הוסיפו לרשימת המשאלות",revAfter:"ביקורות ייפתחו אחרי שהמשחק ייצא.",show:"הצג",
 f_soon:"דף \"בקרוב\" (Coming soon)",f_soonhint:"מעלים את דף המשחק לחנות לפני שהמשחק מוכן. שחקנים רואים אותו ויכולים להוסיף לרשימת המשאלות. עוד לא צריך את קובץ המשחק. כשהוא מוכן, מורידים את הסימון ומעלים את המשחק.",f_rdate:"תאריך יציאה מתוכנן",f_rdatehint:"לא חובה. אם ריק יופיע \"יוכרז בהמשך\".",f_later:"(אפשר להוסיף אחר כך)",
-f_exe:"העלאת EXE / ZIP (Windows)",f_exehint:"משחק ל-Windows: קובץ .exe אחד, או .zip עם ה-.exe והקבצים שלו. עד 50MB. השחקנים מורידים אותו למחשב.",f_toobig:"למשחקים גדולים יותר, העלה ל-itch.io או GitHub Releases ובחר \"קישור חיצוני\".",download:"הורדה",smartscreen:"Windows עלול להציג אזהרת SmartScreen למשחקי אינדי — לוחצים \"מידע נוסף\" ← \"הפעל בכל זאת\"."});
+f_exe:"העלאת EXE / ZIP (Windows)",f_exehint:"משחק ל-Windows: קובץ .exe אחד, או .zip עם ה-.exe והקבצים שלו. עד 50MB. השחקנים מורידים אותו למחשב.",f_toobig:"למשחקים גדולים יותר, העלה ל-itch.io או GitHub Releases ובחר \"קישור חיצוני\".",
+bigT:"המשחק גדול מ-50MB? (עד 500MB)",bigS:"קבצים כאן מוגבלים ל-50MB. למשחק גדול יותר, מעלים אותו לאחד האתרים החינמיים האלה ומדביקים את הקישור למעלה:",
+big_itch:"יוצרים פרויקט, מעלים את המשחק (עד 1GB), מגדירים Public ומדביקים את קישור הדף.",
+big_gh:"יוצרים repository ← Releases ← Draft a new release, מצרפים את ה-.exe/.zip (עד 2GB) ומדביקים את קישור הקובץ.",
+big_drive:"מעלים את הקובץ, שיתוף ← \"כל מי שיש לו את הקישור\", ומדביקים את הקישור.",
+bigMax:"בבקשה עד 500MB למשחק. המשחק עדיין עובר בדיקה לפני שהוא מתפרסם.",
+bigPicked:"הקובץ שוקל {s} — יותר מ-50MB. העלה אותו לאתר חיצוני והדבק קישור (הוראות למטה).",extFrom:"ההורדה מ-",download:"הורדה",smartscreen:"Windows עלול להציג אזהרת SmartScreen למשחקי אינדי — לוחצים \"מידע נוסף\" ← \"הפעל בכל זאת\"."});
 let lang = (()=>{try{return localStorage.getItem("pp_lang")}catch(e){return null}})() || "en";
 const t = k => (T[lang][k] ?? T.en[k] ?? k);
 const gname = g => lang==="he" ? (GENRE_HE[g]||g) : g;
@@ -809,6 +823,7 @@ async function gameView(main,id,stale){
   const myRev=me&&revs.find(r=>r.user_id===me.id);
   const r=rating(g);
   const playLabel=g.play_kind==="download"?"⬇ "+t("download"):g.play_kind==="link"?"↗ "+t("play"):"▶ "+t("play");
+  const extHost=g.play_kind==="link"&&g.file_name?g.file_name:"";
   main.innerHTML=subnav()+`
   <div class="crumbs"><a href="#/browse">${t("browse")}</a> › <a href="#/browse?genre=${encodeURIComponent(g.genre)}">${esc(gname(g.genre))}</a> › ${esc(g.title)}</div>
   <h1 class="gtitle">${esc(g.title)} ${!g.published?`<span class="pill off">${t("hidden")}</span>`:""} ${promoHTML(g)}
@@ -834,6 +849,7 @@ async function gameView(main,id,stale){
       <div class="act">${onSale(g)?`<span class="price disc">-${g.sale_pct}%</span><span class="price"><s class="dim">${g.price}</s>&nbsp;${coins(effPrice(g))}</span>`:`<span class="price">${coins(g.price)}</span>`}<button class="btn green" id="buyBtn">🛒 ${t("buy")}</button></div></div>`
     :`<div class="buybox"><h3>${t("play")}: ${esc(g.title)}</h3><div class="mut">${paid&&owned?"✓ "+t("inlib"):esc(gname(g.genre))}</div>
       ${g.play_kind==="download"?`<div class="dim" style="font-size:12px;margin-top:6px">🪟 Windows · ${esc(g.file_name||"")}${g.file_size?" · "+fmtSize(g.file_size):""}<br>${t("smartscreen")}</div>`:""}
+      ${extHost?`<div class="dim" style="font-size:12px;margin-top:6px">↗ ${t("extFrom")} <b>${esc(extHost)}</b></div>`:""}
       <div class="act"><span class="price">${paid?(owned?t("owned"):coins(g.price)):t("free")}</span><button class="btn green" id="playBtn">${playLabel}</button></div></div>`}
     ${bundles.length?bundles.map(b=>`<div class="buybox" style="padding-bottom:30px"><h3>📦 ${t("buy")} ${esc(b.title)}</h3><div class="mut">${b.game_ids.length} ${t("games")}</div>
       <div class="act"><span class="price">${coins(b.price)}</span><a class="btn green" href="#/bundle/${b.id}">${t("viewBundle")}</a></div></div>`).join(""):""}
@@ -1174,7 +1190,9 @@ async function formView(main,id,stale){
       ${g.play_kind==="download"&&g.file_name?`<span class="hint">${t("curfile")}: ${esc(g.file_name)} (${fmtSize(g.file_size)})</span>`:""}</label>
     <label id="pkH">${t("f_html")} ${g.play_kind==="html"&&g.play_url?t("keep"):""}<input type="file" id="fh" accept=".html,.htm,text/html"><span class="hint">${t("f_htmlhint")}</span>
       ${g.play_kind==="html"&&g.play_url?`<span class="hint">${t("curfile")}: ✓</span>`:""}</label>
-    <label id="pkL">${t("f_link")}<input class="inp" id="fl" dir="ltr" placeholder="https://…" value="${g.play_kind==="link"?esc(g.play_url||""):""}"><span class="hint">${t("f_linkhint")}</span></label>
+    <label id="pkL">${t("f_link")}<input class="inp" id="fl" dir="ltr" placeholder="https://…" value="${g.play_kind==="link"?esc(g.play_url||""):""}"><span class="hint">${t("f_linkhint")}</span>
+      <details class="bighelp" id="bigHelp"><summary>📦 ${t("bigT")}</summary><div class="hint" style="line-height:1.7">${t("bigS")}<ol style="margin:6px 0;padding-inline-start:20px">
+        <li><b>itch.io</b> — ${t("big_itch")}</li><li><b>GitHub Releases</b> — ${t("big_gh")}</li><li><b>Google Drive</b> — ${t("big_drive")}</li></ol>${t("bigMax")}</div></details></label>
     <div class="two"><label>${t("f_price")}<input class="inp" type="number" id="fpr" min="0" max="100000" step="1" value="${g.price||0}"><span class="hint" id="fprh"></span></label>
       <label>${t("version")}<input class="inp" id="fver" maxlength="30" dir="ltr" placeholder="1.0" value="${esc(g.version||"")}"><span class="hint">${t("f_verhint")}</span></label></div>
     <label>${t("f_reqs")}<textarea class="inp" id="fr" maxlength="2000" style="min-height:60px">${esc(g.min_reqs||"")}</textarea></label>
@@ -1183,8 +1201,12 @@ async function formView(main,id,stale){
     <div style="display:flex;gap:10px"><button class="btn green" id="fsv">${rejectedOpen?t("resubmitBtn"):id?t("f_saveedit"):t("f_save")}</button>${id?`<a class="btn ghost" href="#/app/${g.id}">${t("cancel")}</a>`:""}</div>
   </form></div>`;
   const pk=()=>document.querySelector("input[name=pk]:checked").value;
+  const bigCheck=e=>{const f=e.target.files[0];if(!f||f.size<=50*1048576)return;
+    e.target.value="";toast("📦 "+t("bigPicked").replace("{s}",fmtSize(f.size)));
+    document.querySelector("input[name=pk][value=link]").checked=true;syncPk();$("#bigHelp").open=true;$("#fl").focus()};
   const syncPk=()=>{$("#pkH").hidden=pk()!=="html";$("#pkL").hidden=pk()!=="link";$("#pkD").hidden=pk()!=="download"};syncPk();
   document.querySelectorAll("input[name=pk]").forEach(r=>r.onchange=syncPk);
+  $("#fx").onchange=bigCheck;$("#fh").onchange=bigCheck;
   const syncPrice=()=>{const p=Math.max(0,Math.floor(+$("#fpr").value||0));$("#fprh").textContent=p?t("f_pricehint").replace("{p}",Math.round(devShare(p)*100)).replace("{c}",Math.floor(p*devShare(p))):t("free")};
   syncPrice();$("#fpr").oninput=syncPrice;
   const syncSoon=()=>{const s=$("#fsoon").checked;$("#frdw").hidden=!s;$("#freq").textContent=s?t("f_later"):"*"};syncSoon();
@@ -1219,7 +1241,7 @@ async function formView(main,id,stale){
       else if(kind==="download"){
         if(exeFile){rec.play_url=await upload(exeFile,"build",["application/octet-stream","application/zip"],50);rec.file_name=exeFile.name.slice(0,200);rec.file_size=exeFile.size}
         else{rec.play_url=g.play_url;rec.file_name=g.file_name;rec.file_size=g.file_size}}
-      else rec.play_url=okUrl(link)||null;
+      else{rec.play_url=okUrl(link)||null;try{rec.file_name=rec.play_url?new URL(rec.play_url).hostname.replace(/^www\./,""):null}catch(e){rec.file_name=null}}
       let res;
       if(rejectedOpen)rec.review_status="pending";
       if(id)res=await sb.from("games").update(rec).eq("id",id).select("id").single();
