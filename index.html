@@ -322,7 +322,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
   </div>
 </header>
 <main class="wrap" id="main"></main>
-<footer><div class="wrap"><span id="foot1"></span><span id="foot2"></span></div></footer>
+<footer><div class="wrap"><span id="foot1"></span><a id="footDl" href="downloads/ManStudioStore.exe" download></a><span id="foot2"></span></div></footer>
 <div id="toast" role="status"></div>
 
 <script>
@@ -426,7 +426,7 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",goldS:"gold ✔",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",dlApp:"Download for Windows",appT:"Desktop app",appS:"Man Studio Store as a Windows app: its own window, remembers your sign-in, always up to date.",goldS:"gold ✔",
 separately:"separately",youSave:"You save",ownSome:"You already own {n} of these",sales:"sales",earned:"earned",days:"days",coinsDay:"Coins earned",
 postUpdate:"Update",sale:"Sale",keys:"Keys",promote:"Promote",newBundle:"New bundle",bundleRule:"Bundles: games from your studio only, price above 25 Coins.",
 promoHint:"Your game goes to the top of the store with a highlighted \"Promoted\" badge for 7 days.",promotedUntil:"Promoted until",patchNotes:"Patch notes — what's new",
@@ -475,7 +475,7 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",goldS:"✔ הזהב",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",dlApp:"הורדה ל-Windows",appT:"אפליקציה למחשב",appS:"Man Studio Store כאפליקציית Windows: חלון משלה, זוכרת את ההתחברות ותמיד מעודכנת.",goldS:"✔ הזהב",
 separately:"בנפרד",youSave:"חוסכים",ownSome:"כבר יש לך {n} מהם",sales:"מכירות",earned:"הרווחת",days:"ימים",coinsDay:"Coins שהרווחת",
 postUpdate:"עדכון",sale:"מבצע",keys:"קודים",promote:"קידום",newBundle:"חבילה חדשה",bundleRule:"חבילות: רק משחקים מהסטודיו שלך, במחיר מעל 25 Coins.",
 promoHint:"המשחק עולה לראש החנות עם תג \"מקודם\" בולט ל-7 ימים.",promotedUntil:"מקודם עד",patchNotes:"פירוט עדכון — מה חדש",
@@ -582,7 +582,7 @@ function renderHeader(){
       :`<a class="btn green sm" href="#/login">${t("login")}</a>`);
   if(me){$("#ub").onclick=e=>{if(e.target.closest("#um a"))return;$("#um").hidden=!$("#um").hidden};
     $("#lo").onclick=async e=>{e.stopPropagation();await sb.auth.signOut();location.hash="#/"}}
-  $("#foot1").textContent="© "+new Date().getFullYear()+" "+STORE_NAME+" — "+t("foot1");$("#foot2").textContent=t("foot2");
+  $("#foot1").textContent="© "+new Date().getFullYear()+" "+STORE_NAME+" — "+t("foot1");$("#foot2").textContent=t("foot2");$("#footDl").textContent="🪟 "+t("dlApp");
 }
 document.addEventListener("click",e=>{const m=$("#um");if(m&&!e.target.closest("#ub"))m.hidden=true;if(!e.target.closest("#burger"))$("#nav").classList.remove("open")});
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
@@ -1572,6 +1572,9 @@ function authView(main,q){
 function settingsView(main){
   setTitle(t("settings"));
   main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("settings")}</h2><div class="set">
+    <div class="panel"><h3>🪟 ${t("appT")}</h3><div class="mut">${t("appS")}</div>
+      <a class="btn green" style="margin-top:10px" href="downloads/ManStudioStore.exe" download>⬇ ${t("dlApp")} <span style="opacity:.7;font-weight:400">· 12 MB</span></a>
+      <div class="dim" style="font-size:12px;margin-top:8px">${t("smartscreen")}</div></div>
     <div class="panel"><h3>${t("language")}</h3><div class="mut">${t("langHint")}</div>
       <div class="langs" id="langs">
         <button data-l="en" class="${lang==="en"?"on":""}" dir="ltr"><span class="lb">EN</span><span><b>English</b><small>English</small></span></button>
