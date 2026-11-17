@@ -203,6 +203,56 @@ textarea.inp{min-height:90px;resize:vertical}
 .soon{background:#4a3f1f;color:#ffcf5a;font-weight:700;padding:4px 10px;border-radius:2px;font-size:12px;white-space:nowrap}
 .soonbuy{background:linear-gradient(-60deg,#ffcf5a14 5%,#5c84b61a 95%)}
 .soonbox{background:#ffcf5a0d;border:1px dashed #ffcf5a55;border-radius:4px;padding:12px}
+/* coins, sales, badges */
+.coinpill{display:flex;align-items:center;gap:4px;background:#3b4a1d;color:#d2efa9;border-radius:14px;padding:4px 10px;font-size:13px;white-space:nowrap}
+.coinpill:hover{color:#fff;background:#4c6b22}
+.dot{position:absolute;top:0;inset-inline-end:-2px;background:var(--bad);color:#fff;border-radius:8px;font-size:10px;min-width:16px;height:16px;display:grid;place-items:center;padding:0 3px;font-style:normal}
+.ptag{background:#000;color:#fff;padding:4px 10px;border-radius:2px;font-size:13px;white-space:nowrap}
+.saletag{display:inline-flex;align-items:stretch;border-radius:2px;overflow:hidden;font-size:12px;white-space:nowrap}
+.saletag i{background:#4c6b22;color:#beee11;font-style:normal;font-weight:800;padding:4px 7px;font-size:14px;display:grid;place-items:center}
+.saletag span{background:#344654;padding:2px 8px;display:flex;flex-direction:column;line-height:1.15;justify-content:center}
+.saletag s{color:#738895;font-size:11px}.saletag b{color:#beee11;font-weight:500}
+.price.disc{background:#4c6b22!important;color:#beee11!important;font-weight:800;font-size:16px!important}
+.salebar{background:#4c6b2233;color:#beee11;border-radius:3px;padding:6px 10px;margin-top:8px;font-size:13px}
+.promo{display:inline-block;background:linear-gradient(90deg,#ff9f1a,#ff5a6e);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;vertical-align:middle}
+.vbadge{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;font-size:10px;color:#fff;vertical-align:middle;margin-inline-start:2px}
+.vbadge.blue{background:#1a9fff}.vbadge.gold{background:linear-gradient(135deg,#ffd76a,#d49b00);color:#3a2a00}
+.awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:18px}
+.award{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;border-radius:4px;padding:8px;color:inherit;background:linear-gradient(120deg,#5a4a12,#1c2a3a);border:1px solid #d4af3766}
+.award.goty{background:linear-gradient(120deg,#6a2d5a,#1c2a3a);border-color:#ff9be066}
+.award:hover{color:inherit;filter:brightness(1.1)}.award .cover{border-radius:3px}.award b{display:block;color:#fff;font-size:17px}
+.atag{display:inline-block;background:#d4af37;color:#2a1f00;font-weight:700;font-size:11px;padding:2px 8px;border-radius:2px;letter-spacing:.04em;text-transform:uppercase}
+.atag.big{font-size:12px;padding:4px 10px;margin-inline-end:6px}.awardline{margin:-4px 0 12px}
+.studiobox{display:flex;gap:10px;align-items:center;margin-top:10px;color:inherit}.studiobox:hover{color:inherit;background:#ffffff14}
+.studiobox b{color:#fff}
+.verified{font-size:11px;color:#a4d007;margin-top:4px}
+.rev .who{flex-direction:row}
+.devreply{margin-top:10px;background:#66c0f414;border-inline-start:3px solid var(--acc);padding:8px 12px;border-radius:2px;font-size:13px}
+.devreply b{color:var(--acc)}
+.upd{background:#0000004d;border-radius:3px;padding:8px 12px;margin-bottom:6px}.upd summary{cursor:pointer;color:#fff}.upd .about{margin-top:6px}
+.dlg.wide{max-width:640px}
+.dlg .mb{max-height:75vh;overflow-y:auto}
+.shares{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.co{display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:center}
+.ccard{aspect-ratio:1.586;border-radius:14px;padding:16px 18px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;
+  background:radial-gradient(circle at 85% 15%,#ffffff33,transparent 40%),linear-gradient(135deg,#1a44c2,#6a2dbb 60%,#c2185b);box-shadow:0 10px 30px #000a;max-width:380px}
+.cc1{display:flex;justify-content:space-between;align-items:baseline}.cc1 b{letter-spacing:.12em}.cc1 span{font-size:10px;letter-spacing:.3em;opacity:.8}
+.chip{width:40px;height:30px;border-radius:6px;background:linear-gradient(135deg,#ffe28a,#c9a227)}
+.ccn{font-family:ui-monospace,Consolas,monospace;font-size:clamp(15px,2.6vw,20px);letter-spacing:.08em}
+.cc2{display:flex;justify-content:space-between;font-size:13px;opacity:.95}
+.walletgrid{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:18px}
+.note{background:#0000004d;border-radius:3px;padding:10px 14px;display:grid;gap:4px;border-inline-start:3px solid transparent}
+.note.unread{border-color:var(--acc);background:#66c0f414}.note.mail{border-color:#d4af37}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stats div{background:#0000004d;border-radius:4px;padding:12px 14px}.stats b{display:block;color:#fff;font-size:22px}.stats span{color:var(--mut);font-size:12px}
+.chart{width:100%;height:auto;display:block}
+.dacts{display:flex;flex-wrap:wrap;gap:4px;max-width:330px}
+.keylist{max-height:240px;overflow-y:auto;display:grid;gap:4px;margin-top:10px;font-size:13px}
+.keylist code{background:#0e1620;padding:2px 6px;border-radius:2px}
+.bpick{display:grid;gap:6px;margin-top:6px;max-height:220px;overflow-y:auto;background:#0e1620;padding:8px;border-radius:3px}
+.bpick label{display:flex;gap:8px;align-items:center}
+a.tag:hover{background:#4a6178;color:#fff}
+@media (max-width:860px){.co,.walletgrid{grid-template-columns:1fr}.award{grid-template-columns:110px 1fr}.coinpill b{font-size:12px}}
 .pill.luck{background:#1f4a35;color:#7dffb2}
 .badgeN{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:9px;background:var(--bad);color:#fff;font-size:11px;padding:0 5px;margin-inline-start:5px;letter-spacing:0}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:4px 0 18px}
@@ -366,6 +416,30 @@ e_STUDIO_NOT_VERIFIED:"Your studio must be approved and verified first.",e_REASO
 e_name_taken:"That studio name is taken.",loginField:"Email or username",studioL:"Studio",needStudio:"To submit games you first need a verified studio.",
 members:"members",gpy:"games/year",prevL:"Published before",ageL:"Age",socialL:"Social",altL:"Alt. answer",humanL:"Human check",deletedIn:"auto-deleted {d}",
 goHub:"Go to publishing steps",editStudio:"Edit",openGame:"Open",
+gold:"Gold verified studio (500+ downloads)",blue:"Verified studio (50+ downloads)",promoted:"Promoted",gotm:"Game of the Month",goty:"Game of the Year",
+trending:"Trending",newpop:"New & Popular",specials:"Specials",bundles:"Bundles",games:"games",s_price:"Price",share:"Share",more:"More",copy:"Copy",copied:"Copied",
+discordHint:"Discord: the button copies a ready message — paste it in any channel.",checkout:"Checkout",youbuy:"You're buying",price:"Price",balance:"Balance",after:"After payment",
+payWith:"Paying with your Man Studio Coin Card",pay:"Pay",bought:"Purchased! It's in your library.",buy:"Buy",payCoins:"Pay with Coins from your Coin Card.",saleEnds:"Sale ends {d}",
+owned:"Owned",viewBundle:"View bundle",whatsnew:"What's new",version:"Version",verifiedOnly:"Only players with 10+ minutes can review",verifiedP:"Verified player",minPlayed:"{n} min played",
+editReply:"Edit reply",reply:"Reply",devResponse:"Developer response",needOwn:"Get the game to write a review.",need10:"Play at least 10 minutes to review (you have {n}).",
+downloads:"downloads",wishNotify:"Added — you'll get a notification on sales and launch",wallet:"Wallet",inbox:"Inbox",
+cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
+claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
+history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",goldS:"gold ✔",
+separately:"separately",youSave:"You save",ownSome:"You already own {n} of these",sales:"sales",earned:"earned",days:"days",coinsDay:"Coins earned",
+postUpdate:"Update",sale:"Sale",keys:"Keys",promote:"Promote",newBundle:"New bundle",bundleRule:"Bundles: games from your studio only, price above 25 Coins.",
+promoHint:"Your game goes to the top of the store with a highlighted \"Promoted\" badge for 7 days.",promotedUntil:"Promoted until",patchNotes:"Patch notes — what's new",
+updHint:"Players who own the game get a notification. To upload new files or pictures, use Edit.",editFiles:"Edit files & details",publishUpd:"Publish update",
+discount:"Discount",from:"From",to:"To",saleHint:"Discount 5–90%, up to 60 days. Players who wishlisted the game get notified.",endSale:"End sale",
+keysHint:"Redeem keys for content creators, testers and gifts. Each key gives the game once.",keyNote:"Note (who it's for)",generate:"Generate",used:"Used",unused:"Unused",min2:"at least 2",
+f_price:"Price in Coins (0 = free)",f_pricehint:"You get {p}% = 🪙 {c} per sale",f_verhint:"Optional, e.g. 1.0",
+a_mail:"Mail",setAward:"Set Game of the Month / Year",awardKind:"Award",period:"Period",awardHint:"Month: YYYY-MM · Year: YYYY",
+mailT:"Message all developers",mailHint:"Goes to the inbox of every registered developer: critical updates, system notices, policy changes.",subject:"Subject",message:"Message",
+sendAll:"Send to all developers",sentTo:"Sent to {n} developers",grantT:"Give Coins",grant:"Give",coinKeys:"Coin gift keys",coinKeysHint:"Keys that add Coins to whoever redeems them.",count:"How many",
+e_NOT_ENOUGH_COINS:"Not enough Coins.",e_BAD_CARD:"Card doesn't match your account.",e_ALREADY_OWNED:"You already own this.",e_OWN_GAME:"That's your own game.",
+e_NOT_OWNED:"Buy the game first.",e_NOT_AVAILABLE:"Not available right now.",e_PLAY_10_MIN:"Play at least 10 minutes before reviewing.",e_ALREADY_CLAIMED:"Already claimed today — come back tomorrow.",
+e_BAD_KEY:"That key doesn't exist.",e_KEY_USED:"That key was already used.",e_BUNDLE_SAME_STUDIO:"Bundles can only include approved games from your studio.",e_NO_USER:"User not found.",e_NOT_YOUR_GAME:"Not your game.",
 soon:"Coming soon",tba:"To be announced",daysleft:"{n} days left",anyday:"any day now",soonwish:"Add it to your wishlist so you don't miss the launch.",wishers:"people wishlisted",revAfter:"Reviews open after the game is released.",show:"Show",
 f_soon:"Coming soon page",f_soonhint:"Put the game page in the store before the game is ready. Players can see it and add it to their wishlist. The game file is not needed yet. When it's ready, uncheck this and upload the game.",f_rdate:"Planned release date",f_rdatehint:"Optional. Leave empty for \"To be announced\".",f_later:"(can be added later)",
 f_exe:"Upload EXE / ZIP (Windows)",f_exehint:"A Windows game: a single .exe, or a .zip with the .exe and its files. Max 50MB. Players download it to their computer.",f_toobig:"for bigger games, upload them to itch.io or GitHub Releases and use \"External link\".",download:"Download",smartscreen:"Windows may show a SmartScreen warning for indie games — click \"More info\" → \"Run anyway\"."});
@@ -391,6 +465,30 @@ e_STUDIO_NOT_VERIFIED:"הסטודיו שלך צריך להיות מאושר ומ
 e_name_taken:"שם הסטודיו תפוס.",loginField:"אימייל או שם משתמש",studioL:"סטודיו",needStudio:"כדי להגיש משחקים צריך קודם סטודיו מאומת.",
 members:"חברים",gpy:"משחקים בשנה",prevL:"פרסם בעבר",ageL:"גיל",socialL:"רשת חברתית",altL:"תשובה חלופית",humanL:"בדיקת אנושיות",deletedIn:"יימחק אוטומטית {d}",
 goHub:"לשלבי הפרסום",editStudio:"ערוך",openGame:"פתח",
+gold:"סטודיו מאומת זהב (500+ הורדות)",blue:"סטודיו מאומת (50+ הורדות)",promoted:"מקודם",gotm:"משחק החודש",goty:"משחק השנה",
+trending:"טרנדי",newpop:"חדש ופופולרי",specials:"מבצעים",bundles:"חבילות",games:"משחקים",s_price:"מחיר",share:"שיתוף",more:"עוד",copy:"העתק",copied:"הועתק",
+discordHint:"דיסקורד: הכפתור מעתיק הודעה מוכנה — מדביקים בכל ערוץ.",checkout:"קופה",youbuy:"אתה קונה",price:"מחיר",balance:"יתרה",after:"אחרי התשלום",
+payWith:"התשלום בכרטיס ה-Coins של Man Studio שלך",pay:"שלם",bought:"נקנה! המשחק בספרייה שלך.",buy:"קנה",payCoins:"תשלום ב-Coins מכרטיס ה-Coins שלך.",saleEnds:"המבצע נגמר ב-{d}",
+owned:"בבעלותך",viewBundle:"לחבילה",whatsnew:"מה חדש",version:"גרסה",verifiedOnly:"רק מי ששיחק 10+ דקות יכול לכתוב ביקורת",verifiedP:"שחקן מאומת",minPlayed:"{n} דק' משחק",
+editReply:"ערוך תגובה",reply:"הגב",devResponse:"תגובת המפתח",needOwn:"צריך שהמשחק יהיה אצלך כדי לכתוב ביקורת.",need10:"צריך לשחק לפחות 10 דקות כדי לכתוב ביקורת (יש לך {n}).",
+downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מבצעים ועל ההשקה",wallet:"ארנק",inbox:"התראות",
+cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
+claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
+history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",goldS:"✔ הזהב",
+separately:"בנפרד",youSave:"חוסכים",ownSome:"כבר יש לך {n} מהם",sales:"מכירות",earned:"הרווחת",days:"ימים",coinsDay:"Coins שהרווחת",
+postUpdate:"עדכון",sale:"מבצע",keys:"קודים",promote:"קידום",newBundle:"חבילה חדשה",bundleRule:"חבילות: רק משחקים מהסטודיו שלך, במחיר מעל 25 Coins.",
+promoHint:"המשחק עולה לראש החנות עם תג \"מקודם\" בולט ל-7 ימים.",promotedUntil:"מקודם עד",patchNotes:"פירוט עדכון — מה חדש",
+updHint:"מי שהמשחק אצלו יקבל התראה. כדי להעלות קבצים או תמונות חדשים, השתמש ב\"ערוך\".",editFiles:"עריכת קבצים ופרטים",publishUpd:"פרסם עדכון",
+discount:"הנחה",from:"מתאריך",to:"עד תאריך",saleHint:"הנחה 5–90%, עד 60 יום. מי שהמשחק ברשימת המשאלות שלו יקבל התראה.",endSale:"סיים מבצע",
+keysHint:"קודי מימוש ליוצרי תוכן, בודקים ומתנות. כל קוד נותן את המשחק פעם אחת.",keyNote:"הערה (בשביל מי)",generate:"צור",used:"מומש",unused:"פנוי",min2:"לפחות 2",
+f_price:"מחיר ב-Coins (0 = חינם)",f_pricehint:"אתה מקבל {p}% = 🪙 {c} על כל מכירה",f_verhint:"לא חובה, למשל 1.0",
+a_mail:"דיוור",setAward:"קביעת משחק החודש / השנה",awardKind:"פרס",period:"תקופה",awardHint:"חודש: YYYY-MM · שנה: YYYY",
+mailT:"הודעה לכל המפתחים",mailHint:"נשלח לתיבת ההתראות של כל מפתח רשום: עדכונים קריטיים, הודעות מערכת ועדכוני מדיניות.",subject:"נושא",message:"הודעה",
+sendAll:"שלח לכל המפתחים",sentTo:"נשלח ל-{n} מפתחים",grantT:"הענקת Coins",grant:"הענק",coinKeys:"קודי מתנה של Coins",coinKeysHint:"קודים שמוסיפים Coins למי שמממש אותם.",count:"כמה",
+e_NOT_ENOUGH_COINS:"אין מספיק Coins.",e_BAD_CARD:"הכרטיס לא תואם לחשבון שלך.",e_ALREADY_OWNED:"זה כבר אצלך.",e_OWN_GAME:"זה המשחק שלך.",
+e_NOT_OWNED:"צריך לקנות את המשחק קודם.",e_NOT_AVAILABLE:"לא זמין כרגע.",e_PLAY_10_MIN:"צריך לשחק לפחות 10 דקות לפני ביקורת.",e_ALREADY_CLAIMED:"כבר אספת היום — חזור מחר.",
+e_BAD_KEY:"הקוד לא קיים.",e_KEY_USED:"הקוד כבר מומש.",e_BUNDLE_SAME_STUDIO:"חבילה יכולה לכלול רק משחקים מאושרים מהסטודיו שלך.",e_NO_USER:"המשתמש לא נמצא.",e_NOT_YOUR_GAME:"זה לא המשחק שלך.",
 soon:"בקרוב",tba:"יוכרז בהמשך",daysleft:"עוד {n} ימים",anyday:"ממש בקרוב",soonwish:"הוסף לרשימת המשאלות כדי לא לפספס את ההשקה.",wishers:"הוסיפו לרשימת המשאלות",revAfter:"ביקורות ייפתחו אחרי שהמשחק ייצא.",show:"הצג",
 f_soon:"דף \"בקרוב\" (Coming soon)",f_soonhint:"מעלים את דף המשחק לחנות לפני שהמשחק מוכן. שחקנים רואים אותו ויכולים להוסיף לרשימת המשאלות. עוד לא צריך את קובץ המשחק. כשהוא מוכן, מורידים את הסימון ומעלים את המשחק.",f_rdate:"תאריך יציאה מתוכנן",f_rdatehint:"לא חובה. אם ריק יופיע \"יוכרז בהמשך\".",f_later:"(אפשר להוסיף אחר כך)",
 f_exe:"העלאת EXE / ZIP (Windows)",f_exehint:"משחק ל-Windows: קובץ .exe אחד, או .zip עם ה-.exe והקבצים שלו. עד 50MB. השחקנים מורידים אותו למחשב.",f_toobig:"למשחקים גדולים יותר, העלה ל-itch.io או GitHub Releases ובחר \"קישור חיצוני\".",download:"הורדה",smartscreen:"Windows עלול להציג אזהרת SmartScreen למשחקי אינדי — לוחצים \"מידע נוסף\" ← \"הפעל בכל זאת\"."});
@@ -440,13 +538,16 @@ async function loadMe(session){
   if(!session){me=null;myLib=new Set();myWish=new Set();return}
   const uid=session.user.id;
   const [p,l,w]=await Promise.all([
-    sb.from("profiles").select("*").eq("id",uid).maybeSingle(),
+    sb.from("profiles").select("id,username,avatar_url,bio,is_admin,created_at").eq("id",uid).maybeSingle(),
     sb.from("library").select("game_id").eq("user_id",uid),
     sb.from("wishlist").select("game_id").eq("user_id",uid)]);
-  me={id:uid,email:session.user.email,profile:p.data||{username:session.user.email.split("@")[0]}};
+  me={id:uid,email:session.user.email,profile:p.data||{username:session.user.email.split("@")[0]},coins:0,card:"",lastDaily:null};
   myLib=new Set((l.data||[]).map(r=>r.game_id));myWish=new Set((w.data||[]).map(r=>r.game_id));
-  await refreshAdminCount();
+  await Promise.all([refreshAdminCount(),refreshWallet(),refreshUnread()]);
 }
+let unread=0;
+async function refreshWallet(){if(!me)return;const{data}=await sb.rpc("my_wallet");const w=(data||[])[0];if(w){me.coins=w.coins;me.card=w.card_number;me.lastDaily=w.last_daily}}
+async function refreshUnread(){if(!me){unread=0;return}const{count}=await sb.from("notifications").select("id",{count:"exact",head:true}).eq("user_id",me.id).eq("read",false);unread=count||0}
 let adminCount=0;
 async function refreshAdminCount(){
   if(!me||!me.profile.is_admin){adminCount=0;return}
@@ -466,10 +567,13 @@ function renderHeader(){
     <a href="#/wishlist" class="${on("#/wishlist")}">${t("wishlist")}</a>
     <a href="#/publish" class="${on("#/publish")||on("#/dashboard")||on("#/submit")}">${t("publish")}</a>`+
     (me&&me.profile.is_admin?`<a href="#/admin" class="${on("#/admin")}">${t("adminT")}${adminCount?`<span class="badgeN">${adminCount}</span>`:""}</a>`:"");
-  $("#hr").innerHTML=`<a class="gear ${on("#/settings")}" href="#/settings" title="${t("settings")}" aria-label="${t("settings")}">⚙</a>`+
+  $("#hr").innerHTML=(me?`<a class="coinpill" href="#/wallet" title="${t("wallet")}">🪙 <b>${(me.coins||0).toLocaleString()}</b></a>
+      <a class="gear ${on("#/inbox")}" href="#/inbox" title="${t("inbox")}" aria-label="${t("inbox")}" style="position:relative">🔔${unread?`<span class="dot">${unread>99?"99+":unread}</span>`:""}</a>`:"")+
+    `<a class="gear ${on("#/settings")}" href="#/settings" title="${t("settings")}" aria-label="${t("settings")}">⚙</a>`+
     (me?`<button class="userbtn" id="ub" aria-haspopup="true">${avatarHTML(me.profile)}<span class="nm">${esc(me.profile.username)}</span> ▾
       <div class="menu" id="um" hidden>
         <a href="#/user/${encodeURIComponent(me.profile.username)}">${t("profile")}</a>
+        <a href="#/wallet">🪙 ${t("wallet")}</a><a href="#/inbox">🔔 ${t("inbox")}</a>
         <a href="#/library">${t("library")}</a><a href="#/wishlist">${t("wishlist")}</a>
         <a href="#/dashboard">${t("dash")}</a><a href="#/publish">${t("publish")}</a>
         <a href="#/settings">${t("settings")}</a>
@@ -484,7 +588,7 @@ document.addEventListener("click",e=>{const m=$("#um");if(m&&!e.target.closest("
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
 
 function subnav(q=""){
-  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a>
+  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a>
   <form class="search" id="sf"><input id="sq" placeholder="${t("search")}" value="${esc(q)}" aria-label="${t("search")}"><button aria-label="${t("search")}">⌕</button></form></div>`;
 }
 function bindSubnav(){const f=$("#sf");if(f)f.onsubmit=e=>{e.preventDefault();location.hash="#/browse?q="+encodeURIComponent($("#sq").value.trim())}}
@@ -514,6 +618,10 @@ async function route(){
       case "login": authView(main,q);break;
       case "reset": resetView(main);break;
       case "settings": settingsView(main);break;
+      case "wallet": await walletView(main,stale);break;
+      case "inbox": await inboxView(main,stale);break;
+      case "studio": await studioPage(main,parts[1],stale);break;
+      case "bundle": await bundlePage(main,parts[1],stale);break;
       default: main.innerHTML=`<div class="empty"><b>${t("notfound")}</b><a href="#/">${t("back")}</a></div>`;
     }
   }catch(e){if(!stale()){console.error(e);main.innerHTML=`<div class="empty"><b>${t("err_generic")}</b>${esc(e.message||"")}</div>`}}
@@ -522,32 +630,64 @@ async function route(){
 function setTitle(s){document.title=s?s+" — "+STORE_NAME:STORE_NAME}
 
 /* ============ store home ============ */
-const LIST_COLS="id,title,developer,short_desc,genre,tags,cover_url,screenshots,players,review_count,positive_count,created_at,owner,coming_soon,release_date,wishes";
+const GAME_COLS="id,owner,developer,title,short_desc,description,genre,tags,cover_url,screenshots,trailer_url,play_kind,min_reqs,published,players,wishes,review_count,positive_count,created_at,updated_at,studio_id,review_status,reject_reason,submitted_at,reviewed_at,fix_deadline,lucky,file_name,file_size,coming_soon,release_date,price,sale_pct,sale_start,sale_end,promoted_until,version,sales_count,coins_earned";
+const LIST_COLS="id,title,developer,short_desc,genre,tags,cover_url,screenshots,players,review_count,positive_count,created_at,owner,coming_soon,release_date,wishes,price,sale_pct,sale_start,sale_end,promoted_until,studio_id,version";
 function soonDate(g){return g.release_date?fmtDate(g.release_date+"T12:00:00"):t("tba")}
 function daysLeft(g){if(!g.release_date)return null;const d=Math.ceil((new Date(g.release_date+"T00:00:00")-new Date())/864e5);return d>0?d:0}
-function priceTag(g){return g.coming_soon?`<span class="soon">${t("soon")}</span>`:`<span class="free">${t("free")}</span>`}
+const onSale=g=>!!(g.sale_pct&&g.sale_start&&g.sale_end&&new Date(g.sale_start)<=new Date()&&new Date()<new Date(g.sale_end));
+const effPrice=g=>onSale(g)?Math.round(g.price*(100-g.sale_pct)/100):(g.price||0);
+const isPromoted=g=>!!(g.promoted_until&&new Date(g.promoted_until)>new Date());
+const coins=n=>`🪙 ${(+n||0).toLocaleString()}`;
+const devShare=p=>p<=50?.8:p<=200?.75:p<=500?.7:.5;
+function priceTag(g){
+  if(g.coming_soon)return `<span class="soon">${t("soon")}</span>`;
+  if(!g.price)return `<span class="free">${t("free")}</span>`;
+  if(onSale(g))return `<span class="saletag"><i>-${g.sale_pct}%</i><span><s>${g.price}</s><b>${coins(effPrice(g))}</b></span></span>`;
+  return `<span class="ptag">${coins(g.price)}</span>`;
+}
+function badgeHTML(dl){return dl>=500?`<span class="vbadge gold" title="${t("gold")}">✔</span>`:dl>=50?`<span class="vbadge blue" title="${t("blue")}">✔</span>`:""}
+const promoHTML=g=>isPromoted(g)?`<span class="promo">${t("promoted")}</span>`:"";
+const nowISO=()=>new Date().toISOString();
+const live=(cols=LIST_COLS)=>sb.from("games").select(cols).eq("published",true).eq("review_status","approved");
+async function gamesByIds(ids){if(!ids.length)return[];const{data}=await live().in("id",ids);const m=new Map((data||[]).map(g=>[g.id,g]));return ids.map(i=>m.get(i)).filter(Boolean)}
+function periodLabel(a){if(a.kind==="goty")return a.period;const[y,m]=a.period.split("-");return new Date(+y,+m-1,1).toLocaleDateString(lang==="he"?"he-IL":"en-US",{month:"long",year:"numeric"})}
+
 async function storeView(main,stale){
   setTitle("");
-  const live=()=>sb.from("games").select(LIST_COLS).eq("published",true).eq("review_status","approved");
-  const [fe,nw,tr,mp,cs]=await Promise.all([
-    live().order("players",{ascending:false}).order("created_at",{ascending:false}).limit(6),
-    live().eq("coming_soon",false).order("created_at",{ascending:false}).limit(8),
-    live().eq("coming_soon",false).gt("review_count",0).order("positive_count",{ascending:false}).order("review_count",{ascending:false}).limit(8),
-    live().eq("coming_soon",false).order("players",{ascending:false}).limit(8),
-    live().eq("coming_soon",true).order("release_date",{ascending:true,nullsFirst:false}).limit(8)]);
+  const since30=new Date(Date.now()-30*864e5).toISOString(),n=nowISO();
+  const [fe,np,sp,cs,aw,bd,tr,ne]=await Promise.all([
+    live().order("promoted_until",{ascending:false,nullsFirst:false}).order("players",{ascending:false}).limit(10),
+    live().eq("coming_soon",false).gte("created_at",since30).order("players",{ascending:false}).limit(8),
+    live().eq("coming_soon",false).not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n).limit(8),
+    live().eq("coming_soon",true).order("release_date",{ascending:true,nullsFirst:false}).limit(8),
+    sb.from("awards").select("kind,period,game_id").order("period",{ascending:false}).limit(12),
+    sb.from("bundles").select("id,title,price,game_ids,studio_id").eq("published",true).order("created_at",{ascending:false}).limit(6),
+    sb.rpc("trending_ids",{p_limit:8}),
+    live().eq("coming_soon",false).order("created_at",{ascending:false}).limit(8)]);
   if(stale())return;
-  for(const r of [fe,nw,tr,mp,cs])if(r.error)throw r.error;
-  const feat=fe.data, soonList=cs.data;
+  for(const r of [fe,np,sp,cs])if(r.error)throw r.error;
+  const feat=fe.data.slice().sort((a,b)=>(isPromoted(b)-isPromoted(a))).slice(0,6);
   if(!feat.length){main.innerHTML=subnav()+`<div class="empty"><b>${t("emptyStore")}</b>${t("beFirst")}<br><br><a class="btn green" href="#/publish">${t("ctaB")}</a></div>`;bindSubnav();return}
-  const lists={new:nw.data,top:tr.data.length?tr.data.sort((a,b)=>(b.positive_count/b.review_count)-(a.positive_count/a.review_count)||b.review_count-a.review_count):[],most:mp.data};
+  let trending=await gamesByIds((tr.data||[]).map(r=>r.game_id));
+  if(!trending.length)trending=fe.data.filter(g=>!g.coming_soon).sort((a,b)=>b.players-a.players).slice(0,8);
+  const newPop=np.data.length?np.data:ne.data;
+  const awards=aw.data||[],gotm=awards.find(a=>a.kind==="gotm"),goty=awards.find(a=>a.kind==="goty");
+  const awardGames=await gamesByIds([gotm,goty].filter(Boolean).map(a=>a.game_id));if(stale())return;
+  const ag=id=>awardGames.find(g=>g.id===id);
+  const bundles=bd.data||[];
   main.innerHTML=subnav()+`
-    <h2 class="sec">${t("featured")}</h2>
+    <h2 class="sec">⭐ ${t("featured")}</h2>
     <div id="heroBox"></div><div class="dots" id="dots"></div>
+    ${[gotm,goty].filter(a=>a&&ag(a.game_id)).length?`<div class="awards">${[gotm,goty].filter(a=>a&&ag(a.game_id)).map(a=>{const g=ag(a.game_id);
+      return `<a class="award ${a.kind}" href="#/app/${g.id}">${coverHTML(g)}<div><span class="atag">🏆 ${t(a.kind)}</span><b>${esc(g.title)}</b><span class="mut">${esc(periodLabel(a))}</span></div></a>`}).join("")}</div>`:""}
+    ${trending.length?`<h2 class="sec">🔥 ${t("trending")}<a href="#/browse?sort=players">${t("seeall")}</a></h2>
+    <div class="rows">${trending.map(rowHTML).join("")}</div>`:""}
+    ${newPop.length?`<h2 class="sec">✨ ${t("newpop")}<a href="#/browse">${t("seeall")}</a></h2>
+    <div class="rows">${newPop.map(rowHTML).join("")}</div>`:""}
+    ${sp.data.length?`<h2 class="sec">🏷️ ${t("specials")}<a href="#/browse?sale=1">${t("seeall")}</a></h2><div class="grid">${sp.data.map(cardHTML).join("")}</div>`:""}
+    ${bundles.length?`<h2 class="sec">📦 ${t("bundles")}</h2><div class="grid">${bundles.map(bundleCardHTML).join("")}</div>`:""}
+    ${cs.data.length?`<h2 class="sec">🕒 ${t("soon")}<a href="#/browse?soon=1">${t("seeall")}</a></h2><div class="grid">${cs.data.map(cardHTML).join("")}</div>`:""}
     <div class="cta"><div><h3>${t("ctaT")}</h3><div class="mut">${t("ctaS")}</div></div><a class="btn green" href="#/publish">${t("ctaB")}</a></div>
-    <h2 class="sec">${t("newrel")}<a href="#/browse">${t("seeall")}</a></h2>
-    <div class="tabsb" role="tablist"><button data-l="new" class="on">${t("newrel")}</button><button data-l="top">${t("toprated")}</button><button data-l="most">${t("mostplayed")}</button></div>
-    <div class="rows" id="rows"></div>
-    ${soonList.length?`<h2 class="sec">🕒 ${t("soon")}<a href="#/browse?soon=1">${t("seeall")}</a></h2><div class="grid">${soonList.map(cardHTML).join("")}</div>`:""}
     <h2 class="sec">${t("bygenre")}</h2>
     <div class="genres">${GENRES.map(g=>`<a href="#/browse?genre=${g}" style="background:linear-gradient(135deg,${GENRE_COL[g]},#0e1620)">${esc(gname(g))}</a>`).join("")}</div>`;
   bindSubnav();
@@ -555,7 +695,7 @@ async function storeView(main,stale){
   const showHero=i=>{hi=(i+feat.length)%feat.length;const g=feat[hi];
     const shots=(g.screenshots||[]).map(okUrl).filter(Boolean).slice(0,4);
     $("#heroBox").innerHTML=`<a class="hero" href="#/app/${g.id}">${coverHTML(g)}
-      <div class="side"><h3>${esc(g.title)}</h3>
+      <div class="side"><h3>${esc(g.title)} ${promoHTML(g)}</h3>
       ${shots.length?`<div class="shots">${shots.map(s=>`<img src="${esc(s)}" alt="" loading="lazy">`).join("")}</div>`:`<div class="mut">${esc(g.short_desc)}</div>`}
       <div>${tagsHTML(g)}</div><div>${rvHTML(g)}</div>
       <div class="foot"><span class="mut">${g.coming_soon?soonDate(g):(g.players||0).toLocaleString()+" "+t("players")}</span>${priceTag(g)}</div></div></a>`;
@@ -564,123 +704,201 @@ async function storeView(main,stale){
   $("#dots").onclick=e=>{const i=e.target.dataset.i;if(i!==undefined){showHero(+i);restart()}};
   const restart=()=>{clearInterval(timer);if(feat.length>1)timer=setInterval(()=>{if(stale()||!document.body.contains($("#heroBox")))return clearInterval(timer);showHero(hi+1)},6000)};
   showHero(0);restart();
-  const showRows=k=>{const L=lists[k];$("#rows").innerHTML=L.length?L.map(rowHTML).join(""):`<div class="empty">${t("noreviews")}</div>`;
-    document.querySelectorAll(".tabsb button").forEach(b=>b.classList.toggle("on",b.dataset.l===k))};
-  document.querySelector(".tabsb").onclick=e=>{if(e.target.dataset.l)showRows(e.target.dataset.l)};
-  showRows("new");
 }
-function rowHTML(g){return `<a class="row" href="#/app/${g.id}">${coverHTML(g)}<div><div class="t">${esc(g.title)}</div><div>${tagsHTML(g,3)}</div><div>${rvHTML(g)}</div></div>
+function rowHTML(g){return `<a class="row" href="#/app/${g.id}">${coverHTML(g)}<div><div class="t">${esc(g.title)} ${promoHTML(g)}</div><div>${tagsHTML(g,3)}</div><div>${rvHTML(g)}</div></div>
   <div class="meta">${priceTag(g)}<div class="dim" style="font-size:12px;margin-top:6px">${g.coming_soon?soonDate(g):esc(gname(g.genre))}</div></div></a>`}
 function cardHTML(g){return `<a class="card" href="#/app/${g.id}">${coverHTML(g)}<div class="b"><div class="t">${esc(g.title)}</div>
-  <div class="mut" style="font-size:12px">${esc(g.developer)} · ${esc(gname(g.genre))}</div><div>${rvHTML(g)}</div>
+  <div class="mut" style="font-size:12px">${esc(g.developer)} · ${esc(gname(g.genre))} ${promoHTML(g)}</div><div>${rvHTML(g)}</div>
   <div class="f"><span class="dim" style="font-size:12px">${g.coming_soon?soonDate(g):(g.players||0).toLocaleString()+" "+t("players")}</span>${priceTag(g)}</div></div></a>`}
+function bundleCardHTML(b){const h=hash(b.title)%360;return `<a class="card" href="#/bundle/${b.id}"><div class="cover" style="background:linear-gradient(135deg,hsl(${h} 60% 30%),hsl(${(h+70)%360} 70% 16%))"><div class="gen" style="font-size:22px">📦 ${esc(b.title)}</div></div>
+  <div class="b"><div class="t">${esc(b.title)}</div><div class="mut" style="font-size:12px">${b.game_ids.length} ${t("games")}</div><div class="f"><span></span><span class="ptag">${coins(b.price)}</span></div></div></a>`}
 
 /* ============ browse ============ */
 async function browseView(main,q,stale){
-  const genre=q.get("genre")||"",sort=q.get("sort")||"new",term=(q.get("q")||"").trim();
-  const soonOnly=q.get("soon")==="1";
-  setTitle(term||gname(genre)||(soonOnly?t("soon"):t("browse")));
+  const genre=q.get("genre")||"",sort=q.get("sort")||"new",term=(q.get("q")||"").trim(),tag=(q.get("tag")||"").trim();
+  const soonOnly=q.get("soon")==="1",saleOnly=q.get("sale")==="1";
+  const heading=term?`"${term}"`:tag?"#"+tag:genre?gname(genre):soonOnly?t("soon"):saleOnly?t("specials"):t("browse");
+  setTitle(heading);
   let qy=sb.from("games").select(LIST_COLS,{count:"exact"}).eq("published",true).eq("review_status","approved");
   if(genre)qy=qy.eq("genre",genre);
+  if(tag)qy=qy.contains("tags",[tag]);
   if(soonOnly)qy=qy.eq("coming_soon",true);
+  if(saleOnly){const n=nowISO();qy=qy.not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n)}
   if(term){const s=term.replace(/[,()%*\\.:"']/g," ").trim();if(s)qy=qy.or(`title.ilike.%${s}%,developer.ilike.%${s}%,short_desc.ilike.%${s}%`)}
-  qy=sort==="players"?qy.order("players",{ascending:false}):sort==="rated"?qy.order("positive_count",{ascending:false}).order("review_count",{ascending:true}):sort==="name"?qy.order("title"):qy.order("created_at",{ascending:false});
+  qy=sort==="players"?qy.order("players",{ascending:false}):sort==="rated"?qy.order("positive_count",{ascending:false}).order("review_count",{ascending:true}):sort==="name"?qy.order("title"):sort==="price"?qy.order("price"):qy.order("created_at",{ascending:false});
   const {data,count,error}=await qy.limit(60);if(stale())return;if(error)throw error;
-  const link=(o)=>{const p=new URLSearchParams({...(genre&&{genre}),...(term&&{q:term}),...(sort!=="new"&&{sort}),...(soonOnly&&{soon:"1"}),...o});for(const[k,v]of[...p])if(!v)p.delete(k);return "#/browse"+(p.toString()?"?"+p:"")};
+  const link=(o)=>{const p=new URLSearchParams({...(genre&&{genre}),...(term&&{q:term}),...(tag&&{tag}),...(sort!=="new"&&{sort}),...(soonOnly&&{soon:"1"}),...(saleOnly&&{sale:"1"}),...o});for(const[k,v]of[...p])if(!v)p.delete(k);return "#/browse"+(p.toString()?"?"+p:"")};
   main.innerHTML=subnav(term)+`<div class="bwrap"><div>
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap"><b style="color:#fff;font-size:18px">${esc(term?`"${term}"`:genre?gname(genre):soonOnly?t("soon"):t("browse"))}</b>
-      <span class="mut">${count||0} ${t("results")}</span>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap"><b style="color:#fff;font-size:18px">${esc(heading)}</b>
+      <span class="mut">${count||0} ${t("results")}</span>${tag?`<a class="btn ghost sm" href="${link({tag:""})}">✕ #${esc(tag)}</a>`:""}
       <label style="margin-inline-start:auto;display:flex;gap:8px;align-items:center" class="mut">${t("sort")}
-      <select id="sort" style="width:auto">${[["new","s_new"],["players","s_players"],["rated","s_rated"],["name","s_name"]].map(([v,k])=>`<option value="${v}" ${v===sort?"selected":""}>${t(k)}</option>`).join("")}</select></label></div>
+      <select id="sort" style="width:auto">${[["new","s_new"],["players","s_players"],["rated","s_rated"],["price","s_price"],["name","s_name"]].map(([v,k])=>`<option value="${v}" ${v===sort?"selected":""}>${t(k)}</option>`).join("")}</select></label></div>
     ${data.length?`<div class="rows" style="border-radius:3px">${data.map(rowHTML).join("")}</div>`:`<div class="empty"><b>${t("noresults")}</b></div>`}
   </div><aside class="filters"><div class="panel"><h4>${t("show")}</h4>
-    <a href="${link({soon:""})}" class="${!soonOnly?"on":""}">${t("browse")}</a><a href="${link({soon:"1"})}" class="${soonOnly?"on":""}">🕒 ${t("soon")}</a></div>
+    <a href="${link({soon:"",sale:""})}" class="${!soonOnly&&!saleOnly?"on":""}">${t("browse")}</a><a href="${link({soon:"",sale:"1"})}" class="${saleOnly?"on":""}">🏷️ ${t("specials")}</a><a href="${link({sale:"",soon:"1"})}" class="${soonOnly?"on":""}">🕒 ${t("soon")}</a></div>
     <div class="panel"><h4>${t("genre")}</h4>
     <a href="${link({genre:""})}" class="${!genre?"on":""}">${t("anygenre")}</a>${GENRES.map(g=>`<a href="${link({genre:g})}" class="${g===genre?"on":""}">${esc(gname(g))}</a>`).join("")}</div></aside></div>`;
   bindSubnav();$("#sort").onchange=e=>location.hash=link({sort:e.target.value==="new"?"":e.target.value});
 }
 
+/* ============ modal / share / checkout ============ */
+function modal(title,body,wide){const o=document.createElement("div");o.className="ov";
+  o.innerHTML=`<div class="dlg ${wide?"wide":""}" role="dialog" aria-modal="true"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><h3 style="margin:0;flex:1">${title}</h3><button class="btn ghost sm" data-x aria-label="${t("close")}">✕</button></div><div class="mb">${body}</div></div>`;
+  document.body.appendChild(o);const close=()=>o.remove();
+  o.addEventListener("click",e=>{if(e.target===o||e.target.closest("[data-x]"))close()});
+  return {el:o.querySelector(".mb"),close}}
+function shareUrl(path){return location.origin+location.pathname+"#"+path}
+function openShare(path,title){
+  const u=shareUrl(path),txt=title+" — "+STORE_NAME,eu=encodeURIComponent(u),et=encodeURIComponent(txt);
+  const m=modal("🔗 "+t("share"),`<div class="shares">
+    <a class="btn" style="background:#25d366" href="https://wa.me/?text=${et}%20${eu}" target="_blank" rel="noopener">WhatsApp</a>
+    <button class="btn" style="background:#5865f2" data-discord>Discord</button>
+    <a class="btn" style="background:#229ed9" href="https://t.me/share/url?url=${eu}&text=${et}" target="_blank" rel="noopener">Telegram</a>
+    <a class="btn" style="background:#000" href="https://twitter.com/intent/tweet?url=${eu}&text=${et}" target="_blank" rel="noopener">X</a>
+    <a class="btn" style="background:#1877f2" href="https://www.facebook.com/sharer/sharer.php?u=${eu}" target="_blank" rel="noopener">Facebook</a>
+    ${navigator.share?`<button class="btn ghost" data-native>📱 ${t("more")}</button>`:""}</div>
+    <div style="display:flex;gap:6px;margin-top:12px"><input class="inp" readonly value="${esc(u)}" dir="ltr"><button class="btn ghost" data-copy>${t("copy")}</button></div>
+    <div class="dim" style="font-size:12px;margin-top:8px">${t("discordHint")}</div>`);
+  const copy=s=>navigator.clipboard.writeText(s).then(()=>toast("✓ "+t("copied"))).catch(()=>{});
+  m.el.querySelector("[data-copy]").onclick=()=>copy(u);
+  m.el.querySelector("[data-discord]").onclick=()=>copy(`**${txt}**\n${u}`);
+  const nb=m.el.querySelector("[data-native]");if(nb)nb.onclick=()=>navigator.share({title:txt,url:u}).catch(()=>{});
+}
+function cardNum(c,full){c=String(c||"");return full?c.replace(/(\d{4})(?=\d)/g,"$1 "):"•••• "+c.slice(-4)}
+function coinCardHTML(full){return `<div class="ccard"><div class="cc1"><b>MAN STUDIO</b><span>COIN CARD</span></div><div class="chip"></div>
+  <div class="ccn" dir="ltr">${cardNum(me.card,full)}</div><div class="cc2"><span>${esc(me.profile.username)}</span><span>${coins(me.coins)}</span></div></div>`}
+async function openCheckout(item){ // item: {kind:'game'|'bundle', id, title, price, list}
+  if(needLogin())return;await refreshWallet();
+  const after=me.coins-item.price,ok=after>=0;
+  const m=modal("🛒 "+t("checkout"),`<div class="co"><div><div class="mut" style="font-size:12px">${t("youbuy")}</div><b style="color:#fff;font-size:17px">${esc(item.title)}</b>
+    ${item.list&&item.list>item.price?`<div class="dim"><s>${coins(item.list)}</s></div>`:""}
+    <div class="kv2" style="margin-top:12px"><span>${t("price")}</span><span>${coins(item.price)}</span><span>${t("balance")}</span><span>${coins(me.coins)}</span>
+    <span>${t("after")}</span><span style="color:${ok?"#a4d007":"#ff8a80"}">${coins(after)}</span></div></div>${coinCardHTML(false)}</div>
+    <div class="mut" style="font-size:12px;margin-top:10px">${t("payWith")} ${cardNum(me.card)}</div>
+    <div class="err" id="coe">${ok?"":t("e_NOT_ENOUGH_COINS")+` <a href="#/wallet">${t("wallet")}</a>`}</div>
+    <div class="acts"><button class="btn ghost" data-x>${t("cancel")}</button><button class="btn green" id="coPay" ${ok?"":"disabled"}>✓ ${t("pay")} ${coins(item.price)}</button></div>`);
+  m.el.querySelector("#coPay").onclick=async e=>{e.target.disabled=true;
+    const{data,error}=await sb.rpc(item.kind==="bundle"?"buy_bundle":"buy_game",item.kind==="bundle"?{p_bundle:item.id,p_card:me.card}:{p_game:item.id,p_card:me.card});
+    if(error){m.el.querySelector("#coe").textContent=errMsg(error);e.target.disabled=false;return}
+    me.coins=data;m.close();toast("🎉 "+t("bought"));
+    const l=await sb.from("library").select("game_id").eq("user_id",me.id);myLib=new Set((l.data||[]).map(r=>r.game_id));route()};
+}
+
 /* ============ game page ============ */
 async function gameView(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("gamenf"));
-  const [gr,rr]=await Promise.all([
-    sb.from("games").select("*").eq("id",id).maybeSingle(),
-    sb.from("reviews").select("id,recommended,body,created_at,user_id,profiles(username,avatar_url)").eq("game_id",id).order("created_at",{ascending:false}).limit(100)]);
+  const [gr,rr,ur,ar,br]=await Promise.all([
+    sb.from("games").select(GAME_COLS).eq("id",id).maybeSingle(),
+    sb.from("reviews").select("id,recommended,body,created_at,user_id,minutes,dev_reply,dev_reply_at,profiles(username,avatar_url)").eq("game_id",id).order("created_at",{ascending:false}).limit(100),
+    sb.from("game_updates").select("id,version,notes,created_at").eq("game_id",id).order("created_at",{ascending:false}).limit(10),
+    sb.from("awards").select("kind,period").eq("game_id",id),
+    sb.from("bundles").select("id,title,price,game_ids").eq("published",true).contains("game_ids",[id])]);
   if(stale())return;
   if(gr.error)throw gr.error;
   const g=gr.data;if(!g){main.innerHTML=`<div class="empty"><b>${t("gamenf")}</b><a href="#/">${t("back")}</a></div>`;return}
-  const revs=rr.data||[];setTitle(g.title);
-  const isOwner=me&&me.id===g.owner, isAdmin=me&&me.profile.is_admin;
+  const[sr,mr]=await Promise.all([g.studio_id?sb.from("studios").select("id,name,downloads").eq("id",g.studio_id).maybeSingle():{data:null},
+    me&&myLib.has(g.id)?sb.rpc("review_minutes",{p_game:g.id}):{data:null}]);
+  if(stale())return;
+  const studio=sr.data,myMin=mr.data;
+  const revs=rr.data||[],updates=ur.data||[],awards=ar.data||[],bundles=br.data||[];setTitle(g.title);
+  const isOwner=me&&me.id===g.owner, isAdmin=me&&me.profile.is_admin, owned=myLib.has(g.id);
+  const paid=g.price>0, canPlay=!g.coming_soon&&(!paid||owned||isOwner||isAdmin);
   const yt=ytId(g.trailer_url), shots=(g.screenshots||[]).map(okUrl).filter(Boolean);
   const media=[...(yt?[{yt}]:[]),...shots.map(s=>({img:s}))];
   if(!media.length)media.push({cover:true});
   const myRev=me&&revs.find(r=>r.user_id===me.id);
   const r=rating(g);
+  const playLabel=g.play_kind==="download"?"⬇ "+t("download"):g.play_kind==="link"?"↗ "+t("play"):"▶ "+t("play");
   main.innerHTML=subnav()+`
   <div class="crumbs"><a href="#/browse">${t("browse")}</a> › <a href="#/browse?genre=${encodeURIComponent(g.genre)}">${esc(gname(g.genre))}</a> › ${esc(g.title)}</div>
-  <h1 class="gtitle">${esc(g.title)} ${!g.published?`<span class="pill off">${t("hidden")}</span>`:""}
+  <h1 class="gtitle">${esc(g.title)} ${!g.published?`<span class="pill off">${t("hidden")}</span>`:""} ${promoHTML(g)}
     ${isOwner||isAdmin?`<a class="btn ghost sm" href="#/edit/${g.id}">✎ ${t("edit")}</a>`:""}${g.lucky?` <span class="pill luck">${t("lucky")}</span>`:""}</h1>
+  ${awards.length?`<div class="awardline">${awards.map(a=>`<span class="atag big">🏆 ${t(a.kind)} · ${esc(periodLabel(a))}</span>`).join("")}</div>`:""}
   ${(isOwner||isAdmin)&&g.review_status!=="approved"?`<div style="margin-bottom:12px">${gameStatusHTML(g)}${isAdmin?`<a class="btn sm" style="margin-top:8px" href="#/admin/games">${t("adminT")}</a>`:""}</div>`:""}
   <div class="gtop"><div class="media"><div class="main" id="mm"></div>
     ${media.length>1?`<div class="thumbs" id="th">${media.map((m,i)=>`<button data-i="${i}" aria-label="${i+1}">${m.yt?`<img src="https://i.ytimg.com/vi/${m.yt}/mqdefault.jpg" alt=""><span class="yt">▶</span>`:`<img src="${esc(m.img)}" alt="" loading="lazy">`}</button>`).join("")}</div>`:""}</div>
     <div class="gside">${coverHTML(g)}<div class="desc">${esc(g.short_desc)}</div>
       <div class="kv"><span>${t("allreviews")}</span><span>${rvHTML(g)}</span>
       <span>${t("release")}</span><span>${g.coming_soon?soonDate(g):fmtDate(g.created_at)}</span>
-      <span>${t("developer")}</span><span>${g.owner?`<a href="#" data-dev="${esc(g.owner)}">${esc(g.developer)}</a>`:esc(g.developer)}</span>
+      <span>${t("developer")}</span><span>${studio?`<a href="#/studio/${studio.id}">${esc(studio.name)}</a> ${badgeHTML(studio.downloads)}`:esc(g.developer)}</span>
+      ${g.version?`<span>${t("version")}</span><span>${esc(g.version)}</span>`:""}
       ${g.coming_soon?"":`<span>${t("players")}</span><span>${(g.players||0).toLocaleString()}</span>`}</div>
-      <div>${tagsHTML(g,10)}</div></div></div>
+      <div>${(g.tags||[]).slice(0,10).map(x=>`<a class="tag" href="#/browse?tag=${encodeURIComponent(x)}">${esc(x)}</a>`).join("")}</div></div></div>
   <div class="gbody"><div>
     ${g.coming_soon?`<div class="buybox soonbuy"><h3>🕒 ${t("soon")}: ${esc(g.title)}</h3>
       <div class="mut">${t("release")}: <b style="color:#fff">${soonDate(g)}</b>${daysLeft(g)!==null?` · ${daysLeft(g)?t("daysleft").replace("{n}",daysLeft(g)):t("anyday")}`:""}</div>
       <div class="mut" style="margin-top:4px">${t("soonwish")}</div>
-      <div class="act"><span class="price" style="color:#ffcf5a">${t("soon")}</span><button class="btn green" id="soonWish">${myWish.has(g.id)?t("onwish"):"♥ "+t("addwish")}</button></div></div>`:
-    `<div class="buybox"><h3>${t("play")}: ${esc(g.title)}</h3><div class="mut">${esc(gname(g.genre))}</div>
+      <div class="act"><span class="price" style="color:#ffcf5a">${paid?coins(g.price):t("soon")}</span><button class="btn green" id="soonWish">${myWish.has(g.id)?t("onwish"):"♥ "+t("addwish")}</button></div></div>`
+    :!canPlay?`<div class="buybox"><h3>${t("buy")} ${esc(g.title)}</h3><div class="mut">${t("payCoins")}</div>
+      ${onSale(g)?`<div class="salebar">🏷️ ${t("saleEnds").replace("{d}",fmtDate(g.sale_end))}</div>`:""}
+      <div class="act">${onSale(g)?`<span class="price disc">-${g.sale_pct}%</span><span class="price"><s class="dim">${g.price}</s>&nbsp;${coins(effPrice(g))}</span>`:`<span class="price">${coins(g.price)}</span>`}<button class="btn green" id="buyBtn">🛒 ${t("buy")}</button></div></div>`
+    :`<div class="buybox"><h3>${t("play")}: ${esc(g.title)}</h3><div class="mut">${paid&&owned?"✓ "+t("inlib"):esc(gname(g.genre))}</div>
       ${g.play_kind==="download"?`<div class="dim" style="font-size:12px;margin-top:6px">🪟 Windows · ${esc(g.file_name||"")}${g.file_size?" · "+fmtSize(g.file_size):""}<br>${t("smartscreen")}</div>`:""}
-      <div class="act"><span class="price">${t("free")}</span><button class="btn green" id="playBtn">${g.play_kind==="download"?"⬇ "+t("download"):"▶ "+t("play")}</button></div></div>`}
+      <div class="act"><span class="price">${paid?(owned?t("owned"):coins(g.price)):t("free")}</span><button class="btn green" id="playBtn">${playLabel}</button></div></div>`}
+    ${bundles.length?bundles.map(b=>`<div class="buybox" style="padding-bottom:30px"><h3>📦 ${t("buy")} ${esc(b.title)}</h3><div class="mut">${b.game_ids.length} ${t("games")}</div>
+      <div class="act"><span class="price">${coins(b.price)}</span><a class="btn green" href="#/bundle/${b.id}">${t("viewBundle")}</a></div></div>`).join(""):""}
+    ${updates.length?`<div class="hd">🔄 ${t("whatsnew")}</div>${updates.map((u,i)=>`<details class="upd" ${i===0?"open":""}><summary><b>${esc(u.version)}</b> <span class="dim">· ${fmtDate(u.created_at)}</span></summary><div class="about">${esc(u.notes)}</div></details>`).join("")}`:""}
     <div class="hd">${t("about")}</div><div class="about">${esc(g.description||g.short_desc)}</div>
     ${g.min_reqs?`<div class="hd">${t("reqs")}</div><div class="about">${esc(g.min_reqs)}</div>`:""}
     <div class="hd">${t("reviews")}</div>
     <div class="summary"><div><div class="mut" style="font-size:12px">${t("allreviews")}</div>${rvHTML(g)}</div>
-      ${r.n?`<div class="bar" title="${r.pct}%"><i style="width:${r.pct}%"></i></div><span class="mut">${r.pct}% 👍</span>`:""}</div>
+      ${r.n?`<div class="bar" title="${r.pct}%"><i style="width:${r.pct}%"></i></div><span class="mut">${r.pct}% 👍</span>`:""}
+      <span class="dim" style="font-size:12px">✔ ${t("verifiedOnly")}</span></div>
     <div id="writeBox" style="margin-top:14px"></div>
     <div class="rbox" id="revs" style="margin-top:14px"></div>
   </div><aside>
     <div class="panel" style="display:grid;gap:8px">
-      ${g.coming_soon?`<div class="mut" style="font-size:12px">♥ ${(g.wishes||0).toLocaleString()} ${t("wishers")}</div>`:`<button class="btn ${myLib.has(g.id)?"ghost":""}" id="libBtn">${myLib.has(g.id)?"✓ "+t("inlib"):"+ "+t("addlib")}</button>`}
+      ${g.coming_soon?`<div class="mut" style="font-size:12px">♥ ${(g.wishes||0).toLocaleString()} ${t("wishers")}</div>`
+        :!paid?`<button class="btn ${owned?"ghost":""}" id="libBtn">${owned?"✓ "+t("inlib"):"+ "+t("addlib")}</button>`:owned?`<div class="mut">✓ ${t("inlib")}</div>`:""}
       <button class="btn ghost" id="wishBtn">${myWish.has(g.id)?t("onwish"):t("addwish")}</button>
+      <button class="btn ghost" id="shareBtn">🔗 ${t("share")}</button>
       ${isOwner||isAdmin?`<button class="btn red" id="delBtn">${t("delete")}</button>`:""}
-    </div></aside></div>`;
+    </div>
+    ${studio?`<a class="panel studiobox" href="#/studio/${studio.id}">${avatarHTML({username:studio.name},40)}<div><b>${esc(studio.name)} ${badgeHTML(studio.downloads)}</b><div class="dim" style="font-size:12px">${(studio.downloads||0).toLocaleString()} ${t("downloads")}</div></div></a>`:""}
+  </aside></div>`;
   bindSubnav();
   const showMedia=i=>{const m=media[i];
     $("#mm").innerHTML=m.yt?`<iframe src="https://www.youtube-nocookie.com/embed/${m.yt}?rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="trailer"></iframe>`:m.img?`<img src="${esc(m.img)}" alt="">`:`<div class="fillcov">${coverHTML(g)}</div>`;
     document.querySelectorAll("#th button").forEach(b=>b.classList.toggle("on",+b.dataset.i===i))};
   showMedia(0);
   if($("#th"))$("#th").onclick=e=>{const b=e.target.closest("button");if(b)showMedia(+b.dataset.i)};
-  const dev=document.querySelector("[data-dev]");if(dev)dev.onclick=async e=>{e.preventDefault();const {data}=await sb.from("profiles").select("username").eq("id",g.owner).maybeSingle();if(data)location.hash="#/user/"+encodeURIComponent(data.username)};
   if($("#playBtn"))$("#playBtn").onclick=()=>{location.hash="#/play/"+g.id};
+  if($("#buyBtn"))$("#buyBtn").onclick=()=>openCheckout({kind:"game",id:g.id,title:g.title,price:effPrice(g),list:g.price});
   if($("#soonWish"))$("#soonWish").onclick=()=>$("#wishBtn").click();
+  $("#shareBtn").onclick=()=>openShare("/app/"+g.id,g.title);
   if($("#libBtn"))$("#libBtn").onclick=async()=>{if(needLogin())return;
     if(myLib.has(g.id)){const{error}=await sb.from("library").delete().eq("user_id",me.id).eq("game_id",g.id);if(error)return dbErr(error);myLib.delete(g.id)}
     else{const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(error)return dbErr(error);myLib.add(g.id);toast("✓ "+t("inlib"))}
     $("#libBtn").className="btn "+(myLib.has(g.id)?"ghost":"");$("#libBtn").textContent=myLib.has(g.id)?"✓ "+t("inlib"):"+ "+t("addlib")};
   $("#wishBtn").onclick=async()=>{if(needLogin())return;
     if(myWish.has(g.id)){const{error}=await sb.from("wishlist").delete().eq("user_id",me.id).eq("game_id",g.id);if(error)return dbErr(error);myWish.delete(g.id)}
-    else{const{error}=await sb.from("wishlist").insert({user_id:me.id,game_id:g.id});if(error)return dbErr(error);myWish.add(g.id)}
+    else{const{error}=await sb.from("wishlist").insert({user_id:me.id,game_id:g.id});if(error)return dbErr(error);myWish.add(g.id);toast("♥ "+t("wishNotify"))}
     $("#wishBtn").textContent=myWish.has(g.id)?t("onwish"):t("addwish");
     if($("#soonWish"))$("#soonWish").textContent=myWish.has(g.id)?t("onwish"):"♥ "+t("addwish")};
   if($("#delBtn"))$("#delBtn").onclick=()=>deleteGame(g,()=>location.hash="#/dashboard");
 
-  // reviews
-  $("#revs").innerHTML=revs.length?revs.map(rv=>`<div class="rev"><div class="who">${avatarHTML(rv.profiles,32)}<a href="#/user/${encodeURIComponent(rv.profiles?.username||"")}">${esc(rv.profiles?.username||"?")}</a></div>
+  // reviews: verified players + official developer reply
+  $("#revs").innerHTML=revs.map(rv=>`<div class="rev"><div class="who">${avatarHTML(rv.profiles,32)}<div><a href="#/user/${encodeURIComponent(rv.profiles?.username||"")}">${esc(rv.profiles?.username||"?")}</a>
+      <div class="verified">✔ ${t("verifiedP")}<br><span class="dim">${t("minPlayed").replace("{n}",rv.minutes)}</span></div></div></div>
     <div class="body"><div class="verdict"><span class="ic ${rv.recommended?"up":"dn"}">${rv.recommended?"👍":"👎"}</span><div>${rv.recommended?t("recommended"):t("notrec")}<div class="dim" style="font-size:11px">${ago(rv.created_at)}</div></div>
-    ${(me&&me.id===rv.user_id)||isAdmin?`<button class="btn ghost sm" style="margin-inline-start:auto" data-delrev="${rv.id}">${t("delete")}</button>`:""}</div>
-    <div class="txt">${esc(rv.body)}</div></div></div>`).join(""):"";
-  $("#revs").onclick=async e=>{const id=e.target.dataset.delrev;if(!id||!await confirmBox(t("delete")+"?"))return;
-    const{error}=await sb.from("reviews").delete().eq("id",id);if(error)return dbErr(error);toast(t("deleted"));route()};
+    <span style="margin-inline-start:auto;display:flex;gap:6px">${isOwner?`<button class="btn ghost sm" data-reply="${rv.id}">💬 ${rv.dev_reply?t("editReply"):t("reply")}</button>`:""}
+    ${(me&&me.id===rv.user_id)||isAdmin?`<button class="btn ghost sm" data-delrev="${rv.id}">${t("delete")}</button>`:""}</span></div>
+    <div class="txt">${esc(rv.body)}</div>
+    ${rv.dev_reply?`<div class="devreply"><b>💬 ${t("devResponse")} — ${esc(g.developer)}</b> <span class="dim">${ago(rv.dev_reply_at)}</span><div class="txt">${esc(rv.dev_reply)}</div></div>`:""}</div></div>`).join("");
+  $("#revs").onclick=async e=>{const b=e.target.closest("button");if(!b)return;
+    if(b.dataset.delrev){if(!await confirmBox(t("delete")+"?"))return;
+      const{error}=await sb.from("reviews").delete().eq("id",b.dataset.delrev);if(error)return dbErr(error);toast(t("deleted"));route()}
+    else if(b.dataset.reply){const rv=revs.find(x=>x.id===b.dataset.reply);
+      const m=modal("💬 "+t("devResponse"),`<textarea class="inp" id="rpt" maxlength="3000" style="min-height:120px">${esc(rv.dev_reply||"")}</textarea><div class="err" id="rpe"></div>
+        <div class="acts"><button class="btn ghost" data-x>${t("cancel")}</button><button class="btn" id="rps">${t("save")}</button></div>`);
+      m.el.querySelector("#rps").onclick=async()=>{const{error}=await sb.rpc("reply_review",{p_review:rv.id,p_text:m.el.querySelector("#rpt").value});
+        if(error){m.el.querySelector("#rpe").textContent=errMsg(error);return}m.close();toast(t("saved"));route()}}};
   const wb=$("#writeBox");
   if(!me)wb.innerHTML=`<a class="btn ghost" href="#/login?next=${encodeURIComponent(location.hash)}">${t("loginToReview")}</a>`;
   else if(isOwner)wb.innerHTML=`<div class="mut">${t("ownGame")}</div>`;
   else if(g.coming_soon&&!myRev)wb.innerHTML=`<div class="mut">${t("revAfter")}</div>`;
+  else if(!owned&&!myRev)wb.innerHTML=`<div class="mut">✔ ${t("needOwn")}</div>`;
+  else if(!myRev&&(myMin??0)<10)wb.innerHTML=`<div class="mut">⏱ ${t("need10").replace("{n}",myMin??0)}</div>`;
   else{
     let rec=myRev?myRev.recommended:null;
     wb.innerHTML=`<div class="write"><h4>${t("writerev")} ${esc(g.title)}</h4><div class="mut">${t("recq")}</div>
@@ -692,40 +910,44 @@ async function gameView(main,id,stale){
     $("#rvs").onclick=async()=>{const body=$("#rvt").value.trim();if(rec===null||!body){$("#rve").textContent=t("err_required");return}
       $("#rvs").disabled=true;
       const{error}=await sb.from("reviews").upsert({game_id:g.id,user_id:me.id,recommended:rec,body},{onConflict:"game_id,user_id"});
-      if(error){$("#rvs").disabled=false;$("#rve").textContent=error.message;return}toast(t("saved"));route()};
+      if(error){$("#rvs").disabled=false;$("#rve").textContent=errMsg(error);return}toast(t("saved"));route()};
   }
 }
 async function deleteGame(g,after){
   if(!await confirmBox(t("delgame")))return;
+  const pr=await sb.rpc("get_play",{p_game:g.id});const playUrl=(pr.data||[])[0]?.play_url;
   const{error}=await sb.from("games").delete().eq("id",g.id);if(error)return dbErr(error);
   // best-effort cleanup of uploaded files
-  const paths=[g.cover_url,g.play_url,...(g.screenshots||[])].map(storagePath).filter(Boolean);
+  const paths=[g.cover_url,playUrl,...(g.screenshots||[])].map(storagePath).filter(Boolean);
   if(paths.length)sb.storage.from("media").remove(paths).catch(()=>{});
   toast(t("deleted"));after&&after();
 }
 
 /* ============ player ============ */
-let playerEl=null,playerGame=null;
-function closePlayer(quiet){if(playerEl){playerEl.remove();playerEl=null;playerGame=null;if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});if(!quiet&&location.hash.startsWith("#/play/"))history.back()}}
+let playerEl=null,playerGame=null,beatTimer=null;
+function closePlayer(quiet){clearInterval(beatTimer);beatTimer=null;
+  if(playerEl){playerEl.remove();playerEl=null;playerGame=null;if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});if(!quiet&&location.hash.startsWith("#/play/"))history.back()}}
 async function playGame(id){
-  const {data:g}=await sb.from("games").select("id,title,play_kind,play_url,file_name,coming_soon").eq("id",id).maybeSingle();
+  const [{data:g},pr]=await Promise.all([sb.from("games").select("id,title,price,coming_soon").eq("id",id).maybeSingle(),sb.rpc("get_play",{p_game:id})]);
   if(!g)return;
-  if(g.coming_soon||!g.play_url){toast("🕒 "+t("soon"));location.replace("#/app/"+g.id);return}
-  if(me){ // add to library + mark played
-    if(!myLib.has(g.id)){await sb.from("library").insert({user_id:me.id,game_id:g.id});myLib.add(g.id)}
-    sb.from("library").update({last_played:new Date().toISOString()}).eq("user_id",me.id).eq("game_id",g.id).then(()=>{});
+  if(pr.error){toast(errMsg(pr.error));location.replace("#/app/"+id);return}
+  const p=(pr.data||[])[0]||{};
+  if(g.coming_soon||!p.play_url){toast("🕒 "+t("soon"));location.replace("#/app/"+g.id);return}
+  if(me){ // add free game to library + mark played
+    if(!myLib.has(g.id)&&!g.price){const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(!error)myLib.add(g.id)}
+    sb.from("library").update({last_played:nowISO()}).eq("user_id",me.id).eq("game_id",g.id).then(()=>{});
   }
-  if(g.play_kind==="link"){const u=okUrl(g.play_url);if(u)window.open(u,"_blank","noopener");location.replace("#/app/"+g.id);return}
-  if(g.play_kind==="download"){const p=storagePath(g.play_url);
-    const u=p?sb.storage.from("media").getPublicUrl(p,{download:g.file_name||true}).data.publicUrl:okUrl(g.play_url);
+  if(p.play_kind==="link"){const u=okUrl(p.play_url);if(u)window.open(u,"_blank","noopener");location.replace("#/app/"+g.id);return}
+  if(p.play_kind==="download"){const sp=storagePath(p.play_url);
+    const u=sp?sb.storage.from("media").getPublicUrl(sp,{download:p.file_name||true}).data.publicUrl:okUrl(p.play_url);
     if(u){const a=document.createElement("a");a.href=u;a.rel="noopener";document.body.appendChild(a);a.click();a.remove();toast("⬇ "+t("download"))}
     location.replace("#/app/"+g.id);return}
   playerEl=document.createElement("div");playerEl.className="player";playerGame=g.id;
-  playerEl.innerHTML=`<div class="bar2"><b>${esc(g.title)}</b><button class="btn ghost sm" id="fsBtn">⛶ ${t("fullscreen")}</button><button class="btn sm" id="pcBtn">✕ ${t("close")}</button></div><div id="pbody" style="flex:1;display:flex">${loading()}</div>`;
+  playerEl.innerHTML=`<div class="bar2"><b>${esc(g.title)}</b><span class="dim" id="ptime" style="font-size:12px"></span><button class="btn ghost sm" id="fsBtn">⛶ ${t("fullscreen")}</button><button class="btn sm" id="pcBtn">✕ ${t("close")}</button></div><div id="pbody" style="flex:1;display:flex">${loading()}</div>`;
   document.body.appendChild(playerEl);
   $("#pcBtn").onclick=()=>closePlayer();
   try{
-    const res=await fetch(okUrl(g.play_url));if(!res.ok)throw new Error(res.status);
+    const res=await fetch(okUrl(p.play_url));if(!res.ok)throw new Error(res.status);
     const html=await res.text();if(playerGame!==g.id)return;
     const fr=document.createElement("iframe");
     // no allow-same-origin: the game can't touch the store, your login or other games
@@ -734,6 +956,9 @@ async function playGame(id){
     fr.srcdoc=saveShim(g.id)+html;
     $("#pbody").innerHTML="";$("#pbody").appendChild(fr);fr.focus();
     $("#fsBtn").onclick=()=>(fr.requestFullscreen?fr.requestFullscreen():playerEl.requestFullscreen()).catch(()=>{});
+    // playtime: one minute at a time, only while the game is open and visible (unlocks verified reviews)
+    if(me&&myLib.has(g.id)){let mins=0;beatTimer=setInterval(async()=>{if(!playerEl||document.visibilityState!=="visible")return;
+      const{data}=await sb.rpc("play_beat",{p_game:g.id});if(typeof data==="number"){mins=data;const el=$("#ptime");if(el)el.textContent="⏱ "+t("minPlayed").replace("{n}",mins)}},60000)}
   }catch(e){$("#pbody").innerHTML=`<div class="empty" style="margin:auto"><b>${t("loadfail")}</b></div>`}
 }
 // sandboxed games have no localStorage; give them one that is saved by the store, per game
@@ -756,6 +981,89 @@ window.addEventListener("message",e=>{
   try{localStorage.setItem("pp_save_"+playerGame,s)}catch(err){}
 });
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&playerEl&&!document.fullscreenElement)closePlayer()});
+
+/* ============ wallet / coin card ============ */
+async function walletView(main,stale){
+  setTitle(t("wallet"));if(needLogin())return;
+  await refreshWallet();
+  const{data:tx}=await sb.from("coin_tx").select("amount,balance,kind,note,created_at").eq("user_id",me.id).order("created_at",{ascending:false}).limit(50);
+  if(stale())return;
+  const today=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Jerusalem"}),claimed=me.lastDaily===today;
+  main.innerHTML=`<h2 class="sec" style="font-size:20px">🪙 ${t("wallet")}</h2>
+  <div class="walletgrid"><div>${coinCardHTML(true)}<div class="dim" style="font-size:12px;margin-top:8px">${t("cardHint")}</div></div>
+    <div style="display:grid;gap:12px;align-content:start">
+      <div class="panel"><h3 style="margin:0 0 6px;color:#fff">🎁 ${t("daily")}</h3><div class="mut" style="margin-bottom:8px">${t("dailyHint")}</div>
+        <button class="btn green" id="dly" ${claimed?"disabled":""}>${claimed?"✓ "+t("claimed"):"+10 🪙 "+t("claim")}</button></div>
+      <div class="panel"><h3 style="margin:0 0 6px;color:#fff">🔑 ${t("redeem")}</h3>
+        <form id="rdf" style="display:flex;gap:6px"><input class="inp" id="rdc" placeholder="XXXX-XXXX-XXXX" dir="ltr" maxlength="20" style="text-transform:uppercase"><button class="btn">${t("redeemBtn")}</button></form><div class="err" id="rde"></div></div>
+    </div></div>
+  <div class="mut" style="margin:14px 0 4px;font-size:12px">ℹ ${t("coinsNote")}</div>
+  <h2 class="sec">${t("history")}</h2>
+  <div class="panel" style="overflow-x:auto"><table class="table"><tbody>${(tx||[]).map(x=>`<tr><td>${t("tx_"+x.kind)||x.kind}${x.note?` · <span class="mut">${esc(x.note)}</span>`:""}</td>
+    <td style="color:${x.amount>=0?"#a4d007":"#ff8a80"};white-space:nowrap" dir="ltr">${x.amount>=0?"+":""}${x.amount}</td><td class="dim hide" dir="ltr">${x.balance}</td><td class="dim" style="white-space:nowrap">${ago(x.created_at)}</td></tr>`).join("")||`<tr><td class="mut">—</td></tr>`}</tbody></table></div>`;
+  $("#dly").onclick=async e=>{e.target.disabled=true;const{data,error}=await sb.rpc("claim_daily");if(error){toast(errMsg(error));return}me.coins=data;toast("🎁 +10 🪙");route()};
+  $("#rdf").onsubmit=async e=>{e.preventDefault();const{data,error}=await sb.rpc("redeem_key",{p_code:$("#rdc").value});
+    if(error){$("#rde").textContent=errMsg(error);return}toast("🔑 "+t("redeemed")+": "+data);
+    const l=await sb.from("library").select("game_id").eq("user_id",me.id);myLib=new Set((l.data||[]).map(r=>r.game_id));route()};
+}
+
+/* ============ inbox ============ */
+async function inboxView(main,stale){
+  setTitle(t("inbox"));if(needLogin())return;
+  const{data,error}=await sb.from("notifications").select("id,kind,title,body,link,read,created_at").eq("user_id",me.id).order("created_at",{ascending:false}).limit(100);
+  if(stale())return;if(error)throw error;
+  main.innerHTML=`<h2 class="sec" style="font-size:20px">🔔 ${t("inbox")}${data.length?`<a href="#" id="clr">${t("clearAll")}</a>`:""}</h2>
+  <div class="rbox">${data.map(n=>`<div class="note ${n.read?"":"unread"} ${n.kind}">${n.kind==="mail"?`<span class="atag">✉ ${STORE_NAME}</span>`:""}
+    <div style="display:flex;gap:8px;align-items:baseline"><b style="color:#fff;flex:1">${esc(n.title)}</b><span class="dim" style="font-size:12px">${ago(n.created_at)}</span></div>
+    ${n.body?`<div class="txt mut">${esc(n.body)}</div>`:""}${n.link&&n.link.startsWith("#/")?`<a href="${esc(n.link)}" style="font-size:13px">${t("open")} →</a>`:""}</div>`).join("")||`<div class="empty"><b>${t("noNotes")}</b></div>`}</div>`;
+  if(data.some(n=>!n.read)){await sb.from("notifications").update({read:true}).eq("user_id",me.id).eq("read",false);unread=0;renderHeader()}
+  const c=$("#clr");if(c)c.onclick=async e=>{e.preventDefault();await sb.from("notifications").delete().eq("user_id",me.id);route()};
+}
+
+/* ============ studio page ============ */
+async function studioPage(main,id,stale){
+  if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("notfound"));
+  const[sr,gr,br]=await Promise.all([sb.from("studios").select("id,name,downloads,members,created_at,support_email,status,verify_status").eq("id",id).maybeSingle(),
+    live().eq("studio_id",id).order("created_at",{ascending:false}),
+    sb.from("bundles").select("id,title,price,game_ids").eq("studio_id",id).eq("published",true)]);
+  if(stale())return;const s=sr.data;
+  if(!s){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
+  setTitle(s.name);
+  const next=s.downloads>=500?null:s.downloads>=50?500:50;
+  main.innerHTML=`<div class="prof">${avatarHTML({username:s.name},96)}<div style="flex:1"><h1>${esc(s.name)} ${badgeHTML(s.downloads)}</h1>
+    <div class="mut">${(s.downloads||0).toLocaleString()} ${t("downloads")} · ${s.members} ${t("members")} · ${t("member")} ${fmtDate(s.created_at)}</div>
+    ${s.verify_status==="verified"?`<div class="dim" style="font-size:12px">✔ ${t("verified")}</div>`:""}
+    ${next?`<div class="dim" style="font-size:12px">${t("nextBadge").replace("{n}",next-s.downloads).replace("{b}",next===50?t("blueS"):t("goldS"))}</div>`:""}
+    <div style="font-size:13px;margin-top:4px"><a href="mailto:${esc(s.support_email)}" dir="ltr">${esc(s.support_email)}</a></div></div>
+    <button class="btn ghost" id="shs">🔗 ${t("share")}</button></div>
+    <h2 class="sec">${t("gamesby")} ${esc(s.name)} <span class="mut">(${(gr.data||[]).length})</span></h2>
+    ${(gr.data||[]).length?`<div class="grid">${gr.data.map(cardHTML).join("")}</div>`:`<div class="mut">—</div>`}
+    ${(br.data||[]).length?`<h2 class="sec">📦 ${t("bundles")}</h2><div class="grid">${br.data.map(bundleCardHTML).join("")}</div>`:""}`;
+  $("#shs").onclick=()=>openShare("/studio/"+s.id,s.name);
+}
+
+/* ============ bundle page ============ */
+async function bundlePage(main,id,stale){
+  if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("notfound"));
+  const{data:b}=await sb.from("bundles").select("id,title,description,price,game_ids,studio_id,owner,studios(name,downloads)").eq("id",id).maybeSingle();
+  if(stale())return;if(!b){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
+  const games=await gamesByIds(b.game_ids);if(stale())return;
+  setTitle(b.title);
+  const sum=games.reduce((a,g)=>a+effPrice(g),0),own=games.filter(g=>myLib.has(g.id)).length,ownAll=own===games.length&&games.length>0;
+  main.innerHTML=subnav()+`<div class="crumbs"><a href="#/studio/${b.studio_id}">${esc(b.studios?.name||"")}</a> › 📦</div>
+    <h1 class="gtitle">📦 ${esc(b.title)}</h1>
+    <div class="gbody"><div>${b.description?`<div class="about" style="margin-bottom:14px">${esc(b.description)}</div>`:""}
+      <div class="rows">${games.map(g=>rowHTML(g).replace('<div class="meta">',`<div class="meta">${myLib.has(g.id)?`<span class="pill">✓ ${t("owned")}</span>`:""}`)).join("")}</div></div>
+    <aside><div class="buybox" style="padding-bottom:34px"><h3>${t("buy")} ${esc(b.title)}</h3>
+      <div class="mut">${games.length} ${t("games")} · ${t("separately")} <s>${coins(sum)}</s></div>
+      ${sum>b.price?`<div class="salebar">💰 ${t("youSave")} ${coins(sum-b.price)}</div>`:""}
+      ${own?`<div class="dim" style="font-size:12px">✓ ${t("ownSome").replace("{n}",own)}</div>`:""}
+      <div class="act"><span class="price">${coins(b.price)}</span><button class="btn green" id="bb" ${ownAll||(me&&me.id===b.owner)?"disabled":""}>${ownAll?"✓ "+t("owned"):"🛒 "+t("buy")}</button></div></div>
+      <button class="btn ghost" id="shb" style="width:100%">🔗 ${t("share")}</button></aside></div>`;
+  bindSubnav();
+  $("#bb").onclick=()=>openCheckout({kind:"bundle",id:b.id,title:b.title,price:b.price,list:sum});
+  $("#shb").onclick=()=>openShare("/bundle/"+b.id,b.title);
+}
 
 /* ============ library / wishlist ============ */
 async function libraryView(main,stale){
@@ -839,7 +1147,8 @@ async function formView(main,id,stale){
   if(!id&&!(studio&&studio.status==="approved"&&studio.verify_status==="verified")){
     main.innerHTML=`<div class="empty"><b>${t("needStudio")}</b><br><a class="btn" href="#/publish">${t("goHub")}</a></div>`;return}
   let g={title:"",developer:studio?studio.name:"",short_desc:"",description:"",genre:"Action",tags:[],screenshots:[],trailer_url:"",play_kind:"html",play_url:"",min_reqs:"",published:true,cover_url:""};
-  if(id){const{data,error}=await sb.from("games").select("*").eq("id",id).maybeSingle();if(stale())return;if(error)throw error;
+  if(id){const{data,error}=await sb.from("games").select(GAME_COLS).eq("id",id).maybeSingle();if(stale())return;if(error)throw error;
+    if(data){const pr=await sb.rpc("get_play",{p_game:id});if(stale())return;data.play_url=(pr.data||[])[0]?.play_url||null}
     if(!data||(data.owner!==me.id&&!me.profile.is_admin)){main.innerHTML=`<div class="empty"><b>${t("gamenf")}</b></div>`;return}g=data}
   let shots=[...(g.screenshots||[])];
   const rejectedOpen=id&&g.review_status==="rejected"&&g.fix_deadline&&new Date(g.fix_deadline)>new Date();
@@ -866,6 +1175,8 @@ async function formView(main,id,stale){
     <label id="pkH">${t("f_html")} ${g.play_kind==="html"&&g.play_url?t("keep"):""}<input type="file" id="fh" accept=".html,.htm,text/html"><span class="hint">${t("f_htmlhint")}</span>
       ${g.play_kind==="html"&&g.play_url?`<span class="hint">${t("curfile")}: ✓</span>`:""}</label>
     <label id="pkL">${t("f_link")}<input class="inp" id="fl" dir="ltr" placeholder="https://…" value="${g.play_kind==="link"?esc(g.play_url||""):""}"><span class="hint">${t("f_linkhint")}</span></label>
+    <div class="two"><label>${t("f_price")}<input class="inp" type="number" id="fpr" min="0" max="100000" step="1" value="${g.price||0}"><span class="hint" id="fprh"></span></label>
+      <label>${t("version")}<input class="inp" id="fver" maxlength="30" dir="ltr" placeholder="1.0" value="${esc(g.version||"")}"><span class="hint">${t("f_verhint")}</span></label></div>
     <label>${t("f_reqs")}<textarea class="inp" id="fr" maxlength="2000" style="min-height:60px">${esc(g.min_reqs||"")}</textarea></label>
     <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="fp" ${g.published?"checked":""}> ${t("f_pub")}</label>
     <div class="err" id="fe"></div>
@@ -874,6 +1185,8 @@ async function formView(main,id,stale){
   const pk=()=>document.querySelector("input[name=pk]:checked").value;
   const syncPk=()=>{$("#pkH").hidden=pk()!=="html";$("#pkL").hidden=pk()!=="link";$("#pkD").hidden=pk()!=="download"};syncPk();
   document.querySelectorAll("input[name=pk]").forEach(r=>r.onchange=syncPk);
+  const syncPrice=()=>{const p=Math.max(0,Math.floor(+$("#fpr").value||0));$("#fprh").textContent=p?t("f_pricehint").replace("{p}",Math.round(devShare(p)*100)).replace("{c}",Math.floor(p*devShare(p))):t("free")};
+  syncPrice();$("#fpr").oninput=syncPrice;
   const syncSoon=()=>{const s=$("#fsoon").checked;$("#frdw").hidden=!s;$("#freq").textContent=s?t("f_later"):"*"};syncSoon();
   $("#fsoon").onchange=syncSoon;
   let newShots=[];
@@ -897,7 +1210,8 @@ async function formView(main,id,stale){
       const rec={title,short_desc:short,description:$("#fdesc").value.trim(),genre:$("#fg").value,
         tags:[...new Set($("#ftags").value.split(/[,،]/).map(s=>s.trim()).filter(Boolean))].slice(0,12).map(s=>s.slice(0,30)),
         trailer_url:yt||null,min_reqs:$("#fr").value.trim()||null,published:$("#fp").checked,play_kind:kind,
-        coming_soon:soon,release_date:soon?($("#frd").value||null):(g.release_date||null)};
+        coming_soon:soon,release_date:soon?($("#frd").value||null):(g.release_date||null),
+        price:Math.max(0,Math.min(100000,Math.floor(+$("#fpr").value||0))),version:$("#fver").value.trim()||null};
       const cf=$("#fc").files[0];if(cf)rec.cover_url=await upload(cf,"cover",IMG,5);
       const up=[];for(const f of newShots)up.push(await upload(f,"shot",IMG,5));rec.screenshots=[...shots,...up].slice(0,8);
       rec.file_name=null;rec.file_size=null;
@@ -920,20 +1234,115 @@ async function formView(main,id,stale){
   };
 }
 
-/* ============ dashboard ============ */
+/* ============ developer dashboard + analytics ============ */
+function chartSVG(rows,key,color){
+  const max=Math.max(1,...rows.map(r=>+r[key])),w=600,h=120,bw=w/rows.length;
+  return `<svg viewBox="0 0 ${w} ${h+18}" class="chart" role="img" aria-label="${key}">${rows.map((r,i)=>{const v=+r[key],bh=Math.round(v/max*h);
+    return `<rect x="${i*bw+1}" y="${h-bh}" width="${Math.max(1,bw-2)}" height="${bh}" rx="2" fill="${color}"><title>${r.day}: ${v}</title></rect>`}).join("")}
+    <text x="0" y="${h+14}" fill="#8f98a0" font-size="11">${rows[0]?.day||""}</text><text x="${w}" y="${h+14}" fill="#8f98a0" font-size="11" text-anchor="end">${rows.at(-1)?.day||""}</text></svg>`}
 async function dashView(main,stale){
   setTitle(t("mygames"));if(needLogin())return;
-  const{data,error}=await sb.from("games").select("*").eq("owner",me.id).order("created_at",{ascending:false});
-  if(stale())return;if(error)throw error;
-  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("mygames")}<a href="#/publish" style="background:var(--buy2)">+ ${t("publish")}</a></h2>`+
+  const[gr,st,br,studio]=await Promise.all([sb.from("games").select(GAME_COLS).eq("owner",me.id).order("created_at",{ascending:false}),
+    sb.rpc("dev_stats",{p_days:30}),sb.from("bundles").select("id,title,price,game_ids,sales_count,published").eq("owner",me.id).order("created_at",{ascending:false}),loadStudio()]);
+  if(stale())return;if(gr.error)throw gr.error;
+  const data=gr.data,stats=st.data||[],bundles=br.data||[];
+  const tot={dl:data.reduce((a,g)=>a+g.players,0),sales:data.reduce((a,g)=>a+g.sales_count,0)+bundles.reduce((a,b)=>a+b.sales_count,0),
+    coins:stats.reduce((a,r)=>a+ +r.coins,0),earned:data.reduce((a,g)=>a+g.coins_earned,0),wish:data.reduce((a,g)=>a+g.wishes,0)};
+  const approved=data.filter(g=>g.review_status==="approved");
+  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("mygames")}${studio?` · <a href="#/studio/${studio.id}" style="border:0;padding:0;font-size:14px">${esc(studio.name)} ${badgeHTML(studio.downloads)}</a>`:""}<a href="#/publish" style="background:var(--buy2)">+ ${t("publish")}</a></h2>`+
    (isShabbat()&&data.some(g=>g.review_status==="pending")?`<div class="banner">${t("shabbat")}</div>`:"")+
-   (data.length?`<div class="panel" style="overflow-x:auto"><table class="table"><thead><tr><th></th><th>${t("f_title")}</th><th>${t("status")}</th><th class="hide">${t("players")}</th><th class="hide">${t("reviews")}</th><th class="hide">${t("wishlist")}</th><th>${t("actions")}</th></tr></thead><tbody>
-   ${data.map(g=>`<tr><td><a href="#/app/${g.id}">${coverHTML(g)}</a></td><td><a href="#/app/${g.id}" style="color:#fff;font-weight:600">${esc(g.title)}</a><div class="dim" style="font-size:12px">${fmtDate(g.created_at)}</div></td>
+   `<div class="stats"><div><b>${tot.dl.toLocaleString()}</b><span>${t("downloads")}</span></div><div><b>${tot.sales.toLocaleString()}</b><span>${t("sales")}</span></div>
+     <div><b>${coins(tot.earned)}</b><span>${t("earned")}</span></div><div><b>${tot.wish.toLocaleString()}</b><span>${t("wishlist")}</span></div>
+     <div><b>${coins(me.coins)}</b><span>${t("balance")}</span></div></div>
+   ${stats.length?`<div class="two" style="margin-top:12px"><div class="panel"><div class="mut" style="font-size:12px;margin-bottom:6px">📈 ${t("downloads")} · 30 ${t("days")}</div>${chartSVG(stats,"downloads","#66c0f4")}</div>
+     <div class="panel"><div class="mut" style="font-size:12px;margin-bottom:6px">🪙 ${t("coinsDay")} · 30 ${t("days")}</div>${chartSVG(stats,"coins","#a4d007")}</div></div>`:""}
+   <h2 class="sec">${t("games")}</h2>`+
+   (data.length?`<div class="panel" style="overflow-x:auto"><table class="table"><thead><tr><th></th><th>${t("f_title")}</th><th>${t("status")}</th><th class="hide">${t("price")}</th><th class="hide">${t("downloads")}</th><th class="hide">${t("sales")}</th><th class="hide">${t("earned")}</th><th class="hide">${t("reviews")}</th><th>${t("actions")}</th></tr></thead><tbody>
+   ${data.map(g=>`<tr><td><a href="#/app/${g.id}">${coverHTML(g)}</a></td><td><a href="#/app/${g.id}" style="color:#fff;font-weight:600">${esc(g.title)}</a><div class="dim" style="font-size:12px">${g.version?"v"+esc(g.version)+" · ":""}${fmtDate(g.created_at)}</div></td>
      <td>${reviewPill(g)}${g.coming_soon?` <span class="pill wait">🕒 ${t("soon")}</span>`:""}${g.review_status==="approved"&&!g.published?` <span class="pill off">${t("hidden")}</span>`:""}
-       ${g.review_status==="rejected"?`<div style="font-size:12px;margin-top:4px;max-width:260px"><span class="dim">${t("reasonL")}:</span> ${esc(g.reject_reason||"")}<br>${fixLine(g.fix_deadline)}</div>`:""}</td><td class="hide">${g.players}</td><td class="hide">${rvHTML(g)}</td><td class="hide">${g.wishes}</td>
-     <td style="white-space:nowrap"><a class="btn ghost sm" href="#/edit/${g.id}">${t("edit")}</a> <button class="btn red sm" data-del="${g.id}">${t("delete")}</button></td></tr>`).join("")}</tbody></table></div>`
-   :`<div class="empty"><b>${t("nogames")}</b><br><a class="btn green" href="#/publish">${t("ctaB")}</a></div>`);
-  main.onclick=e=>{const id=e.target.dataset.del;if(id)deleteGame(data.find(g=>g.id===id),route)};
+       ${onSale(g)?` <span class="pill wait">🏷️ -${g.sale_pct}%</span>`:""}${isPromoted(g)?` <span class="promo">${t("promoted")}</span>`:""}
+       ${g.review_status==="rejected"?`<div style="font-size:12px;margin-top:4px;max-width:260px"><span class="dim">${t("reasonL")}:</span> ${esc(g.reject_reason||"")}<br>${fixLine(g.fix_deadline)}</div>`:""}</td>
+     <td class="hide">${g.price?coins(g.price):t("free")}</td><td class="hide">${g.players}</td><td class="hide">${g.sales_count}</td><td class="hide">${coins(g.coins_earned)}</td><td class="hide">${rvHTML(g)}</td>
+     <td><div class="dacts"><a class="btn ghost sm" href="#/edit/${g.id}">✎ ${t("edit")}</a>
+       ${g.review_status==="approved"?`<button class="btn ghost sm" data-a="upd" data-id="${g.id}">🔄 ${t("postUpdate")}</button>
+       ${g.price?`<button class="btn ghost sm" data-a="sale" data-id="${g.id}">🏷️ ${t("sale")}</button>`:""}
+       <button class="btn ghost sm" data-a="keys" data-id="${g.id}">🔑 ${t("keys")}</button>
+       <button class="btn ghost sm" data-a="promo" data-id="${g.id}">🚀 ${t("promote")}</button>`:""}
+       <button class="btn red sm" data-a="del" data-id="${g.id}">${t("delete")}</button></div></td></tr>`).join("")}</tbody></table></div>`
+   :`<div class="empty"><b>${t("nogames")}</b><br><a class="btn green" href="#/publish">${t("ctaB")}</a></div>`)+
+   `<h2 class="sec">📦 ${t("bundles")}${approved.length>=2?`<a href="#" id="nb">+ ${t("newBundle")}</a>`:""}</h2>
+   <div class="mut" style="font-size:12px;margin-bottom:8px">${t("bundleRule")}</div>
+   ${bundles.length?`<div class="panel"><table class="table"><tbody>${bundles.map(b=>`<tr><td><a href="#/bundle/${b.id}" style="color:#fff">📦 ${esc(b.title)}</a></td><td>${b.game_ids.length} ${t("games")}</td><td>${coins(b.price)}</td><td class="hide">${b.sales_count} ${t("sales")}</td>
+     <td><button class="btn red sm" data-a="delb" data-id="${b.id}">${t("delete")}</button></td></tr>`).join("")}</tbody></table></div>`:""}`;
+  const nb=$("#nb");if(nb)nb.onclick=e=>{e.preventDefault();bundleForm(studio,approved)};
+  main.onclick=async e=>{const b=e.target.closest("button[data-a]");if(!b)return;const g=data.find(x=>x.id===b.dataset.id);
+    switch(b.dataset.a){
+      case "del":deleteGame(g,route);break;
+      case "delb":if(await confirmBox(t("delete")+"?")){const{error}=await sb.from("bundles").delete().eq("id",b.dataset.id);if(error)return dbErr(error);route()}break;
+      case "upd":updateForm(g);break;
+      case "sale":saleForm(g);break;
+      case "keys":keysForm(g);break;
+      case "promo":{await refreshWallet();
+        const m=modal("🚀 "+t("promote")+" — "+esc(g.title),`<div class="mut">${t("promoHint")}</div>
+          <div class="kv2" style="margin:12px 0"><span>${t("price")}</span><span>${coins(500)}</span><span>${t("balance")}</span><span>${coins(me.coins)}</span>
+          ${isPromoted(g)?`<span>${t("promotedUntil")}</span><span>${fmtDate(g.promoted_until)}</span>`:""}</div><div class="err" id="pe">${me.coins<500?t("e_NOT_ENOUGH_COINS"):""}</div>
+          <div class="acts"><button class="btn ghost" data-x>${t("cancel")}</button><button class="btn green" id="pg" ${me.coins<500?"disabled":""}>🚀 ${t("pay")} ${coins(500)}</button></div>`);
+        m.el.querySelector("#pg").onclick=async()=>{const{data:bal,error}=await sb.rpc("promote_game",{p_game:g.id});if(error){m.el.querySelector("#pe").textContent=errMsg(error);return}
+          me.coins=bal;m.close();toast("🚀 "+t("promoted"));route()};break}
+    }};
+}
+function updateForm(g){
+  const m=modal("🔄 "+t("postUpdate")+" — "+esc(g.title),`<div class="form" style="max-width:none">
+    <label>${t("version")} *<input class="inp" id="uv" maxlength="30" dir="ltr" placeholder="1.1" value=""></label>
+    <label>${t("patchNotes")} *<textarea class="inp" id="un" maxlength="10000" style="min-height:160px" placeholder="• ..."></textarea></label>
+    <div class="hint">${t("updHint")}</div><div class="err" id="ue"></div>
+    <div class="acts"><a class="btn ghost" href="#/edit/${g.id}">✎ ${t("editFiles")}</a><button class="btn green" id="us">${t("publishUpd")}</button></div></div>`,true);
+  m.el.querySelector("#us").onclick=async()=>{const v=m.el.querySelector("#uv").value.trim(),n=m.el.querySelector("#un").value.trim();
+    if(!v||!n){m.el.querySelector("#ue").textContent=t("err_required");return}
+    const{error}=await sb.from("game_updates").insert({game_id:g.id,version:v,notes:n});if(error){m.el.querySelector("#ue").textContent=errMsg(error);return}
+    m.close();toast("🔄 "+t("saved"));route()};
+}
+function saleForm(g){
+  const d=x=>new Date(x).toLocaleDateString("en-CA");
+  const s0=g.sale_start?d(g.sale_start):d(Date.now()),e0=g.sale_end?d(g.sale_end):d(Date.now()+7*864e5);
+  const m=modal("🏷️ "+t("sale")+" — "+esc(g.title),`<div class="form" style="max-width:none">
+    <div class="two"><label>${t("discount")} %<input class="inp" type="number" id="sp" min="5" max="90" value="${g.sale_pct||20}"></label><span class="mut" id="spv" style="align-self:end"></span></div>
+    <div class="two"><label>${t("from")}<input class="inp" type="date" id="ss" value="${s0}"></label><label>${t("to")}<input class="inp" type="date" id="se" value="${e0}"></label></div>
+    <div class="hint">${t("saleHint")}</div><div class="err" id="sae"></div>
+    <div class="acts">${g.sale_pct?`<button class="btn red" id="sx">${t("endSale")}</button>`:""}<button class="btn green" id="sv">${t("save")}</button></div></div>`);
+  const pv=()=>{const p=+m.el.querySelector("#sp").value||0;m.el.querySelector("#spv").innerHTML=`<s>${g.price}</s> → ${coins(Math.round(g.price*(100-p)/100))}`};pv();m.el.querySelector("#sp").oninput=pv;
+  m.el.querySelector("#sv").onclick=async()=>{const p=Math.floor(+m.el.querySelector("#sp").value);
+    const st=new Date(m.el.querySelector("#ss").value+"T00:00:00"),en=new Date(m.el.querySelector("#se").value+"T23:59:59");
+    if(!(p>=5&&p<=90)||isNaN(st)||isNaN(en)||en<=st||en-st>60*864e5){m.el.querySelector("#sae").textContent=t("saleHint");return}
+    const{error}=await sb.from("games").update({sale_pct:p,sale_start:st.toISOString(),sale_end:en.toISOString()}).eq("id",g.id);
+    if(error){m.el.querySelector("#sae").textContent=errMsg(error);return}m.close();toast("🏷️ "+t("saved"));route()};
+  const sx=m.el.querySelector("#sx");if(sx)sx.onclick=async()=>{const{error}=await sb.from("games").update({sale_pct:null,sale_start:null,sale_end:null}).eq("id",g.id);if(error)return dbErr(error);m.close();route()};
+}
+async function keysForm(g){
+  const{data:keys}=await sb.from("game_keys").select("code,note,redeemed_by,redeemed_at,created_at").eq("game_id",g.id).order("created_at",{ascending:false}).limit(200);
+  const m=modal("🔑 "+t("keys")+" — "+esc(g.title),`<div class="mut">${t("keysHint")}</div>
+    <div style="display:flex;gap:6px;margin:10px 0;flex-wrap:wrap"><input class="inp" type="number" id="kn" min="1" max="100" value="5" style="max-width:90px"><input class="inp" id="knote" maxlength="100" placeholder="${t("keyNote")}" style="flex:1;min-width:140px"><button class="btn green" id="kg">${t("generate")}</button></div>
+    <div id="kout"></div><div class="err" id="ke"></div>
+    <div class="keylist">${(keys||[]).map(k=>`<div><code>${esc(k.code)}</code> <span class="dim">${esc(k.note||"")}</span> ${k.redeemed_by?`<span class="pill off">${t("used")}</span>`:`<span class="pill">${t("unused")}</span>`}</div>`).join("")||`<div class="dim">—</div>`}</div>`,true);
+  m.el.querySelector("#kg").onclick=async e=>{e.target.disabled=true;
+    const{data,error}=await sb.rpc("generate_keys",{p_game:g.id,p_coins:null,p_count:Math.floor(+m.el.querySelector("#kn").value)||1,p_note:m.el.querySelector("#knote").value.trim()||null});
+    e.target.disabled=false;if(error){m.el.querySelector("#ke").textContent=errMsg(error);return}
+    const codes=(data||[]).map(r=>typeof r==="string"?r:Object.values(r)[0]);
+    m.el.querySelector("#kout").innerHTML=`<textarea class="inp" readonly dir="ltr" style="min-height:${Math.min(220,24+codes.length*20)}px;font-family:monospace">${codes.join("\n")}</textarea><button class="btn ghost sm" id="kc" style="margin-top:6px">${t("copy")}</button>`;
+    m.el.querySelector("#kc").onclick=()=>navigator.clipboard.writeText(codes.join("\n")).then(()=>toast("✓ "+t("copied")))};
+}
+function bundleForm(studio,games){
+  const m=modal("📦 "+t("newBundle"),`<div class="form" style="max-width:none">
+    <label>${t("f_title")} *<input class="inp" id="bt" maxlength="80"></label>
+    <label>${t("f_desc")}<textarea class="inp" id="bdsc" maxlength="2000" style="min-height:70px"></textarea></label>
+    <div>${t("games")} * <span class="hint">(${t("min2")})</span><div class="bpick">${games.map(g=>`<label><input type="checkbox" value="${g.id}"> ${esc(g.title)} <span class="dim">${g.price?coins(g.price):t("free")}</span></label>`).join("")}</div></div>
+    <label>${t("price")} (🪙) *<input class="inp" type="number" id="bp" min="26" value="30"><span class="hint">${t("bundleRule")}</span></label>
+    <div class="err" id="be"></div><div class="acts"><button class="btn ghost" data-x>${t("cancel")}</button><button class="btn green" id="bs">${t("save")}</button></div></div>`,true);
+  m.el.querySelector("#bs").onclick=async()=>{const ids=[...m.el.querySelectorAll(".bpick input:checked")].map(i=>i.value),p=Math.floor(+m.el.querySelector("#bp").value),ti=m.el.querySelector("#bt").value.trim();
+    if(ti.length<2||ids.length<2){m.el.querySelector("#be").textContent=t("err_required");return}
+    if(!(p>25)){m.el.querySelector("#be").textContent=t("bundleRule");return}
+    const{error}=await sb.from("bundles").insert({studio_id:studio.id,owner:me.id,title:ti,description:m.el.querySelector("#bdsc").value.trim(),price:p,game_ids:ids});
+    if(error){m.el.querySelector("#be").textContent=errMsg(error);return}m.close();toast("📦 "+t("saved"));route()};
 }
 
 /* ============ review helpers ============ */
@@ -946,7 +1355,10 @@ function fixLine(deadline){
   return `<span>${t("fixClosed")} <a href="mailto:${APPEAL_EMAIL}" dir="ltr">${APPEAL_EMAIL}</a></span>`;
 }
 function errMsg(e){const m=(e&&e.message)||"";
-  for(const c of["SHABBAT_CLOSED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED"])if(m.includes(c))return t("e_"+c);
+  for(const c of["SHABBAT_CLOSED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
+    "OWN_GAME","NOT_OWNED","NOT_AVAILABLE","PLAY_10_MIN","ALREADY_CLAIMED","BAD_KEY","KEY_USED","BUNDLE_SAME_STUDIO","NO_USER","NOT_YOUR_GAME"])if(m.includes(c))return t("e_"+c);
+  if(/bundles_price_check/.test(m))return t("bundleRule");
+  if(/games_sale_window|sale_pct_check/.test(m))return t("saleHint");
   if(/studios_name_lower|duplicate key.*studios/i.test(m))return t("e_name_taken");
   return m||t("err_generic")}
 function reviewPill(g){
@@ -1049,12 +1461,16 @@ async function adminView(main,tab,stale){
   const [ps,pv,pg]=await Promise.all([
     sb.from("studios").select("*,profiles(username)").eq("status","pending").order("submitted_at"),
     sb.from("studios").select("*,profiles(username),studio_verifications(*)").eq("verify_status","pending").order("verify_submitted_at"),
-    sb.from("games").select("*").eq("review_status","pending").order("submitted_at")]);
+    sb.from("games").select(GAME_COLS).eq("review_status","pending").order("submitted_at")]);
   if(stale())return;for(const r of[ps,pv,pg])if(r.error)throw r.error;
-  let all=null;if(tab==="all"){const r=await sb.from("games").select("*").order("created_at",{ascending:false}).limit(200);if(stale())return;if(r.error)throw r.error;all=r.data}
+  let all=null;if(tab==="all"){const r=await sb.from("games").select(GAME_COLS).order("created_at",{ascending:false}).limit(200);if(stale())return;if(r.error)throw r.error;all=r.data}
   adminCount=ps.data.length+pv.data.length+pg.data.length;renderHeader();
   const shab=isShabbat(),dis=shab?"disabled":"";
-  const tabs=[["games",t("a_games"),pg.data.length],["studios",t("a_studios"),ps.data.length],["verif",t("a_verif"),pv.data.length],["all",t("a_all"),0]];
+  const tabs=[["games",t("a_games"),pg.data.length],["studios",t("a_studios"),ps.data.length],["verif",t("a_verif"),pv.data.length],["all",t("a_all"),0],
+    ["awards","🏆 GOTM/GOTY",0],["mail","✉ "+t("a_mail"),0],["coins","🪙 Coins",0]];
+  let extra=null;
+  if(tab==="awards"){const[a,gl]=await Promise.all([sb.from("awards").select("kind,period,game_id,games(title)").order("period",{ascending:false}),
+    live("id,title").eq("coming_soon",false).order("title")]);if(stale())return;extra={awards:a.data||[],games:gl.data||[]}}
   const acts=(kind,id)=>`<div class="acts"><button class="btn green sm" data-ok="${kind}:${id}" ${dis}>✓ ${t("approve")}</button><button class="btn red sm" data-no="${kind}:${id}" ${dis}>✕ ${t("reject")}</button></div>`;
   const when=d=>`<span class="dim" style="font-size:12px">${t("submittedAt")} ${ago(d)}</span>`;
   let body="";
@@ -1068,6 +1484,23 @@ async function adminView(main,tab,stale){
     <span>${t("ageL")}</span><span>${v.age}</span><span>${t("socialL")}</span><span>${v.social_link&&okUrl(v.social_link)?`<a href="${esc(okUrl(v.social_link))}" target="_blank" rel="noopener" dir="ltr">${esc(v.social_link)}</a>`:"—"}</span>
     <span>${t("altL")}</span><span>${esc(v.alt_answer||"—")}</span><span>${t("humanL")}</span><span>${esc(v.human_text)}</span></div>
     <div class="dim" style="font-size:11px;margin-top:6px">🔒 ${t("deletedIn").replace("{d}",fmtDate(new Date(new Date(v.created_at).getTime()+30*864e5)))}</div>`:`<div class="mut">—</div>`}</div>${acts("verify",s.id)}</div>`}).join("");
+  else if(tab==="awards"){const ym=new Date().toLocaleDateString("en-CA").slice(0,7);
+    body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🏆 ${t("setAward")}</h3>
+      <div class="two"><label>${t("awardKind")}<select id="awk"><option value="gotm">${t("gotm")}</option><option value="goty">${t("goty")}</option></select></label>
+        <label>${t("period")}<input class="inp" id="awp" dir="ltr" value="${ym}" placeholder="2026-11 / 2026"></label></div>
+      <label>${t("games")}<select id="awg">${extra.games.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
+      <div class="hint">${t("awardHint")}</div><div class="err" id="awe"></div><div><button class="btn green" id="aws">${t("save")}</button></div></div>
+      ${extra.awards.map(a=>`<div class="row" style="grid-template-columns:1fr auto"><div><span class="atag">🏆 ${t(a.kind)}</span> <b style="color:#fff">${esc(a.games?.title||"")}</b> <span class="mut">${esc(periodLabel(a))}</span></div>
+        <button class="btn red sm" data-delaw="${a.kind}|${a.period}">${t("delete")}</button></div>`).join("")}`}
+  else if(tab==="mail")body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">✉ ${t("mailT")}</h3><div class="mut">${t("mailHint")}</div>
+      <label>${t("subject")} *<input class="inp" id="mt" maxlength="200"></label><label>${t("message")}<textarea class="inp" id="mb" maxlength="5000" style="min-height:160px"></textarea></label>
+      <div class="err" id="me"></div><div><button class="btn green" id="ms">✉ ${t("sendAll")}</button></div></div>`;
+  else if(tab==="coins")body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🎁 ${t("grantT")}</h3>
+      <div class="two"><label>${t("username")}<input class="inp" id="cu" maxlength="32"></label><label>Coins (+/−)<input class="inp" type="number" id="ca" value="100"></label></div>
+      <label>${t("keyNote")}<input class="inp" id="cn" maxlength="100"></label><div class="err" id="ce"></div><div><button class="btn green" id="cs">${t("grant")}</button></div></div>
+    <div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🔑 ${t("coinKeys")}</h3><div class="mut">${t("coinKeysHint")}</div>
+      <div class="two"><label>Coins<input class="inp" type="number" id="kc2" min="1" value="50"></label><label>${t("count")}<input class="inp" type="number" id="kn2" min="1" max="100" value="5"></label></div>
+      <label>${t("keyNote")}<input class="inp" id="knt2" maxlength="100"></label><div class="err" id="ke2"></div><div><button class="btn green" id="kg2">${t("generate")}</button></div><div id="ko2"></div></div>`;
   else if(tab==="all")body=all.map(g=>`<div class="qcard"><a href="#/app/${g.id}">${coverHTML(g)}</a><div><h4>${esc(g.title)}</h4><div class="mut">${esc(g.developer)}</div>
     <div style="margin-top:4px">${reviewPill(g)} ${g.published?"":`<span class="pill off">${t("hidden")}</span>`}</div></div>
     <div class="acts"><a class="btn ghost sm" href="#/app/${g.id}">${t("openGame")}</a><button class="btn ghost sm" data-vis="${g.id}:${g.published?0:1}">${g.published?t("hideG"):t("showG")}</button><button class="btn red sm" data-del="${g.id}">${t("delete")}</button></div></div>`).join("");
@@ -1077,8 +1510,21 @@ async function adminView(main,tab,stale){
   main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("adminT")}</h2>${shab?`<div class="banner">${t("shabbat")}</div>`:""}
     <div class="tabsb">${tabs.map(([k,l,n])=>`<button class="${k===tab?"on":""}" data-tab="${k}">${l}${n?`<span class="badgeN">${n}</span>`:""}</button>`).join("")}</div>
     <div class="rows" style="gap:10px;padding:12px">${body||`<div class="empty">${t("nothing")}</div>`}</div>`;
+  if(tab==="awards"&&$("#aws"))$("#aws").onclick=async()=>{const k=$("#awk").value,p=$("#awp").value.trim();
+    if(!(k==="gotm"?/^\d{4}-\d{2}$/:/^\d{4}$/).test(p)){$("#awe").textContent=t("awardHint");return}
+    const{error}=await sb.from("awards").upsert({kind:k,period:p,game_id:$("#awg").value},{onConflict:"kind,period"});if(error){$("#awe").textContent=errMsg(error);return}toast("🏆 "+t("saved"));route()};
+  if(tab==="mail")$("#ms").onclick=async e=>{const ti=$("#mt").value.trim();if(!ti){$("#me").textContent=t("err_required");return}
+    if(!await confirmBox(t("sendAll")+"?"))return;e.target.disabled=true;
+    const{data,error}=await sb.rpc("admin_broadcast",{p_title:ti,p_body:$("#mb").value.trim()});e.target.disabled=false;
+    if(error){$("#me").textContent=errMsg(error);return}toast("✉ "+t("sentTo").replace("{n}",data));$("#mt").value=$("#mb").value=""};
+  if(tab==="coins"){$("#cs").onclick=async()=>{const{data,error}=await sb.rpc("admin_grant",{p_username:$("#cu").value,p_amount:Math.floor(+$("#ca").value),p_note:$("#cn").value.trim()||null});
+      if(error){$("#ce").textContent=errMsg(error);return}$("#ce").textContent="";toast("🪙 "+t("saved")+" → "+data);await refreshWallet();renderHeader()};
+    $("#kg2").onclick=async()=>{const{data,error}=await sb.rpc("generate_keys",{p_game:null,p_coins:Math.floor(+$("#kc2").value),p_count:Math.floor(+$("#kn2").value),p_note:$("#knt2").value.trim()||null});
+      if(error){$("#ke2").textContent=errMsg(error);return}const codes=(data||[]).map(r=>typeof r==="string"?r:Object.values(r)[0]);
+      $("#ko2").innerHTML=`<textarea class="inp" readonly dir="ltr" style="min-height:120px;font-family:monospace">${codes.join("\n")}</textarea>`}}
   main.onclick=async e=>{const el=e.target.closest("button");if(!el)return;const d=el.dataset;
     if(d.tab){location.hash="#/admin/"+d.tab;return}
+    if(d.delaw){const[k,p]=d.delaw.split("|");const{error}=await sb.from("awards").delete().eq("kind",k).eq("period",p);if(error)return dbErr(error);route();return}
     const run=async(q)=>{el.disabled=true;const{error}=await q;if(error){toast(errMsg(error));el.disabled=false;return}toast(t("saved"));route()};
     if(d.ok||d.no){const[kind,id]=(d.ok||d.no).split(":");let reason=null;
       if(d.no){reason=await reasonBox(t("rejectQ"));if(!reason)return}
