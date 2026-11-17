@@ -43,12 +43,16 @@ def online() -> bool:
 
 
 class Api:
+    """Functions the offline page can call. Keep the window in a _private field:
+    pywebview walks every public attribute of js_api, and walking the whole
+    Window object froze the UI thread ("Not responding")."""
+
     def __init__(self):
-        self.window = None
+        self._window = None
 
     def retry(self):
         if online():
-            self.window.load_url(STORE_URL)
+            self._window.load_url(STORE_URL)
 
 
 def resource(name: str) -> str:
@@ -60,15 +64,17 @@ def main():
     api = Api()
     webview.settings["ALLOW_DOWNLOADS"] = True               # EXE/ZIP games can be downloaded
     webview.settings["OPEN_EXTERNAL_LINKS_IN_BROWSER"] = True  # share links, itch.io etc.
-    if online():
-        window = webview.create_window(TITLE, STORE_URL, js_api=api, width=1280, height=800,
-                                       min_size=(420, 600), background_color="#1b2838")
-    else:
-        window = webview.create_window(TITLE, html=OFFLINE_HTML, js_api=api, width=1280, height=800,
-                                       min_size=(420, 600), background_color="#1b2838")
-    api.window = window
+    # open the store right away; the connection check runs off the UI thread
+    window = webview.create_window(TITLE, STORE_URL, js_api=api, width=1280, height=800,
+                                   min_size=(420, 600), background_color="#1b2838")
+    api._window = window
+
+    def check_connection(w):
+        if not online():
+            w.load_html(OFFLINE_HTML)
+
     icon = resource("store.ico")
-    webview.start(private_mode=False, storage_path=data_dir(),
+    webview.start(check_connection, window, private_mode=False, storage_path=data_dir(),
                   icon=icon if os.path.exists(icon) else None)
 
 
