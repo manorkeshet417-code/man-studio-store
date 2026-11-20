@@ -841,7 +841,7 @@ async function gameView(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("gamenf"));
   const [gr,rr,ur,ar,br,fer]=await Promise.all([
     sb.from("games").select(GAME_COLS).eq("id",id).maybeSingle(),
-    sb.from("reviews").select("id,recommended,body,created_at,user_id,minutes,helpful,dev_reply,dev_reply_at,profiles(username,avatar_url)").eq("game_id",id).order("helpful",{ascending:false}).order("created_at",{ascending:false}).limit(100),
+    sb.from("reviews").select("id,recommended,body,created_at,user_id,minutes,helpful,dev_reply,dev_reply_at,profiles!reviews_user_id_fkey(username,avatar_url)").eq("game_id",id).order("helpful",{ascending:false}).order("created_at",{ascending:false}).limit(100),
     sb.from("game_updates").select("id,version,notes,created_at").eq("game_id",id).order("created_at",{ascending:false}).limit(10),
     sb.from("awards").select("kind,period").eq("game_id",id),
     sb.from("bundles").select("id,title,price,game_ids").eq("published",true).contains("game_ids",[id]),
@@ -1701,8 +1701,8 @@ async function adminView(main,tab,stale){
   setTitle(t("adminT"));if(needLogin())return;
   if(!me.profile.is_admin){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
   const [ps,pv,pg]=await Promise.all([
-    sb.from("studios").select("*,profiles(username)").eq("status","pending").order("submitted_at"),
-    sb.from("studios").select("*,profiles(username),studio_verifications(*)").eq("verify_status","pending").order("verify_submitted_at"),
+    sb.from("studios").select("*,profiles!studios_owner_fkey(username)").eq("status","pending").order("submitted_at"),
+    sb.from("studios").select("*,profiles!studios_owner_fkey(username),studio_verifications(*)").eq("verify_status","pending").order("verify_submitted_at"),
     sb.from("games").select(GAME_COLS).eq("review_status","pending").order("submitted_at")]);
   if(stale())return;for(const r of[ps,pv,pg])if(r.error)throw r.error;
   let all=null;if(tab==="all"){const r=await sb.from("games").select(GAME_COLS).order("created_at",{ascending:false}).limit(200);if(stale())return;if(r.error)throw r.error;all=r.data}
