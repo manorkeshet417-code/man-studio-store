@@ -251,6 +251,16 @@ textarea.inp{min-height:90px;resize:vertical}
 .keylist code{background:#0e1620;padding:2px 6px;border-radius:2px}
 .bpick{display:grid;gap:6px;margin-top:6px;max-height:220px;overflow-y:auto;background:#0e1620;padding:8px;border-radius:3px}
 .bpick label{display:flex;gap:8px;align-items:center}
+.fest{display:block;border-radius:6px;padding:18px 22px;color:#fff;min-height:110px;box-shadow:0 4px 18px #0007}
+.fest.big{min-height:180px;padding:28px}.fest:hover{color:#fff;filter:brightness(1.08)}
+.fest div{display:flex;flex-direction:column;gap:4px;align-items:flex-start;max-width:640px}.fest b{font-size:22px}.fest.big b{font-size:32px}
+.fstate{background:#0008;border-radius:12px;padding:2px 10px;font-size:12px}.fstate.live{background:#2c7a2c}.fstate.off{opacity:.7}
+.sbanner{height:220px;border-radius:6px;margin-top:16px}
+.sprof{margin-top:-70px;background:#1b2838e6;position:relative;flex-wrap:wrap}.sprof .av img{border-radius:6px}
+.slinks{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.helpful{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:12px;flex-wrap:wrap}.helpful .on{background:#1c4f6f;color:#fff}
+.legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
+.legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
 .bighelp summary{cursor:pointer;color:#c6d4df;font-size:13px}
 a.tag:hover{background:#4a6178;color:#fff}
@@ -324,7 +334,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
   </div>
 </header>
 <main class="wrap" id="main"></main>
-<footer><div class="wrap"><span id="foot1"></span><a id="footDl" href="downloads/ManStudioStore.exe" download></a><span id="foot2"></span></div></footer>
+<footer><div class="wrap"><span id="foot1"></span><a id="footDl" href="downloads/ManStudioStore.exe" download></a><span class="flinks"><a href="#/privacy" id="fPriv"></a> · <a href="#/terms" id="fTerms"></a></span><span id="foot2"></span></div></footer>
 <div id="toast" role="status"></div>
 
 <script>
@@ -428,7 +438,15 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",dlApp:"Download for Windows",appT:"Desktop app",appS:"Man Studio Store as a Windows app: its own window, remembers your sign-in, always up to date.",goldS:"gold ✔",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",festival:"Festival",festivals:"Festivals",festsS:"Limited-time events: play demos and upcoming games, follow studios and wishlist favorites.",noFests:"No festivals yet",
+f_live:"Live now",f_ends:"ends",f_signupOpen:"Sign-ups open until",f_startsOn:"Starts",f_ended:"Ended",noEntries:"No games signed up yet.",f_signupTill:"Sign-ups until",
+f_csOnly:"Coming soon games only",f_signupGame:"Sign up your game",f_join:"Join the festival",f_noEligible:"You have no eligible approved games for this festival.",f_yours:"Your games here",
+newFest:"New festival",newFestHint:"Every verified developer gets a notification when you create it.",tagline:"Tagline",color:"Color",createFest:"Create festival",festDatesBad:"The end must be after the start, and sign-ups must close before the end.",
+followersL:"followers",follow:"Follow",following:"Following",followHint:"You'll get a notification when this studio releases a game",website:"Website",support:"Support",
+nameLocked:"The name is locked after approval. To change it, email support.",aboutStudio:"About the studio",logo:"Logo",square:"square",banner:"Banner",surprise:"Surprise me — random game",
+helpfulQ:"Was this review helpful?",helpful:"Helpful",foundHelpful:"{n} people found this helpful",
+f_rprec:"How exact is the date?",rp_day:"Exact day",rp_month:"Month",rp_quarter:"Quarter (Q1–Q4)",rp_year:"Year",rp_tba:"To be announced",quarter:"Quarter",year:"Year",
+privacyT:"Privacy Policy",termsT:"Terms of Use",agree:"I agree to the {t} and the {p}",mustAgree:"Please agree to the Terms of Use and Privacy Policy.",dlApp:"Download for Windows",appT:"Desktop app",appS:"Man Studio Store as a Windows app: its own window, remembers your sign-in, always up to date.",goldS:"gold ✔",
 separately:"separately",youSave:"You save",ownSome:"You already own {n} of these",sales:"sales",earned:"earned",days:"days",coinsDay:"Coins earned",
 postUpdate:"Update",sale:"Sale",keys:"Keys",promote:"Promote",newBundle:"New bundle",bundleRule:"Bundles: games from your studio only, price above 25 Coins.",
 promoHint:"Your game goes to the top of the store with a highlighted \"Promoted\" badge for 7 days.",promotedUntil:"Promoted until",patchNotes:"Patch notes — what's new",
@@ -483,7 +501,15 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",dlApp:"הורדה ל-Windows",appT:"אפליקציה למחשב",appS:"Man Studio Store כאפליקציית Windows: חלון משלה, זוכרת את ההתחברות ותמיד מעודכנת.",goldS:"✔ הזהב",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",festival:"פסטיבל",festivals:"פסטיבלים",festsS:"אירועים לזמן מוגבל: משחקים בדמואים ובמשחקים שבדרך, עוקבים אחרי סטודיואים ומוסיפים לרשימת המשאלות.",noFests:"אין פסטיבלים עדיין",
+f_live:"פעיל עכשיו",f_ends:"נגמר",f_signupOpen:"ההרשמה פתוחה עד",f_startsOn:"מתחיל",f_ended:"הסתיים",noEntries:"עוד לא נרשמו משחקים.",f_signupTill:"הרשמה עד",
+f_csOnly:"רק משחקי \"בקרוב\"",f_signupGame:"רשום את המשחק שלך",f_join:"הצטרף לפסטיבל",f_noEligible:"אין לך משחקים מאושרים שמתאימים לפסטיבל הזה.",f_yours:"המשחקים שלך כאן",
+newFest:"פסטיבל חדש",newFestHint:"כל מפתח מאומת יקבל התראה כשתיצור אותו.",tagline:"משפט קצר",color:"צבע",createFest:"צור פסטיבל",festDatesBad:"הסיום צריך להיות אחרי ההתחלה, וההרשמה צריכה להיסגר לפני הסיום.",
+followersL:"עוקבים",follow:"עקוב",following:"במעקב",followHint:"תקבל התראה כשהסטודיו יוציא משחק",website:"אתר",support:"תמיכה",
+nameLocked:"השם ננעל אחרי האישור. כדי לשנות אותו, שלח מייל לתמיכה.",aboutStudio:"על הסטודיו",logo:"לוגו",square:"ריבוע",banner:"באנר",surprise:"הפתע אותי — משחק אקראי",
+helpfulQ:"הביקורת עזרה?",helpful:"עזרה",foundHelpful:"{n} אנשים מצאו שזה עזר",
+f_rprec:"כמה מדויק התאריך?",rp_day:"יום מדויק",rp_month:"חודש",rp_quarter:"רבעון (Q1–Q4)",rp_year:"שנה",rp_tba:"יוכרז בהמשך",quarter:"רבעון",year:"שנה",
+privacyT:"מדיניות פרטיות",termsT:"תנאי שימוש",agree:"אני מסכים ל{t} ול{p}",mustAgree:"צריך להסכים לתנאי השימוש ולמדיניות הפרטיות.",dlApp:"הורדה ל-Windows",appT:"אפליקציה למחשב",appS:"Man Studio Store כאפליקציית Windows: חלון משלה, זוכרת את ההתחברות ותמיד מעודכנת.",goldS:"✔ הזהב",
 separately:"בנפרד",youSave:"חוסכים",ownSome:"כבר יש לך {n} מהם",sales:"מכירות",earned:"הרווחת",days:"ימים",coinsDay:"Coins שהרווחת",
 postUpdate:"עדכון",sale:"מבצע",keys:"קודים",promote:"קידום",newBundle:"חבילה חדשה",bundleRule:"חבילות: רק משחקים מהסטודיו שלך, במחיר מעל 25 Coins.",
 promoHint:"המשחק עולה לראש החנות עם תג \"מקודם\" בולט ל-7 ימים.",promotedUntil:"מקודם עד",patchNotes:"פירוט עדכון — מה חדש",
@@ -549,12 +575,14 @@ function dbErr(e){console.error(e);toast((e&&e.message)||t("err_generic"))}
 /* ============ session ============ */
 let me=null, myLib=new Set(), myWish=new Set();
 async function loadMe(session){
-  if(!session){me=null;myLib=new Set();myWish=new Set();return}
+  if(!session){me=null;myLib=new Set();myWish=new Set();myFollows=new Set();return}
   const uid=session.user.id;
-  const [p,l,w]=await Promise.all([
+  const [p,l,w,fl]=await Promise.all([
     sb.from("profiles").select("id,username,avatar_url,bio,is_admin,created_at").eq("id",uid).maybeSingle(),
     sb.from("library").select("game_id").eq("user_id",uid),
-    sb.from("wishlist").select("game_id").eq("user_id",uid)]);
+    sb.from("wishlist").select("game_id").eq("user_id",uid),
+    sb.from("follows").select("studio_id").eq("user_id",uid)]);
+  myFollows=new Set((fl.data||[]).map(r=>r.studio_id));
   me={id:uid,email:session.user.email,profile:p.data||{username:session.user.email.split("@")[0]},coins:0,card:"",lastDaily:null};
   myLib=new Set((l.data||[]).map(r=>r.game_id));myWish=new Set((w.data||[]).map(r=>r.game_id));
   await Promise.all([refreshAdminCount(),refreshWallet(),refreshUnread()]);
@@ -596,16 +624,16 @@ function renderHeader(){
       :`<a class="btn green sm" href="#/login">${t("login")}</a>`);
   if(me){$("#ub").onclick=e=>{if(e.target.closest("#um a"))return;$("#um").hidden=!$("#um").hidden};
     $("#lo").onclick=async e=>{e.stopPropagation();await sb.auth.signOut();location.hash="#/"}}
-  $("#foot1").textContent="© "+new Date().getFullYear()+" "+STORE_NAME+" — "+t("foot1");$("#foot2").textContent=t("foot2");$("#footDl").textContent="🪟 "+t("dlApp");
+  $("#foot1").textContent="© "+new Date().getFullYear()+" "+STORE_NAME+" — "+t("foot1");$("#foot2").textContent=t("foot2");$("#footDl").textContent="🪟 "+t("dlApp");$("#fPriv").textContent=t("privacyT");$("#fTerms").textContent=t("termsT");
 }
 document.addEventListener("click",e=>{const m=$("#um");if(m&&!e.target.closest("#ub"))m.hidden=true;if(!e.target.closest("#burger"))$("#nav").classList.remove("open")});
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
 
 function subnav(q=""){
-  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a>
+  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a><a href="#/festivals">🎪 ${t("festivals")}</a><a href="#" data-surprise title="${t("surprise")}">🎲</a>
   <form class="search" id="sf"><input id="sq" placeholder="${t("search")}" value="${esc(q)}" aria-label="${t("search")}"><button aria-label="${t("search")}">⌕</button></form></div>`;
 }
-function bindSubnav(){const f=$("#sf");if(f)f.onsubmit=e=>{e.preventDefault();location.hash="#/browse?q="+encodeURIComponent($("#sq").value.trim())}}
+function bindSubnav(){const r=document.querySelector("[data-surprise]");if(r)r.onclick=e=>{e.preventDefault();surprise()};const f=$("#sf");if(f)f.onsubmit=e=>{e.preventDefault();location.hash="#/browse?q="+encodeURIComponent($("#sq").value.trim())}}
 
 /* ============ router ============ */
 let rid=0;
@@ -636,6 +664,10 @@ async function route(){
       case "inbox": await inboxView(main,stale);break;
       case "studio": await studioPage(main,parts[1],stale);break;
       case "bundle": await bundlePage(main,parts[1],stale);break;
+      case "festivals": await festsView(main,stale);break;
+      case "fest": await festPage(main,parts[1],stale);break;
+      case "privacy": legalView(main,"privacy");break;
+      case "terms": legalView(main,"terms");break;
       default: main.innerHTML=`<div class="empty"><b>${t("notfound")}</b><a href="#/">${t("back")}</a></div>`;
     }
   }catch(e){if(!stale()){console.error(e);main.innerHTML=`<div class="empty"><b>${t("err_generic")}</b>${esc(e.message||"")}</div>`}}
@@ -644,10 +676,13 @@ async function route(){
 function setTitle(s){document.title=s?s+" — "+STORE_NAME:STORE_NAME}
 
 /* ============ store home ============ */
-const GAME_COLS="id,owner,developer,title,short_desc,description,genre,tags,cover_url,screenshots,trailer_url,play_kind,min_reqs,published,players,wishes,review_count,positive_count,created_at,updated_at,studio_id,review_status,reject_reason,submitted_at,reviewed_at,fix_deadline,lucky,file_name,file_size,coming_soon,release_date,price,sale_pct,sale_start,sale_end,promoted_until,version,sales_count,coins_earned";
-const LIST_COLS="id,title,developer,short_desc,genre,tags,cover_url,screenshots,players,review_count,positive_count,created_at,owner,coming_soon,release_date,wishes,price,sale_pct,sale_start,sale_end,promoted_until,studio_id,version";
-function soonDate(g){return g.release_date?fmtDate(g.release_date+"T12:00:00"):t("tba")}
-function daysLeft(g){if(!g.release_date)return null;const d=Math.ceil((new Date(g.release_date+"T00:00:00")-new Date())/864e5);return d>0?d:0}
+const GAME_COLS="id,owner,developer,title,short_desc,description,genre,tags,cover_url,screenshots,trailer_url,play_kind,min_reqs,published,players,wishes,review_count,positive_count,created_at,updated_at,studio_id,review_status,reject_reason,submitted_at,reviewed_at,fix_deadline,lucky,file_name,file_size,coming_soon,release_date,price,sale_pct,sale_start,sale_end,promoted_until,version,sales_count,coins_earned,release_precision";
+const LIST_COLS="id,title,developer,short_desc,genre,tags,cover_url,screenshots,players,review_count,positive_count,created_at,owner,coming_soon,release_date,wishes,price,sale_pct,sale_start,sale_end,promoted_until,studio_id,version,release_precision";
+function soonDate(g){const p=g.release_precision||"day";if(p==="tba"||!g.release_date)return t("tba");
+  const d=new Date(g.release_date+"T12:00:00"),y=d.getFullYear();
+  if(p==="year")return String(y);if(p==="quarter")return "Q"+(Math.floor(d.getMonth()/3)+1)+" "+y;
+  if(p==="month")return d.toLocaleDateString(lang==="he"?"he-IL":"en-US",{month:"long",year:"numeric"});return fmtDate(d)}
+function daysLeft(g){if(!g.release_date||(g.release_precision&&g.release_precision!=="day"))return null;const d=Math.ceil((new Date(g.release_date+"T00:00:00")-new Date())/864e5);return d>0?d:0}
 const onSale=g=>!!(g.sale_pct&&g.sale_start&&g.sale_end&&new Date(g.sale_start)<=new Date()&&new Date()<new Date(g.sale_end));
 const effPrice=g=>onSale(g)?Math.round(g.price*(100-g.sale_pct)/100):(g.price||0);
 const isPromoted=g=>!!(g.promoted_until&&new Date(g.promoted_until)>new Date());
@@ -669,7 +704,7 @@ function periodLabel(a){if(a.kind==="goty")return a.period;const[y,m]=a.period.s
 async function storeView(main,stale){
   setTitle("");
   const since30=new Date(Date.now()-30*864e5).toISOString(),n=nowISO();
-  const [fe,np,sp,cs,aw,bd,tr,ne]=await Promise.all([
+  const [fe,np,sp,cs,aw,bd,tr,ne,fs]=await Promise.all([
     live().order("promoted_until",{ascending:false,nullsFirst:false}).order("players",{ascending:false}).limit(10),
     live().eq("coming_soon",false).gte("created_at",since30).order("players",{ascending:false}).limit(8),
     live().eq("coming_soon",false).not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n).limit(8),
@@ -677,7 +712,8 @@ async function storeView(main,stale){
     sb.from("awards").select("kind,period,game_id").order("period",{ascending:false}).limit(12),
     sb.from("bundles").select("id,title,price,game_ids,studio_id").eq("published",true).order("created_at",{ascending:false}).limit(6),
     sb.rpc("trending_ids",{p_limit:8}),
-    live().eq("coming_soon",false).order("created_at",{ascending:false}).limit(8)]);
+    live().eq("coming_soon",false).order("created_at",{ascending:false}).limit(8),
+    sb.from("festivals").select("*").gt("ends_at",n).order("starts_at").limit(3)]);
   if(stale())return;
   for(const r of [fe,np,sp,cs])if(r.error)throw r.error;
   const feat=fe.data.slice().sort((a,b)=>(isPromoted(b)-isPromoted(a))).slice(0,6);
@@ -689,7 +725,9 @@ async function storeView(main,stale){
   const awardGames=await gamesByIds([gotm,goty].filter(Boolean).map(a=>a.game_id));if(stale())return;
   const ag=id=>awardGames.find(g=>g.id===id);
   const bundles=bd.data||[];
+  const fests=(fs.data||[]).filter(f=>festState(f)!=="ended");
   main.innerHTML=subnav()+`
+    ${fests.length?`<div style="display:grid;gap:10px;margin-bottom:6px">${fests.map(f=>festBannerHTML(f,festState(f)==="live")).join("")}</div>`:""}
     <h2 class="sec">⭐ ${t("featured")}</h2>
     <div id="heroBox"></div><div class="dots" id="dots"></div>
     ${[gotm,goty].filter(a=>a&&ag(a.game_id)).length?`<div class="awards">${[gotm,goty].filter(a=>a&&ag(a.game_id)).map(a=>{const g=ag(a.game_id);
@@ -801,12 +839,13 @@ async function openCheckout(item){ // item: {kind:'game'|'bundle', id, title, pr
 /* ============ game page ============ */
 async function gameView(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("gamenf"));
-  const [gr,rr,ur,ar,br]=await Promise.all([
+  const [gr,rr,ur,ar,br,fer]=await Promise.all([
     sb.from("games").select(GAME_COLS).eq("id",id).maybeSingle(),
-    sb.from("reviews").select("id,recommended,body,created_at,user_id,minutes,dev_reply,dev_reply_at,profiles(username,avatar_url)").eq("game_id",id).order("created_at",{ascending:false}).limit(100),
+    sb.from("reviews").select("id,recommended,body,created_at,user_id,minutes,helpful,dev_reply,dev_reply_at,profiles(username,avatar_url)").eq("game_id",id).order("helpful",{ascending:false}).order("created_at",{ascending:false}).limit(100),
     sb.from("game_updates").select("id,version,notes,created_at").eq("game_id",id).order("created_at",{ascending:false}).limit(10),
     sb.from("awards").select("kind,period").eq("game_id",id),
-    sb.from("bundles").select("id,title,price,game_ids").eq("published",true).contains("game_ids",[id])]);
+    sb.from("bundles").select("id,title,price,game_ids").eq("published",true).contains("game_ids",[id]),
+    sb.from("festival_entries").select("festivals(id,title,theme,starts_at,ends_at,signup_ends)").eq("game_id",id)]);
   if(stale())return;
   if(gr.error)throw gr.error;
   const g=gr.data;if(!g){main.innerHTML=`<div class="empty"><b>${t("gamenf")}</b><a href="#/">${t("back")}</a></div>`;return}
@@ -814,6 +853,9 @@ async function gameView(main,id,stale){
     me&&myLib.has(g.id)?sb.rpc("review_minutes",{p_game:g.id}):{data:null}]);
   if(stale())return;
   const studio=sr.data,myMin=mr.data;
+  const gameFests=(fer.data||[]).map(r=>r.festivals).filter(f=>f&&festState(f)!=="ended");
+  let myVotes=new Set();if(me&&rr.data&&rr.data.length){const v=await sb.from("review_votes").select("review_id").eq("user_id",me.id).in("review_id",rr.data.map(r=>r.id));myVotes=new Set((v.data||[]).map(x=>x.review_id))}
+  if(stale())return;
   const revs=rr.data||[],updates=ur.data||[],awards=ar.data||[],bundles=br.data||[];setTitle(g.title);
   const isOwner=me&&me.id===g.owner, isAdmin=me&&me.profile.is_admin, owned=myLib.has(g.id);
   const paid=g.price>0, canPlay=!g.coming_soon&&(!paid||owned||isOwner||isAdmin);
@@ -828,6 +870,7 @@ async function gameView(main,id,stale){
   <div class="crumbs"><a href="#/browse">${t("browse")}</a> › <a href="#/browse?genre=${encodeURIComponent(g.genre)}">${esc(gname(g.genre))}</a> › ${esc(g.title)}</div>
   <h1 class="gtitle">${esc(g.title)} ${!g.published?`<span class="pill off">${t("hidden")}</span>`:""} ${promoHTML(g)}
     ${isOwner||isAdmin?`<a class="btn ghost sm" href="#/edit/${g.id}">✎ ${t("edit")}</a>`:""}${g.lucky?` <span class="pill luck">${t("lucky")}</span>`:""}</h1>
+  ${gameFests.length?`<div class="awardline">${gameFests.map(f=>`<a class="atag big" style="background:${esc(f.theme)};color:#fff" href="#/fest/${f.id}">🎪 ${esc(f.title)}${festState(f)==="live"?" · "+t("f_live"):""}</a>`).join("")}</div>`:""}
   ${awards.length?`<div class="awardline">${awards.map(a=>`<span class="atag big">🏆 ${t(a.kind)} · ${esc(periodLabel(a))}</span>`).join("")}</div>`:""}
   ${(isOwner||isAdmin)&&g.review_status!=="approved"?`<div style="margin-bottom:12px">${gameStatusHTML(g)}${isAdmin?`<a class="btn sm" style="margin-top:8px" href="#/admin/games">${t("adminT")}</a>`:""}</div>`:""}
   <div class="gtop"><div class="media"><div class="main" id="mm"></div>
@@ -870,7 +913,8 @@ async function gameView(main,id,stale){
       <button class="btn ghost" id="shareBtn">🔗 ${t("share")}</button>
       ${isOwner||isAdmin?`<button class="btn red" id="delBtn">${t("delete")}</button>`:""}
     </div>
-    ${studio?`<a class="panel studiobox" href="#/studio/${studio.id}">${avatarHTML({username:studio.name},40)}<div><b>${esc(studio.name)} ${badgeHTML(studio.downloads)}</b><div class="dim" style="font-size:12px">${(studio.downloads||0).toLocaleString()} ${t("downloads")}</div></div></a>`:""}
+    ${studio?`<a class="panel studiobox" href="#/studio/${studio.id}">${avatarHTML({username:studio.name},40)}<div><b>${esc(studio.name)} ${badgeHTML(studio.downloads)}</b><div class="dim" style="font-size:12px">${(studio.downloads||0).toLocaleString()} ${t("downloads")}</div></div></a>
+      ${me&&me.id!==g.owner?`<button class="btn ${myFollows.has(studio.id)?"ghost":""} sm" id="flwG" style="width:100%;margin-top:6px">${myFollows.has(studio.id)?"✓ "+t("following"):"+ "+t("follow")} ${esc(studio.name)}</button>`:""}`:""}
   </aside></div>`;
   bindSubnav();
   const showMedia=i=>{const m=media[i];
@@ -882,6 +926,9 @@ async function gameView(main,id,stale){
   if($("#buyBtn"))$("#buyBtn").onclick=()=>openCheckout({kind:"game",id:g.id,title:g.title,price:effPrice(g),list:g.price});
   if($("#soonWish"))$("#soonWish").onclick=()=>$("#wishBtn").click();
   $("#shareBtn").onclick=()=>openShare("/app/"+g.id,g.title);
+  if($("#flwG"))$("#flwG").onclick=async()=>{const f=myFollows.has(studio.id);
+    const{error}=f?await sb.from("follows").delete().eq("user_id",me.id).eq("studio_id",studio.id):await sb.from("follows").insert({user_id:me.id,studio_id:studio.id});
+    if(error)return dbErr(error);f?myFollows.delete(studio.id):myFollows.add(studio.id);if(!f)toast("⭐ "+t("followHint"));route()};
   if($("#libBtn"))$("#libBtn").onclick=async()=>{if(needLogin())return;
     if(myLib.has(g.id)){const{error}=await sb.from("library").delete().eq("user_id",me.id).eq("game_id",g.id);if(error)return dbErr(error);myLib.delete(g.id)}
     else{const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(error)return dbErr(error);myLib.add(g.id);toast("✓ "+t("inlib"))}
@@ -900,8 +947,13 @@ async function gameView(main,id,stale){
     <span style="margin-inline-start:auto;display:flex;gap:6px">${isOwner?`<button class="btn ghost sm" data-reply="${rv.id}">💬 ${rv.dev_reply?t("editReply"):t("reply")}</button>`:""}
     ${(me&&me.id===rv.user_id)||isAdmin?`<button class="btn ghost sm" data-delrev="${rv.id}">${t("delete")}</button>`:""}</span></div>
     <div class="txt">${esc(rv.body)}</div>
+    <div class="helpful"><span class="dim">${t("helpfulQ")}</span>${me&&me.id!==rv.user_id?`<button class="btn ghost sm ${myVotes.has(rv.id)?"on":""}" data-help="${rv.id}">👍 ${t("helpful")}</button>`:""}
+      ${rv.helpful?`<span class="dim">${t("foundHelpful").replace("{n}",rv.helpful)}</span>`:""}</div>
     ${rv.dev_reply?`<div class="devreply"><b>💬 ${t("devResponse")} — ${esc(g.developer)}</b> <span class="dim">${ago(rv.dev_reply_at)}</span><div class="txt">${esc(rv.dev_reply)}</div></div>`:""}</div></div>`).join("");
   $("#revs").onclick=async e=>{const b=e.target.closest("button");if(!b)return;
+    if(b.dataset.help){const on=myVotes.has(b.dataset.help);
+      const{error}=on?await sb.from("review_votes").delete().eq("review_id",b.dataset.help).eq("user_id",me.id):await sb.from("review_votes").insert({review_id:b.dataset.help,user_id:me.id});
+      if(error)return dbErr(error);route();return}
     if(b.dataset.delrev){if(!await confirmBox(t("delete")+"?"))return;
       const{error}=await sb.from("reviews").delete().eq("id",b.dataset.delrev);if(error)return dbErr(error);toast(t("deleted"));route()}
     else if(b.dataset.reply){const rv=revs.find(x=>x.id===b.dataset.reply);
@@ -1036,27 +1088,186 @@ async function inboxView(main,stale){
   const c=$("#clr");if(c)c.onclick=async e=>{e.preventDefault();await sb.from("notifications").delete().eq("user_id",me.id);route()};
 }
 
-/* ============ studio page ============ */
+/* ============ festivals ============ */
+function festState(f){const n=Date.now(),s=+new Date(f.starts_at),e=+new Date(f.ends_at),u=+new Date(f.signup_ends);
+  return n>=e?"ended":n>=s?"live":n<u?"signup":"soon"}
+function festDates(f){const o={month:"short",day:"numeric"},L=lang==="he"?"he-IL":"en-US";
+  return new Date(f.starts_at).toLocaleDateString(L,o)+" – "+new Date(f.ends_at).toLocaleDateString(L,{...o,year:"numeric"})}
+function festBg(f){const u=okUrl(f.banner_url||"");return u?`background:linear-gradient(90deg,#000c,#0004),url('${esc(u)}') center/cover`:`background:linear-gradient(120deg,${f.theme},#1b2838)`}
+function festStateHTML(f){const s=festState(f);
+  return s==="live"?`<span class="fstate live">● ${t("f_live")} · ${t("f_ends")} ${fmtDate(f.ends_at)}</span>`
+    :s==="signup"?`<span class="fstate">${t("f_signupOpen")} ${fmtDate(f.signup_ends)}</span>`
+    :s==="soon"?`<span class="fstate">${t("f_startsOn")} ${fmtDate(f.starts_at)}</span>`:`<span class="fstate off">${t("f_ended")}</span>`}
+function festBannerHTML(f,big){return `<a class="fest ${big?"big":""}" href="#/fest/${f.id}" style="${festBg(f)}"><div><span class="atag" style="background:${esc(f.theme)};color:#fff">🎪 ${t("festival")}</span>
+  <b>${esc(f.title)}</b>${f.tagline?`<span>${esc(f.tagline)}</span>`:""}<span class="dim">${festDates(f)}</span>${festStateHTML(f)}</div></a>`}
+async function festsView(main,stale){
+  setTitle(t("festivals"));
+  const{data,error}=await sb.from("festivals").select("*").order("starts_at",{ascending:false});if(stale())return;if(error)throw error;
+  const order={live:0,signup:1,soon:2,ended:3};const list=(data||[]).sort((a,b)=>order[festState(a)]-order[festState(b)]);
+  main.innerHTML=subnav()+`<h2 class="sec" style="font-size:20px">🎪 ${t("festivals")}</h2><div class="mut" style="margin-bottom:12px">${t("festsS")}</div>
+    <div style="display:grid;gap:12px">${list.map(f=>festBannerHTML(f,false)).join("")||`<div class="empty"><b>${t("noFests")}</b></div>`}</div>`;
+  bindSubnav();
+}
+async function festPage(main,id,stale){
+  if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("notfound"));
+  const[fr,er]=await Promise.all([sb.from("festivals").select("*").eq("id",id).maybeSingle(),sb.from("festival_entries").select("game_id,owner").eq("festival_id",id)]);
+  if(stale())return;const f=fr.data;if(!f){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
+  setTitle(f.title);
+  const entries=er.data||[],games=await gamesByIds(entries.map(e=>e.game_id));if(stale())return;
+  const st=festState(f),mine=me?entries.filter(e=>e.owner===me.id).map(e=>e.game_id):[];
+  let eligible=[];
+  if(me&&st==="signup"){let q=sb.from("games").select("id,title,coming_soon").eq("owner",me.id).eq("review_status","approved").eq("published",true);
+    if(f.coming_soon_only)q=q.eq("coming_soon",true);const{data}=await q;if(stale())return;eligible=(data||[]).filter(g=>!mine.includes(g.id))}
+  main.innerHTML=subnav()+festBannerHTML(f,true)+`
+    <div class="gbody"><div>${f.description?`<div class="about" style="margin-bottom:14px">${esc(f.description)}</div>`:""}
+      <h2 class="sec">🎮 ${t("games")} <span class="mut">(${games.length})</span></h2>
+      ${games.length?`<div class="grid">${games.map(cardHTML).join("")}</div>`:`<div class="mut">${t("noEntries")}</div>`}</div>
+    <aside><div class="panel" style="display:grid;gap:8px">
+      <div class="kv2"><span>${t("f_signupTill")}</span><span>${fmtDate(f.signup_ends)}</span><span>${t("from")}</span><span>${fmtDate(f.starts_at)}</span><span>${t("to")}</span><span>${fmtDate(f.ends_at)}</span>
+      ${f.coming_soon_only?`<span>🕒</span><span>${t("f_csOnly")}</span>`:""}</div>
+      ${st==="signup"?(me?(eligible.length?`<label class="form" style="gap:5px;max-width:none">${t("f_signupGame")}<select id="fsg">${eligible.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
+        <button class="btn green" id="fsb">🎪 ${t("f_join")}</button>`:`<div class="mut" style="font-size:12px">${t("f_noEligible")}</div>`)
+        :`<a class="btn ghost" href="#/login?next=${encodeURIComponent(location.hash)}">${t("login")}</a>`):""}
+      ${mine.length?`<div class="mut" style="font-size:12px">${t("f_yours")}:</div>${mine.map(gid=>{const g=games.find(x=>x.id===gid);return `<div style="display:flex;gap:6px;align-items:center"><span style="flex:1">${esc(g?.title||"")}</span><button class="btn ghost sm" data-leave="${gid}">${t("remove")}</button></div>`}).join("")}`:""}
+      <button class="btn ghost" id="fshare">🔗 ${t("share")}</button>
+    </div></aside></div>`;
+  bindSubnav();
+  $("#fshare").onclick=()=>openShare("/fest/"+f.id,f.title);
+  if($("#fsb"))$("#fsb").onclick=async e=>{e.target.disabled=true;const{error}=await sb.from("festival_entries").insert({festival_id:f.id,game_id:$("#fsg").value,owner:me.id});
+    if(error){toast(errMsg(error));e.target.disabled=false;return}toast("🎪 "+t("saved"));route()};
+  main.onclick=async e=>{const b=e.target.closest("[data-leave]");if(!b)return;const{error}=await sb.from("festival_entries").delete().eq("festival_id",f.id).eq("game_id",b.dataset.leave);if(error)return dbErr(error);route()};
+}
+
+/* ============ studio page (profile, follow, edit) ============ */
+let myFollows=new Set();
 async function studioPage(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("notfound"));
-  const[sr,gr,br]=await Promise.all([sb.from("studios").select("id,name,downloads,members,created_at,support_email,status,verify_status").eq("id",id).maybeSingle(),
+  const[sr,gr,br]=await Promise.all([sb.from("studios").select("id,owner,name,downloads,followers,members,created_at,support_email,status,verify_status,about,logo_url,banner_url,website,discord_url,youtube_url,x_url").eq("id",id).maybeSingle(),
     live().eq("studio_id",id).order("created_at",{ascending:false}),
     sb.from("bundles").select("id,title,price,game_ids").eq("studio_id",id).eq("published",true)]);
   if(stale())return;const s=sr.data;
   if(!s){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
   setTitle(s.name);
+  const mine=me&&me.id===s.owner,following=myFollows.has(s.id);
   const next=s.downloads>=500?null:s.downloads>=50?500:50;
-  main.innerHTML=`<div class="prof">${avatarHTML({username:s.name},96)}<div style="flex:1"><h1>${esc(s.name)} ${badgeHTML(s.downloads)}</h1>
-    <div class="mut">${(s.downloads||0).toLocaleString()} ${t("downloads")} · ${s.members} ${t("members")} · ${t("member")} ${fmtDate(s.created_at)}</div>
+  const logo=okUrl(s.logo_url||""),banner=okUrl(s.banner_url||"");
+  const links=[["website","🌐",s.website],["Discord","💬",s.discord_url],["YouTube","▶",s.youtube_url],["X","𝕏",s.x_url]].filter(l=>okUrl(l[2]||""));
+  main.innerHTML=`<div class="sbanner" style="${banner?`background:linear-gradient(0deg,#1b2838,#1b283800 70%),url('${esc(banner)}') center/cover`:`background:linear-gradient(120deg,hsl(${hash(s.name)%360} 45% 30%),#1b2838)`}"></div>
+    <div class="prof sprof">${logo?`<span class="av" style="width:110px;height:110px"><img src="${esc(logo)}" alt=""></span>`:avatarHTML({username:s.name},110)}<div style="flex:1;min-width:0"><h1>${esc(s.name)} ${badgeHTML(s.downloads)}</h1>
+    <div class="mut">${(s.downloads||0).toLocaleString()} ${t("downloads")} · ${(s.followers||0).toLocaleString()} ${t("followersL")} · ${s.members} ${t("members")} · ${t("member")} ${fmtDate(s.created_at)}</div>
     ${s.verify_status==="verified"?`<div class="dim" style="font-size:12px">✔ ${t("verified")}</div>`:""}
     ${next?`<div class="dim" style="font-size:12px">${t("nextBadge").replace("{n}",next-s.downloads).replace("{b}",next===50?t("blueS"):t("goldS"))}</div>`:""}
-    <div style="font-size:13px;margin-top:4px"><a href="mailto:${esc(s.support_email)}" dir="ltr">${esc(s.support_email)}</a></div></div>
-    <button class="btn ghost" id="shs">🔗 ${t("share")}</button></div>
+    <div class="slinks">${links.map(([n,i,u])=>`<a class="btn ghost sm" href="${esc(okUrl(u))}" target="_blank" rel="noopener">${i} ${n==="website"?t("website"):n}</a>`).join("")}
+      <a class="btn ghost sm" href="mailto:${esc(s.support_email)}">✉ ${t("support")}</a></div></div>
+    <div style="display:flex;flex-direction:column;gap:6px">${mine?`<button class="btn" id="eds">✎ ${t("editStudio")}</button>`:`<button class="btn ${following?"ghost":"green"}" id="flw">${following?"✓ "+t("following"):"+ "+t("follow")}</button>`}
+      <button class="btn ghost" id="shs">🔗 ${t("share")}</button></div></div>
+    ${s.about?`<div class="about panel" style="margin-top:12px">${esc(s.about)}</div>`:""}
     <h2 class="sec">${t("gamesby")} ${esc(s.name)} <span class="mut">(${(gr.data||[]).length})</span></h2>
     ${(gr.data||[]).length?`<div class="grid">${gr.data.map(cardHTML).join("")}</div>`:`<div class="mut">—</div>`}
     ${(br.data||[]).length?`<h2 class="sec">📦 ${t("bundles")}</h2><div class="grid">${br.data.map(bundleCardHTML).join("")}</div>`:""}`;
   $("#shs").onclick=()=>openShare("/studio/"+s.id,s.name);
+  if($("#flw"))$("#flw").onclick=async()=>{if(needLogin())return;
+    const{error}=following?await sb.from("follows").delete().eq("user_id",me.id).eq("studio_id",s.id):await sb.from("follows").insert({user_id:me.id,studio_id:s.id});
+    if(error)return dbErr(error);following?myFollows.delete(s.id):myFollows.add(s.id);if(!following)toast("⭐ "+t("followHint"));route()};
+  if($("#eds"))$("#eds").onclick=()=>studioEditForm(s);
 }
+function studioEditForm(s){
+  const m=modal("✎ "+t("editStudio"),`<div class="form" style="max-width:none">
+    <label>${t("sname")}<input class="inp" value="${esc(s.name)}" disabled><span class="hint">${t("nameLocked")}</span></label>
+    <label>${t("aboutStudio")}<textarea class="inp" id="sa" maxlength="3000" style="min-height:110px">${esc(s.about||"")}</textarea></label>
+    <div class="two"><label>${t("logo")} <span class="hint">(${t("square")})</span><input type="file" id="sl" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+      <label>${t("banner")} <span class="hint">(1600×400)</span><input type="file" id="sbn" accept="image/png,image/jpeg,image/webp,image/gif"></label></div>
+    <div class="two"><label>${t("website")}<input class="inp" id="sw" dir="ltr" maxlength="300" placeholder="https://…" value="${esc(s.website||"")}"></label>
+      <label>Discord<input class="inp" id="sd" dir="ltr" maxlength="300" placeholder="https://discord.gg/…" value="${esc(s.discord_url||"")}"></label></div>
+    <div class="two"><label>YouTube<input class="inp" id="syt" dir="ltr" maxlength="300" placeholder="https://youtube.com/@…" value="${esc(s.youtube_url||"")}"></label>
+      <label>X<input class="inp" id="sx" dir="ltr" maxlength="300" placeholder="https://x.com/…" value="${esc(s.x_url||"")}"></label></div>
+    <div class="two"><label>${t("smembers")}<input class="inp" type="number" id="sm2" min="1" max="1000" value="${s.members}"></label>
+      <label>${t("semail")}<input class="inp" id="se2" type="email" dir="ltr" value="${esc(s.support_email)}"></label></div>
+    <div class="err" id="ste2"></div><div class="acts"><button class="btn ghost" data-x>${t("cancel")}</button><button class="btn green" id="sts2">${t("save")}</button></div></div>`,true);
+  m.el.querySelector("#sts2").onclick=async e=>{const g=id=>m.el.querySelector(id),er=g("#ste2");er.textContent="";
+    const urls={website:g("#sw").value.trim(),discord_url:g("#sd").value.trim(),youtube_url:g("#syt").value.trim(),x_url:g("#sx").value.trim()};
+    for(const k in urls){if(urls[k]&&!okUrl(urls[k])){er.textContent=t("err_badurl");return}urls[k]=urls[k]||null}
+    const rec={...urls,about:g("#sa").value.trim()||null,members:Math.max(1,Math.floor(+g("#sm2").value||1)),support_email:g("#se2").value.trim()};
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(rec.support_email)){er.textContent=t("err_required");return}
+    e.target.disabled=true;e.target.textContent=t("uploading");
+    try{const lf=g("#sl").files[0],bf=g("#sbn").files[0];
+      if(lf)rec.logo_url=await upload(lf,"logo",IMG,3);if(bf)rec.banner_url=await upload(bf,"banner",IMG,5);
+      const{error}=await sb.from("studios").update(rec).eq("id",s.id);if(error)throw error;
+      const old=[lf&&s.logo_url,bf&&s.banner_url].map(storagePath).filter(Boolean);if(old.length)sb.storage.from("media").remove(old).catch(()=>{});
+      m.close();toast(t("saved"));route()}
+    catch(ex){er.textContent=errMsg(ex);e.target.disabled=false;e.target.textContent=t("save")}};
+}
+
+/* ============ surprise me ============ */
+async function surprise(){const{data}=await live("id").eq("coming_soon",false).limit(300);
+  const l=data||[];if(!l.length)return toast(t("noresults"));location.hash="#/app/"+l[Math.floor(Math.random()*l.length)].id}
+
+/* ============ privacy policy / terms of use ============ */
+const LEGAL_UPDATED="2026-11-20";
+const LEGAL={
+en:{privacy:`<h1>Privacy Policy</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
+<p>This policy explains what information Man Studio Store ("we", "the store") collects, why, and what you can do about it. Contact: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>
+<h2>What we collect</h2><ul>
+<li><b>Account:</b> email address, username, password (stored only as a secure hash by our login provider), and your optional avatar and bio.</li>
+<li><b>Store activity:</b> your library, wishlist, reviews, follows, Coins balance and history, purchases, redeemed keys, notifications and playtime (minutes, used for verified reviews).</li>
+<li><b>Developers:</b> studio details (name, support email, members, links, logo, banner) and the games, images and files you upload.</li>
+<li><b>Studio verification:</b> country, age, full name, a social link or alternative answer and a short text. This is visible only to the store admin and is <b>deleted automatically after 30 days</b>.</li>
+<li><b>Device storage:</b> your language choice, your sign-in session and game saves are kept in your browser's local storage on your device.</li></ul>
+<h2>Why we use it</h2><p>To run your account, show the store, deliver games you own, process Coins transactions, review and approve studios and games, prevent abuse, and send you in-store notifications. We do not sell your information and we do not show ads.</p>
+<h2>What is public</h2><p>Your username, avatar, bio, reviews and the studios and games you publish are visible to everyone. Your email, Coins balance, Coin Card number, library, wishlist and verification details are not.</p>
+<h2>Services we use</h2><p>Supabase (database, login, file storage — servers in the EU), GitHub Pages (hosting the website), Google Fonts and jsDelivr (fonts and code libraries), and YouTube (only if you play a game trailer). These services process data under their own privacy policies.</p>
+<h2>Children</h2><p>Studios may be created from age 9. If you are under the age required in your country to agree to this policy on your own, use the store with a parent's or guardian's permission. A parent can ask us to delete a child's account at any time.</p>
+<h2>Your choices</h2><p>You can edit your profile and studio, delete reviews, games and notifications, and sign out at any time. To delete your account or get a copy of your data, email us and we will handle it within 30 days.</p>
+<h2>Security & retention</h2><p>Access to data is protected by database rules on the server. We keep account data while your account exists; verification data for 30 days; deleted content is removed from the store right away.</p>
+<h2>Changes</h2><p>If this policy changes, we will update the date above and announce important changes in the store.</p>`,
+terms:`<h1>Terms of Use</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
+<p>By creating an account or using Man Studio Store you agree to these terms. If you don't agree, please don't use the store.</p>
+<h2>Accounts</h2><p>Keep your password safe and your information accurate. One person may not use accounts to cheat (for example, to farm Coins or reviews). We may suspend accounts that break these terms.</p>
+<h2>Coins</h2><p>Coins are virtual store credit. They have <b>no cash value</b>, cannot be bought, sold, exchanged or withdrawn for real money, and exist only inside the store. Balances may be corrected if they were obtained by mistake or abuse. Purchases with Coins are final.</p>
+<h2>Games you get</h2><p>Games are made by independent developers. You receive a personal right to play the games in your library; it does not give you ownership of the game. Downloaded games (EXE/ZIP) run on your own computer at your own responsibility.</p>
+<h2>Publishing (developers)</h2><ul>
+<li>You must own or have the rights to everything you upload: code, art, music, names and trademarks.</li>
+<li>No malware, no stolen or copied games, no illegal, hateful, sexual or extremely violent content, and nothing that collects other people's data without permission.</li>
+<li>Every studio and game is reviewed before publishing. Reviews take place Sunday–Friday; Saturday is closed (with a 5% Lucky Approval chance). We may reject, hide or remove content that breaks these rules.</li>
+<li>If rejected, you have 30 days to fix and resubmit. Appeals: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</li>
+<li>You keep the rights to your game and give the store permission to show, distribute and promote it in the store.</li>
+<li>Revenue share in Coins: up to 50 Coins — 80% to you; 50–200 — 75%; 200–500 — 70%; over 500 — 50%. Promotion costs 500 Coins for 7 days. Bundles: your own games only, priced above 25 Coins.</li></ul>
+<h2>Reviews & community</h2><p>Be respectful. Reviews must be honest and about the game; you can review a game after playing it for at least 10 minutes. No spam, harassment or personal information about others.</p>
+<h2>Availability</h2><p>The store is provided "as is". We work to keep it running and safe but cannot promise it will always be available or error-free, and we are not responsible for games made by third parties, to the extent allowed by law.</p>
+<h2>Contact</h2><p>Questions, reports and appeals: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>. We may update these terms; the date above shows the latest version.</p>`},
+he:{privacy:`<h1>מדיניות פרטיות</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
+<p>המדיניות מסבירה איזה מידע Man Studio Store ("אנחנו", "החנות") אוסף, למה, ומה אפשר לעשות לגביו. יצירת קשר: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>
+<h2>מה אנחנו אוספים</h2><ul>
+<li><b>חשבון:</b> כתובת אימייל, שם משתמש, סיסמה (נשמרת רק בצורה מוצפנת אצל ספק ההתחברות), ותמונה ותיאור לפי בחירתך.</li>
+<li><b>פעילות בחנות:</b> הספרייה, רשימת המשאלות, ביקורות, מעקבים, יתרת Coins והיסטוריה, קניות, קודים שמומשו, התראות וזמן משחק (בדקות, לצורך ביקורות מאומתות).</li>
+<li><b>מפתחים:</b> פרטי הסטודיו (שם, מייל תמיכה, חברים, קישורים, לוגו, באנר) והמשחקים, התמונות והקבצים שמעלים.</li>
+<li><b>אימות סטודיו:</b> מדינה, גיל, שם מלא, קישור לרשת חברתית או תשובה חלופית וטקסט קצר. רק מנהל החנות רואה את זה, והמידע <b>נמחק אוטומטית אחרי 30 יום</b>.</li>
+<li><b>אחסון במכשיר:</b> בחירת השפה, ההתחברות ושמירות של משחקים נשמרים בדפדפן במכשיר שלך.</li></ul>
+<h2>למה אנחנו משתמשים בזה</h2><p>כדי להפעיל את החשבון, להציג את החנות, לתת לך משחקים שבבעלותך, לבצע פעולות Coins, לבדוק ולאשר סטודיואים ומשחקים, למנוע ניצול לרעה ולשלוח התראות בתוך החנות. אנחנו לא מוכרים מידע ולא מציגים פרסומות.</p>
+<h2>מה גלוי לכולם</h2><p>שם המשתמש, התמונה, התיאור, הביקורות והסטודיואים והמשחקים שאתה מפרסם גלויים לכולם. האימייל, יתרת ה-Coins, מספר כרטיס ה-Coins, הספרייה, רשימת המשאלות ופרטי האימות — לא.</p>
+<h2>שירותים שאנחנו משתמשים בהם</h2><p>Supabase (מסד נתונים, התחברות ואחסון קבצים — שרתים באירופה), GitHub Pages (אחסון האתר), Google Fonts ו-jsDelivr (גופנים וספריות קוד), ו-YouTube (רק אם מפעילים טריילר). השירותים האלה מעבדים מידע לפי מדיניות הפרטיות שלהם.</p>
+<h2>ילדים</h2><p>אפשר לפתוח סטודיו מגיל 9. אם אתה מתחת לגיל שבו מותר במדינה שלך להסכים למדיניות הזו לבד, השתמש בחנות באישור הורה או אפוטרופוס. הורה יכול לבקש בכל זמן למחוק חשבון של ילד.</p>
+<h2>הבחירות שלך</h2><p>אפשר לערוך את הפרופיל והסטודיו, למחוק ביקורות, משחקים והתראות ולהתנתק בכל זמן. למחיקת החשבון או לקבלת עותק של המידע — שלחו לנו מייל ונטפל בזה תוך 30 יום.</p>
+<h2>אבטחה ושמירת מידע</h2><p>הגישה למידע מוגנת בכללים במסד הנתונים בשרת. מידע החשבון נשמר כל עוד החשבון קיים; מידע האימות — 30 יום; תוכן שנמחק יורד מהחנות מיד.</p>
+<h2>שינויים</h2><p>אם המדיניות משתנה, נעדכן את התאריך למעלה ונודיע בחנות על שינויים חשובים.</p>`,
+terms:`<h1>תנאי שימוש</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
+<p>כשפותחים חשבון או משתמשים ב-Man Studio Store מסכימים לתנאים האלה. אם אתה לא מסכים, אל תשתמש בחנות.</p>
+<h2>חשבונות</h2><p>שמור על הסיסמה ועל פרטים נכונים. אסור להשתמש בחשבונות כדי לרמות (למשל לצבור Coins או ביקורות). אנחנו רשאים להשעות חשבון שמפר את התנאים.</p>
+<h2>Coins</h2><p>Coins הם קרדיט וירטואלי לחנות. <b>אין להם ערך כספי</b>, אי אפשר לקנות, למכור, להחליף או למשוך אותם תמורת כסף אמיתי, והם קיימים רק בתוך החנות. יתרה שהושגה בטעות או בניצול לרעה עשויה להיות מתוקנת. קניות ב-Coins הן סופיות.</p>
+<h2>משחקים שמקבלים</h2><p>המשחקים נוצרים על ידי מפתחים עצמאיים. אתה מקבל זכות אישית לשחק במשחקים שבספרייה שלך; זה לא הופך אותך לבעלים של המשחק. משחקים שמורידים (EXE/ZIP) רצים על המחשב שלך באחריותך.</p>
+<h2>פרסום (מפתחים)</h2><ul>
+<li>חייבות להיות לך הזכויות על כל מה שאתה מעלה: קוד, גרפיקה, מוזיקה, שמות וסימני מסחר.</li>
+<li>בלי תוכנות זדוניות, בלי משחקים גנובים או מועתקים, בלי תוכן לא חוקי, שנאה, מיני או אלים מאוד, ובלי איסוף מידע של אחרים בלי רשות.</li>
+<li>כל סטודיו ומשחק עוברים בדיקה לפני פרסום. בדיקות מתבצעות בימים ראשון–שישי; שבת סגורה (עם סיכוי של 5% ל-Lucky Approval). אנחנו רשאים לדחות, להסתיר או להסיר תוכן שמפר את הכללים.</li>
+<li>אם נדחית, יש 30 יום לתקן ולשלוח שוב. עירעורים: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</li>
+<li>הזכויות על המשחק נשארות שלך, ואתה נותן לחנות רשות להציג, להפיץ ולקדם אותו בחנות.</li>
+<li>חלוקת הכנסות ב-Coins: עד 50 Coins — 80% לך; 50–200 — 75%; 200–500 — 70%; מעל 500 — 50%. קידום עולה 500 Coins ל-7 ימים. חבילות: רק משחקים שלך, במחיר מעל 25 Coins.</li></ul>
+<h2>ביקורות וקהילה</h2><p>מתנהגים בכבוד. ביקורות צריכות להיות כנות ועל המשחק; אפשר לכתוב ביקורת אחרי לפחות 10 דקות משחק. בלי ספאם, הטרדות או מידע אישי על אחרים.</p>
+<h2>זמינות</h2><p>החנות ניתנת "כמו שהיא". אנחנו עובדים כדי שתעבוד ותהיה בטוחה, אבל לא יכולים להבטיח שתהיה זמינה תמיד או בלי תקלות, ואיננו אחראים למשחקים של צד שלישי, ככל שהחוק מאפשר.</p>
+<h2>יצירת קשר</h2><p>שאלות, דיווחים ועירעורים: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>. התנאים עשויים להתעדכן; התאריך למעלה מראה את הגרסה האחרונה.</p>`}};
+function legalView(main,kind){setTitle(t(kind==="privacy"?"privacyT":"termsT"));
+  main.innerHTML=`<article class="legal panel">${LEGAL[lang][kind]}</article><div class="dim" style="font-size:12px;margin-top:8px;text-align:center">
+    <a href="#/privacy">${t("privacyT")}</a> · <a href="#/terms">${t("termsT")}</a></div>`}
 
 /* ============ bundle page ============ */
 async function bundlePage(main,id,stale){
@@ -1183,7 +1394,12 @@ async function formView(main,id,stale){
     <label>${t("f_trailer")}<input class="inp" id="fy" value="${esc(g.trailer_url||"")}" placeholder="https://youtube.com/watch?v=…" dir="ltr"></label>
     <div class="soonbox"><label style="display:flex;gap:8px;align-items:center;color:#fff;font-weight:600"><input type="checkbox" id="fsoon" ${g.coming_soon?"checked":""}> 🕒 ${t("f_soon")}</label>
       <div class="hint" style="margin:4px 0 8px">${t("f_soonhint")}</div>
-      <label id="frdw">${t("f_rdate")}<input class="inp" type="date" id="frd" value="${esc(g.release_date||"")}" style="max-width:220px"><span class="hint">${t("f_rdatehint")}</span></label></div>
+      <div id="frdw"><div class="two"><label>${t("f_rprec")}<select id="frp">${["day","month","quarter","year","tba"].map(p=>`<option value="${p}" ${p===(g.release_precision||"day")?"selected":""}>${t("rp_"+p)}</option>`).join("")}</select></label>
+        <div><label id="frdD">${t("f_rdate")}<input class="inp" type="date" id="frd" value="${esc(g.release_date||"")}"></label>
+          <label id="frdM">${t("f_rdate")}<input class="inp" type="month" id="frm" value="${esc((g.release_date||"").slice(0,7))}"></label>
+          <div class="two" id="frdQ"><label id="frqw">${t("quarter")}<select id="frq">${[1,2,3,4].map(q=>`<option value="${q}" ${g.release_date&&Math.floor((+g.release_date.slice(5,7)-1)/3)+1===q?"selected":""}>Q${q}</option>`).join("")}</select></label>
+            <label>${t("year")}<input class="inp" type="number" id="fry" min="2024" max="2100" value="${g.release_date?g.release_date.slice(0,4):new Date().getFullYear()+1}"></label></div></div></div>
+        <span class="hint">${t("f_rdatehint")}</span></div></div>
     <div><div style="font-size:13px;color:#c6d4df;margin-bottom:6px">${t("f_game")} <span id="freq">*</span></div>
       <div class="seg"><label><input type="radio" name="pk" value="html" ${g.play_kind==="html"?"checked":""}> ${t("f_html")}</label><label><input type="radio" name="pk" value="download" ${g.play_kind==="download"?"checked":""}> ${t("f_exe")}</label><label><input type="radio" name="pk" value="link" ${g.play_kind==="link"?"checked":""}> ${t("f_link")}</label></div></div>
     <label id="pkD">${t("f_exe")} ${g.play_kind==="download"&&g.play_url?t("keep"):""}<input type="file" id="fx" accept=".exe,.zip"><span class="hint">${t("f_exehint")}</span>
@@ -1209,6 +1425,10 @@ async function formView(main,id,stale){
   $("#fx").onchange=bigCheck;$("#fh").onchange=bigCheck;
   const syncPrice=()=>{const p=Math.max(0,Math.floor(+$("#fpr").value||0));$("#fprh").textContent=p?t("f_pricehint").replace("{p}",Math.round(devShare(p)*100)).replace("{c}",Math.floor(p*devShare(p))):t("free")};
   syncPrice();$("#fpr").oninput=syncPrice;
+  const relDate=()=>{const p=$("#frp").value;if(p==="tba")return null;if(p==="day")return $("#frd").value||null;if(p==="month")return $("#frm").value?$("#frm").value+"-01":null;
+    const y=Math.floor(+$("#fry").value);if(!(y>=2000&&y<=2100))return null;if(p==="year")return y+"-01-01";return y+"-"+String((+$("#frq").value-1)*3+1).padStart(2,"0")+"-01"};
+  const syncPrec=()=>{const p=$("#frp").value;$("#frdD").hidden=p!=="day";$("#frdM").hidden=p!=="month";$("#frdQ").hidden=!(p==="quarter"||p==="year");$("#frqw").hidden=p!=="quarter"};
+  syncPrec();$("#frp").onchange=syncPrec;
   const syncSoon=()=>{const s=$("#fsoon").checked;$("#frdw").hidden=!s;$("#freq").textContent=s?t("f_later"):"*"};syncSoon();
   $("#fsoon").onchange=syncSoon;
   let newShots=[];
@@ -1232,7 +1452,7 @@ async function formView(main,id,stale){
       const rec={title,short_desc:short,description:$("#fdesc").value.trim(),genre:$("#fg").value,
         tags:[...new Set($("#ftags").value.split(/[,،]/).map(s=>s.trim()).filter(Boolean))].slice(0,12).map(s=>s.slice(0,30)),
         trailer_url:yt||null,min_reqs:$("#fr").value.trim()||null,published:$("#fp").checked,play_kind:kind,
-        coming_soon:soon,release_date:soon?($("#frd").value||null):(g.release_date||null),
+        coming_soon:soon,release_date:soon?relDate():(g.release_date||null),release_precision:soon?$("#frp").value:(g.release_precision||"day"),
         price:Math.max(0,Math.min(100000,Math.floor(+$("#fpr").value||0))),version:$("#fver").value.trim()||null};
       const cf=$("#fc").files[0];if(cf)rec.cover_url=await upload(cf,"cover",IMG,5);
       const up=[];for(const f of newShots)up.push(await upload(f,"shot",IMG,5));rec.screenshots=[...shots,...up].slice(0,8);
@@ -1489,8 +1709,9 @@ async function adminView(main,tab,stale){
   adminCount=ps.data.length+pv.data.length+pg.data.length;renderHeader();
   const shab=isShabbat(),dis=shab?"disabled":"";
   const tabs=[["games",t("a_games"),pg.data.length],["studios",t("a_studios"),ps.data.length],["verif",t("a_verif"),pv.data.length],["all",t("a_all"),0],
-    ["awards","🏆 GOTM/GOTY",0],["mail","✉ "+t("a_mail"),0],["coins","🪙 Coins",0]];
+    ["awards","🏆 GOTM/GOTY",0],["mail","✉ "+t("a_mail"),0],["coins","🪙 Coins",0],["fests","🎪 "+t("festivals"),0]];
   let extra=null;
+  if(tab==="fests"){const r=await sb.from("festivals").select("*").order("starts_at",{ascending:false});if(stale())return;extra={fests:r.data||[]}}
   if(tab==="awards"){const[a,gl]=await Promise.all([sb.from("awards").select("kind,period,game_id,games(title)").order("period",{ascending:false}),
     live("id,title").eq("coming_soon",false).order("title")]);if(stale())return;extra={awards:a.data||[],games:gl.data||[]}}
   const acts=(kind,id)=>`<div class="acts"><button class="btn green sm" data-ok="${kind}:${id}" ${dis}>✓ ${t("approve")}</button><button class="btn red sm" data-no="${kind}:${id}" ${dis}>✕ ${t("reject")}</button></div>`;
@@ -1506,6 +1727,17 @@ async function adminView(main,tab,stale){
     <span>${t("ageL")}</span><span>${v.age}</span><span>${t("socialL")}</span><span>${v.social_link&&okUrl(v.social_link)?`<a href="${esc(okUrl(v.social_link))}" target="_blank" rel="noopener" dir="ltr">${esc(v.social_link)}</a>`:"—"}</span>
     <span>${t("altL")}</span><span>${esc(v.alt_answer||"—")}</span><span>${t("humanL")}</span><span>${esc(v.human_text)}</span></div>
     <div class="dim" style="font-size:11px;margin-top:6px">🔒 ${t("deletedIn").replace("{d}",fmtDate(new Date(new Date(v.created_at).getTime()+30*864e5)))}</div>`:`<div class="mut">—</div>`}</div>${acts("verify",s.id)}</div>`}).join("");
+  else if(tab==="fests"){const d=x=>new Date(x).toLocaleDateString("en-CA"),now=Date.now();
+    body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🎪 ${t("newFest")}</h3><div class="mut">${t("newFestHint")}</div>
+      <div class="two"><label>${t("f_title")} *<input class="inp" id="ftt" maxlength="80" placeholder="Man Studio Next Fest"></label><label>${t("tagline")}<input class="inp" id="ftg" maxlength="200"></label></div>
+      <label>${t("f_desc")}<textarea class="inp" id="ftd" maxlength="5000" style="min-height:90px"></textarea></label>
+      <div class="two"><label>${t("f_signupTill")} *<input class="inp" type="date" id="fsu" value="${d(now+14*864e5)}"></label><label>${t("color")}<input type="color" id="fcl" value="#9b5cff" style="width:60px;height:36px;border:0;background:none"></label></div>
+      <div class="two"><label>${t("from")} *<input class="inp" type="date" id="fst" value="${d(now+21*864e5)}"></label><label>${t("to")} *<input class="inp" type="date" id="fen" value="${d(now+28*864e5)}"></label></div>
+      <label>${t("banner")} <span class="hint">(1600×400)</span><input type="file" id="fbn" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="fco"> 🕒 ${t("f_csOnly")}</label>
+      <div class="err" id="fe2"></div><div><button class="btn green" id="fsave">🎪 ${t("createFest")}</button></div></div>
+      ${extra.fests.map(f=>`<div class="row" style="grid-template-columns:1fr auto"><div><a href="#/fest/${f.id}" style="color:#fff;font-weight:600">🎪 ${esc(f.title)}</a> <span class="mut">${festDates(f)}</span> ${festStateHTML(f)}</div>
+        <button class="btn red sm" data-delfest="${f.id}">${t("delete")}</button></div>`).join("")}`}
   else if(tab==="awards"){const ym=new Date().toLocaleDateString("en-CA").slice(0,7);
     body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🏆 ${t("setAward")}</h3>
       <div class="two"><label>${t("awardKind")}<select id="awk"><option value="gotm">${t("gotm")}</option><option value="goty">${t("goty")}</option></select></label>
@@ -1535,6 +1767,14 @@ async function adminView(main,tab,stale){
   if(tab==="awards"&&$("#aws"))$("#aws").onclick=async()=>{const k=$("#awk").value,p=$("#awp").value.trim();
     if(!(k==="gotm"?/^\d{4}-\d{2}$/:/^\d{4}$/).test(p)){$("#awe").textContent=t("awardHint");return}
     const{error}=await sb.from("awards").upsert({kind:k,period:p,game_id:$("#awg").value},{onConflict:"kind,period"});if(error){$("#awe").textContent=errMsg(error);return}toast("🏆 "+t("saved"));route()};
+  if(tab==="fests")$("#fsave").onclick=async e=>{const ti=$("#ftt").value.trim(),su=new Date($("#fsu").value+"T23:59:00"),st=new Date($("#fst").value+"T00:00:00"),en=new Date($("#fen").value+"T23:59:00");
+    if(ti.length<2||isNaN(su)||isNaN(st)||isNaN(en)){$("#fe2").textContent=t("err_required");return}
+    if(!(en>st&&su<=en)){$("#fe2").textContent=t("festDatesBad");return}
+    e.target.disabled=true;
+    try{const rec={title:ti,tagline:$("#ftg").value.trim()||null,description:$("#ftd").value.trim(),theme:$("#fcl").value,signup_ends:su.toISOString(),starts_at:st.toISOString(),ends_at:en.toISOString(),coming_soon_only:$("#fco").checked};
+      const bf=$("#fbn").files[0];if(bf)rec.banner_url=await upload(bf,"fest",IMG,5);
+      const{error}=await sb.from("festivals").insert(rec);if(error)throw error;toast("🎪 "+t("saved"));route()}
+    catch(ex){$("#fe2").textContent=errMsg(ex);e.target.disabled=false}};
   if(tab==="mail")$("#ms").onclick=async e=>{const ti=$("#mt").value.trim();if(!ti){$("#me").textContent=t("err_required");return}
     if(!await confirmBox(t("sendAll")+"?"))return;e.target.disabled=true;
     const{data,error}=await sb.rpc("admin_broadcast",{p_title:ti,p_body:$("#mb").value.trim()});e.target.disabled=false;
@@ -1546,6 +1786,7 @@ async function adminView(main,tab,stale){
       $("#ko2").innerHTML=`<textarea class="inp" readonly dir="ltr" style="min-height:120px;font-family:monospace">${codes.join("\n")}</textarea>`}}
   main.onclick=async e=>{const el=e.target.closest("button");if(!el)return;const d=el.dataset;
     if(d.tab){location.hash="#/admin/"+d.tab;return}
+    if(d.delfest){if(!await confirmBox(t("delete")+"?"))return;const{error}=await sb.from("festivals").delete().eq("id",d.delfest);if(error)return dbErr(error);route();return}
     if(d.delaw){const[k,p]=d.delaw.split("|");const{error}=await sb.from("awards").delete().eq("kind",k).eq("period",p);if(error)return dbErr(error);route();return}
     const run=async(q)=>{el.disabled=true;const{error}=await q;if(error){toast(errMsg(error));el.disabled=false;return}toast(t("saved"));route()};
     if(d.ok||d.no){const[kind,id]=(d.ok||d.no).split(":");let reason=null;
@@ -1566,6 +1807,7 @@ function authView(main,q){
     <form class="panel" id="af">
       ${mode==="up"?`<label class="form" style="gap:5px">${t("username")}<input class="inp" id="au" maxlength="32" autocomplete="username" required></label>`:""}
       <label class="form" style="gap:5px">${mode==="in"?t("loginField"):t("email")}<input class="inp" id="ae" type="${mode==="in"?"text":"email"}" autocomplete="${mode==="in"?"username":"email"}" dir="ltr" required></label>
+      ${mode==="up"?`<label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" id="agr" style="margin-top:3px"><span>${t("agree").replace("{t}",`<a href="#/terms" target="_blank">${t("termsT")}</a>`).replace("{p}",`<a href="#/privacy" target="_blank">${t("privacyT")}</a>`)}</span></label>`:""}
       ${mode!=="forgot"?`<label class="form" style="gap:5px">${t("password")}<input class="inp" id="ap" type="password" minlength="6" autocomplete="${mode==="up"?"new-password":"current-password"}" dir="ltr" required></label>`:""}
       <div class="err" id="aerr"></div>
       <button class="btn green" id="ago">${mode==="in"?t("login"):mode==="up"?t("signup"):t("sendreset")}</button>
@@ -1583,7 +1825,7 @@ function authView(main,q){
             const j=await r.json().catch(()=>({error:t("err_generic")}));if(!r.ok||j.error)throw new Error(j.error||t("err_generic"));
             const{error}=await sb.auth.setSession({access_token:j.access_token,refresh_token:j.refresh_token});if(error)throw error}
           toast(t("welcome"));location.hash=next}
-        else if(mode==="up"){const u=$("#au").value.trim();if(u.length<2)throw new Error(t("err_required"));
+        else if(mode==="up"){const u=$("#au").value.trim();if(u.length<2)throw new Error(t("err_required"));if(!$("#agr").checked)throw new Error(t("mustAgree"));
           const{data,error}=await sb.auth.signUp({email,password:pw,options:{data:{username:u},emailRedirectTo:location.href.split("#")[0]}});if(error)throw error;
           if(data.session){toast(t("welcome"));location.hash=next}else{er.style.color="#a4d007";er.textContent=t("checkmail");mode="in"}}
         else{const{error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.href.split("#")[0]});if(error)throw error;er.style.color="#a4d007";er.textContent=t("resetSent")}

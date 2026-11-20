@@ -20,4 +20,9 @@ $exe = Join-Path $here "dist\ManStudioStore.exe"
 $dl = Join-Path (Split-Path $here -Parent) "downloads"
 New-Item -ItemType Directory -Force $dl | Out-Null
 Copy-Item $exe (Join-Path $dl "ManStudioStore.exe") -Force
+# app.json tells installed apps that a new version exists (auto-update)
+$ver = (Select-String -Path (Join-Path $here "store_app.py") -Pattern '^APP_VERSION = "([^"]+)"').Matches[0].Groups[1].Value
+$notes = if ($env:APP_NOTES) { $env:APP_NOTES } else { "Improvements and fixes." }
+[System.IO.File]::WriteAllText((Join-Path $dl "app.json"), (@{ version = $ver; url = "downloads/ManStudioStore.exe"; notes = $notes } | ConvertTo-Json -Compress))
+"version $ver -> downloads\app.json"
 "{0}  ({1:N1} MB)" -f $exe, ((Get-Item $exe).Length / 1MB)
