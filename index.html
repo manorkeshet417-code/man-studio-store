@@ -219,6 +219,7 @@ textarea.inp{min-height:90px;resize:vertical}
 .vbadge.blue{background:#1a9fff}.vbadge.gold{background:linear-gradient(135deg,#ffd76a,#d49b00);color:#3a2a00}
 .awards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:18px}
 .award{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;border-radius:4px;padding:8px;color:inherit;background:linear-gradient(120deg,#5a4a12,#1c2a3a);border:1px solid #d4af3766}
+.award.gotw{background:linear-gradient(120deg,#1d5a4a,#1c2a3a);border-color:#5be38a66}
 .award.goty{background:linear-gradient(120deg,#6a2d5a,#1c2a3a);border-color:#ff9be066}
 .award:hover{color:inherit;filter:brightness(1.1)}.award .cover{border-radius:3px}.award b{display:block;color:#fff;font-size:17px}
 .atag{display:inline-block;background:#d4af37;color:#2a1f00;font-weight:700;font-size:11px;padding:2px 8px;border-radius:2px;letter-spacing:.04em;text-transform:uppercase}
@@ -259,6 +260,10 @@ textarea.inp{min-height:90px;resize:vertical}
 .sprof{margin-top:-70px;background:#1b2838e6;position:relative;flex-wrap:wrap}.sprof .av img{border-radius:6px}
 .slinks{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .helpful{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:12px;flex-wrap:wrap}.helpful .on{background:#1c4f6f;color:#fff}
+.dlcard .excerpt{font-size:12.5px;line-height:1.45;margin-top:2px}
+.devlog{max-width:820px;margin:0 auto}.devlog h1{color:#fff;font-size:30px;margin:6px 0 12px;unicode-bidi:plaintext}
+.dlmeta{display:flex;gap:10px;align-items:center;margin-bottom:14px}.dlimg{width:100%;border-radius:6px;margin-bottom:16px;display:block}
+.dlbody{font-size:15.5px;line-height:1.75;unicode-bidi:plaintext}.dlacts{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -342,7 +347,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 const STORE_NAME = "Man Studio Store";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-20.2";
+const BUILD = "2026-11-21.1";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -446,7 +451,11 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",festival:"Festival",festivals:"Festivals",festsS:"Limited-time events: play demos and upcoming games, follow studios and wishlist favorites.",noFests:"No festivals yet",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
+devlogAbout:"About",studioNews:"Studio news",devlogPh:"What's new in development?",devlogBody:"Post",image:"Image",optional:"optional",
+devlogHint:"Followers of your studio and players who own or wishlisted the game get a notification.",publishDevlog:"Publish",like:"Like",liked:"Liked",edited:"edited",
+f_signupFrom:"Sign-ups open on",f_signupFromL:"Sign-ups open",signups:"sign-ups",festSignupBad:"Sign-ups must open before they close.",
+gotw:"Game of the Week",weekN:"Week {w}",festival:"Festival",festivals:"Festivals",festsS:"Limited-time events: play demos and upcoming games, follow studios and wishlist favorites.",noFests:"No festivals yet",
 f_live:"Live now",f_ends:"ends",f_signupOpen:"Sign-ups open until",f_startsOn:"Starts",f_ended:"Ended",noEntries:"No games signed up yet.",f_signupTill:"Sign-ups until",
 f_csOnly:"Coming soon games only",f_signupGame:"Sign up your game",f_join:"Join the festival",f_noEligible:"You have no eligible approved games for this festival.",f_yours:"Your games here",
 newFest:"New festival",newFestHint:"Every verified developer gets a notification when you create it.",tagline:"Tagline",color:"Color",createFest:"Create festival",festDatesBad:"The end must be after the start, and sign-ups must close before the end.",
@@ -462,7 +471,7 @@ updHint:"Players who own the game get a notification. To upload new files or pic
 discount:"Discount",from:"From",to:"To",saleHint:"Discount 5–90%, up to 60 days. Players who wishlisted the game get notified.",endSale:"End sale",
 keysHint:"Redeem keys for content creators, testers and gifts. Each key gives the game once.",keyNote:"Note (who it's for)",generate:"Generate",used:"Used",unused:"Unused",min2:"at least 2",
 f_price:"Price in Coins (0 = free)",f_pricehint:"You get {p}% = 🪙 {c} per sale",f_verhint:"Optional, e.g. 1.0",
-a_mail:"Mail",setAward:"Set Game of the Month / Year",awardKind:"Award",period:"Period",awardHint:"Month: YYYY-MM · Year: YYYY",
+a_mail:"Mail",setAward:"Set Game of the Month / Year",awardKind:"Award",period:"Period",awardHint:"Week: YYYY-Www (e.g. 2026-W47) · Month: YYYY-MM · Year: YYYY",
 mailT:"Message all developers",mailHint:"Goes to the inbox of every registered developer: critical updates, system notices, policy changes.",subject:"Subject",message:"Message",
 sendAll:"Send to all developers",sentTo:"Sent to {n} developers",grantT:"Give Coins",grant:"Give",coinKeys:"Coin gift keys",coinKeysHint:"Keys that add Coins to whoever redeems them.",count:"How many",
 e_NOT_ENOUGH_COINS:"Not enough Coins.",e_BAD_CARD:"Card doesn't match your account.",e_ALREADY_OWNED:"You already own this.",e_OWN_GAME:"That's your own game.",
@@ -509,7 +518,11 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",festival:"פסטיבל",festivals:"פסטיבלים",festsS:"אירועים לזמן מוגבל: משחקים בדמואים ובמשחקים שבדרך, עוקבים אחרי סטודיואים ומוסיפים לרשימת המשאלות.",noFests:"אין פסטיבלים עדיין",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
+devlogAbout:"על מה",studioNews:"חדשות הסטודיו",devlogPh:"מה חדש בפיתוח?",devlogBody:"הפוסט",image:"תמונה",optional:"לא חובה",
+devlogHint:"מי שעוקב אחרי הסטודיו, ומי שהמשחק אצלו או ברשימת המשאלות שלו, יקבלו התראה.",publishDevlog:"פרסם",like:"אהבתי",liked:"אהבת",edited:"נערך",
+f_signupFrom:"ההרשמה נפתחת ב-",f_signupFromL:"פתיחת ההרשמה",signups:"הרשמה",festSignupBad:"ההרשמה צריכה להיפתח לפני שהיא נסגרת.",
+gotw:"משחק השבוע",weekN:"שבוע {w}",festival:"פסטיבל",festivals:"פסטיבלים",festsS:"אירועים לזמן מוגבל: משחקים בדמואים ובמשחקים שבדרך, עוקבים אחרי סטודיואים ומוסיפים לרשימת המשאלות.",noFests:"אין פסטיבלים עדיין",
 f_live:"פעיל עכשיו",f_ends:"נגמר",f_signupOpen:"ההרשמה פתוחה עד",f_startsOn:"מתחיל",f_ended:"הסתיים",noEntries:"עוד לא נרשמו משחקים.",f_signupTill:"הרשמה עד",
 f_csOnly:"רק משחקי \"בקרוב\"",f_signupGame:"רשום את המשחק שלך",f_join:"הצטרף לפסטיבל",f_noEligible:"אין לך משחקים מאושרים שמתאימים לפסטיבל הזה.",f_yours:"המשחקים שלך כאן",
 newFest:"פסטיבל חדש",newFestHint:"כל מפתח מאומת יקבל התראה כשתיצור אותו.",tagline:"משפט קצר",color:"צבע",createFest:"צור פסטיבל",festDatesBad:"הסיום צריך להיות אחרי ההתחלה, וההרשמה צריכה להיסגר לפני הסיום.",
@@ -525,7 +538,7 @@ updHint:"מי שהמשחק אצלו יקבל התראה. כדי להעלות ק�
 discount:"הנחה",from:"מתאריך",to:"עד תאריך",saleHint:"הנחה 5–90%, עד 60 יום. מי שהמשחק ברשימת המשאלות שלו יקבל התראה.",endSale:"סיים מבצע",
 keysHint:"קודי מימוש ליוצרי תוכן, בודקים ומתנות. כל קוד נותן את המשחק פעם אחת.",keyNote:"הערה (בשביל מי)",generate:"צור",used:"מומש",unused:"פנוי",min2:"לפחות 2",
 f_price:"מחיר ב-Coins (0 = חינם)",f_pricehint:"אתה מקבל {p}% = 🪙 {c} על כל מכירה",f_verhint:"לא חובה, למשל 1.0",
-a_mail:"דיוור",setAward:"קביעת משחק החודש / השנה",awardKind:"פרס",period:"תקופה",awardHint:"חודש: YYYY-MM · שנה: YYYY",
+a_mail:"דיוור",setAward:"קביעת משחק החודש / השנה",awardKind:"פרס",period:"תקופה",awardHint:"שבוע: YYYY-Www (למשל 2026-W47) · חודש: YYYY-MM · שנה: YYYY",
 mailT:"הודעה לכל המפתחים",mailHint:"נשלח לתיבת ההתראות של כל מפתח רשום: עדכונים קריטיים, הודעות מערכת ועדכוני מדיניות.",subject:"נושא",message:"הודעה",
 sendAll:"שלח לכל המפתחים",sentTo:"נשלח ל-{n} מפתחים",grantT:"הענקת Coins",grant:"הענק",coinKeys:"קודי מתנה של Coins",coinKeysHint:"קודים שמוסיפים Coins למי שמממש אותם.",count:"כמה",
 e_NOT_ENOUGH_COINS:"אין מספיק Coins.",e_BAD_CARD:"הכרטיס לא תואם לחשבון שלך.",e_ALREADY_OWNED:"זה כבר אצלך.",e_OWN_GAME:"זה המשחק שלך.",
@@ -638,7 +651,7 @@ document.addEventListener("click",e=>{const m=$("#um");if(m&&!e.target.closest("
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
 
 function subnav(q=""){
-  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a><a href="#/festivals">🎪 ${t("festivals")}</a><a href="#" data-surprise title="${t("surprise")}">🎲</a>
+  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a><a href="#/festivals">🎪 ${t("festivals")}</a><a href="#/devlogs">📝 ${t("devlogs")}</a><a href="#" data-surprise title="${t("surprise")}">🎲</a>
   <form class="search" id="sf"><input id="sq" placeholder="${t("search")}" value="${esc(q)}" aria-label="${t("search")}"><button aria-label="${t("search")}">⌕</button></form></div>`;
 }
 function bindSubnav(){const r=document.querySelector("[data-surprise]");if(r)r.onclick=e=>{e.preventDefault();surprise()};const f=$("#sf");if(f)f.onsubmit=e=>{e.preventDefault();location.hash="#/browse?q="+encodeURIComponent($("#sq").value.trim())}}
@@ -674,6 +687,8 @@ async function route(){
       case "bundle": await bundlePage(main,parts[1],stale);break;
       case "festivals": await festsView(main,stale);break;
       case "fest": await festPage(main,parts[1],stale);break;
+      case "devlogs": await devlogsView(main,stale);break;
+      case "devlog": await devlogPage(main,parts[1],stale);break;
       case "privacy": legalView(main,"privacy");break;
       case "terms": legalView(main,"terms");break;
       default: main.innerHTML=`<div class="empty"><b>${t("notfound")}</b><a href="#/">${t("back")}</a></div>`;
@@ -707,7 +722,9 @@ const promoHTML=g=>isPromoted(g)?`<span class="promo">${t("promoted")}</span>`:"
 const nowISO=()=>new Date().toISOString();
 const live=(cols=LIST_COLS)=>sb.from("games").select(cols).eq("published",true).eq("review_status","approved");
 async function gamesByIds(ids){if(!ids.length)return[];const{data}=await live().in("id",ids);const m=new Map((data||[]).map(g=>[g.id,g]));return ids.map(i=>m.get(i)).filter(Boolean)}
-function periodLabel(a){if(a.kind==="goty")return a.period;const[y,m]=a.period.split("-");return new Date(+y,+m-1,1).toLocaleDateString(lang==="he"?"he-IL":"en-US",{month:"long",year:"numeric"})}
+function isoWeek(d=new Date()){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())),day=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-day);
+  const y=x.getUTCFullYear();return y+"-W"+String(Math.ceil(((x-Date.UTC(y,0,1))/864e5+1)/7)).padStart(2,"0")}
+function periodLabel(a){if(a.kind==="goty")return a.period;if(a.kind==="gotw"){const[y,w]=a.period.split("-W");return t("weekN").replace("{w}",+w)+" · "+y}const[y,m]=a.period.split("-");return new Date(+y,+m-1,1).toLocaleDateString(lang==="he"?"he-IL":"en-US",{month:"long",year:"numeric"})}
 
 async function storeView(main,stale){
   setTitle("");
@@ -717,7 +734,7 @@ async function storeView(main,stale){
     live().eq("coming_soon",false).gte("created_at",since30).order("players",{ascending:false}).limit(8),
     live().eq("coming_soon",false).not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n).limit(8),
     live().eq("coming_soon",true).order("release_date",{ascending:true,nullsFirst:false}).limit(8),
-    sb.from("awards").select("kind,period,game_id").order("period",{ascending:false}).limit(12),
+    sb.from("awards").select("kind,period,game_id").order("created_at",{ascending:false}).limit(20),
     sb.from("bundles").select("id,title,price,game_ids,studio_id").eq("published",true).order("created_at",{ascending:false}).limit(6),
     sb.rpc("trending_ids",{p_limit:8}),
     live().eq("coming_soon",false).order("created_at",{ascending:false}).limit(8),
@@ -729,8 +746,9 @@ async function storeView(main,stale){
   let trending=await gamesByIds((tr.data||[]).map(r=>r.game_id));
   if(!trending.length)trending=fe.data.filter(g=>!g.coming_soon).sort((a,b)=>b.players-a.players).slice(0,8);
   const newPop=np.data.length?np.data:ne.data;
-  const awards=aw.data||[],gotm=awards.find(a=>a.kind==="gotm"),goty=awards.find(a=>a.kind==="goty");
-  const awardGames=await gamesByIds([gotm,goty].filter(Boolean).map(a=>a.game_id));if(stale())return;
+  const awards=aw.data||[],gotw=awards.find(a=>a.kind==="gotw"),gotm=awards.find(a=>a.kind==="gotm"),goty=awards.find(a=>a.kind==="goty");
+  const awardGames=await gamesByIds([gotw,gotm,goty].filter(Boolean).map(a=>a.game_id));if(stale())return;
+  const dl=await sb.from("devlogs").select(DEVLOG_COLS).order("created_at",{ascending:false}).limit(3);if(stale())return;
   const ag=id=>awardGames.find(g=>g.id===id);
   const bundles=bd.data||[];
   const fests=(fs.data||[]).filter(f=>festState(f)!=="ended");
@@ -738,10 +756,11 @@ async function storeView(main,stale){
     ${fests.length?`<div style="display:grid;gap:10px;margin-bottom:6px">${fests.map(f=>festBannerHTML(f,festState(f)==="live")).join("")}</div>`:""}
     <h2 class="sec">⭐ ${t("featured")}</h2>
     <div id="heroBox"></div><div class="dots" id="dots"></div>
-    ${[gotm,goty].filter(a=>a&&ag(a.game_id)).length?`<div class="awards">${[gotm,goty].filter(a=>a&&ag(a.game_id)).map(a=>{const g=ag(a.game_id);
+    ${[gotw,gotm,goty].filter(a=>a&&ag(a.game_id)).length?`<div class="awards">${[gotw,gotm,goty].filter(a=>a&&ag(a.game_id)).map(a=>{const g=ag(a.game_id);
       return `<a class="award ${a.kind}" href="#/app/${g.id}">${coverHTML(g)}<div><span class="atag">🏆 ${t(a.kind)}</span><b>${esc(g.title)}</b><span class="mut">${esc(periodLabel(a))}</span></div></a>`}).join("")}</div>`:""}
     ${trending.length?`<h2 class="sec">🔥 ${t("trending")}<a href="#/browse?sort=players">${t("seeall")}</a></h2>
     <div class="rows">${trending.map(rowHTML).join("")}</div>`:""}
+    ${(dl.data||[]).length?`<h2 class="sec">📝 ${t("devlogs")}<a href="#/devlogs">${t("seeall")}</a></h2><div class="grid">${dl.data.map(devlogCardHTML).join("")}</div>`:""}
     ${newPop.length?`<h2 class="sec">✨ ${t("newpop")}<a href="#/browse">${t("seeall")}</a></h2>
     <div class="rows">${newPop.map(rowHTML).join("")}</div>`:""}
     ${sp.data.length?`<h2 class="sec">🏷️ ${t("specials")}<a href="#/browse?sale=1">${t("seeall")}</a></h2><div class="grid">${sp.data.map(cardHTML).join("")}</div>`:""}
@@ -847,13 +866,14 @@ async function openCheckout(item){ // item: {kind:'game'|'bundle', id, title, pr
 /* ============ game page ============ */
 async function gameView(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("gamenf"));
-  const [gr,rr,ur,ar,br,fer]=await Promise.all([
+  const [gr,rr,ur,ar,br,fer,dlr]=await Promise.all([
     sb.from("games").select(GAME_COLS).eq("id",id).maybeSingle(),
     sb.from("reviews").select("id,recommended,body,created_at,user_id,minutes,helpful,dev_reply,dev_reply_at,profiles!reviews_user_id_fkey(username,avatar_url)").eq("game_id",id).order("helpful",{ascending:false}).order("created_at",{ascending:false}).limit(100),
     sb.from("game_updates").select("id,version,notes,created_at").eq("game_id",id).order("created_at",{ascending:false}).limit(10),
     sb.from("awards").select("kind,period").eq("game_id",id),
     sb.from("bundles").select("id,title,price,game_ids").eq("published",true).contains("game_ids",[id]),
-    sb.from("festival_entries").select("festivals(id,title,theme,starts_at,ends_at,signup_ends)").eq("game_id",id)]);
+    sb.from("festival_entries").select("festivals(id,title,theme,starts_at,ends_at,signup_starts,signup_ends)").eq("game_id",id),
+    sb.from("devlogs").select(DEVLOG_COLS).eq("game_id",id).order("created_at",{ascending:false}).limit(3)]);
   if(stale())return;
   if(gr.error)throw gr.error;
   const g=gr.data;if(!g){main.innerHTML=`<div class="empty"><b>${t("gamenf")}</b><a href="#/">${t("back")}</a></div>`;return}
@@ -904,6 +924,8 @@ async function gameView(main,id,stale){
       <div class="act"><span class="price">${paid?(owned?t("owned"):coins(g.price)):t("free")}</span><button class="btn green" id="playBtn">${playLabel}</button></div></div>`}
     ${bundles.length?bundles.map(b=>`<div class="buybox" style="padding-bottom:30px"><h3>📦 ${t("buy")} ${esc(b.title)}</h3><div class="mut">${b.game_ids.length} ${t("games")}</div>
       <div class="act"><span class="price">${coins(b.price)}</span><a class="btn green" href="#/bundle/${b.id}">${t("viewBundle")}</a></div></div>`).join(""):""}
+    ${(dlr.data||[]).length?`<div class="hd">📝 ${t("devlogs")}</div><div class="grid">${dlr.data.map(devlogCardHTML).join("")}</div>`:""}
+    ${isOwner?`<button class="btn ghost sm" id="gdl" style="margin-top:8px">📝 ${t("newDevlog")}</button>`:""}
     ${updates.length?`<div class="hd">🔄 ${t("whatsnew")}</div>${updates.map((u,i)=>`<details class="upd" ${i===0?"open":""}><summary><b>${esc(u.version)}</b> <span class="dim">· ${fmtDate(u.created_at)}</span></summary><div class="about">${esc(u.notes)}</div></details>`).join("")}`:""}
     <div class="hd">${t("about")}</div><div class="about">${esc(g.description||g.short_desc)}</div>
     ${g.min_reqs?`<div class="hd">${t("reqs")}</div><div class="about">${esc(g.min_reqs)}</div>`:""}
@@ -930,6 +952,7 @@ async function gameView(main,id,stale){
     document.querySelectorAll("#th button").forEach(b=>b.classList.toggle("on",+b.dataset.i===i))};
   showMedia(0);
   if($("#th"))$("#th").onclick=e=>{const b=e.target.closest("button");if(b)showMedia(+b.dataset.i)};
+  if($("#gdl"))$("#gdl").onclick=async()=>devlogForm(await loadStudio(),null,g.id);
   if($("#playBtn"))$("#playBtn").onclick=()=>{location.hash="#/play/"+g.id};
   if($("#buyBtn"))$("#buyBtn").onclick=()=>openCheckout({kind:"game",id:g.id,title:g.title,price:effPrice(g),list:g.price});
   if($("#soonWish"))$("#soonWish").onclick=()=>$("#wishBtn").click();
@@ -1096,15 +1119,84 @@ async function inboxView(main,stale){
   const c=$("#clr");if(c)c.onclick=async e=>{e.preventDefault();await sb.from("notifications").delete().eq("user_id",me.id);route()};
 }
 
+/* ============ devlogs ============ */
+const DEVLOG_COLS="id,studio_id,owner,game_id,title,body,image_url,likes,created_at,updated_at,studios(id,name,logo_url,downloads),games(id,title)";
+function devlogCardHTML(d){const img=okUrl(d.image_url||""),h=hash(d.title)%360;
+  return `<a class="card dlcard" href="#/devlog/${d.id}"><div class="cover" ${img?"":`style="background:linear-gradient(135deg,hsl(${h} 50% 28%),hsl(${(h+60)%360} 60% 16%))"`}>${img?`<img src="${esc(img)}" alt="" loading="lazy">`:`<div class="gen" style="font-size:18px">📝 ${esc(d.title)}</div>`}</div>
+  <div class="b"><div class="t">${esc(d.title)}</div><div class="mut" style="font-size:12px">${esc(d.studios?.name||"")}${d.games?` · ${esc(d.games.title)}`:""}</div>
+  <div class="dim excerpt">${esc(d.body.slice(0,140))}${d.body.length>140?"…":""}</div>
+  <div class="f"><span class="dim" style="font-size:12px">${ago(d.created_at)}</span><span class="dim">❤ ${d.likes||0}</span></div></div></a>`}
+async function devlogsView(main,stale){
+  setTitle(t("devlogs"));
+  const{data,error}=await sb.from("devlogs").select(DEVLOG_COLS).order("created_at",{ascending:false}).limit(48);
+  if(stale())return;if(error)throw error;
+  main.innerHTML=subnav()+`<h2 class="sec" style="font-size:20px">📝 ${t("devlogs")}${me?`<a href="#" id="nwdl">+ ${t("newDevlog")}</a>`:""}</h2><div class="mut" style="margin-bottom:12px">${t("devlogsS")}</div>
+    ${data.length?`<div class="grid">${data.map(devlogCardHTML).join("")}</div>`:`<div class="empty"><b>${t("noDevlogs")}</b></div>`}`;
+  bindSubnav();
+  const nb=$("#nwdl");if(nb)nb.onclick=async e=>{e.preventDefault();const s=await loadStudio();if(!s||s.status!=="approved"){toast(t("needStudio"));location.hash="#/publish";return}devlogForm(s,null,null)};
+}
+async function devlogPage(main,id,stale){
+  if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("notfound"));
+  const{data:d,error}=await sb.from("devlogs").select(DEVLOG_COLS).eq("id",id).maybeSingle();
+  if(stale())return;if(error)throw error;
+  if(!d){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
+  let liked=false;if(me){const l=await sb.from("devlog_likes").select("devlog_id").eq("devlog_id",id).eq("user_id",me.id).maybeSingle();liked=!!l.data}
+  if(stale())return;
+  setTitle(d.title);
+  const mine=me&&me.id===d.owner,isAdmin=me&&me.profile.is_admin,img=okUrl(d.image_url||""),logo=okUrl(d.studios?.logo_url||"");
+  main.innerHTML=subnav()+`<article class="devlog">
+    <div class="crumbs"><a href="#/devlogs">📝 ${t("devlogs")}</a> › <a href="#/studio/${d.studio_id}">${esc(d.studios?.name||"")}</a>${d.games?` › <a href="#/app/${d.games.id}">${esc(d.games.title)}</a>`:""}</div>
+    <h1>${esc(d.title)}</h1>
+    <div class="dlmeta">${logo?`<span class="av" style="width:36px;height:36px"><img src="${esc(logo)}" alt=""></span>`:avatarHTML({username:d.studios?.name||"?"},36)}
+      <div><a href="#/studio/${d.studio_id}" style="color:#fff;font-weight:600">${esc(d.studios?.name||"")}</a> ${badgeHTML(d.studios?.downloads||0)}<div class="dim" style="font-size:12px">${fmtDate(d.created_at)}${d.updated_at&&new Date(d.updated_at)-new Date(d.created_at)>6e4?" · "+t("edited"):""}</div></div></div>
+    ${img?`<img class="dlimg" src="${esc(img)}" alt="">`:""}
+    <div class="about dlbody">${esc(d.body)}</div>
+    <div class="dlacts"><button class="btn ${liked?"":"ghost"}" id="dlk">❤ ${liked?t("liked"):t("like")} · ${d.likes||0}</button>
+      <button class="btn ghost" id="dls">🔗 ${t("share")}</button>${d.games?`<a class="btn ghost" href="#/app/${d.games.id}">🎮 ${esc(d.games.title)}</a>`:""}
+      ${mine?`<button class="btn ghost" id="dle">✎ ${t("edit")}</button>`:""}${mine||isAdmin?`<button class="btn red" id="dld">${t("delete")}</button>`:""}</div></article>`;
+  bindSubnav();
+  $("#dls").onclick=()=>openShare("/devlog/"+d.id,d.title);
+  $("#dlk").onclick=async()=>{if(needLogin())return;
+    const{error}=liked?await sb.from("devlog_likes").delete().eq("devlog_id",d.id).eq("user_id",me.id):await sb.from("devlog_likes").insert({devlog_id:d.id,user_id:me.id});
+    if(error)return dbErr(error);route()};
+  if($("#dle"))$("#dle").onclick=async()=>devlogForm(await loadStudio(),d,null);
+  if($("#dld"))$("#dld").onclick=async()=>{if(!await confirmBox(t("delete")+"?"))return;const{error}=await sb.from("devlogs").delete().eq("id",d.id);if(error)return dbErr(error);
+    const sp=storagePath(d.image_url);if(sp)sb.storage.from("media").remove([sp]).catch(()=>{});toast(t("deleted"));location.hash="#/devlogs"};
+}
+async function devlogForm(studio,d,gameId){
+  if(!studio){toast(t("needStudio"));return}
+  const{data:games}=await sb.from("games").select("id,title").eq("owner",me.id).order("title");
+  const sel=d?d.game_id:gameId;
+  const m=modal("📝 "+(d?t("editDevlog"):t("newDevlog")),`<div class="form" style="max-width:none">
+    <label>${t("devlogAbout")}<select id="dg"><option value="">📢 ${t("studioNews")} (${esc(studio.name)})</option>${(games||[]).map(g=>`<option value="${g.id}" ${g.id===sel?"selected":""}>🎮 ${esc(g.title)}</option>`).join("")}</select></label>
+    <label>${t("titleL")} *<input class="inp" id="dt" maxlength="120" value="${esc(d?.title||"")}" placeholder="${t("devlogPh")}"></label>
+    <label>${t("devlogBody")} *<textarea class="inp" id="db" maxlength="20000" style="min-height:220px">${esc(d?.body||"")}</textarea></label>
+    <label>${t("image")} <span class="hint">(${t("optional")})</span><input type="file" id="di" accept="image/png,image/jpeg,image/webp,image/gif">${d?.image_url?`<span class="hint">${t("keep")}</span>`:""}</label>
+    <div class="hint">${t("devlogHint")}</div><div class="err" id="de"></div>
+    <div class="acts"><button class="btn ghost" data-x>${t("cancel")}</button><button class="btn green" id="dsv">${d?t("save"):t("publishDevlog")}</button></div></div>`,true);
+  m.el.querySelector("#dsv").onclick=async e=>{const g=s=>m.el.querySelector(s),er=g("#de");er.textContent="";
+    const rec={title:g("#dt").value.trim(),body:g("#db").value.trim(),game_id:g("#dg").value||null};
+    if(rec.title.length<2||!rec.body){er.textContent=t("err_required");return}
+    e.target.disabled=true;e.target.textContent=t("uploading");
+    try{const f=g("#di").files[0];if(f)rec.image_url=await upload(f,"devlog",IMG,5);
+      const r=d?await sb.from("devlogs").update(rec).eq("id",d.id).select("id").single():await sb.from("devlogs").insert({...rec,studio_id:studio.id,owner:me.id}).select("id").single();
+      if(r.error)throw r.error;
+      if(d&&f&&d.image_url){const sp=storagePath(d.image_url);if(sp)sb.storage.from("media").remove([sp]).catch(()=>{})}
+      m.close();toast("📝 "+t("saved"));location.hash="#/devlog/"+r.data.id;if(d)route()}
+    catch(ex){er.textContent=errMsg(ex);e.target.disabled=false;e.target.textContent=d?t("save"):t("publishDevlog")}};
+}
+
 /* ============ festivals ============ */
-function festState(f){const n=Date.now(),s=+new Date(f.starts_at),e=+new Date(f.ends_at),u=+new Date(f.signup_ends);
-  return n>=e?"ended":n>=s?"live":n<u?"signup":"soon"}
+function festState(f){const n=Date.now(),s=+new Date(f.starts_at),e=+new Date(f.ends_at),u=+new Date(f.signup_ends),us=+new Date(f.signup_starts||0);
+  return n>=e?"ended":n>=s?"live":n<us?"presignup":n<u?"signup":"soon"}
+const signupOpen=f=>{const n=Date.now();return n>=+new Date(f.signup_starts||0)&&n<+new Date(f.signup_ends)}
 function festDates(f){const o={month:"short",day:"numeric"},L=lang==="he"?"he-IL":"en-US";
   return new Date(f.starts_at).toLocaleDateString(L,o)+" – "+new Date(f.ends_at).toLocaleDateString(L,{...o,year:"numeric"})}
 function festBg(f){const u=okUrl(f.banner_url||"");return u?`background:linear-gradient(90deg,#000c,#0004),url('${esc(u)}') center/cover`:`background:linear-gradient(120deg,${f.theme},#1b2838)`}
 function festStateHTML(f){const s=festState(f);
   return s==="live"?`<span class="fstate live">● ${t("f_live")} · ${t("f_ends")} ${fmtDate(f.ends_at)}</span>`
     :s==="signup"?`<span class="fstate">${t("f_signupOpen")} ${fmtDate(f.signup_ends)}</span>`
+    :s==="presignup"?`<span class="fstate">${t("f_signupFrom")} ${fmtDate(f.signup_starts)}</span>`
     :s==="soon"?`<span class="fstate">${t("f_startsOn")} ${fmtDate(f.starts_at)}</span>`:`<span class="fstate off">${t("f_ended")}</span>`}
 function festBannerHTML(f,big){return `<a class="fest ${big?"big":""}" href="#/fest/${f.id}" style="${festBg(f)}"><div><span class="atag" style="background:${esc(f.theme)};color:#fff">🎪 ${t("festival")}</span>
   <b>${esc(f.title)}</b>${f.tagline?`<span>${esc(f.tagline)}</span>`:""}<span class="dim">${festDates(f)}</span>${festStateHTML(f)}</div></a>`}
@@ -1124,16 +1216,17 @@ async function festPage(main,id,stale){
   const entries=er.data||[],games=await gamesByIds(entries.map(e=>e.game_id));if(stale())return;
   const st=festState(f),mine=me?entries.filter(e=>e.owner===me.id).map(e=>e.game_id):[];
   let eligible=[];
-  if(me&&st==="signup"){let q=sb.from("games").select("id,title,coming_soon").eq("owner",me.id).eq("review_status","approved").eq("published",true);
+  if(me&&signupOpen(f)){let q=sb.from("games").select("id,title,coming_soon").eq("owner",me.id).eq("review_status","approved").eq("published",true);
     if(f.coming_soon_only)q=q.eq("coming_soon",true);const{data}=await q;if(stale())return;eligible=(data||[]).filter(g=>!mine.includes(g.id))}
   main.innerHTML=subnav()+festBannerHTML(f,true)+`
     <div class="gbody"><div>${f.description?`<div class="about" style="margin-bottom:14px">${esc(f.description)}</div>`:""}
       <h2 class="sec">🎮 ${t("games")} <span class="mut">(${games.length})</span></h2>
       ${games.length?`<div class="grid">${games.map(cardHTML).join("")}</div>`:`<div class="mut">${t("noEntries")}</div>`}</div>
     <aside><div class="panel" style="display:grid;gap:8px">
-      <div class="kv2"><span>${t("f_signupTill")}</span><span>${fmtDate(f.signup_ends)}</span><span>${t("from")}</span><span>${fmtDate(f.starts_at)}</span><span>${t("to")}</span><span>${fmtDate(f.ends_at)}</span>
+      <div class="kv2"><span>${t("f_signupFromL")}</span><span>${fmtDate(f.signup_starts)}</span><span>${t("f_signupTill")}</span><span>${fmtDate(f.signup_ends)}</span><span>${t("from")}</span><span>${fmtDate(f.starts_at)}</span><span>${t("to")}</span><span>${fmtDate(f.ends_at)}</span>
       ${f.coming_soon_only?`<span>🕒</span><span>${t("f_csOnly")}</span>`:""}</div>
-      ${st==="signup"?(me?(eligible.length?`<label class="form" style="gap:5px;max-width:none">${t("f_signupGame")}<select id="fsg">${eligible.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
+      ${st==="presignup"?`<div class="mut" style="font-size:12px">⏳ ${t("f_signupFrom")} ${fmtDate(f.signup_starts)}</div>`:""}
+      ${signupOpen(f)?(me?(eligible.length?`<label class="form" style="gap:5px;max-width:none">${t("f_signupGame")}<select id="fsg">${eligible.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
         <button class="btn green" id="fsb">🎪 ${t("f_join")}</button>`:`<div class="mut" style="font-size:12px">${t("f_noEligible")}</div>`)
         :`<a class="btn ghost" href="#/login?next=${encodeURIComponent(location.hash)}">${t("login")}</a>`):""}
       ${mine.length?`<div class="mut" style="font-size:12px">${t("f_yours")}:</div>${mine.map(gid=>{const g=games.find(x=>x.id===gid);return `<div style="display:flex;gap:6px;align-items:center"><span style="flex:1">${esc(g?.title||"")}</span><button class="btn ghost sm" data-leave="${gid}">${t("remove")}</button></div>`}).join("")}`:""}
@@ -1150,9 +1243,10 @@ async function festPage(main,id,stale){
 let myFollows=new Set();
 async function studioPage(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("notfound"));
-  const[sr,gr,br]=await Promise.all([sb.from("studios").select("id,owner,name,downloads,followers,members,created_at,support_email,status,verify_status,about,logo_url,banner_url,website,discord_url,youtube_url,x_url").eq("id",id).maybeSingle(),
+  const[sr,gr,br,dsr]=await Promise.all([sb.from("studios").select("id,owner,name,downloads,followers,members,created_at,support_email,status,verify_status,about,logo_url,banner_url,website,discord_url,youtube_url,x_url").eq("id",id).maybeSingle(),
     live().eq("studio_id",id).order("created_at",{ascending:false}),
-    sb.from("bundles").select("id,title,price,game_ids").eq("studio_id",id).eq("published",true)]);
+    sb.from("bundles").select("id,title,price,game_ids").eq("studio_id",id).eq("published",true),
+    sb.from("devlogs").select(DEVLOG_COLS).eq("studio_id",id).order("created_at",{ascending:false}).limit(12)]);
   if(stale())return;const s=sr.data;
   if(!s){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
   setTitle(s.name);
@@ -1172,8 +1266,10 @@ async function studioPage(main,id,stale){
     ${s.about?`<div class="about panel" style="margin-top:12px">${esc(s.about)}</div>`:""}
     <h2 class="sec">${t("gamesby")} ${esc(s.name)} <span class="mut">(${(gr.data||[]).length})</span></h2>
     ${(gr.data||[]).length?`<div class="grid">${gr.data.map(cardHTML).join("")}</div>`:`<div class="mut">—</div>`}
-    ${(br.data||[]).length?`<h2 class="sec">📦 ${t("bundles")}</h2><div class="grid">${br.data.map(bundleCardHTML).join("")}</div>`:""}`;
+    ${(br.data||[]).length?`<h2 class="sec">📦 ${t("bundles")}</h2><div class="grid">${br.data.map(bundleCardHTML).join("")}</div>`:""}
+    ${(dsr.data||[]).length||mine?`<h2 class="sec">📝 ${t("devlogs")}${mine?`<a href="#" id="sdl">+ ${t("newDevlog")}</a>`:""}</h2>${(dsr.data||[]).length?`<div class="grid">${dsr.data.map(devlogCardHTML).join("")}</div>`:`<div class="mut">—</div>`}`:""}`;
   $("#shs").onclick=()=>openShare("/studio/"+s.id,s.name);
+  if($("#sdl"))$("#sdl").onclick=e=>{e.preventDefault();devlogForm(s,null,null)};
   if($("#flw"))$("#flw").onclick=async()=>{if(needLogin())return;
     const{error}=following?await sb.from("follows").delete().eq("user_id",me.id).eq("studio_id",s.id):await sb.from("follows").insert({user_id:me.id,studio_id:s.id});
     if(error)return dbErr(error);following?myFollows.delete(s.id):myFollows.add(s.id);if(!following)toast("⭐ "+t("followHint"));route()};
@@ -1499,7 +1595,7 @@ async function dashView(main,stale){
   const tot={dl:data.reduce((a,g)=>a+g.players,0),sales:data.reduce((a,g)=>a+g.sales_count,0)+bundles.reduce((a,b)=>a+b.sales_count,0),
     coins:stats.reduce((a,r)=>a+ +r.coins,0),earned:data.reduce((a,g)=>a+g.coins_earned,0),wish:data.reduce((a,g)=>a+g.wishes,0)};
   const approved=data.filter(g=>g.review_status==="approved");
-  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("mygames")}${studio?` · <a href="#/studio/${studio.id}" style="border:0;padding:0;font-size:14px">${esc(studio.name)} ${badgeHTML(studio.downloads)}</a>`:""}<a href="#/publish" style="background:var(--buy2)">+ ${t("publish")}</a></h2>`+
+  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("mygames")}${studio?` · <a href="#/studio/${studio.id}" style="border:0;padding:0;font-size:14px">${esc(studio.name)} ${badgeHTML(studio.downloads)}</a>`:""}<a href="#/publish" style="background:var(--buy2)">+ ${t("publish")}</a>${studio&&studio.status==="approved"?`<a href="#" id="dnd">📝 ${t("newDevlog")}</a>`:""}</h2>`+
    (isShabbat()&&data.some(g=>g.review_status==="pending")?`<div class="banner">${t("shabbat")}</div>`:"")+
    `<div class="stats"><div><b>${tot.dl.toLocaleString()}</b><span>${t("downloads")}</span></div><div><b>${tot.sales.toLocaleString()}</b><span>${t("sales")}</span></div>
      <div><b>${coins(tot.earned)}</b><span>${t("earned")}</span></div><div><b>${tot.wish.toLocaleString()}</b><span>${t("wishlist")}</span></div>
@@ -1516,6 +1612,7 @@ async function dashView(main,stale){
      <td><div class="dacts"><a class="btn ghost sm" href="#/edit/${g.id}">✎ ${t("edit")}</a>
        ${g.review_status==="approved"?`<button class="btn ghost sm" data-a="upd" data-id="${g.id}">🔄 ${t("postUpdate")}</button>
        ${g.price?`<button class="btn ghost sm" data-a="sale" data-id="${g.id}">🏷️ ${t("sale")}</button>`:""}
+       <button class="btn ghost sm" data-a="dlog" data-id="${g.id}">📝 ${t("devlog")}</button>
        <button class="btn ghost sm" data-a="keys" data-id="${g.id}">🔑 ${t("keys")}</button>
        <button class="btn ghost sm" data-a="promo" data-id="${g.id}">🚀 ${t("promote")}</button>`:""}
        <button class="btn red sm" data-a="del" data-id="${g.id}">${t("delete")}</button></div></td></tr>`).join("")}</tbody></table></div>`
@@ -1525,6 +1622,7 @@ async function dashView(main,stale){
    ${bundles.length?`<div class="panel"><table class="table"><tbody>${bundles.map(b=>`<tr><td><a href="#/bundle/${b.id}" style="color:#fff">📦 ${esc(b.title)}</a></td><td>${b.game_ids.length} ${t("games")}</td><td>${coins(b.price)}</td><td class="hide">${b.sales_count} ${t("sales")}</td>
      <td><button class="btn red sm" data-a="delb" data-id="${b.id}">${t("delete")}</button></td></tr>`).join("")}</tbody></table></div>`:""}`;
   const nb=$("#nb");if(nb)nb.onclick=e=>{e.preventDefault();bundleForm(studio,approved)};
+  const dnd=$("#dnd");if(dnd)dnd.onclick=e=>{e.preventDefault();devlogForm(studio,null,null)};
   main.onclick=async e=>{const b=e.target.closest("button[data-a]");if(!b)return;const g=data.find(x=>x.id===b.dataset.id);
     switch(b.dataset.a){
       case "del":deleteGame(g,route);break;
@@ -1532,6 +1630,7 @@ async function dashView(main,stale){
       case "upd":updateForm(g);break;
       case "sale":saleForm(g);break;
       case "keys":keysForm(g);break;
+      case "dlog":devlogForm(studio,null,g.id);break;
       case "promo":{await refreshWallet();
         const m=modal("🚀 "+t("promote")+" — "+esc(g.title),`<div class="mut">${t("promoHint")}</div>
           <div class="kv2" style="margin:12px 0"><span>${t("price")}</span><span>${coins(500)}</span><span>${t("balance")}</span><span>${coins(me.coins)}</span>
@@ -1739,16 +1838,17 @@ async function adminView(main,tab,stale){
     body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🎪 ${t("newFest")}</h3><div class="mut">${t("newFestHint")}</div>
       <div class="two"><label>${t("f_title")} *<input class="inp" id="ftt" maxlength="80" placeholder="Man Studio Next Fest"></label><label>${t("tagline")}<input class="inp" id="ftg" maxlength="200"></label></div>
       <label>${t("f_desc")}<textarea class="inp" id="ftd" maxlength="5000" style="min-height:90px"></textarea></label>
-      <div class="two"><label>${t("f_signupTill")} *<input class="inp" type="date" id="fsu" value="${d(now+14*864e5)}"></label><label>${t("color")}<input type="color" id="fcl" value="#9b5cff" style="width:60px;height:36px;border:0;background:none"></label></div>
+      <div class="two"><label>${t("f_signupFromL")} *<input class="inp" type="date" id="fss" value="${d(now)}"></label><label>${t("f_signupTill")} *<input class="inp" type="date" id="fsu" value="${d(now+14*864e5)}"></label></div>
+      <div class="two"><span></span><label>${t("color")}<input type="color" id="fcl" value="#9b5cff" style="width:60px;height:36px;border:0;background:none"></label></div>
       <div class="two"><label>${t("from")} *<input class="inp" type="date" id="fst" value="${d(now+21*864e5)}"></label><label>${t("to")} *<input class="inp" type="date" id="fen" value="${d(now+28*864e5)}"></label></div>
       <label>${t("banner")} <span class="hint">(1600×400)</span><input type="file" id="fbn" accept="image/png,image/jpeg,image/webp,image/gif"></label>
       <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="fco"> 🕒 ${t("f_csOnly")}</label>
       <div class="err" id="fe2"></div><div><button class="btn green" id="fsave">🎪 ${t("createFest")}</button></div></div>
-      ${extra.fests.map(f=>`<div class="row" style="grid-template-columns:1fr auto"><div><a href="#/fest/${f.id}" style="color:#fff;font-weight:600">🎪 ${esc(f.title)}</a> <span class="mut">${festDates(f)}</span> ${festStateHTML(f)}</div>
+      ${extra.fests.map(f=>`<div class="row" style="grid-template-columns:1fr auto"><div><a href="#/fest/${f.id}" style="color:#fff;font-weight:600">🎪 ${esc(f.title)}</a> <span class="mut">${festDates(f)}</span> <span class="dim" style="font-size:12px">· ${t("signups")} ${fmtDate(f.signup_starts)} → ${fmtDate(f.signup_ends)}</span> ${festStateHTML(f)}</div>
         <button class="btn red sm" data-delfest="${f.id}">${t("delete")}</button></div>`).join("")}`}
   else if(tab==="awards"){const ym=new Date().toLocaleDateString("en-CA").slice(0,7);
     body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🏆 ${t("setAward")}</h3>
-      <div class="two"><label>${t("awardKind")}<select id="awk"><option value="gotm">${t("gotm")}</option><option value="goty">${t("goty")}</option></select></label>
+      <div class="two"><label>${t("awardKind")}<select id="awk"><option value="gotw">${t("gotw")}</option><option value="gotm" selected>${t("gotm")}</option><option value="goty">${t("goty")}</option></select></label>
         <label>${t("period")}<input class="inp" id="awp" dir="ltr" value="${ym}" placeholder="2026-11 / 2026"></label></div>
       <label>${t("games")}<select id="awg">${extra.games.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
       <div class="hint">${t("awardHint")}</div><div class="err" id="awe"></div><div><button class="btn green" id="aws">${t("save")}</button></div></div>
@@ -1773,13 +1873,15 @@ async function adminView(main,tab,stale){
     <div class="tabsb">${tabs.map(([k,l,n])=>`<button class="${k===tab?"on":""}" data-tab="${k}">${l}${n?`<span class="badgeN">${n}</span>`:""}</button>`).join("")}</div>
     <div class="rows" style="gap:10px;padding:12px">${body||`<div class="empty">${t("nothing")}</div>`}</div>`;
   if(tab==="awards"&&$("#aws"))$("#aws").onclick=async()=>{const k=$("#awk").value,p=$("#awp").value.trim();
-    if(!(k==="gotm"?/^\d{4}-\d{2}$/:/^\d{4}$/).test(p)){$("#awe").textContent=t("awardHint");return}
+    if(!(k==="gotw"?/^\d{4}-W\d{2}$/:k==="gotm"?/^\d{4}-\d{2}$/:/^\d{4}$/).test(p)){$("#awe").textContent=t("awardHint");return}
     const{error}=await sb.from("awards").upsert({kind:k,period:p,game_id:$("#awg").value},{onConflict:"kind,period"});if(error){$("#awe").textContent=errMsg(error);return}toast("🏆 "+t("saved"));route()};
-  if(tab==="fests")$("#fsave").onclick=async e=>{const ti=$("#ftt").value.trim(),su=new Date($("#fsu").value+"T23:59:00"),st=new Date($("#fst").value+"T00:00:00"),en=new Date($("#fen").value+"T23:59:00");
+  if(tab==="awards"&&$("#awk"))$("#awk").onchange=()=>{const k=$("#awk").value,n=new Date();$("#awp").value=k==="gotw"?isoWeek(n):k==="gotm"?n.toLocaleDateString("en-CA").slice(0,7):String(n.getFullYear())};
+  if(tab==="fests")$("#fsave").onclick=async e=>{const ti=$("#ftt").value.trim(),ss=$("#fss").value===new Date().toLocaleDateString("en-CA")?new Date():new Date($("#fss").value+"T00:00:00"),su=new Date($("#fsu").value+"T23:59:00"),st=new Date($("#fst").value+"T00:00:00"),en=new Date($("#fen").value+"T23:59:00");
     if(ti.length<2||isNaN(su)||isNaN(st)||isNaN(en)){$("#fe2").textContent=t("err_required");return}
+    if(isNaN(ss)||!(ss<su)){$("#fe2").textContent=t("festSignupBad");return}
     if(!(en>st&&su<=en)){$("#fe2").textContent=t("festDatesBad");return}
     e.target.disabled=true;
-    try{const rec={title:ti,tagline:$("#ftg").value.trim()||null,description:$("#ftd").value.trim(),theme:$("#fcl").value,signup_ends:su.toISOString(),starts_at:st.toISOString(),ends_at:en.toISOString(),coming_soon_only:$("#fco").checked};
+    try{const rec={title:ti,tagline:$("#ftg").value.trim()||null,description:$("#ftd").value.trim(),theme:$("#fcl").value,signup_starts:ss.toISOString(),signup_ends:su.toISOString(),starts_at:st.toISOString(),ends_at:en.toISOString(),coming_soon_only:$("#fco").checked};
       const bf=$("#fbn").files[0];if(bf)rec.banner_url=await upload(bf,"fest",IMG,5);
       const{error}=await sb.from("festivals").insert(rec);if(error)throw error;toast("🎪 "+t("saved"));route()}
     catch(ex){$("#fe2").textContent=errMsg(ex);e.target.disabled=false}};
