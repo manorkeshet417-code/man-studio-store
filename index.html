@@ -287,6 +287,8 @@ textarea.inp{min-height:90px;resize:vertical}
 .hall.goty .hallcard.latest{grid-column:span 2}
 .hallcard .now{font-size:11px;color:#2a1f00;background:#ffd76a;border-radius:9px;padding:1px 8px;font-weight:700}
 @media (max-width:520px){.hall.goty .hallcard.latest{grid-column:auto}}
+.extl{display:inline-block;font-size:11px;color:#9fd3ff;background:#1a9fff22;border:1px solid #1a9fff55;border-radius:9px;padding:0 7px;margin-top:2px}
+.extbox{display:grid;gap:12px;background:#1a9fff0d;border:1px dashed #1a9fff55;border-radius:4px;padding:12px}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -372,7 +374,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 const STORE_NAME = "Man Studio Store";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-21.3";
+const BUILD = "2026-11-21.4";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -476,7 +478,7 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",nav_games:"Games",nav_community:"Community",nav_devs:"Developers",nav_browse:"Browse",nav_deals:"Deals & more",freeGames:"Free to play",surpriseS:"Surprise me",nav_allH:"Every game in the store",nav_newH:"Just released",nav_mostH:"What everyone is playing",nav_topH:"Best reviewed",nav_freeH:"Costs 0 Coins",nav_saleH:"Games on sale now",nav_soonH:"Upcoming releases",nav_surpH:"Open a random game",nav_devlogH:"News from developers",nav_festH:"Limited-time events",nav_awardsH:"Game of the Week / Month / Year",nav_pubH:"Studio, verification, submit",nav_dashH:"Stats, sales, keys, updates",nav_writeH:"Share your progress",nav_rulesH:"Publishing rules",awardsT:"Awards",awardsS:"Every Game of the Year, Month and Week ever chosen in Man Studio Store.",current:"Current",mostAwarded:"Most awarded",noAwards:"No awards yet",awardsSoon:"The first winners will appear here soon.",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",extGame:"Outside the store",extToggle:"Game not in the store (Game of the Year only)",extHint:"Pick any game from anywhere — Steam, itch.io, a website. Its card links out to that page.",extLink:"Link to the game",nav_games:"Games",nav_community:"Community",nav_devs:"Developers",nav_browse:"Browse",nav_deals:"Deals & more",freeGames:"Free to play",surpriseS:"Surprise me",nav_allH:"Every game in the store",nav_newH:"Just released",nav_mostH:"What everyone is playing",nav_topH:"Best reviewed",nav_freeH:"Costs 0 Coins",nav_saleH:"Games on sale now",nav_soonH:"Upcoming releases",nav_surpH:"Open a random game",nav_devlogH:"News from developers",nav_festH:"Limited-time events",nav_awardsH:"Game of the Week / Month / Year",nav_pubH:"Studio, verification, submit",nav_dashH:"Stats, sales, keys, updates",nav_writeH:"Share your progress",nav_rulesH:"Publishing rules",awardsT:"Awards",awardsS:"Every Game of the Year, Month and Week ever chosen in Man Studio Store.",current:"Current",mostAwarded:"Most awarded",noAwards:"No awards yet",awardsSoon:"The first winners will appear here soon.",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
 devlogAbout:"About",studioNews:"Studio news",devlogPh:"What's new in development?",devlogBody:"Post",image:"Image",optional:"optional",
 devlogHint:"Followers of your studio and players who own or wishlisted the game get a notification.",publishDevlog:"Publish",like:"Like",liked:"Liked",edited:"edited",
 f_signupFrom:"Sign-ups open on",f_signupFromL:"Sign-ups open",signups:"sign-ups",festSignupBad:"Sign-ups must open before they close.",
@@ -543,7 +545,7 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",nav_games:"משחקים",nav_community:"קהילה",nav_devs:"מפתחים",nav_browse:"עיון",nav_deals:"מבצעים ועוד",freeGames:"חינמיים",surpriseS:"הפתע אותי",nav_allH:"כל המשחקים בחנות",nav_newH:"יצאו עכשיו",nav_mostH:"מה כולם משחקים",nav_topH:"הכי טובים בביקורות",nav_freeH:"עולים 0 Coins",nav_saleH:"משחקים במבצע עכשיו",nav_soonH:"משחקים שבדרך",nav_surpH:"פותח משחק אקראי",nav_devlogH:"חדשות מהמפתחים",nav_festH:"אירועים לזמן מוגבל",nav_awardsH:"משחק השבוע / החודש / השנה",nav_pubH:"סטודיו, אימות, הגשה",nav_dashH:"נתונים, מכירות, קודים, עדכונים",nav_writeH:"שתף את ההתקדמות שלך",nav_rulesH:"כללי הפרסום",awardsT:"פרסים",awardsS:"כל משחקי השנה, החודש והשבוע שנבחרו אי פעם ב-Man Studio Store.",current:"נוכחי",mostAwarded:"הכי מעוטרים",noAwards:"אין פרסים עדיין",awardsSoon:"הזוכים הראשונים יופיעו כאן בקרוב.",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",extGame:"מחוץ לחנות",extToggle:"משחק שלא בחנות (רק למשחק השנה)",extHint:"אפשר לבחור כל משחק מכל מקום — Steam, itch.io, אתר. הכרטיס שלו מוביל לדף שלו.",extLink:"קישור למשחק",nav_games:"משחקים",nav_community:"קהילה",nav_devs:"מפתחים",nav_browse:"עיון",nav_deals:"מבצעים ועוד",freeGames:"חינמיים",surpriseS:"הפתע אותי",nav_allH:"כל המשחקים בחנות",nav_newH:"יצאו עכשיו",nav_mostH:"מה כולם משחקים",nav_topH:"הכי טובים בביקורות",nav_freeH:"עולים 0 Coins",nav_saleH:"משחקים במבצע עכשיו",nav_soonH:"משחקים שבדרך",nav_surpH:"פותח משחק אקראי",nav_devlogH:"חדשות מהמפתחים",nav_festH:"אירועים לזמן מוגבל",nav_awardsH:"משחק השבוע / החודש / השנה",nav_pubH:"סטודיו, אימות, הגשה",nav_dashH:"נתונים, מכירות, קודים, עדכונים",nav_writeH:"שתף את ההתקדמות שלך",nav_rulesH:"כללי הפרסום",awardsT:"פרסים",awardsS:"כל משחקי השנה, החודש והשבוע שנבחרו אי פעם ב-Man Studio Store.",current:"נוכחי",mostAwarded:"הכי מעוטרים",noAwards:"אין פרסים עדיין",awardsSoon:"הזוכים הראשונים יופיעו כאן בקרוב.",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
 devlogAbout:"על מה",studioNews:"חדשות הסטודיו",devlogPh:"מה חדש בפיתוח?",devlogBody:"הפוסט",image:"תמונה",optional:"לא חובה",
 devlogHint:"מי שעוקב אחרי הסטודיו, ומי שהמשחק אצלו או ברשימת המשאלות שלו, יקבלו התראה.",publishDevlog:"פרסם",like:"אהבתי",liked:"אהבת",edited:"נערך",
 f_signupFrom:"ההרשמה נפתחת ב-",f_signupFromL:"פתיחת ההרשמה",signups:"הרשמה",festSignupBad:"ההרשמה צריכה להיפתח לפני שהיא נסגרת.",
@@ -776,6 +778,9 @@ const promoHTML=g=>isPromoted(g)?`<span class="promo">${t("promoted")}</span>`:"
 const nowISO=()=>new Date().toISOString();
 const live=(cols=LIST_COLS)=>sb.from("games").select(cols).eq("published",true).eq("review_status","approved");
 async function gamesByIds(ids){if(!ids.length)return[];const{data}=await live().in("id",ids);const m=new Map((data||[]).map(g=>[g.id,g]));return ids.map(i=>m.get(i)).filter(Boolean)}
+// GOTY can be a game outside the store: render it like a game, but link to its own page
+const extGame=a=>({id:null,title:a.ext_title,developer:a.ext_developer||"",cover_url:a.ext_image,ext:okUrl(a.ext_url||"")});
+const awardHref=g=>g.ext?`href="${esc(g.ext)}" target="_blank" rel="noopener"`:`href="#/app/${g.id}"`;
 function isoWeek(d=new Date()){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())),day=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-day);
   const y=x.getUTCFullYear();return y+"-W"+String(Math.ceil(((x-Date.UTC(y,0,1))/864e5+1)/7)).padStart(2,"0")}
 function periodLabel(a){if(a.kind==="goty")return a.period;if(a.kind==="gotw"){const[y,w]=a.period.split("-W");return t("weekN").replace("{w}",+w)+" · "+y}const[y,m]=a.period.split("-");return new Date(+y,+m-1,1).toLocaleDateString(lang==="he"?"he-IL":"en-US",{month:"long",year:"numeric"})}
@@ -788,7 +793,7 @@ async function storeView(main,stale){
     live().eq("coming_soon",false).gte("created_at",since30).order("players",{ascending:false}).limit(8),
     live().eq("coming_soon",false).not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n).limit(8),
     live().eq("coming_soon",true).order("release_date",{ascending:true,nullsFirst:false}).limit(8),
-    sb.from("awards").select("kind,period,game_id").order("created_at",{ascending:false}).limit(20),
+    sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image").order("created_at",{ascending:false}).limit(20),
     sb.from("bundles").select("id,title,price,game_ids,studio_id").eq("published",true).order("created_at",{ascending:false}).limit(6),
     sb.rpc("trending_ids",{p_limit:8}),
     live().eq("coming_soon",false).order("created_at",{ascending:false}).limit(8),
@@ -801,7 +806,7 @@ async function storeView(main,stale){
   if(!trending.length)trending=fe.data.filter(g=>!g.coming_soon).sort((a,b)=>b.players-a.players).slice(0,8);
   const newPop=np.data.length?np.data:ne.data;
   const awards=aw.data||[],gotw=awards.find(a=>a.kind==="gotw"),gotm=awards.find(a=>a.kind==="gotm"),goty=awards.find(a=>a.kind==="goty");
-  const awardGames=await gamesByIds([gotw,gotm,goty].filter(Boolean).map(a=>a.game_id));if(stale())return;
+  const awardGames=await gamesByIds([gotw,gotm,goty].filter(a=>a&&a.game_id).map(a=>a.game_id));if(stale())return;
   const dl=await sb.from("devlogs").select(DEVLOG_COLS).order("created_at",{ascending:false}).limit(3);if(stale())return;
   const ag=id=>awardGames.find(g=>g.id===id);
   const bundles=bd.data||[];
@@ -810,8 +815,8 @@ async function storeView(main,stale){
     ${fests.length?`<div style="display:grid;gap:10px;margin-bottom:6px">${fests.map(f=>festBannerHTML(f,festState(f)==="live")).join("")}</div>`:""}
     <h2 class="sec">⭐ ${t("featured")}</h2>
     <div id="heroBox"></div><div class="dots" id="dots"></div>
-    ${[gotw,gotm,goty].filter(a=>a&&ag(a.game_id)).length?`<div class="awards">${[gotw,gotm,goty].filter(a=>a&&ag(a.game_id)).map(a=>{const g=ag(a.game_id);
-      return `<a class="award ${a.kind}" href="#/app/${g.id}">${coverHTML(g)}<div><span class="atag">🏆 ${t(a.kind)}</span><b>${esc(g.title)}</b><span class="mut">${esc(periodLabel(a))}</span></div></a>`}).join("")}</div>`:""}
+    ${[gotw,gotm,goty].filter(a=>a&&(a.ext_title||ag(a.game_id))).length?`<div class="awards">${[gotw,gotm,goty].filter(a=>a&&(a.ext_title||ag(a.game_id))).map(a=>{const g=a.ext_title?extGame(a):ag(a.game_id);
+      return `<a class="award ${a.kind}" ${awardHref(g)}>${coverHTML(g)}<div><span class="atag">🏆 ${t(a.kind)}</span><b>${esc(g.title)}</b><span class="mut">${esc(periodLabel(a))}</span>${g.ext?`<span class="extl">↗ ${t("extGame")}</span>`:""}</div></a>`}).join("")}</div>`:""}
     ${trending.length?`<h2 class="sec">🔥 ${t("trending")}<a href="#/browse?sort=players">${t("seeall")}</a></h2>
     <div class="rows">${trending.map(rowHTML).join("")}</div>`:""}
     ${(dl.data||[]).length?`<h2 class="sec">📝 ${t("devlogs")}<a href="#/devlogs">${t("seeall")}</a></h2><div class="grid">${dl.data.map(devlogCardHTML).join("")}</div>`:""}
@@ -1244,15 +1249,15 @@ async function devlogForm(studio,d,gameId){
 /* ============ awards hall ============ */
 async function awardsView(main,stale){
   setTitle(t("awardsT"));
-  const{data,error}=await sb.from("awards").select("kind,period,game_id,created_at").order("period",{ascending:false});
+  const{data,error}=await sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image,created_at").order("period",{ascending:false});
   if(stale())return;if(error)throw error;
-  const games=await gamesByIds([...new Set((data||[]).map(a=>a.game_id))]);if(stale())return;
-  const gm=new Map(games.map(g=>[g.id,g])),list=(data||[]).filter(a=>gm.has(a.game_id));
+  const games=await gamesByIds([...new Set((data||[]).filter(a=>a.game_id).map(a=>a.game_id))]);if(stale())return;
+  const gm=new Map(games.map(g=>[g.id,g])),list=(data||[]).filter(a=>a.ext_title||gm.has(a.game_id));
   const sec=(kind,icon)=>{const l=list.filter(a=>a.kind===kind);if(!l.length)return "";
-    return `<h2 class="sec">${icon} ${t(kind)} <span class="mut">(${l.length})</span></h2><div class="hall ${kind}">${l.map((a,i)=>{const g=gm.get(a.game_id);
-      return `<a class="hallcard ${i===0?"latest":""}" href="#/app/${g.id}">${coverHTML(g)}<div class="b"><span class="atag">🏆 ${esc(periodLabel(a))}</span>
-        <b>${esc(g.title)}</b><span class="mut" style="font-size:12px">${esc(g.developer)}</span>${i===0?`<span class="now">${t("current")}</span>`:""}</div></a>`}).join("")}</div>`};
-  const wins={};list.forEach(a=>wins[a.game_id]=(wins[a.game_id]||0)+1);
+    return `<h2 class="sec">${icon} ${t(kind)} <span class="mut">(${l.length})</span></h2><div class="hall ${kind}">${l.map((a,i)=>{const g=a.ext_title?extGame(a):gm.get(a.game_id);
+      return `<a class="hallcard ${i===0?"latest":""}" ${awardHref(g)}>${coverHTML(g)}<div class="b"><span class="atag">🏆 ${esc(periodLabel(a))}</span>
+        <b>${esc(g.title)}</b><span class="mut" style="font-size:12px">${esc(g.developer)}</span>${g.ext?`<span class="extl">↗ ${t("extGame")}</span>`:""}${i===0?`<span class="now">${t("current")}</span>`:""}</div></a>`}).join("")}</div>`};
+  const wins={};list.filter(a=>a.game_id).forEach(a=>wins[a.game_id]=(wins[a.game_id]||0)+1);
   const top=Object.entries(wins).filter(([,n])=>n>1).sort((a,b)=>b[1]-a[1]).slice(0,5);
   main.innerHTML=subnav()+`<div class="hallhead"><div>🏆</div><h1>${t("awardsT")}</h1><p class="mut">${t("awardsS")}</p></div>
     ${list.length?sec("goty","👑")+sec("gotm","🌙")+sec("gotw","⭐")+
@@ -1894,7 +1899,7 @@ async function adminView(main,tab,stale){
     ["awards","🏆 GOTM/GOTY",0],["mail","✉ "+t("a_mail"),0],["coins","🪙 Coins",0],["fests","🎪 "+t("festivals"),0]];
   let extra=null;
   if(tab==="fests"){const r=await sb.from("festivals").select("*").order("starts_at",{ascending:false});if(stale())return;extra={fests:r.data||[]}}
-  if(tab==="awards"){const[a,gl]=await Promise.all([sb.from("awards").select("kind,period,game_id,games(title)").order("period",{ascending:false}),
+  if(tab==="awards"){const[a,gl]=await Promise.all([sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image,games(title)").order("period",{ascending:false}),
     live("id,title").eq("coming_soon",false).order("title")]);if(stale())return;extra={awards:a.data||[],games:gl.data||[]}}
   const acts=(kind,id)=>`<div class="acts"><button class="btn green sm" data-ok="${kind}:${id}" ${dis}>✓ ${t("approve")}</button><button class="btn red sm" data-no="${kind}:${id}" ${dis}>✕ ${t("reject")}</button></div>`;
   const when=d=>`<span class="dim" style="font-size:12px">${t("submittedAt")} ${ago(d)}</span>`;
@@ -1925,9 +1930,14 @@ async function adminView(main,tab,stale){
     body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🏆 ${t("setAward")}</h3>
       <div class="two"><label>${t("awardKind")}<select id="awk"><option value="gotw">${t("gotw")}</option><option value="gotm" selected>${t("gotm")}</option><option value="goty">${t("goty")}</option></select></label>
         <label>${t("period")}<input class="inp" id="awp" dir="ltr" value="${ym}" placeholder="2026-11 / 2026"></label></div>
-      <label>${t("games")}<select id="awg">${extra.games.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
+      <label id="awxw" hidden style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="awx"> ↗ ${t("extToggle")}</label>
+      <label id="awgw">${t("games")}<select id="awg">${extra.games.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
+      <div id="awext" hidden class="extbox"><div class="mut" style="font-size:12px">${t("extHint")}</div>
+        <div class="two"><label>${t("titleL")} *<input class="inp" id="axt" maxlength="100"></label><label>${t("developer")}<input class="inp" id="axd" maxlength="80"></label></div>
+        <label>${t("extLink")} *<input class="inp" id="axu" dir="ltr" maxlength="500" placeholder="https://store.steampowered.com/app/… / https://…itch.io/…"></label>
+        <label>${t("image")} <span class="hint">(${t("optional")} · 920×430)</span><input type="file" id="axi" accept="image/png,image/jpeg,image/webp,image/gif"></label></div>
       <div class="hint">${t("awardHint")}</div><div class="err" id="awe"></div><div><button class="btn green" id="aws">${t("save")}</button></div></div>
-      ${extra.awards.map(a=>`<div class="row" style="grid-template-columns:1fr auto"><div><span class="atag">🏆 ${t(a.kind)}</span> <b style="color:#fff">${esc(a.games?.title||"")}</b> <span class="mut">${esc(periodLabel(a))}</span></div>
+      ${extra.awards.map(a=>`<div class="row" style="grid-template-columns:1fr auto"><div><span class="atag">🏆 ${t(a.kind)}</span> <b style="color:#fff">${esc(a.games?.title||a.ext_title||"")}</b>${a.ext_title?` <span class="extl">↗ ${t("extGame")}</span>`:""} <span class="mut">${esc(periodLabel(a))}</span></div>
         <button class="btn red sm" data-delaw="${a.kind}|${a.period}">${t("delete")}</button></div>`).join("")}`}
   else if(tab==="mail")body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">✉ ${t("mailT")}</h3><div class="mut">${t("mailHint")}</div>
       <label>${t("subject")} *<input class="inp" id="mt" maxlength="200"></label><label>${t("message")}<textarea class="inp" id="mb" maxlength="5000" style="min-height:160px"></textarea></label>
@@ -1949,8 +1959,16 @@ async function adminView(main,tab,stale){
     <div class="rows" style="gap:10px;padding:12px">${body||`<div class="empty">${t("nothing")}</div>`}</div>`;
   if(tab==="awards"&&$("#aws"))$("#aws").onclick=async()=>{const k=$("#awk").value,p=$("#awp").value.trim();
     if(!(k==="gotw"?/^\d{4}-W\d{2}$/:k==="gotm"?/^\d{4}-\d{2}$/:/^\d{4}$/).test(p)){$("#awe").textContent=t("awardHint");return}
-    const{error}=await sb.from("awards").upsert({kind:k,period:p,game_id:$("#awg").value},{onConflict:"kind,period"});if(error){$("#awe").textContent=errMsg(error);return}toast("🏆 "+t("saved"));route()};
-  if(tab==="awards"&&$("#awk"))$("#awk").onchange=()=>{const k=$("#awk").value,n=new Date();$("#awp").value=k==="gotw"?isoWeek(n):k==="gotm"?n.toLocaleDateString("en-CA").slice(0,7):String(n.getFullYear())};
+    const ext=k==="goty"&&$("#awx").checked;let rec={kind:k,period:p,game_id:$("#awg").value,ext_title:null,ext_url:null,ext_developer:null,ext_image:null};
+    if(ext){const ti=$("#axt").value.trim(),u=okUrl($("#axu").value.trim());
+      if(!ti){$("#awe").textContent=t("err_required");return}if(!u||!/^https?:/i.test($("#axu").value.trim())){$("#awe").textContent=t("err_badurl");return}
+      rec={kind:k,period:p,game_id:null,ext_title:ti,ext_url:u,ext_developer:$("#axd").value.trim()||null,ext_image:null};
+      const f=$("#axi").files[0];if(f){try{rec.ext_image=await upload(f,"award",IMG,5)}catch(ex){$("#awe").textContent=errMsg(ex);return}}}
+    const{error}=await sb.from("awards").upsert(rec,{onConflict:"kind,period"});if(error){$("#awe").textContent=errMsg(error);return}toast("🏆 "+t("saved"));route()};
+  if(tab==="awards"&&$("#awk")){const syncExt=()=>{const goty=$("#awk").value==="goty",ext=goty&&$("#awx").checked;
+      $("#awxw").hidden=!goty;$("#awgw").hidden=ext;$("#awext").hidden=!ext};
+    $("#awk").onchange=()=>{const k=$("#awk").value,n=new Date();$("#awp").value=k==="gotw"?isoWeek(n):k==="gotm"?n.toLocaleDateString("en-CA").slice(0,7):String(n.getFullYear());syncExt()};
+    $("#awx").onchange=syncExt;syncExt()}
   if(tab==="fests")$("#fsave").onclick=async e=>{const ti=$("#ftt").value.trim(),ss=$("#fss").value===new Date().toLocaleDateString("en-CA")?new Date():new Date($("#fss").value+"T00:00:00"),su=new Date($("#fsu").value+"T23:59:00"),st=new Date($("#fst").value+"T00:00:00"),en=new Date($("#fen").value+"T23:59:00");
     if(ti.length<2||isNaN(su)||isNaN(st)||isNaN(en)){$("#fe2").textContent=t("err_required");return}
     if(isNaN(ss)||!(ss<su)){$("#fe2").textContent=t("festSignupBad");return}
