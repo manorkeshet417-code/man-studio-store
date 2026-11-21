@@ -13,11 +13,12 @@ import os
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.request
 
 import webview
 
-APP_VERSION = "1.2.0"   # bump this before every build that should reach users
+APP_VERSION = "1.2.1"   # bump this before every build that should reach users
 STORE_URL = "https://manorkeshet417-code.github.io/man-studio-store/"
 UPDATE_INFO = STORE_URL + "downloads/app.json"
 TITLE = "Man Studio Store"
@@ -134,7 +135,8 @@ def main():
     webview.settings["ALLOW_DOWNLOADS"] = True               # EXE/ZIP games can be downloaded
     webview.settings["OPEN_EXTERNAL_LINKS_IN_BROWSER"] = True  # share links, itch.io etc.
     # open the store right away; network checks run off the UI thread
-    window = webview.create_window(f"{TITLE}", STORE_URL, js_api=api, width=1280, height=800,
+    # a fresh query string skips the 10-minute cache GitHub Pages allows, so the app always opens the newest store
+    window = webview.create_window(f"{TITLE}", f"{STORE_URL}?app={int(time.time())}", js_api=api, width=1280, height=800,
                                    min_size=(420, 600), background_color="#1b2838")
     api._window = window
 

@@ -340,6 +340,14 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <script>
 /* ============ config ============ */
 const STORE_NAME = "Man Studio Store";
+// GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
+// and if a newer build is online the page reloads itself once with a fresh URL.
+const BUILD = "2026-11-20.2";
+(async()=>{try{
+  const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
+  if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
+    const u=new URL(location.href);u.searchParams.set("v",v);location.replace(u.toString());}
+}catch(e){}})();
 const SB_URL = "https://wxrcjutwkkkttgbghmop.supabase.co";
 const SB_KEY = "sb_publishable_YHOF2yawZKyJhRkUggYByg_reMYeY51";
 const sb = supabase.createClient(SB_URL, SB_KEY);
