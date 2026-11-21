@@ -56,7 +56,21 @@ nav.main a:hover{color:#fff}nav.main a.on{color:var(--acc);box-shadow:inset 0 -2
 
 /* store sub-nav */
 .subnav{display:flex;gap:6px;align-items:center;background:linear-gradient(90deg,#3e6788cc,#3a6182aa);border-radius:4px;padding:6px;margin:18px 0 22px;box-shadow:0 0 10px #0004}
-.subnav a{color:#fff;padding:6px 12px;border-radius:3px;font-size:13px}
+.subnav>a,.ddb{color:#fff;padding:7px 12px;border-radius:3px;font-size:13px;background:none;border:0;white-space:nowrap}
+.subnav>a:hover,.ddb:hover,.dd.open .ddb{background:#ffffff1f;color:#fff}
+.subnav>a.on,.dd.on .ddb{background:#ffffff2e;box-shadow:inset 0 -2px 0 var(--acc)}
+.dd{position:relative}.car{font-size:10px;opacity:.8;display:inline-block;transition:transform .15s}.dd.open .car{transform:rotate(180deg)}
+.ddm{display:none;position:absolute;top:100%;inset-inline-start:0;z-index:35;background:#171a21;border:1px solid #2f4a63;border-radius:6px;
+  box-shadow:0 12px 32px #000c;padding:10px;gap:6px;min-width:250px}
+.ddm.wide{min-width:720px}
+.dd.open .ddm{display:flex}
+@media (hover:hover){.dd:hover .ddm{display:flex}.dd:hover .car{transform:rotate(180deg)}}
+.ddcol{display:flex;flex-direction:column;gap:2px;min-width:220px}.ddcol h5{margin:4px 8px 6px;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.ddi{display:flex;gap:10px;align-items:center;padding:7px 10px;border-radius:4px;color:#dcdedf}
+.ddi:hover{background:#2a475e;color:#fff}.ddi .ic{font-size:18px;width:24px;text-align:center}
+.ddi b{display:block;font-weight:500;font-size:13.5px}.ddi small{display:block;color:var(--mut);font-size:11.5px;line-height:1.3}
+.genrecol .gl{display:grid;grid-template-columns:1fr 1fr;gap:2px}.genrecol .gl a{color:#c6d4df;padding:5px 10px;border-radius:3px;font-size:13px}
+.genrecol .gl a:hover{background:#2a475e;color:#fff}
 .subnav a:hover{background:#ffffff1f}
 .search{margin-inline-start:auto;display:flex;background:#316282;border-radius:3px;overflow:hidden;border:1px solid #0e1c25}
 .search input{background:transparent;border:0;padding:6px 10px;width:220px;color:#fff;outline:none}
@@ -328,6 +342,8 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
   .burger{display:block}
   .search input{width:100%}.search{flex:1}
   .subnav{flex-wrap:wrap}
+  .ddm,.ddm.wide{position:fixed;top:auto;inset-inline:12px;min-width:0;flex-direction:column;max-height:70vh;overflow-y:auto;margin-top:6px}
+  .ddcol{min-width:0}
   .two{grid-template-columns:1fr}
   .cta{flex-direction:column;align-items:flex-start}.cta .btn{margin-inline-start:0}
 }
@@ -356,7 +372,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 const STORE_NAME = "Man Studio Store";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-21.2";
+const BUILD = "2026-11-21.3";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -460,7 +476,7 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",awardsT:"Awards",awardsS:"Every Game of the Year, Month and Week ever chosen in Man Studio Store.",current:"Current",mostAwarded:"Most awarded",noAwards:"No awards yet",awardsSoon:"The first winners will appear here soon.",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",nav_games:"Games",nav_community:"Community",nav_devs:"Developers",nav_browse:"Browse",nav_deals:"Deals & more",freeGames:"Free to play",surpriseS:"Surprise me",nav_allH:"Every game in the store",nav_newH:"Just released",nav_mostH:"What everyone is playing",nav_topH:"Best reviewed",nav_freeH:"Costs 0 Coins",nav_saleH:"Games on sale now",nav_soonH:"Upcoming releases",nav_surpH:"Open a random game",nav_devlogH:"News from developers",nav_festH:"Limited-time events",nav_awardsH:"Game of the Week / Month / Year",nav_pubH:"Studio, verification, submit",nav_dashH:"Stats, sales, keys, updates",nav_writeH:"Share your progress",nav_rulesH:"Publishing rules",awardsT:"Awards",awardsS:"Every Game of the Year, Month and Week ever chosen in Man Studio Store.",current:"Current",mostAwarded:"Most awarded",noAwards:"No awards yet",awardsSoon:"The first winners will appear here soon.",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
 devlogAbout:"About",studioNews:"Studio news",devlogPh:"What's new in development?",devlogBody:"Post",image:"Image",optional:"optional",
 devlogHint:"Followers of your studio and players who own or wishlisted the game get a notification.",publishDevlog:"Publish",like:"Like",liked:"Liked",edited:"edited",
 f_signupFrom:"Sign-ups open on",f_signupFromL:"Sign-ups open",signups:"sign-ups",festSignupBad:"Sign-ups must open before they close.",
@@ -527,7 +543,7 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",awardsT:"פרסים",awardsS:"כל משחקי השנה, החודש והשבוע שנבחרו אי פעם ב-Man Studio Store.",current:"נוכחי",mostAwarded:"הכי מעוטרים",noAwards:"אין פרסים עדיין",awardsSoon:"הזוכים הראשונים יופיעו כאן בקרוב.",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",nav_games:"משחקים",nav_community:"קהילה",nav_devs:"מפתחים",nav_browse:"עיון",nav_deals:"מבצעים ועוד",freeGames:"חינמיים",surpriseS:"הפתע אותי",nav_allH:"כל המשחקים בחנות",nav_newH:"יצאו עכשיו",nav_mostH:"מה כולם משחקים",nav_topH:"הכי טובים בביקורות",nav_freeH:"עולים 0 Coins",nav_saleH:"משחקים במבצע עכשיו",nav_soonH:"משחקים שבדרך",nav_surpH:"פותח משחק אקראי",nav_devlogH:"חדשות מהמפתחים",nav_festH:"אירועים לזמן מוגבל",nav_awardsH:"משחק השבוע / החודש / השנה",nav_pubH:"סטודיו, אימות, הגשה",nav_dashH:"נתונים, מכירות, קודים, עדכונים",nav_writeH:"שתף את ההתקדמות שלך",nav_rulesH:"כללי הפרסום",awardsT:"פרסים",awardsS:"כל משחקי השנה, החודש והשבוע שנבחרו אי פעם ב-Man Studio Store.",current:"נוכחי",mostAwarded:"הכי מעוטרים",noAwards:"אין פרסים עדיין",awardsSoon:"הזוכים הראשונים יופיעו כאן בקרוב.",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
 devlogAbout:"על מה",studioNews:"חדשות הסטודיו",devlogPh:"מה חדש בפיתוח?",devlogBody:"הפוסט",image:"תמונה",optional:"לא חובה",
 devlogHint:"מי שעוקב אחרי הסטודיו, ומי שהמשחק אצלו או ברשימת המשאלות שלו, יקבלו התראה.",publishDevlog:"פרסם",like:"אהבתי",liked:"אהבת",edited:"נערך",
 f_signupFrom:"ההרשמה נפתחת ב-",f_signupFromL:"פתיחת ההרשמה",signups:"הרשמה",festSignupBad:"ההרשמה צריכה להיפתח לפני שהיא נסגרת.",
@@ -660,10 +676,38 @@ document.addEventListener("click",e=>{const m=$("#um");if(m&&!e.target.closest("
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
 
 function subnav(q=""){
-  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a><a href="#/festivals">🎪 ${t("festivals")}</a><a href="#/devlogs">📝 ${t("devlogs")}</a><a href="#/awards">🏆 ${t("awardsT")}</a><a href="#" data-surprise title="${t("surprise")}">🎲</a>
-  <form class="search" id="sf"><input id="sq" placeholder="${t("search")}" value="${esc(q)}" aria-label="${t("search")}"><button aria-label="${t("search")}">⌕</button></form></div>`;
+  const h=location.hash||"#/",act=(...ps)=>ps.some(p=>h.startsWith(p))?"on":"";
+  const it=(href,icon,label,hint,extra="")=>`<a class="ddi" href="${href}" role="menuitem" ${extra}><span class="ic">${icon}</span><span><b>${label}</b>${hint?`<small>${hint}</small>`:""}</span></a>`;
+  const dd=(id,icon,label,on,body,wide)=>`<div class="dd ${on}" data-dd="${id}"><button class="ddb" aria-haspopup="true" aria-expanded="false">${icon} ${label} <span class="car">▾</span></button>
+    <div class="ddm ${wide?"wide":""}" role="menu">${body}</div></div>`;
+  const games=`<div class="ddcol"><h5>${t("nav_browse")}</h5>
+      ${it("#/browse","🎮",t("browse"),t("nav_allH"))}${it("#/browse?sort=new","✨",t("newrel"),t("nav_newH"))}
+      ${it("#/browse?sort=players","🔥",t("mostplayed"),t("nav_mostH"))}${it("#/browse?sort=rated","⭐",t("toprated"),t("nav_topH"))}</div>
+    <div class="ddcol"><h5>${t("nav_deals")}</h5>
+      ${it("#/browse?free=1","🆓",t("freeGames"),t("nav_freeH"))}${it("#/browse?sale=1","🏷️",t("specials"),t("nav_saleH"))}
+      ${it("#/browse?soon=1","🕒",t("soon"),t("nav_soonH"))}${it("#","🎲",t("surpriseS"),t("nav_surpH"),"data-surprise")}</div>
+    <div class="ddcol genrecol"><h5>${t("genre")}</h5><div class="gl">${GENRES.map(g=>`<a href="#/browse?genre=${g}" role="menuitem">${esc(gname(g))}</a>`).join("")}</div></div>`;
+  const community=`<div class="ddcol">${it("#/devlogs","📝",t("devlogs"),t("nav_devlogH"))}${it("#/festivals","🎪",t("festivals"),t("nav_festH"))}
+      ${it("#/awards","🏆",t("awardsT"),t("nav_awardsH"))}</div>`;
+  const devs=`<div class="ddcol">${it("#/publish","🚀",t("publish"),t("nav_pubH"))}${it("#/dashboard","📊",t("mygames"),t("nav_dashH"))}
+      ${it("#/devlogs","✍️",t("newDevlog"),t("nav_writeH"),"data-newdevlog")}${it("#/terms","📜",t("termsT"),t("nav_rulesH"))}</div>`;
+  return `<nav class="subnav" aria-label="${t("store")}"><a class="snl ${h==="#/"||h==="#"?"on":""}" href="#/">🏠 ${t("store")}</a>
+    ${dd("games","🎮",t("nav_games"),act("#/browse","#/app","#/bundle"),games,true)}
+    ${dd("community","👥",t("nav_community"),act("#/devlog","#/festival","#/fest","#/awards","#/studio"),community)}
+    ${dd("devs","🛠️",t("nav_devs"),act("#/publish","#/dashboard","#/submit","#/edit"),devs)}
+    <form class="search" id="sf"><input id="sq" placeholder="${t("search")}" value="${esc(q)}" aria-label="${t("search")}"><button aria-label="${t("search")}">⌕</button></form></nav>`;
 }
-function bindSubnav(){const r=document.querySelector("[data-surprise]");if(r)r.onclick=e=>{e.preventDefault();surprise()};const f=$("#sf");if(f)f.onsubmit=e=>{e.preventDefault();location.hash="#/browse?q="+encodeURIComponent($("#sq").value.trim())}}
+function bindSubnav(){
+  document.querySelectorAll("[data-surprise]").forEach(r=>r.onclick=e=>{e.preventDefault();closeMenus();surprise()});
+  document.querySelectorAll("[data-newdevlog]").forEach(r=>r.onclick=async e=>{e.preventDefault();closeMenus();if(needLogin())return;
+    const s=await loadStudio();if(!s||s.status!=="approved"){toast(t("needStudio"));location.hash="#/publish";return}devlogForm(s,null,null)});
+  document.querySelectorAll(".dd").forEach(d=>{const b=d.querySelector(".ddb");
+    b.onclick=e=>{e.stopPropagation();const open=!d.classList.contains("open");closeMenus();d.classList.toggle("open",open);b.setAttribute("aria-expanded",open)};
+    d.querySelectorAll(".ddm a").forEach(a=>a.addEventListener("click",closeMenus))});
+  const f=$("#sf");if(f)f.onsubmit=e=>{e.preventDefault();location.hash="#/browse?q="+encodeURIComponent($("#sq").value.trim())}}
+function closeMenus(){document.querySelectorAll(".dd.open").forEach(d=>{d.classList.remove("open");d.querySelector(".ddb").setAttribute("aria-expanded","false")})}
+document.addEventListener("click",e=>{if(!e.target.closest(".dd"))closeMenus()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenus()});
 
 /* ============ router ============ */
 let rid=0;
@@ -805,18 +849,19 @@ function bundleCardHTML(b){const h=hash(b.title)%360;return `<a class="card" hre
 /* ============ browse ============ */
 async function browseView(main,q,stale){
   const genre=q.get("genre")||"",sort=q.get("sort")||"new",term=(q.get("q")||"").trim(),tag=(q.get("tag")||"").trim();
-  const soonOnly=q.get("soon")==="1",saleOnly=q.get("sale")==="1";
-  const heading=term?`"${term}"`:tag?"#"+tag:genre?gname(genre):soonOnly?t("soon"):saleOnly?t("specials"):t("browse");
+  const soonOnly=q.get("soon")==="1",saleOnly=q.get("sale")==="1",freeOnly=q.get("free")==="1";
+  const heading=term?`"${term}"`:tag?"#"+tag:genre?gname(genre):soonOnly?t("soon"):saleOnly?t("specials"):freeOnly?t("freeGames"):t("browse");
   setTitle(heading);
   let qy=sb.from("games").select(LIST_COLS,{count:"exact"}).eq("published",true).eq("review_status","approved");
   if(genre)qy=qy.eq("genre",genre);
   if(tag)qy=qy.contains("tags",[tag]);
   if(soonOnly)qy=qy.eq("coming_soon",true);
+  if(freeOnly)qy=qy.eq("price",0).eq("coming_soon",false);
   if(saleOnly){const n=nowISO();qy=qy.not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n)}
   if(term){const s=term.replace(/[,()%*\\.:"']/g," ").trim();if(s)qy=qy.or(`title.ilike.%${s}%,developer.ilike.%${s}%,short_desc.ilike.%${s}%`)}
   qy=sort==="players"?qy.order("players",{ascending:false}):sort==="rated"?qy.order("positive_count",{ascending:false}).order("review_count",{ascending:true}):sort==="name"?qy.order("title"):sort==="price"?qy.order("price"):qy.order("created_at",{ascending:false});
   const {data,count,error}=await qy.limit(60);if(stale())return;if(error)throw error;
-  const link=(o)=>{const p=new URLSearchParams({...(genre&&{genre}),...(term&&{q:term}),...(tag&&{tag}),...(sort!=="new"&&{sort}),...(soonOnly&&{soon:"1"}),...(saleOnly&&{sale:"1"}),...o});for(const[k,v]of[...p])if(!v)p.delete(k);return "#/browse"+(p.toString()?"?"+p:"")};
+  const link=(o)=>{const p=new URLSearchParams({...(genre&&{genre}),...(term&&{q:term}),...(tag&&{tag}),...(sort!=="new"&&{sort}),...(soonOnly&&{soon:"1"}),...(saleOnly&&{sale:"1"}),...(freeOnly&&{free:"1"}),...o});for(const[k,v]of[...p])if(!v)p.delete(k);return "#/browse"+(p.toString()?"?"+p:"")};
   main.innerHTML=subnav(term)+`<div class="bwrap"><div>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap"><b style="color:#fff;font-size:18px">${esc(heading)}</b>
       <span class="mut">${count||0} ${t("results")}</span>${tag?`<a class="btn ghost sm" href="${link({tag:""})}">✕ #${esc(tag)}</a>`:""}
@@ -824,7 +869,7 @@ async function browseView(main,q,stale){
       <select id="sort" style="width:auto">${[["new","s_new"],["players","s_players"],["rated","s_rated"],["price","s_price"],["name","s_name"]].map(([v,k])=>`<option value="${v}" ${v===sort?"selected":""}>${t(k)}</option>`).join("")}</select></label></div>
     ${data.length?`<div class="rows" style="border-radius:3px">${data.map(rowHTML).join("")}</div>`:`<div class="empty"><b>${t("noresults")}</b></div>`}
   </div><aside class="filters"><div class="panel"><h4>${t("show")}</h4>
-    <a href="${link({soon:"",sale:""})}" class="${!soonOnly&&!saleOnly?"on":""}">${t("browse")}</a><a href="${link({soon:"",sale:"1"})}" class="${saleOnly?"on":""}">🏷️ ${t("specials")}</a><a href="${link({sale:"",soon:"1"})}" class="${soonOnly?"on":""}">🕒 ${t("soon")}</a></div>
+    <a href="${link({soon:"",sale:"",free:""})}" class="${!soonOnly&&!saleOnly&&!freeOnly?"on":""}">${t("browse")}</a><a href="${link({soon:"",sale:"",free:"1"})}" class="${freeOnly?"on":""}">🆓 ${t("freeGames")}</a><a href="${link({soon:"",free:"",sale:"1"})}" class="${saleOnly?"on":""}">🏷️ ${t("specials")}</a><a href="${link({sale:"",free:"",soon:"1"})}" class="${soonOnly?"on":""}">🕒 ${t("soon")}</a></div>
     <div class="panel"><h4>${t("genre")}</h4>
     <a href="${link({genre:""})}" class="${!genre?"on":""}">${t("anygenre")}</a>${GENRES.map(g=>`<a href="${link({genre:g})}" class="${g===genre?"on":""}">${esc(gname(g))}</a>`).join("")}</div></aside></div>`;
   bindSubnav();$("#sort").onchange=e=>location.hash=link({sort:e.target.value==="new"?"":e.target.value});
