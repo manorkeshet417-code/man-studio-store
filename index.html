@@ -381,7 +381,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 const STORE_NAME = "Man Studio Store";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-21.6";
+const BUILD = "2026-11-21.7";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -483,8 +483,8 @@ owned:"Owned",viewBundle:"View bundle",whatsnew:"What's new",version:"Version",v
 editReply:"Edit reply",reply:"Reply",devResponse:"Developer response",needOwn:"Get the game to write a review.",need10:"Play at least 10 minutes to review (you have {n}).",
 downloads:"downloads",wishNotify:"Added — you'll get a notification on sales and launch",wallet:"Wallet",inbox:"Inbox",
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
-claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
-history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
+claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 500, get 10 for every new game you add to your library, and 10 more every day.",
+history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",tx_install:"🎮 New game bonus",gotCoins:"+{n} 🪙 for a new game!",
 redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",categoriesOf:"Categories {y}",catT:"Game of the Year categories",catS:"Add categories like Best Art or Best Music to any Game of the Year type, each with its own winner. The same category name replaces its winner.",catName:"Category",catWinner:"Winner",addCat:"Add category",extGame:"Outside the store",extToggle:"Game not in the store",extHint:"Jam and World Game of the Year can be any game — itch.io jam entry, Steam, a website. Its card links out to that page. Game of the Year · Store is store games only.",extLink:"Link to the game",nav_games:"Games",nav_community:"Community",nav_devs:"Developers",nav_browse:"Browse",nav_deals:"Deals & more",freeGames:"Free to play",surpriseS:"Surprise me",nav_allH:"Every game in the store",nav_newH:"Just released",nav_mostH:"What everyone is playing",nav_topH:"Best reviewed",nav_freeH:"Costs 0 Coins",nav_saleH:"Games on sale now",nav_soonH:"Upcoming releases",nav_surpH:"Open a random game",nav_devlogH:"News from developers",nav_festH:"Limited-time events",nav_awardsH:"Game of the Week / Month / Year",nav_pubH:"Studio, verification, submit",nav_dashH:"Stats, sales, keys, updates",nav_writeH:"Share your progress",nav_rulesH:"Publishing rules",awardsT:"Awards",awardsS:"Every Game of the Year, Month and Week ever chosen in Man Studio Store.",current:"Current",mostAwarded:"Most awarded",noAwards:"No awards yet",awardsSoon:"The first winners will appear here soon.",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
 devlogAbout:"About",studioNews:"Studio news",devlogPh:"What's new in development?",devlogBody:"Post",image:"Image",optional:"optional",
 devlogHint:"Followers of your studio and players who own or wishlisted the game get a notification.",publishDevlog:"Publish",like:"Like",liked:"Liked",edited:"edited",
@@ -550,8 +550,8 @@ owned:"בבעלותך",viewBundle:"לחבילה",whatsnew:"מה חדש",version:
 editReply:"ערוך תגובה",reply:"הגב",devResponse:"תגובת המפתח",needOwn:"צריך שהמשחק יהיה אצלך כדי לכתוב ביקורת.",need10:"צריך לשחק לפחות 10 דקות כדי לכתוב ביקורת (יש לך {n}).",
 downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מבצעים ועל ההשקה",wallet:"ארנק",inbox:"התראות",
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
-claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
-history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
+claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 500, מקבלים 10 על כל משחק חדש שנכנס לספרייה, ועוד 10 כל יום.",
+history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",tx_install:"🎮 בונוס משחק חדש",gotCoins:"+{n} 🪙 על משחק חדש!",
 redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",categoriesOf:"קטגוריות {y}",catT:"קטגוריות של משחק השנה",catS:"מוסיפים קטגוריות כמו Best Art או Best Music לכל סוג של משחק השנה, כל אחת עם זוכה משלה. אותו שם קטגוריה מחליף את הזוכה.",catName:"קטגוריה",catWinner:"זוכה",addCat:"הוסף קטגוריה",extGame:"מחוץ לחנות",extToggle:"משחק שלא בחנות",extHint:"משחק הג'אם ומשחק השנה העולמי יכולים להיות כל משחק — משחק מג'אם ב-itch.io, Steam, אתר. הכרטיס מוביל לדף שלו. משחק השנה · בחנות — רק משחקים מהחנות.",extLink:"קישור למשחק",nav_games:"משחקים",nav_community:"קהילה",nav_devs:"מפתחים",nav_browse:"עיון",nav_deals:"מבצעים ועוד",freeGames:"חינמיים",surpriseS:"הפתע אותי",nav_allH:"כל המשחקים בחנות",nav_newH:"יצאו עכשיו",nav_mostH:"מה כולם משחקים",nav_topH:"הכי טובים בביקורות",nav_freeH:"עולים 0 Coins",nav_saleH:"משחקים במבצע עכשיו",nav_soonH:"משחקים שבדרך",nav_surpH:"פותח משחק אקראי",nav_devlogH:"חדשות מהמפתחים",nav_festH:"אירועים לזמן מוגבל",nav_awardsH:"משחק השבוע / החודש / השנה",nav_pubH:"סטודיו, אימות, הגשה",nav_dashH:"נתונים, מכירות, קודים, עדכונים",nav_writeH:"שתף את ההתקדמות שלך",nav_rulesH:"כללי הפרסום",awardsT:"פרסים",awardsS:"כל משחקי השנה, החודש והשבוע שנבחרו אי פעם ב-Man Studio Store.",current:"נוכחי",mostAwarded:"הכי מעוטרים",noAwards:"אין פרסים עדיין",awardsSoon:"הזוכים הראשונים יופיעו כאן בקרוב.",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
 devlogAbout:"על מה",studioNews:"חדשות הסטודיו",devlogPh:"מה חדש בפיתוח?",devlogBody:"הפוסט",image:"תמונה",optional:"לא חובה",
 devlogHint:"מי שעוקב אחרי הסטודיו, ומי שהמשחק אצלו או ברשימת המשאלות שלו, יקבלו התראה.",publishDevlog:"פרסם",like:"אהבתי",liked:"אהבת",edited:"נערך",
@@ -643,6 +643,8 @@ async function loadMe(session){
   await Promise.all([refreshAdminCount(),refreshWallet(),refreshUnread()]);
 }
 let unread=0;
+async function coinBonusCheck(){if(!me)return;const before=me.coins;await refreshWallet();renderHeader();
+  if(me.coins>before)setTimeout(()=>toast(t("gotCoins").replace("{n}",me.coins-before)),900)}
 async function refreshWallet(){if(!me)return;const{data}=await sb.rpc("my_wallet");const w=(data||[])[0];if(w){me.coins=w.coins;me.card=w.card_number;me.lastDaily=w.last_daily}}
 async function refreshUnread(){if(!me){unread=0;return}const{count}=await sb.from("notifications").select("id",{count:"exact",head:true}).eq("user_id",me.id).eq("read",false);unread=count||0}
 let adminCount=0;
@@ -929,7 +931,7 @@ async function openCheckout(item){ // item: {kind:'game'|'bundle', id, title, pr
   m.el.querySelector("#coPay").onclick=async e=>{e.target.disabled=true;
     const{data,error}=await sb.rpc(item.kind==="bundle"?"buy_bundle":"buy_game",item.kind==="bundle"?{p_bundle:item.id,p_card:me.card}:{p_game:item.id,p_card:me.card});
     if(error){m.el.querySelector("#coe").textContent=errMsg(error);e.target.disabled=false;return}
-    me.coins=data;m.close();toast("🎉 "+t("bought"));
+    me.coins=data;m.close();toast("🎉 "+t("bought"));coinBonusCheck();
     const l=await sb.from("library").select("game_id").eq("user_id",me.id);myLib=new Set((l.data||[]).map(r=>r.game_id));route()};
 }
 
@@ -1032,7 +1034,7 @@ async function gameView(main,id,stale){
     if(error)return dbErr(error);f?myFollows.delete(studio.id):myFollows.add(studio.id);if(!f)toast("⭐ "+t("followHint"));route()};
   if($("#libBtn"))$("#libBtn").onclick=async()=>{if(needLogin())return;
     if(myLib.has(g.id)){const{error}=await sb.from("library").delete().eq("user_id",me.id).eq("game_id",g.id);if(error)return dbErr(error);myLib.delete(g.id)}
-    else{const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(error)return dbErr(error);myLib.add(g.id);toast("✓ "+t("inlib"))}
+    else{const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(error)return dbErr(error);myLib.add(g.id);toast("✓ "+t("inlib"));coinBonusCheck()}
     $("#libBtn").className="btn "+(myLib.has(g.id)?"ghost":"");$("#libBtn").textContent=myLib.has(g.id)?"✓ "+t("inlib"):"+ "+t("addlib")};
   $("#wishBtn").onclick=async()=>{if(needLogin())return;
     if(myWish.has(g.id)){const{error}=await sb.from("wishlist").delete().eq("user_id",me.id).eq("game_id",g.id);if(error)return dbErr(error);myWish.delete(g.id)}
@@ -1103,7 +1105,7 @@ async function playGame(id){
   const p=(pr.data||[])[0]||{};
   if(g.coming_soon||!p.play_url){toast("🕒 "+t("soon"));location.replace("#/app/"+g.id);return}
   if(me){ // add free game to library + mark played
-    if(!myLib.has(g.id)&&!g.price){const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(!error)myLib.add(g.id)}
+    if(!myLib.has(g.id)&&!g.price){const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(!error){myLib.add(g.id);coinBonusCheck()}}
     sb.from("library").update({last_played:nowISO()}).eq("user_id",me.id).eq("game_id",g.id).then(()=>{});
   }
   if(p.play_kind==="link"){const u=okUrl(p.play_url);if(u)window.open(u,"_blank","noopener");location.replace("#/app/"+g.id);return}
@@ -1172,7 +1174,7 @@ async function walletView(main,stale){
     <td style="color:${x.amount>=0?"#a4d007":"#ff8a80"};white-space:nowrap" dir="ltr">${x.amount>=0?"+":""}${x.amount}</td><td class="dim hide" dir="ltr">${x.balance}</td><td class="dim" style="white-space:nowrap">${ago(x.created_at)}</td></tr>`).join("")||`<tr><td class="mut">—</td></tr>`}</tbody></table></div>`;
   $("#dly").onclick=async e=>{e.target.disabled=true;const{data,error}=await sb.rpc("claim_daily");if(error){toast(errMsg(error));return}me.coins=data;toast("🎁 +10 🪙");route()};
   $("#rdf").onsubmit=async e=>{e.preventDefault();const{data,error}=await sb.rpc("redeem_key",{p_code:$("#rdc").value});
-    if(error){$("#rde").textContent=errMsg(error);return}toast("🔑 "+t("redeemed")+": "+data);
+    if(error){$("#rde").textContent=errMsg(error);return}toast("🔑 "+t("redeemed")+": "+data);coinBonusCheck();
     const l=await sb.from("library").select("game_id").eq("user_id",me.id);myLib=new Set((l.data||[]).map(r=>r.game_id));route()};
 }
 
@@ -1421,7 +1423,7 @@ en:{privacy:`<h1>Privacy Policy</h1><p class="dim">Last updated: ${LEGAL_UPDATED
 terms:`<h1>Terms of Use</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
 <p>By creating an account or using Man Studio Store you agree to these terms. If you don't agree, please don't use the store.</p>
 <h2>Accounts</h2><p>Keep your password safe and your information accurate. One person may not use accounts to cheat (for example, to farm Coins or reviews). We may suspend accounts that break these terms.</p>
-<h2>Coins</h2><p>Coins are virtual store credit. They have <b>no cash value</b>, cannot be bought, sold, exchanged or withdrawn for real money, and exist only inside the store. Balances may be corrected if they were obtained by mistake or abuse. Purchases with Coins are final.</p>
+<h2>Coins</h2><p>Coins are virtual store credit. They have <b>no cash value</b>, cannot be bought, sold, exchanged or withdrawn for real money, and exist only inside the store. New accounts start with 500 Coins and get 10 Coins the first time each game enters their library (once per game). Balances may be corrected if they were obtained by mistake or abuse. Purchases with Coins are final.</p>
 <h2>Games you get</h2><p>Games are made by independent developers. You receive a personal right to play the games in your library; it does not give you ownership of the game. Downloaded games (EXE/ZIP) run on your own computer at your own responsibility.</p>
 <h2>Publishing (developers)</h2><ul>
 <li>You must own or have the rights to everything you upload: code, art, music, names and trademarks.</li>
@@ -1451,7 +1453,7 @@ he:{privacy:`<h1>מדיניות פרטיות</h1><p class="dim">עודכן לא�
 terms:`<h1>תנאי שימוש</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
 <p>כשפותחים חשבון או משתמשים ב-Man Studio Store מסכימים לתנאים האלה. אם אתה לא מסכים, אל תשתמש בחנות.</p>
 <h2>חשבונות</h2><p>שמור על הסיסמה ועל פרטים נכונים. אסור להשתמש בחשבונות כדי לרמות (למשל לצבור Coins או ביקורות). אנחנו רשאים להשעות חשבון שמפר את התנאים.</p>
-<h2>Coins</h2><p>Coins הם קרדיט וירטואלי לחנות. <b>אין להם ערך כספי</b>, אי אפשר לקנות, למכור, להחליף או למשוך אותם תמורת כסף אמיתי, והם קיימים רק בתוך החנות. יתרה שהושגה בטעות או בניצול לרעה עשויה להיות מתוקנת. קניות ב-Coins הן סופיות.</p>
+<h2>Coins</h2><p>Coins הם קרדיט וירטואלי לחנות. <b>אין להם ערך כספי</b>, אי אפשר לקנות, למכור, להחליף או למשוך אותם תמורת כסף אמיתי, והם קיימים רק בתוך החנות. חשבון חדש מתחיל עם 500 Coins ומקבל 10 Coins בפעם הראשונה שכל משחק נכנס לספרייה (פעם אחת לכל משחק). יתרה שהושגה בטעות או בניצול לרעה עשויה להיות מתוקנת. קניות ב-Coins הן סופיות.</p>
 <h2>משחקים שמקבלים</h2><p>המשחקים נוצרים על ידי מפתחים עצמאיים. אתה מקבל זכות אישית לשחק במשחקים שבספרייה שלך; זה לא הופך אותך לבעלים של המשחק. משחקים שמורידים (EXE/ZIP) רצים על המחשב שלך באחריותך.</p>
 <h2>פרסום (מפתחים)</h2><ul>
 <li>חייבות להיות לך הזכויות על כל מה שאתה מעלה: קוד, גרפיקה, מוזיקה, שמות וסימני מסחר.</li>
