@@ -264,6 +264,15 @@ textarea.inp{min-height:90px;resize:vertical}
 .devlog{max-width:820px;margin:0 auto}.devlog h1{color:#fff;font-size:30px;margin:6px 0 12px;unicode-bidi:plaintext}
 .dlmeta{display:flex;gap:10px;align-items:center;margin-bottom:14px}.dlimg{width:100%;border-radius:6px;margin-bottom:16px;display:block}
 .dlbody{font-size:15.5px;line-height:1.75;unicode-bidi:plaintext}.dlacts{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.hallhead{text-align:center;padding:26px 16px 6px}.hallhead div{font-size:54px;line-height:1}.hallhead h1{color:#fff;margin:6px 0 4px;font-size:30px;letter-spacing:.04em}
+.hall{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.hallcard{background:#0e1620;border-radius:6px;overflow:hidden;color:inherit;border:1px solid #d4af3733;display:flex;flex-direction:column;transition:transform .15s}
+.hallcard:hover{transform:translateY(-2px);color:inherit;border-color:#d4af37aa}
+.hallcard .b{padding:10px 12px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}.hallcard b{color:#fff;font-size:15px}
+.hallcard.latest{border-color:#d4af37;box-shadow:0 0 18px #d4af3740}
+.hall.goty .hallcard.latest{grid-column:span 2}
+.hallcard .now{font-size:11px;color:#2a1f00;background:#ffd76a;border-radius:9px;padding:1px 8px;font-weight:700}
+@media (max-width:520px){.hall.goty .hallcard.latest{grid-column:auto}}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -347,7 +356,7 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 const STORE_NAME = "Man Studio Store";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-21.1";
+const BUILD = "2026-11-21.2";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -451,7 +460,7 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 100 and get 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",awardsT:"Awards",awardsS:"Every Game of the Year, Month and Week ever chosen in Man Studio Store.",current:"Current",mostAwarded:"Most awarded",noAwards:"No awards yet",awardsSoon:"The first winners will appear here soon.",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
 devlogAbout:"About",studioNews:"Studio news",devlogPh:"What's new in development?",devlogBody:"Post",image:"Image",optional:"optional",
 devlogHint:"Followers of your studio and players who own or wishlisted the game get a notification.",publishDevlog:"Publish",like:"Like",liked:"Liked",edited:"edited",
 f_signupFrom:"Sign-ups open on",f_signupFromL:"Sign-ups open",signups:"sign-ups",festSignupBad:"Sign-ups must open before they close.",
@@ -518,7 +527,7 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 100 ומקבלים עוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",awardsT:"פרסים",awardsS:"כל משחקי השנה, החודש והשבוע שנבחרו אי פעם ב-Man Studio Store.",current:"נוכחי",mostAwarded:"הכי מעוטרים",noAwards:"אין פרסים עדיין",awardsSoon:"הזוכים הראשונים יופיעו כאן בקרוב.",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
 devlogAbout:"על מה",studioNews:"חדשות הסטודיו",devlogPh:"מה חדש בפיתוח?",devlogBody:"הפוסט",image:"תמונה",optional:"לא חובה",
 devlogHint:"מי שעוקב אחרי הסטודיו, ומי שהמשחק אצלו או ברשימת המשאלות שלו, יקבלו התראה.",publishDevlog:"פרסם",like:"אהבתי",liked:"אהבת",edited:"נערך",
 f_signupFrom:"ההרשמה נפתחת ב-",f_signupFromL:"פתיחת ההרשמה",signups:"הרשמה",festSignupBad:"ההרשמה צריכה להיפתח לפני שהיא נסגרת.",
@@ -651,7 +660,7 @@ document.addEventListener("click",e=>{const m=$("#um");if(m&&!e.target.closest("
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
 
 function subnav(q=""){
-  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a><a href="#/festivals">🎪 ${t("festivals")}</a><a href="#/devlogs">📝 ${t("devlogs")}</a><a href="#" data-surprise title="${t("surprise")}">🎲</a>
+  return `<div class="subnav"><a href="#/">${t("store")}</a><a href="#/browse">${t("browse")}</a><a href="#/browse?sort=players">${t("mostplayed")}</a><a href="#/browse?sale=1">${t("specials")}</a><a href="#/browse?sort=rated">${t("toprated")}</a><a href="#/browse?soon=1">${t("soon")}</a><a href="#/festivals">🎪 ${t("festivals")}</a><a href="#/devlogs">📝 ${t("devlogs")}</a><a href="#/awards">🏆 ${t("awardsT")}</a><a href="#" data-surprise title="${t("surprise")}">🎲</a>
   <form class="search" id="sf"><input id="sq" placeholder="${t("search")}" value="${esc(q)}" aria-label="${t("search")}"><button aria-label="${t("search")}">⌕</button></form></div>`;
 }
 function bindSubnav(){const r=document.querySelector("[data-surprise]");if(r)r.onclick=e=>{e.preventDefault();surprise()};const f=$("#sf");if(f)f.onsubmit=e=>{e.preventDefault();location.hash="#/browse?q="+encodeURIComponent($("#sq").value.trim())}}
@@ -688,6 +697,7 @@ async function route(){
       case "festivals": await festsView(main,stale);break;
       case "fest": await festPage(main,parts[1],stale);break;
       case "devlogs": await devlogsView(main,stale);break;
+      case "awards": await awardsView(main,stale);break;
       case "devlog": await devlogPage(main,parts[1],stale);break;
       case "privacy": legalView(main,"privacy");break;
       case "terms": legalView(main,"terms");break;
@@ -1184,6 +1194,26 @@ async function devlogForm(studio,d,gameId){
       if(d&&f&&d.image_url){const sp=storagePath(d.image_url);if(sp)sb.storage.from("media").remove([sp]).catch(()=>{})}
       m.close();toast("📝 "+t("saved"));location.hash="#/devlog/"+r.data.id;if(d)route()}
     catch(ex){er.textContent=errMsg(ex);e.target.disabled=false;e.target.textContent=d?t("save"):t("publishDevlog")}};
+}
+
+/* ============ awards hall ============ */
+async function awardsView(main,stale){
+  setTitle(t("awardsT"));
+  const{data,error}=await sb.from("awards").select("kind,period,game_id,created_at").order("period",{ascending:false});
+  if(stale())return;if(error)throw error;
+  const games=await gamesByIds([...new Set((data||[]).map(a=>a.game_id))]);if(stale())return;
+  const gm=new Map(games.map(g=>[g.id,g])),list=(data||[]).filter(a=>gm.has(a.game_id));
+  const sec=(kind,icon)=>{const l=list.filter(a=>a.kind===kind);if(!l.length)return "";
+    return `<h2 class="sec">${icon} ${t(kind)} <span class="mut">(${l.length})</span></h2><div class="hall ${kind}">${l.map((a,i)=>{const g=gm.get(a.game_id);
+      return `<a class="hallcard ${i===0?"latest":""}" href="#/app/${g.id}">${coverHTML(g)}<div class="b"><span class="atag">🏆 ${esc(periodLabel(a))}</span>
+        <b>${esc(g.title)}</b><span class="mut" style="font-size:12px">${esc(g.developer)}</span>${i===0?`<span class="now">${t("current")}</span>`:""}</div></a>`}).join("")}</div>`};
+  const wins={};list.forEach(a=>wins[a.game_id]=(wins[a.game_id]||0)+1);
+  const top=Object.entries(wins).filter(([,n])=>n>1).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  main.innerHTML=subnav()+`<div class="hallhead"><div>🏆</div><h1>${t("awardsT")}</h1><p class="mut">${t("awardsS")}</p></div>
+    ${list.length?sec("goty","👑")+sec("gotm","🌙")+sec("gotw","⭐")+
+      (top.length?`<h2 class="sec">🥇 ${t("mostAwarded")}</h2><div class="rows">${top.map(([id,n])=>rowHTML(gm.get(id)).replace('<div class="meta">',`<div class="meta"><span class="atag" style="margin-bottom:6px">🏆 × ${n}</span><br>`)).join("")}</div>`:"")
+    :`<div class="empty"><b>${t("noAwards")}</b>${t("awardsSoon")}</div>`}`;
+  bindSubnav();
 }
 
 /* ============ festivals ============ */
