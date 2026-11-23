@@ -419,7 +419,7 @@ const STORE_NAME = "Man Studio Store";
 const STORE_VERSION = "1.2";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-23.1";
+const BUILD = "2026-11-23.2";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -536,7 +536,7 @@ lic_all_rights:"All rights reserved",lic_cc_by:"Creative Commons BY",lic_cc_by_n
 reportT:"Report copyright",reportS:"Tell us if this game copies your work or someone else's. The store team reviews every report.",reportReason:"Reason",reportOrig:"Original work link",reportDetails:"What's copied?",reportSend:"Send report",reportShort:"Please write a few more details.",reportThanks:"Thanks — the store team will review it.",
 rr_copyright:"Copied game / assets",rr_stolen:"Stolen and re-uploaded",rr_trademark:"Trademark / name",rr_other:"Other",reports:"Reports",rs_open:"Open",rs_resolved:"Resolved",rs_dismissed:"Dismissed",reportedBy:"Reported by",
 copiesT:"Possible copies",copiesS:"These games have a file identical to an older game from another studio.",copyFlag:"This file is identical to another studio's game",copyOpen:"Open the original",
-collabT:"Collaborating studios",collabS:"Credit another studio on this game. They must accept, then the game shows both names and appears on their studio page.",colStudio:"Studio name",colInvite:"Invite",colAccepted:"Accepted",colPending:"Waiting",colNotFound:"No approved studio with that name.",colSelf:"That's your own studio.",colDup:"Already invited.",colSent:"Invitation sent to {s}",
+collabT:"Collaborating studios",collabS:"Credit another studio on this game — one in the store (they accept, and the game appears on their studio page) or any studio outside the store.",colInStore:"Studio in the store",colNotInStore:"Studio not in the store",colUrl:"Their website / itch.io / Steam link (optional)",colAdd:"Add",colOutside:"Outside the store",colAdded:"{s} added",colStoreHint:"They get an invitation and must accept it.",colOutHint:"Shown right away next to your studio's name. Only add studios you really worked with.",colStudio:"Studio name",colInvite:"Invite",colAccepted:"Accepted",colPending:"Waiting",colNotFound:"No studio with that name in the store — switched to \"not in the store\".",colSelf:"That's your own studio.",colDup:"Already invited.",colSent:"Invitation sent to {s}",
 colInvites:"Collaboration invites",colInvitesYou:"invited you to co-credit",accept:"Accept",decline:"Decline",colGames:"Collaborations",
 gotyWinner:"Game of the Year winner",spotT:"Show big on the home page",spotNone:"Don't show",spotDays:"{n} days",spotDate:"Until a date…",spotHint:"A gold banner at the top of the store.",spotBtn:"Spotlight",spotOff:"Remove",categoriesOf:"Categories {y}",catT:"Game of the Year categories",catS:"Add categories like Best Art or Best Music to any Game of the Year type, each with its own winner. The same category name replaces its winner.",catName:"Category",catWinner:"Winner",addCat:"Add category",extGame:"Outside the store",extToggle:"Game not in the store",extHint:"Jam and World Game of the Year can be any game — itch.io jam entry, Steam, a website. Its card links out to that page. Game of the Year · Store is store games only.",extLink:"Link to the game",nav_games:"Games",nav_community:"Community",nav_devs:"Developers",nav_browse:"Browse",nav_deals:"Deals & more",freeGames:"Free to play",surpriseS:"Surprise me",nav_allH:"Every game in the store",nav_newH:"Just released",nav_mostH:"What everyone is playing",nav_topH:"Best reviewed",nav_freeH:"Costs 0 Coins",nav_saleH:"Games on sale now",nav_soonH:"Upcoming releases",nav_surpH:"Open a random game",nav_devlogH:"News from developers",nav_festH:"Limited-time events",nav_awardsH:"Game of the Week / Month / Year",nav_pubH:"Studio, verification, submit",nav_dashH:"Stats, sales, keys, updates",nav_writeH:"Share your progress",nav_rulesH:"Publishing rules",awardsT:"Awards",awardsS:"Every Game of the Year, Month and Week ever chosen in Man Studio Store.",current:"Current",mostAwarded:"Most awarded",noAwards:"No awards yet",awardsSoon:"The first winners will appear here soon.",titleL:"Title",newDevlog:"Write a devlog",editDevlog:"Edit devlog",devlogsS:"Behind the scenes: news and progress posts from the developers.",noDevlogs:"No devlogs yet",
 devlogAbout:"About",studioNews:"Studio news",devlogPh:"What's new in development?",devlogBody:"Post",image:"Image",optional:"optional",
@@ -618,7 +618,7 @@ lic_all_rights:"כל הזכויות שמורות",lic_cc_by:"Creative Commons BY
 reportT:"דווח על הפרת זכויות",reportS:"ספר לנו אם המשחק הזה מעתיק את העבודה שלך או של מישהו אחר. צוות החנות בודק כל דיווח.",reportReason:"סיבה",reportOrig:"קישור ליצירה המקורית",reportDetails:"מה הועתק?",reportSend:"שלח דיווח",reportShort:"צריך לכתוב עוד קצת פרטים.",reportThanks:"תודה — צוות החנות יבדוק.",
 rr_copyright:"משחק / תכנים מועתקים",rr_stolen:"נגנב והועלה מחדש",rr_trademark:"סימן מסחר / שם",rr_other:"אחר",reports:"דיווחים",rs_open:"פתוח",rs_resolved:"טופל",rs_dismissed:"נדחה",reportedBy:"דווח על ידי",
 copiesT:"העתקות אפשריות",copiesS:"למשחקים האלה יש קובץ זהה למשחק ישן יותר של סטודיו אחר.",copyFlag:"הקובץ זהה למשחק של סטודיו אחר",copyOpen:"פתח את המקור",
-collabT:"סטודיואים משתפי פעולה",collabS:"מוסיפים קרדיט לסטודיו נוסף על המשחק. הם צריכים לאשר, ואז המשחק מציג את שני השמות ומופיע גם בדף הסטודיו שלהם.",colStudio:"שם הסטודיו",colInvite:"הזמן",colAccepted:"אושר",colPending:"ממתין",colNotFound:"אין סטודיו מאושר בשם הזה.",colSelf:"זה הסטודיו שלך.",colDup:"כבר הוזמן.",colSent:"ההזמנה נשלחה ל-{s}",
+collabT:"סטודיואים משתפי פעולה",collabS:"מוסיפים קרדיט לסטודיו נוסף על המשחק — סטודיו בחנות (הוא מאשר, והמשחק מופיע גם בדף שלו) או כל סטודיו מחוץ לחנות.",colInStore:"סטודיו בחנות",colNotInStore:"סטודיו שלא בחנות",colUrl:"קישור לאתר / itch.io / Steam שלהם (לא חובה)",colAdd:"הוסף",colOutside:"מחוץ לחנות",colAdded:"{s} נוסף",colStoreHint:"הם מקבלים הזמנה וצריכים לאשר.",colOutHint:"מוצג מיד ליד שם הסטודיו שלך. מוסיפים רק סטודיואים שבאמת עבדתם איתם.",colStudio:"שם הסטודיו",colInvite:"הזמן",colAccepted:"אושר",colPending:"ממתין",colNotFound:"אין סטודיו בשם הזה בחנות — עברנו ל\"סטודיו שלא בחנות\".",colSelf:"זה הסטודיו שלך.",colDup:"כבר הוזמן.",colSent:"ההזמנה נשלחה ל-{s}",
 colInvites:"הזמנות לשיתוף פעולה",colInvitesYou:"הזמין אותך לקרדיט משותף על",accept:"אשר",decline:"דחה",colGames:"שיתופי פעולה",
 gotyWinner:"זוכה משחק השנה",spotT:"הצג בגדול בדף הבית",spotNone:"לא להציג",spotDays:"{n} ימים",spotDate:"עד תאריך…",spotHint:"באנר זהב בראש החנות.",spotBtn:"זרקור",spotOff:"הסר",categoriesOf:"קטגוריות {y}",catT:"קטגוריות של משחק השנה",catS:"מוסיפים קטגוריות כמו Best Art או Best Music לכל סוג של משחק השנה, כל אחת עם זוכה משלה. אותו שם קטגוריה מחליף את הזוכה.",catName:"קטגוריה",catWinner:"זוכה",addCat:"הוסף קטגוריה",extGame:"מחוץ לחנות",extToggle:"משחק שלא בחנות",extHint:"משחק הג'אם ומשחק השנה העולמי יכולים להיות כל משחק — משחק מג'אם ב-itch.io, Steam, אתר. הכרטיס מוביל לדף שלו. משחק השנה · בחנות — רק משחקים מהחנות.",extLink:"קישור למשחק",nav_games:"משחקים",nav_community:"קהילה",nav_devs:"מפתחים",nav_browse:"עיון",nav_deals:"מבצעים ועוד",freeGames:"חינמיים",surpriseS:"הפתע אותי",nav_allH:"כל המשחקים בחנות",nav_newH:"יצאו עכשיו",nav_mostH:"מה כולם משחקים",nav_topH:"הכי טובים בביקורות",nav_freeH:"עולים 0 Coins",nav_saleH:"משחקים במבצע עכשיו",nav_soonH:"משחקים שבדרך",nav_surpH:"פותח משחק אקראי",nav_devlogH:"חדשות מהמפתחים",nav_festH:"אירועים לזמן מוגבל",nav_awardsH:"משחק השבוע / החודש / השנה",nav_pubH:"סטודיו, אימות, הגשה",nav_dashH:"נתונים, מכירות, קודים, עדכונים",nav_writeH:"שתף את ההתקדמות שלך",nav_rulesH:"כללי הפרסום",awardsT:"פרסים",awardsS:"כל משחקי השנה, החודש והשבוע שנבחרו אי פעם ב-Man Studio Store.",current:"נוכחי",mostAwarded:"הכי מעוטרים",noAwards:"אין פרסים עדיין",awardsSoon:"הזוכים הראשונים יופיעו כאן בקרוב.",titleL:"כותרת",newDevlog:"כתוב דבלוג",editDevlog:"עריכת דבלוג",devlogsS:"מאחורי הקלעים: חדשות ועדכוני התקדמות מהמפתחים.",noDevlogs:"אין דבלוגים עדיין",
 devlogAbout:"על מה",studioNews:"חדשות הסטודיו",devlogPh:"מה חדש בפיתוח?",devlogBody:"הפוסט",image:"תמונה",optional:"לא חובה",
@@ -1010,7 +1010,7 @@ async function openCheckout(item){ // item: {kind:'game'|'bundle', id, title, pr
 /* ============ game page ============ */
 async function gameView(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("gamenf"));
-  const [gr,rr,ur,ar,br,fer,dlr,cor]=await Promise.all([
+  const [gr,rr,ur,ar,br,fer,dlr,cor,par]=await Promise.all([
     sb.from("games").select(GAME_COLS).eq("id",id).maybeSingle(),
     sb.from("reviews").select("id,recommended,body,created_at,user_id,minutes,helpful,dev_reply,dev_reply_at,profiles!reviews_user_id_fkey(username,avatar_url)").eq("game_id",id).order("helpful",{ascending:false}).order("created_at",{ascending:false}).limit(100),
     sb.from("game_updates").select("id,version,notes,created_at").eq("game_id",id).order("created_at",{ascending:false}).limit(10),
@@ -1018,7 +1018,8 @@ async function gameView(main,id,stale){
     sb.from("bundles").select("id,title,price,game_ids").eq("published",true).contains("game_ids",[id]),
     sb.from("festival_entries").select("festivals(id,title,theme,starts_at,ends_at,signup_starts,signup_ends)").eq("game_id",id),
     sb.from("devlogs").select(DEVLOG_COLS).eq("game_id",id).order("created_at",{ascending:false}).limit(3),
-    sb.from("game_studios").select("studio_id,role,studios(id,name,downloads)").eq("game_id",id).eq("status","accepted")]);
+    sb.from("game_studios").select("studio_id,role,studios(id,name,downloads)").eq("game_id",id).eq("status","accepted"),
+    sb.from("game_partners").select("name,url,role").eq("game_id",id).order("created_at")]);
   if(stale())return;
   if(gr.error)throw gr.error;
   const g=gr.data;if(!g){main.innerHTML=`<div class="empty"><b>${t("gamenf")}</b><a href="#/">${t("back")}</a></div>`;return}
@@ -1062,7 +1063,7 @@ async function gameView(main,id,stale){
     <div class="gside">${coverHTML(g)}<div class="desc">${esc(g.short_desc)}</div>
       <div class="kv"><span>${t("allreviews")}</span><span>${rvHTML(g)}</span>
       <span>${t("release")}</span><span>${g.coming_soon?soonDate(g):fmtDate(g.created_at)}</span>
-      <span>${t("developer")}</span><span>${studio?`<a href="#/studio/${studio.id}">${esc(studio.name)}</a> ${badgeHTML(studio.downloads)}`:esc(g.developer)}${collabs.map(c=>` × <a href="#/studio/${c.studio_id}" title="${esc(c.role)}">${esc(c.studios?.name||"")}</a>`).join("")}</span>
+      <span>${t("developer")}</span><span>${studio?`<a href="#/studio/${studio.id}">${esc(studio.name)}</a> ${badgeHTML(studio.downloads)}`:esc(g.developer)}${collabs.map(c=>` × <a href="#/studio/${c.studio_id}" title="${esc(c.role)}">${esc(c.studios?.name||"")}</a>`).join("")}${(par.data||[]).map(c=>` × ${c.url&&okUrl(c.url)?`<a href="${esc(okUrl(c.url))}" target="_blank" rel="noopener" title="${esc(c.role)}">${esc(c.name)} ↗</a>`:`<span title="${esc(c.role)}">${esc(c.name)}</span>`}`).join("")}</span>
       ${g.age_rating?`<span>${t("ageT")}</span><span>${ageBadgeHTML(g)} ${t("age_"+g.age_rating)}</span>`:""}
       ${g.version?`<span>${t("version")}</span><span>${esc(g.version)}</span>`:""}
       ${g.coming_soon?"":`<span>${t("players")}</span><span>${(g.players||0).toLocaleString()}</span>`}</div>
@@ -1407,21 +1408,34 @@ function readTranslations(){const o={};document.querySelectorAll(".trblock").for
 
 // ---- collaborations (edit form) ----
 async function collabEditorHTML(g){
-  const{data}=await sb.from("game_studios").select("studio_id,role,status,studios(name)").eq("game_id",g.id);
+  const[{data},pr]=await Promise.all([sb.from("game_studios").select("studio_id,role,status,studios(name)").eq("game_id",g.id),
+    sb.from("game_partners").select("id,name,url,role").eq("game_id",g.id).order("created_at")]);
   return `<div class="trbox"><b>🤝 ${t("collabT")}</b><div class="hint" style="margin:4px 0 8px">${t("collabS")}</div>
     <div id="colList">${(data||[]).map(c=>`<div class="colrow"><span>🤝 <b>${esc(c.studios?.name||"")}</b> · ${esc(c.role)}</span>
-      <span class="pill ${c.status==="accepted"?"":"wait"}">${c.status==="accepted"?t("colAccepted"):t("colPending")}</span><button type="button" class="btn ghost sm" data-coldel="${c.studio_id}">✕</button></div>`).join("")}</div>
+      <span class="pill ${c.status==="accepted"?"":"wait"}">${c.status==="accepted"?t("colAccepted"):t("colPending")}</span><button type="button" class="btn ghost sm" data-coldel="${c.studio_id}">✕</button></div>`).join("")}
+      ${(pr.data||[]).map(c=>`<div class="colrow"><span>🌍 <b>${esc(c.name)}</b> · ${esc(c.role)}${c.url&&okUrl(c.url)?` · <a href="${esc(okUrl(c.url))}" target="_blank" rel="noopener" dir="ltr">${esc(c.url.replace(/^https?:\/\//,"").slice(0,40))}</a>`:""}</span>
+        <span class="pill">${t("colOutside")}</span><button type="button" class="btn ghost sm" data-partdel="${c.id}">✕</button></div>`).join("")}</div>
+    <div class="seg" style="margin-top:10px"><label><input type="radio" name="colkind" value="store" checked> 🏪 ${t("colInStore")}</label><label><input type="radio" name="colkind" value="outside"> 🌍 ${t("colNotInStore")}</label></div>
     <div class="two" style="margin-top:8px"><input class="inp" id="colName" maxlength="60" placeholder="${t("colStudio")}"><div style="display:flex;gap:6px"><input class="inp" id="colRole" maxlength="40" value="Co-developer"><button type="button" class="btn sm" id="colInv">${t("colInvite")}</button></div></div>
-    <div class="err" id="colErr"></div></div>`}
+    <input class="inp" id="colUrl" dir="ltr" maxlength="500" placeholder="${t("colUrl")}" hidden style="margin-top:6px">
+    <div class="hint" id="colHint">${t("colStoreHint")}</div><div class="err" id="colErr"></div></div>`}
 function bindCollabEditor(g){
   const b=$("#colInv");if(!b)return;
+  const kind=()=>document.querySelector("input[name=colkind]:checked").value;
+  const sync=()=>{const out=kind()==="outside";$("#colUrl").hidden=!out;b.textContent=out?t("colAdd"):t("colInvite");$("#colHint").textContent=out?t("colOutHint"):t("colStoreHint")};
+  document.querySelectorAll("input[name=colkind]").forEach(r=>r.onchange=sync);sync();
   b.onclick=async()=>{const name=$("#colName").value.trim(),role=$("#colRole").value.trim()||"Co-developer",er=$("#colErr");er.textContent="";
     if(name.length<2){er.textContent=t("err_required");return}
+    if(kind()==="outside"){const raw=$("#colUrl").value.trim(),u=raw?okUrl(raw):null;
+      if(raw&&(!u||!/^https?:/i.test(raw))){er.textContent=t("err_badurl");return}
+      const{error}=await sb.from("game_partners").insert({game_id:g.id,name,url:u,role});
+      if(error){er.textContent=/duplicate/i.test(error.message)?t("colDup"):errMsg(error);return}toast("🌍 "+t("colAdded").replace("{s}",name));route();return}
     const{data:s}=await sb.from("studios").select("id,name,owner").ilike("name",name.replace(/[%_\\]/g,m=>"\\"+m)).eq("status","approved").maybeSingle();
-    if(!s){er.textContent=t("colNotFound");return}if(s.owner===me.id){er.textContent=t("colSelf");return}
+    if(!s){er.textContent=t("colNotFound");document.querySelector("input[name=colkind][value=outside]").checked=true;sync();return}if(s.owner===me.id){er.textContent=t("colSelf");return}
     const{error}=await sb.from("game_studios").insert({game_id:g.id,studio_id:s.id,role,invited_by:me.id});
     if(error){er.textContent=/duplicate/i.test(error.message)?t("colDup"):errMsg(error);return}toast("🤝 "+t("colSent").replace("{s}",s.name));route()};
-  $("#colList").onclick=async e=>{const x=e.target.closest("[data-coldel]");if(!x)return;const{error}=await sb.from("game_studios").delete().eq("game_id",g.id).eq("studio_id",x.dataset.coldel);if(error)return dbErr(error);route()};
+  $("#colList").onclick=async e=>{const pd=e.target.closest("[data-partdel]");if(pd){const{error}=await sb.from("game_partners").delete().eq("id",pd.dataset.partdel);if(error)return dbErr(error);route();return}
+    const x=e.target.closest("[data-coldel]");if(!x)return;const{error}=await sb.from("game_studios").delete().eq("game_id",g.id).eq("studio_id",x.dataset.coldel);if(error)return dbErr(error);route()};
 }
 async function collabInvitesHTML(studio){if(!studio)return "";
   const{data}=await sb.from("game_studios").select("game_id,role,status,games(title,developer)").eq("studio_id",studio.id).eq("status","pending");
