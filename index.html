@@ -387,6 +387,8 @@ textarea.inp{min-height:90px;resize:vertical}
 .rchead{display:flex;justify-content:space-between;border-bottom:1px dashed #999;padding-bottom:6px;margin-bottom:8px}.rcfoot{border-top:1px dashed #999;margin-top:8px;padding-top:6px;color:#2e7d32}
 @media print{header,footer,.subnav,#rcRestore,.btn{display:none!important}body{background:#fff}.receipt{box-shadow:none;break-inside:avoid}}
 .inp.bad{border-color:#ff6b6b!important;box-shadow:0 0 0 2px #ff6b6b44}
+.festdevs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.festdevs a{display:flex;align-items:center;gap:8px;background:#0000004d;border:1px solid #ffffff1a;border-radius:24px;padding:4px 12px 4px 4px;color:#fff}
+.festdevs a:hover{border-color:#66c0f4}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -473,7 +475,7 @@ const STORE_NAME = "Man Studio Store";
 const STORE_VERSION = "1.4.5";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-27.4";
+const BUILD = "2026-11-27.5";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -578,7 +580,7 @@ cardHint:"Your personal virtual card. It's connected to your Coins balance and u
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 500, get 10 for every new game you add to your library, and 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",tx_install:"🎮 New game bonus",gotCoins:"+{n} 🪙 for a new game!",
 redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",srT:"Studio review",srS:"The last check before you can publish: tell us about your first game and how your studio will work. A person reviews it — up to 7 business days (Sunday–Friday).",srPrivacy:"No personal details here — only questions about your studio and your game.",srFirst:"Your first game",srTitle:"Game title",srPitch:"What is the game about?",srPitchPh:"The idea, how you play, what makes it special…",srPitchHint:"At least 80 characters.",srProof:"Link that shows your work",srProofHint:"A trailer, screenshots, a demo, an itch.io page or a repo.",srTeamT:"Your team & plans",srRoles:"Who does what in the studio?",srRolesPh:"e.g. Me — code and art. A friend — music.",srSupport:"How will you support players?",srSupportPh:"Bug fixes, answering reviews, updates…",srContent:"How will you keep your games safe and fair?",srContentPh:"Age rating, your own art and music, no stolen content…",srSend:"Send for review",srShort:"Some answers are too short.",srEta:"Expected by",hubS145:"Six steps to publish: studio → agreement → verification 3.0 → studio review (up to 7 business days) → submit → launch. In 1.4.5 every studio starts again from the developer agreement.",
-joinT:"Join this festival",joinS:"Join, confirm that you'll take part, and get a reminder when it starts. No game to submit — just join.",atOpens:"Joining opens",atCloses:"Joining closes",atCount:"Joined",atYouIn:"You joined this festival!",atRemind:"We'll notify you when the festival starts.",atCancel:"Leave the festival",atConfirm:"I confirm that I'll take part in this festival.",atRegister:"Join",atNeedConfirm:"Tick the box to confirm your participation.",atDone:"You joined!",atClosed:"Joining is closed.",atOpensOn:"Joining opens",atOpenTill:"Join until",atCap:"Max participants",atNoLimit:"No limit",atHint:"Joining must open before the festival starts. People only join — no games are submitted.",atBefore:"Joining must open before the festival starts (and close after it opens).",fModeT:"Festival type",fMode:"Who takes part",fm_games:"Games (developers submit games)",fm_attend:"Registration only (players sign up)",fm_both:"Both",e_FESTIVAL_FULL:"This festival is full.",e_VERIFY_FIRST:"Finish studio verification first.",
+joinT:"Festival settings",joinS:"",fDevs:"Developers in this festival",fNoDevs:"No developers joined yet.",fGames:"Submitted games",fSubOpens:"Game submissions open",fSubClosed:"Game submissions are closed.",fSubFrom:"Submissions open",fSubTill:"Submissions close",fSubmit:"Submit game",fSubmitted:"Your game is in the festival!",fDevOnly:"Only developers can join festivals.",fLeaveNote:"Your submitted games will be removed too.",atOpens:"Joining opens",atCloses:"Joining closes",atCount:"Joined",atYouIn:"You joined this festival!",atRemind:"Submit your game when submissions open. We'll notify you when the festival starts.",atCancel:"Leave the festival",atConfirm:"I confirm that I'll take part in this festival.",atRegister:"Join",atNeedConfirm:"Tick the box to confirm your participation.",atDone:"You joined!",atClosed:"Joining is closed.",atOpensOn:"Joining opens",atOpenTill:"Join until",atCap:"Max participants",atNoLimit:"No limit",atHint:"Developers can join any time until the festival ends. Games can only be submitted between the submission dates.",atBefore:"Joining must open before the festival starts (and close after it opens).",fModeT:"Festival type",fMode:"Who takes part",fm_games:"Games (developers submit games)",fm_attend:"Registration only (players sign up)",fm_both:"Both",e_FESTIVAL_FULL:"This festival is full.",e_VERIFY_FIRST:"Finish studio verification first.",
 gaT:"Game Awards {y}",gaS:"Every winner and nominee of the year, in every category.",gaWinner:"Winner",gaNominees:"Nominees:",gaSoon:"Winner coming soon",nomT:"Nominees",nomS:"Add nominees to a category. They appear on the Game Awards page of that year; the category winner is set below.",nomAdd:"Add nominee",
 rcT:"Receipts",rcS:"Every purchase you made. Once you buy a game — alone or in a bundle — it's yours forever; you never pay for it again.",rcItem:"Item",rcDate:"Date",rcCard:"Card",rcBuyer:"Buyer",rcId:"Purchase ID",rcPaid:"Paid · owned forever",rcNone:"No purchases yet",rcPrint:"Print",rcRestore:"Restore access",rcRestored:"Restored {n} games to your library.",rmOwned:"You own this game. Removing it only hides it from your library — you can add it back for free any time (Receipts → Restore access).",vnick:"Name or nickname",del3:"Deleted automatically 3 days after your decision.",
 levelN:"Level {n}",xpToNext:"{n} XP to the next level",levelUp:"Level up! You're now level {n}",achUnlocked:"Achievement unlocked",
@@ -647,7 +649,7 @@ devlogAbout:"About",studioNews:"Studio news",devlogPh:"What's new in development
 devlogHint:"Followers of your studio and players who own or wishlisted the game get a notification.",publishDevlog:"Publish",like:"Like",liked:"Liked",edited:"edited",
 f_signupFrom:"Sign-ups open on",f_signupFromL:"Sign-ups open",signups:"sign-ups",festSignupBad:"Sign-ups must open before they close.",
 gotw:"Game of the Week",weekN:"Week {w}",festival:"Festival",festivals:"Festivals",festsS:"Limited-time events: play demos and upcoming games, follow studios and wishlist favorites.",noFests:"No festivals yet",
-f_live:"Live now",f_ends:"ends",f_signupOpen:"Sign-ups open until",f_startsOn:"Starts",f_ended:"Ended",noEntries:"No games signed up yet.",f_signupTill:"Sign-ups until",
+f_live:"Live now",f_ends:"ends",f_signupOpen:"Game submissions open until",f_startsOn:"Starts",f_ended:"Ended",noEntries:"No games signed up yet.",f_signupTill:"Sign-ups until",
 f_csOnly:"Coming soon games only",f_signupGame:"Sign up your game",f_join:"Join the festival",f_noEligible:"You have no eligible approved games for this festival.",f_yours:"Your games here",
 newFest:"New festival",newFestHint:"Every verified developer gets a notification when you create it.",tagline:"Tagline",color:"Color",createFest:"Create festival",festDatesBad:"The end must be after the start, and sign-ups must close before the end.",
 followersL:"followers",follow:"Follow",following:"Following",followHint:"You'll get a notification when this studio releases a game",website:"Website",support:"Support",
@@ -710,7 +712,7 @@ cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins �
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 500, מקבלים 10 על כל משחק חדש שנכנס לספרייה, ועוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",tx_install:"🎮 בונוס משחק חדש",gotCoins:"+{n} 🪙 על משחק חדש!",
 redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",srT:"בדיקת סטודיו",srS:"הבדיקה האחרונה לפני שאפשר לפרסם: ספרו לנו על המשחק הראשון ואיך הסטודיו יעבוד. אדם בודק — עד 7 ימי עסקים (ראשון–שישי).",srPrivacy:"אין כאן פרטים אישיים — רק שאלות על הסטודיו והמשחק.",srFirst:"המשחק הראשון שלכם",srTitle:"שם המשחק",srPitch:"על מה המשחק?",srPitchPh:"הרעיון, איך משחקים, מה מיוחד בו…",srPitchHint:"לפחות 80 תווים.",srProof:"קישור שמראה את העבודה",srProofHint:"טריילר, צילומי מסך, דמו, דף itch.io או ריפו.",srTeamT:"הצוות והתוכניות",srRoles:"מי עושה מה בסטודיו?",srRolesPh:"למשל: אני — קוד וגרפיקה. חבר — מוזיקה.",srSupport:"איך תתמכו בשחקנים?",srSupportPh:"תיקוני באגים, מענה לביקורות, עדכונים…",srContent:"איך תשמרו שהמשחקים יהיו בטוחים והוגנים?",srContentPh:"דירוג גיל, גרפיקה ומוזיקה שלכם, בלי תוכן גנוב…",srSend:"שלח לבדיקה",srShort:"חלק מהתשובות קצרות מדי.",srEta:"צפוי עד",hubS145:"שישה שלבים לפרסום: סטודיו ← הסכם ← אימות 3.0 ← בדיקת סטודיו (עד 7 ימי עסקים) ← הגשה ← השקה. בגרסה 1.4.5 כל סטודיו מתחיל מחדש מהסכם המפתחים.",
-joinT:"הצטרפות לפסטיבל",joinS:"מצטרפים, מאשרים שתשתתפו ומקבלים תזכורת כשהפסטיבל מתחיל. לא מגישים משחק — רק מצטרפים.",atOpens:"ההצטרפות נפתחת",atCloses:"ההצטרפות נסגרת",atCount:"הצטרפו",atYouIn:"הצטרפת לפסטיבל!",atRemind:"נשלח לך התראה כשהפסטיבל מתחיל.",atCancel:"עזוב את הפסטיבל",atConfirm:"אני מאשר/ת שאשתתף בפסטיבל הזה.",atRegister:"הצטרף",atNeedConfirm:"צריך לסמן את התיבה כדי לאשר השתתפות.",atDone:"הצטרפת!",atClosed:"ההצטרפות סגורה.",atOpensOn:"ההצטרפות נפתחת",atOpenTill:"אפשר להצטרף עד",atCap:"מקסימום משתתפים",atNoLimit:"בלי הגבלה",atHint:"ההצטרפות חייבת להיפתח לפני שהפסטיבל מתחיל. רק מצטרפים — לא מגישים משחקים.",atBefore:"ההצטרפות חייבת להיפתח לפני תחילת הפסטיבל (ולהיסגר אחרי שנפתחה).",fModeT:"סוג הפסטיבל",fMode:"מי משתתף",fm_games:"משחקים (מפתחים מגישים משחקים)",fm_attend:"הרשמה בלבד (שחקנים נרשמים)",fm_both:"שניהם",e_FESTIVAL_FULL:"הפסטיבל מלא.",e_VERIFY_FIRST:"צריך לסיים קודם את אימות הסטודיו.",
+joinT:"הגדרות הפסטיבל",joinS:"",fDevs:"מפתחים בפסטיבל",fNoDevs:"עוד לא הצטרפו מפתחים.",fGames:"משחקים שהוגשו",fSubOpens:"הגשת משחקים נפתחת",fSubClosed:"הגשת המשחקים סגורה.",fSubFrom:"פתיחת ההגשות",fSubTill:"סגירת ההגשות",fSubmit:"הגש משחק",fSubmitted:"המשחק שלך בפסטיבל!",fDevOnly:"רק מפתחים יכולים להצטרף לפסטיבלים.",fLeaveNote:"גם המשחקים שהגשת יוסרו.",atOpens:"ההצטרפות נפתחת",atCloses:"ההצטרפות נסגרת",atCount:"הצטרפו",atYouIn:"הצטרפת לפסטיבל!",atRemind:"מגישים משחק כשההגשות נפתחות. נשלח לך התראה כשהפסטיבל מתחיל.",atCancel:"עזוב את הפסטיבל",atConfirm:"אני מאשר/ת שאשתתף בפסטיבל הזה.",atRegister:"הצטרף",atNeedConfirm:"צריך לסמן את התיבה כדי לאשר השתתפות.",atDone:"הצטרפת!",atClosed:"ההצטרפות סגורה.",atOpensOn:"ההצטרפות נפתחת",atOpenTill:"אפשר להצטרף עד",atCap:"מקסימום משתתפים",atNoLimit:"בלי הגבלה",atHint:"מפתחים יכולים להצטרף מתי שרוצים עד סוף הפסטיבל. משחקים מגישים רק בין תאריכי ההגשה.",atBefore:"ההצטרפות חייבת להיפתח לפני תחילת הפסטיבל (ולהיסגר אחרי שנפתחה).",fModeT:"סוג הפסטיבל",fMode:"מי משתתף",fm_games:"משחקים (מפתחים מגישים משחקים)",fm_attend:"הרשמה בלבד (שחקנים נרשמים)",fm_both:"שניהם",e_FESTIVAL_FULL:"הפסטיבל מלא.",e_VERIFY_FIRST:"צריך לסיים קודם את אימות הסטודיו.",
 gaT:"Game Awards {y}",gaS:"כל הזוכים והמועמדים של השנה, בכל הקטגוריות.",gaWinner:"זוכה",gaNominees:"מועמדים:",gaSoon:"הזוכה יוכרז בקרוב",nomT:"מועמדים",nomS:"מוסיפים מועמדים לקטגוריה. הם מופיעים בדף ה-Game Awards של אותה שנה; הזוכה בקטגוריה נקבע למטה.",nomAdd:"הוסף מועמד",
 rcT:"קבלות",rcS:"כל הרכישות שלך. ברגע שקנית משחק — לבד או בחבילה — הוא שלך לתמיד, ולא משלמים עליו שוב.",rcItem:"פריט",rcDate:"תאריך",rcCard:"כרטיס",rcBuyer:"קונה",rcId:"מספר רכישה",rcPaid:"שולם · שלך לתמיד",rcNone:"אין רכישות עדיין",rcPrint:"הדפס",rcRestore:"שחזר גישה",rcRestored:"{n} משחקים שוחזרו לספרייה.",rmOwned:"המשחק הזה שלך. ההסרה רק מסתירה אותו מהספרייה — אפשר להחזיר אותו בחינם מתי שרוצים (קבלות ← שחזר גישה).",vnick:"שם או כינוי",del3:"נמחק אוטומטית 3 ימים אחרי ההחלטה שלך.",
 levelN:"רמה {n}",xpToNext:"עוד {n} XP לרמה הבאה",levelUp:"עלית רמה! אתה עכשיו ברמה {n}",achUnlocked:"הישג חדש",
@@ -779,7 +781,7 @@ devlogAbout:"על מה",studioNews:"חדשות הסטודיו",devlogPh:"מה ח
 devlogHint:"מי שעוקב אחרי הסטודיו, ומי שהמשחק אצלו או ברשימת המשאלות שלו, יקבלו התראה.",publishDevlog:"פרסם",like:"אהבתי",liked:"אהבת",edited:"נערך",
 f_signupFrom:"ההרשמה נפתחת ב-",f_signupFromL:"פתיחת ההרשמה",signups:"הרשמה",festSignupBad:"ההרשמה צריכה להיפתח לפני שהיא נסגרת.",
 gotw:"משחק השבוע",weekN:"שבוע {w}",festival:"פסטיבל",festivals:"פסטיבלים",festsS:"אירועים לזמן מוגבל: משחקים בדמואים ובמשחקים שבדרך, עוקבים אחרי סטודיואים ומוסיפים לרשימת המשאלות.",noFests:"אין פסטיבלים עדיין",
-f_live:"פעיל עכשיו",f_ends:"נגמר",f_signupOpen:"ההרשמה פתוחה עד",f_startsOn:"מתחיל",f_ended:"הסתיים",noEntries:"עוד לא נרשמו משחקים.",f_signupTill:"הרשמה עד",
+f_live:"פעיל עכשיו",f_ends:"נגמר",f_signupOpen:"הגשת משחקים פתוחה עד",f_startsOn:"מתחיל",f_ended:"הסתיים",noEntries:"עוד לא נרשמו משחקים.",f_signupTill:"הרשמה עד",
 f_csOnly:"רק משחקי \"בקרוב\"",f_signupGame:"רשום את המשחק שלך",f_join:"הצטרף לפסטיבל",f_noEligible:"אין לך משחקים מאושרים שמתאימים לפסטיבל הזה.",f_yours:"המשחקים שלך כאן",
 newFest:"פסטיבל חדש",newFestHint:"כל מפתח מאומת יקבל התראה כשתיצור אותו.",tagline:"משפט קצר",color:"צבע",createFest:"צור פסטיבל",festDatesBad:"הסיום צריך להיות אחרי ההתחלה, וההרשמה צריכה להיסגר לפני הסיום.",
 followersL:"עוקבים",follow:"עקוב",following:"במעקב",followHint:"תקבל התראה כשהסטודיו יוציא משחק",website:"אתר",support:"תמיכה",
@@ -1928,7 +1930,7 @@ async function attendPanelHTML(f){
 function bindAttend(f){
   const go=$("#atGo");if(go)go.onclick=async()=>{if(!$("#atOk").checked){toast(t("atNeedConfirm"));return}go.disabled=true;
     const{error}=await sb.from("festival_attendees").insert({festival_id:f.id,user_id:me.id});if(error){toast(errMsg(error));go.disabled=false;return}confetti();toast("🎪 "+t("atDone"));route()};
-  const c=$("#atCancel");if(c)c.onclick=async()=>{if(!await confirmBox(t("atCancel")+"?"))return;await sb.from("festival_attendees").delete().eq("festival_id",f.id).eq("user_id",me.id);route()}}
+  const c=$("#atCancel");if(c)c.onclick=async()=>{if(!await confirmBox(t("atCancel")+"? "+t("fLeaveNote")))return;await sb.from("festival_attendees").delete().eq("festival_id",f.id).eq("user_id",me.id);route()}}
 
 // ---------- game awards: one page per year, every category with nominees ----------
 async function awardsYearView(main,year,stale){
@@ -2010,7 +2012,6 @@ function festDates(f){const o={month:"short",day:"numeric"},L=lang==="he"?"he-IL
   return new Date(f.starts_at).toLocaleDateString(L,o)+" – "+new Date(f.ends_at).toLocaleDateString(L,{...o,year:"numeric"})}
 function festBg(f){const u=okUrl(f.banner_url||"");return u?`background:linear-gradient(90deg,#000c,#0004),url('${esc(u)}') center/cover`:`background:linear-gradient(120deg,${f.theme},#1b2838)`}
 function festStateHTML(f){const s=festState(f);
-  if(f.mode==="attend"&&s!=="live"&&s!=="ended")return attendStateHTML(f);
   return s==="live"?`<span class="fstate live">● ${t("f_live")} · ${t("f_ends")} ${fmtDate(f.ends_at)}</span>`
     :s==="signup"?`<span class="fstate">${t("f_signupOpen")} ${fmtDate(f.signup_ends)}</span>`
     :s==="presignup"?`<span class="fstate">${t("f_signupFrom")} ${fmtDate(f.signup_starts)}</span>`
@@ -2027,27 +2028,42 @@ async function festsView(main,stale){
 }
 async function festPage(main,id,stale){
   if(!/^[0-9a-f-]{36}$/i.test(id||""))throw new Error(t("notfound"));
-  const[fr,er]=await Promise.all([sb.from("festivals").select("*").eq("id",id).maybeSingle(),sb.from("festival_entries").select("game_id,owner").eq("festival_id",id)]);
+  const[fr,er,ar]=await Promise.all([sb.from("festivals").select("*").eq("id",id).maybeSingle(),sb.from("festival_entries").select("game_id,owner").eq("festival_id",id),
+    sb.from("festival_attendees").select("user_id,created_at").eq("festival_id",id).order("created_at")]);
   if(stale())return;const f=fr.data;if(!f){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
   setTitle(f.title);
-  const entries=er.data||[],games=await gamesByIds(entries.map(e=>e.game_id));if(stale())return;
+  const entries=er.data||[],att=ar.data||[];
+  const[games,stq,myStudio]=await Promise.all([gamesByIds(entries.map(e=>e.game_id)),
+    att.length?sb.from("studios").select("id,name,logo_url,owner").in("owner",att.map(a=>a.user_id)).eq("status","approved"):{data:[]},me?loadStudio():null]);
+  if(stale())return;
+  const studios=att.map(a=>(stq.data||[]).find(x=>x.owner===a.user_id)).filter(Boolean);
   const st=festState(f),mine=me?entries.filter(e=>e.owner===me.id).map(e=>e.game_id):[];
+  const isDev=!!(myStudio&&myStudio.status==="approved"),joined=!!(me&&att.some(a=>a.user_id===me.id)),ended=Date.now()>=+new Date(f.ends_at);
+  const full=f.capacity&&att.length>=f.capacity;
   let eligible=[];
-  if(me&&signupOpen(f)){let q=sb.from("games").select("id,title,coming_soon").eq("owner",me.id).eq("review_status","approved").eq("published",true);
+  if(joined&&signupOpen(f)){let q=sb.from("games").select("id,title,coming_soon").eq("owner",me.id).eq("review_status","approved").eq("published",true);
     if(f.coming_soon_only)q=q.eq("coming_soon",true);const{data}=await q;if(stale())return;eligible=(data||[]).filter(g=>!mine.includes(g.id))}
-  const attendHTML=f.mode!=="games"?await attendPanelHTML(f):"";if(stale())return;
+  const joinBox=!isDev?"":joined?`<div class="status ok"><b>✓ ${t("atYouIn")}</b><div class="mut" style="font-size:12px">${t("atRemind")}</div></div>
+      <button class="btn ghost sm" id="atCancel">${t("atCancel")}</button>`
+    :ended?`<div class="mut">${t("atClosed")}</div>`:full?`<div class="err">${t("e_FESTIVAL_FULL")}</div>`
+    :`<label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" id="atOk" style="margin-top:3px"> ${t("atConfirm")}</label>
+      <button class="btn green" id="atGo">🎪 ${t("atRegister")}</button>`;
+  const subBox=!joined?"":st==="presignup"?`<div class="mut" style="font-size:12px">⏳ ${t("fSubOpens")} ${fmtDate(f.signup_starts)}</div>`
+    :signupOpen(f)?(eligible.length?`<label class="form" style="gap:5px;max-width:none">${t("f_signupGame")}<select id="fsg">${eligible.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
+      <button class="btn green" id="fsb">🎮 ${t("fSubmit")}</button>`:`<div class="mut" style="font-size:12px">${t("f_noEligible")}</div>`)
+    :`<div class="mut" style="font-size:12px">${t("fSubClosed")}</div>`;
   main.innerHTML=subnav()+festBannerHTML(f,true)+`
     <div class="gbody"><div>${f.description?`<div class="about" style="margin-bottom:14px">${esc(f.description)}</div>`:""}
-      ${f.mode!=="games"?attendHTML:""}
-      ${f.mode!=="attend"?`<h2 class="sec">🎮 ${t("games")} <span class="mut">(${games.length})</span></h2>
-      ${games.length?`<div class="grid">${games.map(cardHTML).join("")}</div>`:`<div class="mut">${t("noEntries")}</div>`}`:""}</div>
+      <h2 class="sec">🛠️ ${t("fDevs")} <span class="mut">(${studios.length}${f.capacity?" / "+f.capacity:""})</span></h2>
+      ${studios.length?`<div class="festdevs">${studios.map(x=>`<a href="#/studio/${x.id}">${avatarHTML({username:x.name,avatar_url:x.logo_url},40)}<span>${esc(x.name)}</span></a>`).join("")}</div>`:`<div class="mut">${t("fNoDevs")}</div>`}
+      <h2 class="sec">🎮 ${t("fGames")} <span class="mut">(${games.length})</span></h2>
+      ${games.length?`<div class="grid">${games.map(cardHTML).join("")}</div>`:`<div class="mut">${st==="presignup"?t("fSubOpens")+" "+fmtDate(f.signup_starts):t("noEntries")}</div>`}</div>
     <aside><div class="panel" style="display:grid;gap:8px">
-      <div class="kv2">${f.mode!=="attend"?`<span>${t("f_signupFromL")}</span><span>${fmtDate(f.signup_starts)}</span><span>${t("f_signupTill")}</span><span>${fmtDate(f.signup_ends)}</span>`:""}<span>${t("from")}</span><span>${fmtDate(f.starts_at)}</span><span>${t("to")}</span><span>${fmtDate(f.ends_at)}</span>
+      <div class="kv2"><span>${t("fSubFrom")}</span><span>${fmtDate(f.signup_starts)}</span><span>${t("fSubTill")}</span><span>${fmtDate(f.signup_ends)}</span><span>${t("from")}</span><span>${fmtDate(f.starts_at)}</span><span>${t("to")}</span><span>${fmtDate(f.ends_at)}</span>
       ${f.coming_soon_only?`<span>🕒</span><span>${t("f_csOnly")}</span>`:""}</div>
-      ${f.mode!=="attend"&&st==="presignup"?`<div class="mut" style="font-size:12px">⏳ ${t("f_signupFrom")} ${fmtDate(f.signup_starts)}</div>`:""}
-      ${f.mode!=="attend"&&signupOpen(f)?(me?(eligible.length?`<label class="form" style="gap:5px;max-width:none">${t("f_signupGame")}<select id="fsg">${eligible.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
-        <button class="btn green" id="fsb">🎪 ${t("f_join")}</button>`:`<div class="mut" style="font-size:12px">${t("f_noEligible")}</div>`)
-        :`<a class="btn ghost" href="#/login?next=${encodeURIComponent(location.hash)}">${t("login")}</a>`):""}
+      ${!me?`<a class="btn ghost" href="#/login?next=${encodeURIComponent(location.hash)}">${t("login")}</a>`:""}
+      ${me&&!isDev?`<div class="mut" style="font-size:12px">🛠️ ${t("fDevOnly")} <a href="#/publish">${t("publish")}</a></div>`:""}
+      ${joinBox}${subBox}
       ${mine.length?`<div class="mut" style="font-size:12px">${t("f_yours")}:</div>${mine.map(gid=>{const g=games.find(x=>x.id===gid);return `<div style="display:flex;gap:6px;align-items:center"><span style="flex:1">${esc(g?.title||"")}</span><button class="btn ghost sm" data-leave="${gid}">${t("remove")}</button></div>`}).join("")}`:""}
       <button class="btn ghost" id="fshare">🔗 ${t("share")}</button>
     </div></aside></div>`;
@@ -2055,7 +2071,7 @@ async function festPage(main,id,stale){
   $("#fshare").onclick=()=>openShare("/fest/"+f.id,f.title);
   bindAttend(f);
   if($("#fsb"))$("#fsb").onclick=async e=>{e.target.disabled=true;const{error}=await sb.from("festival_entries").insert({festival_id:f.id,game_id:$("#fsg").value,owner:me.id});
-    if(error){toast(errMsg(error));e.target.disabled=false;return}toast("🎪 "+t("saved"));route()};
+    if(error){toast(errMsg(error));e.target.disabled=false;return}confetti();toast("🎮 "+t("fSubmitted"));route()};
   main.onclick=async e=>{const b=e.target.closest("[data-leave]");if(!b)return;const{error}=await sb.from("festival_entries").delete().eq("festival_id",f.id).eq("game_id",b.dataset.leave);if(error)return dbErr(error);route()};
 }
 
@@ -2724,14 +2740,14 @@ async function adminView(main,tab,stale){
     body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🎪 ${t("newFest")}</h3><div class="mut">${t("newFestHint")}</div>
       <div class="two"><label>${t("f_title")} *<input class="inp" id="ftt" maxlength="80" placeholder="Man Studio Next Fest"></label><label>${t("tagline")}<input class="inp" id="ftg" maxlength="200"></label></div>
       <label>${t("f_desc")}<textarea class="inp" id="ftd" maxlength="5000" style="min-height:90px"></textarea></label>
-      <div class="two" hidden><label>${t("f_signupFromL")} *<input class="inp" type="date" id="fss" value="${d(now)}"></label><label>${t("f_signupTill")} *<input class="inp" type="date" id="fsu" value="${d(now+14*864e5)}"></label></div>
+      <div class="two"><label>${t("fSubFrom")} *<input class="inp" type="date" id="fss" value="${d(now)}"></label><label>${t("fSubTill")} *<input class="inp" type="date" id="fsu" value="${d(now+14*864e5)}"></label></div>
       <div class="two"><span></span><label>${t("color")}<input type="color" id="fcl" value="#9b5cff" style="width:60px;height:36px;border:0;background:none"></label></div>
       <div class="two"><label>${t("from")} *<input class="inp" type="date" id="fst" value="${d(now+21*864e5)}"></label><label>${t("to")} *<input class="inp" type="date" id="fen" value="${d(now+28*864e5)}"></label></div>
       <label>${t("banner")} <span class="hint">(1600×400)</span><input type="file" id="fbn" accept="image/png,image/jpeg,image/webp,image/gif"></label>
-      <label hidden><input type="checkbox" id="fco"></label>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="fco"> 🕒 ${t("f_csOnly")}</label>
       <div class="extbox"><b>🎪 ${t("joinT")}</b>
-        <select id="fmode" hidden><option value="attend" selected>attend</option></select>
-        <div id="fatt" hidden><div class="two"><label>${t("atOpens")} *<input class="inp" type="date" id="fao" value="${d(now)}"></label><label>${t("atCloses")}<input class="inp" type="date" id="fac"></label></div>
+        <select id="fmode" hidden><option value="both" selected>both</option></select>
+        <div id="fatt" hidden><div class="two" hidden><label>${t("atOpens")} *<input class="inp" type="date" id="fao" value="${d(now)}"></label><label>${t("atCloses")}<input class="inp" type="date" id="fac"></label></div>
           <label>${t("atCap")}<input class="inp" type="number" id="fcap" min="1" placeholder="${t("atNoLimit")}"></label><span class="hint">${t("atHint")}</span></div></div>
       <div class="err" id="fe2"></div><div><button class="btn green" id="fsave">🎪 ${t("createFest")}</button></div></div>
       ${extra.fests.map(f=>`<div class="row" style="grid-template-columns:1fr auto"><div><a href="#/fest/${f.id}" style="color:#fff;font-weight:600">🎪 ${esc(f.title)}</a> <span class="mut">${festDates(f)}</span> <span class="dim" style="font-size:12px">· ${t("signups")} ${fmtDate(f.signup_starts)} → ${fmtDate(f.signup_ends)}</span> ${festStateHTML(f)}</div>
@@ -2829,12 +2845,11 @@ async function adminView(main,tab,stale){
   if(tab==="fests")$("#fsave").onclick=async e=>{const ti=$("#ftt").value.trim(),ss=$("#fss").value===new Date().toLocaleDateString("en-CA")?new Date():new Date($("#fss").value+"T00:00:00"),su=new Date($("#fsu").value+"T23:59:00"),st=new Date($("#fst").value+"T00:00:00"),en=new Date($("#fen").value+"T23:59:00");
     if(ti.length<2||isNaN(su)||isNaN(st)||isNaN(en)){$("#fe2").textContent=t("err_required");return}
     const mode=$("#fmode").value,ao=$("#fao").value?new Date($("#fao").value+"T00:00:00"):null,ac=$("#fac").value?new Date($("#fac").value+"T23:59:00"):null,cap=Math.floor(+$("#fcap").value)||null;
-    if(mode!=="games"){if(!ao||!(ao<st)){$("#fe2").textContent=t("atBefore");return}if(ac&&!(ac>ao)){$("#fe2").textContent=t("atBefore");return}}
     if(mode!=="attend"&&(isNaN(ss)||!(ss<su))){$("#fe2").textContent=t("festSignupBad");return}
     if(!(en>st&&(mode==="attend"||su<=en))){$("#fe2").textContent=t("festDatesBad");return}
     e.target.disabled=true;
     try{const rec={title:ti,tagline:$("#ftg").value.trim()||null,description:$("#ftd").value.trim(),theme:$("#fcl").value,signup_starts:(mode==="attend"?ao:ss).toISOString(),signup_ends:(mode==="attend"?new Date(Math.min(+(ac||en),+en)):su).toISOString(),starts_at:st.toISOString(),ends_at:en.toISOString(),coming_soon_only:$("#fco").checked,
-      mode,attend_opens:mode==="games"?null:ao.toISOString(),attend_closes:mode==="games"||!ac?null:ac.toISOString(),capacity:mode==="games"?null:cap};
+      mode:"both",attend_opens:null,attend_closes:null,capacity:cap};
       const bf=$("#fbn").files[0];if(bf)rec.banner_url=await upload(bf,"fest",IMG,5);
       const{error}=await sb.from("festivals").insert(rec);if(error)throw error;toast("🎪 "+t("saved"));route()}
     catch(ex){$("#fe2").textContent=errMsg(ex);e.target.disabled=false}};
