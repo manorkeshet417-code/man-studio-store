@@ -475,7 +475,7 @@ const STORE_NAME = "Man Studio Store";
 const STORE_VERSION = "1.4.5";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-27.6";
+const BUILD = "2026-11-27.7";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -555,7 +555,7 @@ p_none:"No, this is my first time",p_itch:"itch.io",p_steam:"Steam",p_gplay:"Goo
 ssubmit:"Send studio for review",sresubmit:"Fix & send again",reviewTime:"Review time: {a}–{b} business days",expected:"Expected answer by {d}",
 pendingL:"Waiting for review",approvedL:"Approved",rejectedL:"Rejected",reasonL:"Reason",fixBy:"You have until {d} to fix and resubmit.",
 fixClosed:"The 30-day fix window has ended. You can appeal by email:",appealL:"Appeals",
-vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
+vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",dlStarted:"Download started",dlInLib:"It's in your library — you can download it again any time.",dlOwnGame:"This is your own game. Developers get their games for free, so there's no purchase and no receipt.",dlReceipt:"Your purchase receipt is in",dlHowT:"How to install:",dlHow1:"Open your Downloads folder (or click the file at the bottom/top of the window).",dlHow2:"Double-click the file (if it's a .zip — extract it first, then open the .exe).",dlNoStart:"Download didn't start?",dlAgain:"Click here to download again",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
 vname:"Full name",vhuman:"Human check: write two short lines about why you make games",vprivacy:"🔒 We ask for as little as possible. Only the store admin sees it, it's never public, and it's deleted automatically 3 days after the review decision.",vsubmit:"Send verification",
 verified:"Studio verified ✓",s3T:"You can submit games now",s3S:"Every game gets a quality, content and bug check before launch.",newsub:"Submit a new game",
 s4S:"After approval the game launches in the store for everyone.",
@@ -687,7 +687,7 @@ p_none:"לא, זו הפעם הראשונה",p_itch:"itch.io",p_steam:"Steam",p_g
 ssubmit:"שלח סטודיו לבדיקה",sresubmit:"תקן ושלח שוב",reviewTime:"זמן בדיקה: {a}–{b} ימי עסקים",expected:"תשובה צפויה עד {d}",
 pendingL:"ממתין לבדיקה",approvedL:"אושר",rejectedL:"נדחה",reasonL:"סיבה",fixBy:"יש לך עד {d} לתקן ולשלוח שוב.",
 fixClosed:"חלון התיקון של 30 יום הסתיים. אפשר לערער במייל:",appealL:"עירעורים",
-vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
+vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",dlStarted:"ההורדה התחילה",dlInLib:"המשחק בספרייה שלך — אפשר להוריד אותו שוב מתי שרוצים.",dlOwnGame:"זה המשחק שלך. מפתחים מקבלים את המשחקים שלהם בחינם, ולכן אין רכישה ואין קבלה.",dlReceipt:"הקבלה על הרכישה נמצאת ב",dlHowT:"איך מתקינים:",dlHow1:"פותחים את תיקיית ההורדות (Downloads), או לוחצים על הקובץ בחלון.",dlHow2:"לוחצים פעמיים על הקובץ (אם זה .zip — קודם מחלצים, ואז פותחים את ה-.exe).",dlNoStart:"ההורדה לא התחילה?",dlAgain:"לחץ כאן להוריד שוב",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
 vname:"שם מלא",vhuman:"בדיקת אנושיות: כתוב שתי שורות קצרות למה אתה מפתח משחקים",vprivacy:"🔒 אנחנו מבקשים כמה שפחות. רק מנהל החנות רואה את זה, זה אף פעם לא ציבורי, וזה נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה.",vsubmit:"שלח לאימות",
 verified:"הסטודיו מאומת ✓",s3T:"אפשר להגיש משחקים",s3S:"כל משחק עובר בדיקת איכות, תכנים ובאגים לפני הפרסום.",newsub:"הגש משחק חדש",
 s4S:"אחרי אישור המשחק עולה רשמית לחנות לכולם.",
@@ -1374,19 +1374,27 @@ let playerEl=null,playerGame=null,beatTimer=null;
 function closePlayer(quiet){clearInterval(beatTimer);beatTimer=null;
   if(playerEl){playerEl.remove();playerEl=null;playerGame=null;if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});if(!quiet&&location.hash.startsWith("#/play/"))history.back()}}
 async function playGame(id){
-  const [{data:g},pr]=await Promise.all([sb.from("games").select("id,title,price,coming_soon").eq("id",id).maybeSingle(),sb.rpc("get_play",{p_game:id})]);
+  const [{data:g},pr]=await Promise.all([sb.from("games").select("id,title,price,coming_soon,owner,file_size").eq("id",id).maybeSingle(),sb.rpc("get_play",{p_game:id})]);
   if(!g)return;
   if(pr.error){toast(errMsg(pr.error));location.replace("#/app/"+id);return}
   const p=(pr.data||[])[0]||{};
   if(g.coming_soon||!p.play_url){toast("🕒 "+t("soon"));location.replace("#/app/"+g.id);return}
   if(me){ // add free game to library + mark played
-    if(!myLib.has(g.id)&&!g.price){const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(!error){myLib.add(g.id);coinBonusCheck()}}
+    if(!myLib.has(g.id)){const{error}=await sb.from("library").insert({user_id:me.id,game_id:g.id});if(!error){myLib.add(g.id);coinBonusCheck();checkProgress()}}
     sb.from("library").update({last_played:nowISO()}).eq("user_id",me.id).eq("game_id",g.id).then(()=>{});
   }
   if(p.play_kind==="link"){const u=okUrl(p.play_url);if(u)window.open(u,"_blank","noopener");location.replace("#/app/"+g.id);return}
   if(p.play_kind==="download"){const sp=storagePath(p.play_url);
     const u=sp?sb.storage.from("media").getPublicUrl(sp,{download:p.file_name||true}).data.publicUrl:okUrl(p.play_url);
-    if(u){const a=document.createElement("a");a.href=u;a.rel="noopener";document.body.appendChild(a);a.click();a.remove();toast("⬇ "+t("download"))}
+    if(u){const a=document.createElement("a");a.href=u;a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
+      const mine=me&&g.owner===me.id,inLib=me&&myLib.has(g.id);
+      const dm=modal("⬇ "+t("dlStarted"),`<div style="display:grid;gap:10px">
+        <div><b style="color:#fff;font-size:16px">${esc(g.title)}</b><div class="dim" style="font-size:12px" dir="ltr">${esc(p.file_name||"")}${g.file_size?" · "+fmtSize(g.file_size):""}</div></div>
+        ${inLib?`<div class="status ok" style="padding:8px 12px">✓ ${t("dlInLib")}</div>`:""}
+        ${mine?`<div class="status wait" style="padding:8px 12px">🛠️ ${t("dlOwnGame")}</div>`:g.price&&me?`<div class="mut" style="font-size:13px">🧾 ${t("dlReceipt")} <a href="#/receipts">${t("rcT")}</a></div>`:""}
+        <div class="mut" style="font-size:13px"><b style="color:#fff">${t("dlHowT")}</b><br>1. ${t("dlHow1")}<br>2. ${t("dlHow2")}<br>3. ${t("smartscreen")}</div>
+        <div class="dim" style="font-size:12px">${t("dlNoStart")} <a href="${esc(u)}" rel="noopener" download>${t("dlAgain")}</a></div>
+        <div class="acts"><a class="btn ghost" href="#/library" data-x>📚 ${t("library")}</a><button class="btn green" data-x>${t("gotIt")}</button></div></div>`);}
     location.replace("#/app/"+g.id);return}
   playerEl=document.createElement("div");playerEl.className="player";playerGame=g.id;
   playerEl.innerHTML=`<div class="bar2"><b>${esc(g.title)}</b><span class="dim" id="ptime" style="font-size:12px"></span><button class="btn ghost sm" id="fsBtn">⛶ ${t("fullscreen")}</button><button class="btn sm" id="pcBtn">✕ ${t("close")}</button></div><div id="pbody" style="flex:1;display:flex">${loading()}</div>`;
