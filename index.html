@@ -475,7 +475,7 @@ const STORE_NAME = "Man Studio Store";
 const STORE_VERSION = "1.4.5";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-27.5";
+const BUILD = "2026-11-27.6";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -555,7 +555,7 @@ p_none:"No, this is my first time",p_itch:"itch.io",p_steam:"Steam",p_gplay:"Goo
 ssubmit:"Send studio for review",sresubmit:"Fix & send again",reviewTime:"Review time: {a}–{b} business days",expected:"Expected answer by {d}",
 pendingL:"Waiting for review",approvedL:"Approved",rejectedL:"Rejected",reasonL:"Reason",fixBy:"You have until {d} to fix and resubmit.",
 fixClosed:"The 30-day fix window has ended. You can appeal by email:",appealL:"Appeals",
-vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
+vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
 vname:"Full name",vhuman:"Human check: write two short lines about why you make games",vprivacy:"🔒 We ask for as little as possible. Only the store admin sees it, it's never public, and it's deleted automatically 3 days after the review decision.",vsubmit:"Send verification",
 verified:"Studio verified ✓",s3T:"You can submit games now",s3S:"Every game gets a quality, content and bug check before launch.",newsub:"Submit a new game",
 s4S:"After approval the game launches in the store for everyone.",
@@ -687,7 +687,7 @@ p_none:"לא, זו הפעם הראשונה",p_itch:"itch.io",p_steam:"Steam",p_g
 ssubmit:"שלח סטודיו לבדיקה",sresubmit:"תקן ושלח שוב",reviewTime:"זמן בדיקה: {a}–{b} ימי עסקים",expected:"תשובה צפויה עד {d}",
 pendingL:"ממתין לבדיקה",approvedL:"אושר",rejectedL:"נדחה",reasonL:"סיבה",fixBy:"יש לך עד {d} לתקן ולשלוח שוב.",
 fixClosed:"חלון התיקון של 30 יום הסתיים. אפשר לערער במייל:",appealL:"עירעורים",
-vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
+vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
 vname:"שם מלא",vhuman:"בדיקת אנושיות: כתוב שתי שורות קצרות למה אתה מפתח משחקים",vprivacy:"🔒 אנחנו מבקשים כמה שפחות. רק מנהל החנות רואה את זה, זה אף פעם לא ציבורי, וזה נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה.",vsubmit:"שלח לאימות",
 verified:"הסטודיו מאומת ✓",s3T:"אפשר להגיש משחקים",s3S:"כל משחק עובר בדיקת איכות, תכנים ובאגים לפני הפרסום.",newsub:"הגש משחק חדש",
 s4S:"אחרי אישור המשחק עולה רשמית לחנות לכולם.",
@@ -1017,11 +1017,16 @@ const live=(cols=LIST_COLS)=>ageFilter(sb.from("games").select(cols).eq("publish
 async function gamesByIds(ids){if(!ids.length)return[];const{data}=await live().in("id",ids);const m=new Map((data||[]).map(g=>[g.id,g]));return ids.map(i=>m.get(i)).filter(Boolean)}
 // GOTY can be a game outside the store: render it like a game, but link to its own page
 const extGame=a=>({id:null,title:a.ext_title,developer:a.ext_developer||"",cover_url:a.ext_image,ext:okUrl(a.ext_url||"")});
-const awardHref=g=>g.ext?`href="${esc(g.ext)}" target="_blank" rel="noopener"`:`href="#/app/${g.id}"`;
+const awardHref=g=>g.studioId?`href="#/studio/${g.studioId}"`:g.ext?`href="${esc(g.ext)}" target="_blank" rel="noopener"`:`href="#/app/${g.id}"`;
+const studioAward=s=>s?({id:null,studioId:s.id,title:s.name,developer:"🏢 "+t("stAward"),cover_url:s.banner_url||s.logo_url}):null;
+async function withStudios(rows){const ids=[...new Set(rows.filter(r=>r.studio_id).map(r=>r.studio_id))];if(!ids.length)return rows;
+  const{data}=await sb.from("studios").select("id,name,logo_url,banner_url").in("id",ids);const m=new Map((data||[]).map(x=>[x.id,x]));
+  rows.forEach(r=>{if(r.studio_id)r._st=studioAward(m.get(r.studio_id))});return rows}
+const awardG=(x,gm)=>x.studio_id?x._st:x.ext_title?extGame(x):gm.get(x.game_id);
 function isoWeek(d=new Date()){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())),day=x.getUTCDay()||7;x.setUTCDate(x.getUTCDate()+4-day);
   const y=x.getUTCFullYear();return y+"-W"+String(Math.ceil(((x-Date.UTC(y,0,1))/864e5+1)/7)).padStart(2,"0")}
 const EXT_KINDS=["goty_jam","goty_world"];
-const CAT_SUGGEST=["Best Art","Best Music","Best Story","Best Gameplay","Best Game Design","Most Innovative","Best Horror","Best Multiplayer","Best Mobile Game","Best Newcomer","Best Sound","Players' Choice"];
+const CAT_SUGGEST=["Best Studio","Best Art","Best Music","Best Story","Best Gameplay","Best Game Design","Most Innovative","Best Horror","Best Multiplayer","Best Mobile Game","Best Newcomer","Best Sound","Players' Choice"];
 function periodLabel(a){if(a.kind.startsWith("goty"))return a.period;if(a.kind==="gotw"){const[y,w]=a.period.split("-W");return t("weekN").replace("{w}",+w)+" · "+y}const[y,m]=a.period.split("-");return new Date(+y,+m-1,1).toLocaleDateString(lang==="he"?"he-IL":"en-US",{month:"long",year:"numeric"})}
 
 async function storeView(main,stale){
@@ -1633,15 +1638,15 @@ function spotValue(id){const s=$("#"+id);if(!s||!s.value)return null;if(s.value=
 async function spotlightHTML(){
   const n=nowISO();
   const[a,c]=await Promise.all([sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image,spotlight_until").like("kind","goty%").gt("spotlight_until",n),
-    sb.from("award_categories").select("kind,period,category,game_id,ext_title,ext_url,ext_developer,ext_image,spotlight_until").gt("spotlight_until",n)]);
-  const items=[...(a.data||[]),...(c.data||[])];if(!items.length)return "";
+    sb.from("award_categories").select("kind,period,category,game_id,studio_id,ext_title,ext_url,ext_developer,ext_image,spotlight_until").gt("spotlight_until",n)]);
+  const items=[...(a.data||[]),...(c.data||[])];if(!items.length)return "";await withStudios(items);
   const games=await gamesByIds([...new Set(items.filter(x=>x.game_id).map(x=>x.game_id))]);const gm=new Map(games.map(g=>[g.id,g]));
   const groups=new Map();
-  for(const x of items){const key=(x.game_id||("ext:"+x.ext_title))+"|"+x.period;const g=x.game_id?gm.get(x.game_id):extGame(x);if(!g)continue;
+  for(const x of items){const key=(x.game_id||(x.studio_id?"st:"+x.studio_id:"ext:"+x.ext_title))+"|"+x.period;const g=awardG(x,gm);if(!g)continue;
     if(!groups.has(key))groups.set(key,{g,period:x.period,titles:[],cats:[]});const gr=groups.get(key);x.category?gr.cats.push(x.category):gr.titles.push(t(x.kind))}
   // also list every category the spotlighted game won that year
   const all=await sb.from("award_categories").select("period,category,game_id,ext_title");
-  for(const gr of groups.values())(all.data||[]).forEach(c=>{if(c.period===gr.period&&((gr.g.id&&c.game_id===gr.g.id)||(!gr.g.id&&c.ext_title===gr.g.title))&&!gr.cats.includes(c.category))gr.cats.push(c.category)});
+  for(const gr of groups.values())(all.data||[]).forEach(c=>{if(c.period===gr.period&&!gr.g.studioId&&((gr.g.id&&c.game_id===gr.g.id)||(!gr.g.id&&c.ext_title===gr.g.title))&&!gr.cats.includes(c.category))gr.cats.push(c.category)});
   return [...groups.values()].map(gr=>{const g=gr.g,cover=okUrl(g.cover_url||"");
     return `<a class="goldspot" ${awardHref(g)}><div class="gsbg" ${cover?`style="background-image:url('${esc(cover)}')"`:""}></div><div class="gsglow"></div>
       <div class="gsstars">${"✦".repeat(14).split("").map((s,i)=>`<i style="--i:${i}">${s}</i>`).join("")}</div>
@@ -1939,9 +1944,9 @@ async function awardsYearView(main,year,stale){
   const[a,c,n]=await Promise.all([sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image").eq("period",year).like("kind","goty%"),
     sb.from("award_categories").select("*").eq("period",year).order("position"),sb.from("award_nominees").select("*").eq("period",year).order("created_at")]);
   if(stale())return;
-  const all=[...(a.data||[]),...(c.data||[]),...(n.data||[])];
+  const all=[...(a.data||[]),...(c.data||[]),...(n.data||[])];await withStudios(all);if(stale())return;
   const games=await gamesByIds([...new Set(all.filter(x=>x.game_id).map(x=>x.game_id))]);if(stale())return;
-  const gm=new Map(games.map(g=>[g.id,g])),G=x=>x.game_id?gm.get(x.game_id):extGame(x);
+  const gm=new Map(games.map(g=>[g.id,g])),G=x=>awardG(x,gm);
   const sec=(kind,icon)=>{const win=(a.data||[]).find(x=>x.kind===kind),cats=(c.data||[]).filter(x=>x.kind===kind),noms=(n.data||[]).filter(x=>x.kind===kind);
     const names=[...new Set([...cats.map(x=>x.category),...noms.map(x=>x.category)])];if(!win&&!names.length)return "";
     const wg=win&&G(win);
@@ -1985,11 +1990,11 @@ async function awardsView(main,stale){
   setTitle(t("awardsT"));
   const[ar,cr]=await Promise.all([sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image,created_at").order("period",{ascending:false}),
     sb.from("award_categories").select("*").order("period",{ascending:false}).order("position").order("created_at")]);
-  if(stale())return;if(ar.error)throw ar.error;const data=ar.data;
+  if(stale())return;if(ar.error)throw ar.error;const data=ar.data;await withStudios(cr.data||[]);if(stale())return;
   const games=await gamesByIds([...new Set([...(data||[]),...(cr.data||[])].filter(a=>a.game_id).map(a=>a.game_id))]);if(stale())return;
-  const gm=new Map(games.map(g=>[g.id,g])),list=(data||[]).filter(a=>a.ext_title||gm.has(a.game_id)),cats=(cr.data||[]).filter(c=>c.ext_title||gm.has(c.game_id));
+  const gm=new Map(games.map(g=>[g.id,g])),list=(data||[]).filter(a=>a.ext_title||gm.has(a.game_id)),cats=(cr.data||[]).filter(c=>c._st||c.ext_title||gm.has(c.game_id));
   const catsHTML=kind=>{const l=cats.filter(c=>c.kind===kind);if(!l.length)return "";
-    return [...new Set(l.map(c=>c.period))].map(y=>`<div class="cathead">🏅 ${t("categoriesOf").replace("{y}",y)}</div><div class="cats">${l.filter(c=>c.period===y).map(c=>{const g=c.ext_title?extGame(c):gm.get(c.game_id);
+    return [...new Set(l.map(c=>c.period))].map(y=>`<div class="cathead">🏅 ${t("categoriesOf").replace("{y}",y)}</div><div class="cats">${l.filter(c=>c.period===y).map(c=>{const g=awardG(c,gm);
       return `<a class="catcard" ${awardHref(g)}>${coverHTML(g)}<div><span class="catname">🏅 ${esc(c.category)}</span><b>${esc(g.title)}</b><small>${esc(g.developer)}${g.ext?" · ↗":""}</small></div></a>`}).join("")}</div>`).join("")};
   const sec=(kind,icon)=>{const l=list.filter(a=>a.kind===kind),ch=catsHTML(kind);if(!l.length&&!ch)return "";
     return `<h2 class="sec">${icon} ${t(kind)} ${l.length?`<span class="mut">(${l.length})</span>`:""}</h2>${l.length?`<div class="hall ${kind}">${l.map((a,i)=>{const g=a.ext_title?extGame(a):gm.get(a.game_id);
@@ -2702,8 +2707,9 @@ async function adminView(main,tab,stale){
   if(tab==="fests"){const r=await sb.from("festivals").select("*").order("starts_at",{ascending:false});if(stale())return;extra={fests:r.data||[]}}
   if(tab==="awards"){const[a,gl]=await Promise.all([sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image,games(title)").order("period",{ascending:false}),
     live("id,title").eq("coming_soon",false).order("title")]);if(stale())return;extra={awards:a.data||[],games:gl.data||[]};
-    const c=await sb.from("award_categories").select("*,games(title)").order("period",{ascending:false}).order("kind").order("position");if(stale())return;extra.cats=c.data||[];
-    const nn=await sb.from("award_nominees").select("*,games(title)").order("period",{ascending:false}).order("category");if(stale())return;extra.noms=nn.data||[]}
+    const stl=await sb.from("studios").select("id,name").eq("status","approved").order("name");if(stale())return;extra.studios=stl.data||[];
+    const c=await sb.from("award_categories").select("*,games(title),studios(name)").order("period",{ascending:false}).order("kind").order("position");if(stale())return;extra.cats=c.data||[];
+    const nn=await sb.from("award_nominees").select("*,games(title),studios(name)").order("period",{ascending:false}).order("category");if(stale())return;extra.noms=nn.data||[]}
   const acts=(kind,id)=>`<div class="acts"><button class="btn green sm" data-ok="${kind}:${id}" ${dis}>✓ ${t("approve")}</button><button class="btn red sm" data-no="${kind}:${id}" ${dis}>✕ ${t("reject")}</button></div>`;
   const when=d=>`<span class="dim" style="font-size:12px">${t("submittedAt")} ${ago(d)}</span>`;
   let body="";
@@ -2770,24 +2776,28 @@ async function adminView(main,tab,stale){
         <div class="two"><label>${t("awardKind")}<select id="nk"><option value="goty">👑 ${t("goty")}</option><option value="goty_jam">🧪 ${t("goty_jam")}</option><option value="goty_world">🌍 ${t("goty_world")}</option></select></label>
           <label>${t("year")}<input class="inp" id="ny" type="number" min="2000" max="2100" value="${new Date().getFullYear()}"></label></div>
         <label>${t("catName")} *<input class="inp" id="nc" maxlength="60" list="catSug" placeholder="Best Art"></label>
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="nst"> 🏢 ${t("stToggle")}</label>
+        <label id="nstw" hidden>${t("stPick")}<select id="nsts">${(extra.studios||[]).map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join("")}</select></label>
         <label id="nxw" hidden style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="nx"> ↗ ${t("extToggle")}</label>
         <label id="ngw">${t("games")}<select id="ng">${extra.games.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
         <div id="next" hidden class="extbox"><div class="two"><label>${t("titleL")} *<input class="inp" id="nxt" maxlength="100"></label><label>${t("developer")}<input class="inp" id="nxd" maxlength="80"></label></div>
           <label>${t("extLink")} *<input class="inp" id="nxu" dir="ltr" maxlength="500" placeholder="https://…"></label></div>
         <div class="err" id="ne3"></div><div><button class="btn green" id="ns3">🗳️ ${t("nomAdd")}</button></div>
-        ${extra.noms.map(x=>`<div class="colrow"><span>🗳️ <b>${esc(x.games?.title||x.ext_title||"")}</b> · ${esc(x.category)} · ${t(x.kind)} ${esc(x.period)}</span><button class="btn red sm" data-delnom="${x.id}">✕</button></div>`).join("")}</div>
+        ${extra.noms.map(x=>`<div class="colrow"><span>🗳️ <b>${x.studio_id?"🏢 ":""}${esc(x.studios?.name||x.games?.title||x.ext_title||"")}</b> · ${esc(x.category)} · ${t(x.kind)} ${esc(x.period)}</span><button class="btn red sm" data-delnom="${x.id}">✕</button></div>`).join("")}</div>
       <div class="panel form" style="max-width:none;margin-top:10px"><h3 style="margin:0;color:#fff">🏅 ${t("catT")}</h3><div class="mut">${t("catS")}</div>
         <div class="two"><label>${t("awardKind")}<select id="ck"><option value="goty">👑 ${t("goty")}</option><option value="goty_jam">🧪 ${t("goty_jam")}</option><option value="goty_world">🌍 ${t("goty_world")}</option></select></label>
           <label>${t("year")}<input class="inp" id="cy" type="number" min="2000" max="2100" value="${new Date().getFullYear()}"></label></div>
         <label>${t("catName")} *<input class="inp" id="cn" maxlength="60" list="catSug" placeholder="Best Art"><datalist id="catSug">${CAT_SUGGEST.map(x=>`<option value="${esc(x)}">`).join("")}</datalist></label>
         ${spotSelectHTML("csp")}
+        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="cst"> 🏢 ${t("stToggle")}</label>
+        <label id="cstw" hidden>${t("stPick")}<select id="csts">${(extra.studios||[]).map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join("")}</select></label>
         <label id="cxw" hidden style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="cx"> ↗ ${t("extToggle")}</label>
         <label id="cgw">${t("catWinner")}<select id="cg">${extra.games.map(g=>`<option value="${g.id}">${esc(g.title)}</option>`).join("")}</select></label>
         <div id="cext" hidden class="extbox"><div class="two"><label>${t("titleL")} *<input class="inp" id="cxt" maxlength="100"></label><label>${t("developer")}<input class="inp" id="cxd" maxlength="80"></label></div>
           <label>${t("extLink")} *<input class="inp" id="cxu" dir="ltr" maxlength="500" placeholder="https://…"></label>
           <label>${t("image")} <span class="hint">(${t("optional")})</span><input type="file" id="cxi" accept="image/png,image/jpeg,image/webp,image/gif"></label></div>
         <div class="err" id="ce3"></div><div><button class="btn green" id="cs3">🏅 ${t("addCat")}</button></div></div>
-      ${extra.cats.map(c=>`<div class="row" style="grid-template-columns:1fr auto"><div><span class="atag">🏅 ${esc(c.category)}</span> <b style="color:#fff">${esc(c.games?.title||c.ext_title||"")}</b>${c.ext_title?` <span class="extl">↗ ${t("extGame")}</span>`:""} <span class="mut">${t(c.kind)} · ${esc(c.period)}</span></div>
+      ${extra.cats.map(c=>`<div class="row" style="grid-template-columns:1fr auto"><div><span class="atag">🏅 ${esc(c.category)}</span> <b style="color:#fff">${c.studio_id?"🏢 ":""}${esc(c.studios?.name||c.games?.title||c.ext_title||"")}</b>${c.ext_title?` <span class="extl">↗ ${t("extGame")}</span>`:""} <span class="mut">${t(c.kind)} · ${esc(c.period)}</span></div>
         <span style="display:flex;gap:6px"><button class="btn ghost sm" data-spot="cat|${c.id}">🌟 ${c.spotlight_until&&new Date(c.spotlight_until)>new Date()?fmtDate(c.spotlight_until):t("spotBtn")}</button><button class="btn red sm" data-delcat="${c.id}">${t("delete")}</button></span></div>`).join("")}`}
   else if(tab==="mail")body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">✉ ${t("mailT")}</h3><div class="mut">${t("mailHint")}</div>
       <label>${t("subject")} *<input class="inp" id="mt" maxlength="200"></label><label>${t("message")}<textarea class="inp" id="mb" maxlength="5000" style="min-height:160px"></textarea></label>
@@ -2816,21 +2826,24 @@ async function adminView(main,tab,stale){
       const f=$("#axi").files[0];if(f){try{rec.ext_image=await upload(f,"award",IMG,5)}catch(ex){$("#awe").textContent=errMsg(ex);return}}}
     const{error}=await sb.from("awards").upsert(rec,{onConflict:"kind,period"});if(error){$("#awe").textContent=errMsg(error);return}toast("🏆 "+t("saved"));route()};
   if(tab==="awards"){bindSpotSelect("awsp");bindSpotSelect("csp");const sy=()=>{const w=$("#awspw");if(w)w.hidden=!$("#awk").value.startsWith("goty")};if($("#awk")){$("#awk").addEventListener("change",sy);sy()}}
-  if(tab==="awards"&&$("#nk")){const syncN=()=>{const okExt=EXT_KINDS.includes($("#nk").value),ext=okExt&&$("#nx").checked;$("#nxw").hidden=!okExt;$("#ngw").hidden=ext;$("#next").hidden=!ext};
-    $("#nk").onchange=syncN;$("#nx").onchange=syncN;syncN();
+  if(tab==="awards"&&$("#nk")){const syncN=()=>{const stu=$("#nst").checked,okExt=!stu&&EXT_KINDS.includes($("#nk").value),ext=okExt&&$("#nx").checked;$("#nxw").hidden=!okExt;$("#ngw").hidden=ext||stu;$("#next").hidden=!ext;$("#nstw").hidden=!stu};
+    $("#nk").onchange=syncN;$("#nx").onchange=syncN;$("#nst").onchange=syncN;$("#nc").addEventListener("input",()=>{if(/studio|סטודיו/i.test($("#nc").value)){$("#nst").checked=true;syncN()}});syncN();
     $("#ns3").onclick=async e=>{const k=$("#nk").value,y=String(Math.floor(+$("#ny").value)),name=$("#nc").value.trim(),er=$("#ne3");er.textContent="";
       if(name.length<2||!/^\d{4}$/.test(y)){er.textContent=t("err_required");return}
       let rec={kind:k,period:y,category:name,game_id:$("#ng").value};
-      if(EXT_KINDS.includes(k)&&$("#nx").checked){const ti=$("#nxt").value.trim(),raw=$("#nxu").value.trim(),u=okUrl(raw);
+      if($("#nst").checked){if(!$("#nsts").value){er.textContent=t("err_required");return}rec={kind:k,period:y,category:name,game_id:null,studio_id:$("#nsts").value}}
+      else if(EXT_KINDS.includes(k)&&$("#nx").checked){const ti=$("#nxt").value.trim(),raw=$("#nxu").value.trim(),u=okUrl(raw);
         if(!ti){er.textContent=t("err_required");return}if(!u||!/^https?:/i.test(raw)){er.textContent=t("err_badurl");return}
         rec={kind:k,period:y,category:name,game_id:null,ext_title:ti,ext_url:u,ext_developer:$("#nxd").value.trim()||null}}
       e.target.disabled=true;const{error}=await sb.from("award_nominees").insert(rec);if(error){er.textContent=errMsg(error);e.target.disabled=false;return}toast("🗳️ "+t("saved"));route()}}
-  if(tab==="awards"&&$("#ck")){const syncC=()=>{const okExt=EXT_KINDS.includes($("#ck").value),ext=okExt&&$("#cx").checked;$("#cxw").hidden=!okExt;$("#cgw").hidden=ext;$("#cext").hidden=!ext};
-    $("#ck").onchange=()=>{if($("#ck").value==="goty_world")$("#cx").checked=true;syncC()};$("#cx").onchange=syncC;syncC();
+  if(tab==="awards"&&$("#ck")){const syncC=()=>{const stu=$("#cst").checked,okExt=!stu&&EXT_KINDS.includes($("#ck").value),ext=okExt&&$("#cx").checked;$("#cxw").hidden=!okExt;$("#cgw").hidden=ext||stu;$("#cext").hidden=!ext;$("#cstw").hidden=!stu};
+    $("#ck").onchange=()=>{if($("#ck").value==="goty_world"&&!$("#cst").checked)$("#cx").checked=true;syncC()};$("#cx").onchange=syncC;$("#cst").onchange=syncC;
+    $("#cn").addEventListener("input",()=>{if(/studio|סטודיו/i.test($("#cn").value)){$("#cst").checked=true;syncC()}});syncC();
     $("#cs3").onclick=async e=>{const k=$("#ck").value,y=String(Math.floor(+$("#cy").value)),name=$("#cn").value.trim(),er=$("#ce3");er.textContent="";
       if(name.length<2||!/^\d{4}$/.test(y)){er.textContent=t("err_required");return}
-      let rec={kind:k,period:y,category:name,game_id:$("#cg").value,ext_title:null,ext_url:null,ext_developer:null,ext_image:null,spotlight_until:spotValue("csp"),position:extra.cats.filter(c=>c.kind===k&&c.period===y).length};
-      if(EXT_KINDS.includes(k)&&$("#cx").checked){const ti=$("#cxt").value.trim(),raw=$("#cxu").value.trim(),u=okUrl(raw);
+      let rec={kind:k,period:y,category:name,game_id:$("#cg").value,studio_id:null,ext_title:null,ext_url:null,ext_developer:null,ext_image:null,spotlight_until:spotValue("csp"),position:extra.cats.filter(c=>c.kind===k&&c.period===y).length};
+      if($("#cst").checked){if(!$("#csts").value){er.textContent=t("err_required");return}Object.assign(rec,{game_id:null,studio_id:$("#csts").value})}
+      else if(EXT_KINDS.includes(k)&&$("#cx").checked){const ti=$("#cxt").value.trim(),raw=$("#cxu").value.trim(),u=okUrl(raw);
         if(!ti){er.textContent=t("err_required");return}if(!u||!/^https?:/i.test(raw)){er.textContent=t("err_badurl");return}
         Object.assign(rec,{game_id:null,ext_title:ti,ext_url:u,ext_developer:$("#cxd").value.trim()||null});
         const f=$("#cxi").files[0];if(f){try{rec.ext_image=await upload(f,"award",IMG,5)}catch(ex){er.textContent=errMsg(ex);return}}}
