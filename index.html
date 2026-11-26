@@ -348,6 +348,27 @@ textarea.inp{min-height:90px;resize:vertical}
 .agree fieldset{border:1px solid #ffffff1f;border-radius:4px;padding:8px 12px;display:grid;gap:4px}.agree legend{color:#fff;padding:0 6px}
 .agree fieldset label{display:flex;gap:8px;align-items:center;font-size:13.5px}
 .vsec{color:#fff;font-weight:600;border-bottom:1px solid #ffffff1f;padding-bottom:4px;margin-top:6px}
+.lvl{display:flex;gap:10px;align-items:center;margin-top:10px;max-width:420px}.lvl b{color:#fff;font-size:13px}.lvl small{color:var(--mut);font-size:11.5px}
+.lvb{display:inline-grid;place-items:center;min-width:34px;height:34px;border-radius:50%;font-weight:800;color:#1b2838;background:conic-gradient(from 0deg,#ffd76a,#66c0f4,#9b5cff,#ffd76a);box-shadow:0 0 0 2px #1b2838,0 0 12px #66c0f466}
+.lvl.big .lvb{min-width:42px;height:42px;font-size:17px}
+.xpbar{height:8px;background:#ffffff1a;border-radius:5px;overflow:hidden;margin:4px 0 2px;min-width:200px}.xpbar i{display:block;height:100%;background:linear-gradient(90deg,#66c0f4,#a4d007);border-radius:5px}
+.lvchip{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;color:#1b2838;background:linear-gradient(135deg,#ffd76a,#66c0f4)}
+.pbanner{height:120px;border-radius:6px;margin-top:16px;background:linear-gradient(120deg,var(--acc),#1b2838 75%);opacity:.85}
+.pprof{margin-top:-60px;position:relative;background:#1b2838e8;border-top:3px solid var(--acc);flex-wrap:wrap}
+.avring{position:relative}.avring .av{border-radius:50%!important;box-shadow:0 0 0 3px var(--acc)}.avring .lvb{position:absolute;bottom:-6px;inset-inline-end:-6px}
+.pstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:12px}
+.pstats div{background:#0000004d;border-radius:6px;padding:10px 12px;display:grid}.pstats span{font-size:20px}.pstats b{color:#fff;font-size:20px}.pstats small{color:var(--mut)}
+.achs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.ach{background:#0000004d;border-radius:6px;padding:10px;display:grid;gap:2px;text-align:center;opacity:.38;filter:grayscale(1)}
+.ach span{font-size:26px}.ach b{color:#fff;font-size:13px}.ach small{color:var(--mut);font-size:11px}
+.ach.on{opacity:1;filter:none;background:linear-gradient(160deg,#2a3f5a,#1c2a3a);box-shadow:inset 0 0 0 1px #ffd76a55}
+.showcase .card{box-shadow:0 0 0 1px #ffd76a44}
+.swatches{display:flex;gap:6px;align-items:center;margin-top:6px;flex-wrap:wrap}.sw{width:28px;height:28px;border-radius:50%;border:2px solid transparent;padding:0}.sw.on{border-color:#fff}
+.streak{display:flex;gap:5px}.streak span{flex:1;display:grid;place-items:center;background:#0000004d;border-radius:6px;padding:6px 0;opacity:.35;font-size:16px}
+.streak span small{font-size:10px;color:var(--mut)}.streak span.on{opacity:1;background:#4a3f1f}.streak span.big{background:#3a2a5e}.streak span.big.on{background:#5a4a12}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}
+.confetti i{position:absolute;top:-12px;width:8px;height:12px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.9}}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -431,10 +452,10 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <script>
 /* ============ config ============ */
 const STORE_NAME = "Man Studio Store";
-const STORE_VERSION = "1.3";
+const STORE_VERSION = "1.4";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-26.1";
+const BUILD = "2026-11-26.2";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -515,7 +536,7 @@ ssubmit:"Send studio for review",sresubmit:"Fix & send again",reviewTime:"Review
 pendingL:"Waiting for review",approvedL:"Approved",rejectedL:"Rejected",reasonL:"Reason",fixBy:"You have until {d} to fix and resubmit.",
 fixClosed:"The 30-day fix window has ended. You can appeal by email:",appealL:"Appeals",
 vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
-vname:"Full name",vhuman:"Human check: write two short lines about why you make games",vprivacy:"🔒 Kept for 30 days only and never shown publicly.",vsubmit:"Send verification",
+vname:"Full name",vhuman:"Human check: write two short lines about why you make games",vprivacy:"🔒 We ask for as little as possible. Only the store admin sees it, it's never public, and it's deleted automatically 3 days after the review decision.",vsubmit:"Send verification",
 verified:"Studio verified ✓",s3T:"You can submit games now",s3S:"Every game gets a quality, content and bug check before launch.",newsub:"Submit a new game",
 s4S:"After approval the game launches in the store for everyone.",
 schedule:"Reviews happen Sunday–Friday. Saturday is Shabbat — closed, with a 5% Lucky Approval chance 🍀",
@@ -538,7 +559,18 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 500, get 10 for every new game you add to your library, and 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",tx_install:"🎮 New game bonus",gotCoins:"+{n} 🪙 for a new game!",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",age_3:"Ages 3+",age_10:"Ages 10+",age_13:"Ages 13+",age_15:"Ages 15+",age_17:"Ages 17+",d_drugs:"Drugs / alcohol",d_sexual:"Sexual content",d_discrimination:"Discrimination",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",vnick:"Name or nickname",del3:"Deleted automatically 3 days after your decision.",
+levelN:"Level {n}",xpToNext:"{n} XP to the next level",levelUp:"Level up! You're now level {n}",achUnlocked:"Achievement unlocked",
+rank_newcomer:"Newcomer",rank_explorer:"Explorer",rank_gamer:"Gamer",rank_veteran:"Veteran",rank_champion:"Champion",rank_legend:"Legend",
+streakN:"{n}-day streak",bestN:"best {n}",dailyHint2:"Come back every day: +10 Coins, and every 7th day in a row a +50 bonus.",streakBonus:"streak bonus!",tx_streak:"🔥 Streak bonus",
+st_games:"games",st_played:"played",st_reviews:"reviews",st_streak:"best streak",st_ach:"achievements",minShort:"{n}m",hourShort:"{h}h {m}m",
+showcaseT:"Showcase",showcaseHint:"pick up to 3 games from your library",showcaseMax:"Pick up to 3 games.",accentT:"Profile color",achT:"Achievements",
+ach_first_game:"First game",ach_first_game_d:"Add a game to your library",ach_collector:"Collector",ach_collector_d:"Own 10 games",ach_hoarder:"Hall of games",ach_hoarder_d:"Own 50 games",
+ach_hour:"Warming up",ach_hour_d:"Play for 1 hour",ach_marathon:"Marathon",ach_marathon_d:"Play for 10 hours",ach_critic:"Critic",ach_critic_d:"Write a review",
+ach_helpful:"Helpful voice",ach_helpful_d:"Get 10 helpful votes",ach_supporter:"Supporter",ach_supporter_d:"Buy a game",ach_wishful:"Dreamer",ach_wishful_d:"Wishlist 10 games",
+ach_fan:"Super fan",ach_fan_d:"Follow 5 studios",ach_streak7:"On fire",ach_streak7_d:"7-day daily streak",ach_streak30:"Unstoppable",ach_streak30_d:"30-day daily streak",
+ach_creator:"Creator",ach_creator_d:"Publish a game",ach_storyteller:"Storyteller",ach_storyteller_d:"Write 3 devlogs",ach_festival:"Festival goer",ach_festival_d:"Join a festival",
+ach_oldtimer:"Old timer",ach_oldtimer_d:"Member for a year",age_3:"Ages 3+",age_10:"Ages 10+",age_13:"Ages 13+",age_15:"Ages 15+",age_17:"Ages 17+",d_drugs:"Drugs / alcohol",d_sexual:"Sexual content",d_discrimination:"Discrimination",
 ageQuizT:"Age rating questionnaire",ageQuizS:"Answer honestly about what's in your game — the rating and content warnings are calculated for you. You can only rate higher, never lower.",ageRaise:"Final rating (you can choose a higher one)",ageResult:"Result",noWarnings:"No content warnings",
 aq_violence:"Violence",aq_violence_none:"None",aq_violence_cartoon:"Cartoon / slapstick",aq_violence_fantasy:"Fantasy fighting, no injuries",aq_violence_realistic:"Realistic, no injuries shown",aq_violence_injuries:"Realistic with injuries",aq_violence_gore:"Graphic / gore",
 aq_blood:"Blood",aq_blood_none:"None",aq_blood_little:"A little",aq_blood_lots:"A lot",aq_blood_extreme:"Extreme gore",
@@ -633,7 +665,7 @@ ssubmit:"שלח סטודיו לבדיקה",sresubmit:"תקן ושלח שוב",re
 pendingL:"ממתין לבדיקה",approvedL:"אושר",rejectedL:"נדחה",reasonL:"סיבה",fixBy:"יש לך עד {d} לתקן ולשלוח שוב.",
 fixClosed:"חלון התיקון של 30 יום הסתיים. אפשר לערער במייל:",appealL:"עירעורים",
 vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
-vname:"שם מלא",vhuman:"בדיקת אנושיות: כתוב שתי שורות קצרות למה אתה מפתח משחקים",vprivacy:"🔒 נשמר 30 יום בלבד ולא מוצג לציבור.",vsubmit:"שלח לאימות",
+vname:"שם מלא",vhuman:"בדיקת אנושיות: כתוב שתי שורות קצרות למה אתה מפתח משחקים",vprivacy:"🔒 אנחנו מבקשים כמה שפחות. רק מנהל החנות רואה את זה, זה אף פעם לא ציבורי, וזה נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה.",vsubmit:"שלח לאימות",
 verified:"הסטודיו מאומת ✓",s3T:"אפשר להגיש משחקים",s3S:"כל משחק עובר בדיקת איכות, תכנים ובאגים לפני הפרסום.",newsub:"הגש משחק חדש",
 s4S:"אחרי אישור המשחק עולה רשמית לחנות לכולם.",
 schedule:"בדיקות מתבצעות בימים ראשון–שישי. שבת סגורה, עם סיכוי של 5% ל-Lucky Approval 🍀",
@@ -656,7 +688,18 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 500, מקבלים 10 על כל משחק חדש שנכנס לספרייה, ועוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",tx_install:"🎮 בונוס משחק חדש",gotCoins:"+{n} 🪙 על משחק חדש!",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",age_3:"מגיל 3",age_10:"מגיל 10",age_13:"מגיל 13",age_15:"מגיל 15",age_17:"מגיל 17",d_drugs:"סמים / אלכוהול",d_sexual:"תוכן מיני",d_discrimination:"אפליה",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",vnick:"שם או כינוי",del3:"נמחק אוטומטית 3 ימים אחרי ההחלטה שלך.",
+levelN:"רמה {n}",xpToNext:"עוד {n} XP לרמה הבאה",levelUp:"עלית רמה! אתה עכשיו ברמה {n}",achUnlocked:"הישג חדש",
+rank_newcomer:"חדש",rank_explorer:"חוקר",rank_gamer:"גיימר",rank_veteran:"ותיק",rank_champion:"אלוף",rank_legend:"אגדה",
+streakN:"רצף של {n} ימים",bestN:"שיא {n}",dailyHint2:"חוזרים כל יום: +10 Coins, וכל יום שביעי ברצף בונוס של +50.",streakBonus:"בונוס רצף!",tx_streak:"🔥 בונוס רצף",
+st_games:"משחקים",st_played:"זמן משחק",st_reviews:"ביקורות",st_streak:"רצף שיא",st_ach:"הישגים",minShort:"{n} דק'",hourShort:"{h} שע' {m} דק'",
+showcaseT:"תצוגה",showcaseHint:"בוחרים עד 3 משחקים מהספרייה",showcaseMax:"אפשר לבחור עד 3 משחקים.",accentT:"צבע פרופיל",achT:"הישגים",
+ach_first_game:"משחק ראשון",ach_first_game_d:"הוסף משחק לספרייה",ach_collector:"אספן",ach_collector_d:"10 משחקים בספרייה",ach_hoarder:"היכל המשחקים",ach_hoarder_d:"50 משחקים בספרייה",
+ach_hour:"מתחממים",ach_hour_d:"שחק שעה",ach_marathon:"מרתון",ach_marathon_d:"שחק 10 שעות",ach_critic:"מבקר",ach_critic_d:"כתוב ביקורת",
+ach_helpful:"קול שעוזר",ach_helpful_d:"קבל 10 הצבעות \"עזר\"",ach_supporter:"תומך",ach_supporter_d:"קנה משחק",ach_wishful:"חולם",ach_wishful_d:"10 משחקים ברשימת המשאלות",
+ach_fan:"מעריץ על",ach_fan_d:"עקוב אחרי 5 סטודיואים",ach_streak7:"בוער",ach_streak7_d:"רצף של 7 ימים",ach_streak30:"בלתי ניתן לעצירה",ach_streak30_d:"רצף של 30 ימים",
+ach_creator:"יוצר",ach_creator_d:"פרסם משחק",ach_storyteller:"מספר סיפורים",ach_storyteller_d:"כתוב 3 דבלוגים",ach_festival:"חובב פסטיבלים",ach_festival_d:"השתתף בפסטיבל",
+ach_oldtimer:"ותיק החנות",ach_oldtimer_d:"חבר כבר שנה",age_3:"מגיל 3",age_10:"מגיל 10",age_13:"מגיל 13",age_15:"מגיל 15",age_17:"מגיל 17",d_drugs:"סמים / אלכוהול",d_sexual:"תוכן מיני",d_discrimination:"אפליה",
 ageQuizT:"שאלון דירוג גיל",ageQuizS:"עונים בכנות על מה שיש במשחק — הדירוג ואזהרות התוכן מחושבים בשבילך. אפשר רק להעלות את הדירוג, לא להוריד.",ageRaise:"דירוג סופי (אפשר לבחור גבוה יותר)",ageResult:"תוצאה",noWarnings:"אין אזהרות תוכן",
 aq_violence:"אלימות",aq_violence_none:"אין",aq_violence_cartoon:"מצוירת / קומית",aq_violence_fantasy:"קרבות פנטזיה בלי פציעות",aq_violence_realistic:"מציאותית, בלי פציעות",aq_violence_injuries:"מציאותית עם פציעות",aq_violence_gore:"גרפית / גור",
 aq_blood:"דם",aq_blood_none:"אין",aq_blood_little:"מעט",aq_blood_lots:"הרבה",aq_blood_extreme:"גור קיצוני",
@@ -824,7 +867,7 @@ function renderHeader(){
   $("#hr").innerHTML=(me?`<a class="coinpill" href="#/wallet" title="${t("wallet")}">🪙 <b>${(me.coins||0).toLocaleString()}</b></a>
       <a class="gear ${on("#/inbox")}" href="#/inbox" title="${t("inbox")}" aria-label="${t("inbox")}" style="position:relative">🔔${unread?`<span class="dot">${unread>99?"99+":unread}</span>`:""}</a>`:"")+
     `<a class="gear ${on("#/settings")}" href="#/settings" title="${t("settings")}" aria-label="${t("settings")}">⚙</a>`+
-    (me?`<button class="userbtn" id="ub" aria-haspopup="true">${avatarHTML(me.profile)}<span class="nm">${esc(me.profile.username)}</span> ▾
+    (me?`<button class="userbtn" id="ub" aria-haspopup="true">${avatarHTML(me.profile)}<span class="nm">${esc(me.profile.username)}</span>${me.xp!=null?`<span class="lvchip">${levelOf(me.xp)}</span>`:""} ▾
       <div class="menu" id="um" hidden>
         <a href="#/user/${encodeURIComponent(me.profile.username)}">${t("profile")}</a>
         <a href="#/wallet">🪙 ${t("wallet")}</a><a href="#/inbox">🔔 ${t("inbox")}</a>
@@ -1097,7 +1140,7 @@ async function openCheckout(item){ // item: {kind:'game'|'bundle', id, title, pr
   m.el.querySelector("#coPay").onclick=async e=>{e.target.disabled=true;
     const{data,error}=await sb.rpc(item.kind==="bundle"?"buy_bundle":"buy_game",item.kind==="bundle"?{p_bundle:item.id,p_card:me.card}:{p_game:item.id,p_card:me.card});
     if(error){m.el.querySelector("#coe").textContent=errMsg(error);e.target.disabled=false;return}
-    me.coins=data;m.close();toast("🎉 "+t("bought"));coinBonusCheck();
+    me.coins=data;m.close();toast("🎉 "+t("bought"));confetti();coinBonusCheck();checkProgress();
     const l=await sb.from("library").select("game_id").eq("user_id",me.id);myLib=new Set((l.data||[]).map(r=>r.game_id));route()};
 }
 
@@ -1359,10 +1402,15 @@ async function walletView(main,stale){
   const{data:tx}=await sb.from("coin_tx").select("amount,balance,kind,note,created_at").eq("user_id",me.id).order("created_at",{ascending:false}).limit(50);
   if(stale())return;
   const today=new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Jerusalem"}),claimed=me.lastDaily===today;
+  const{data:pr}=await sb.from("profiles").select("daily_streak,best_streak").eq("id",me.id).maybeSingle();if(stale())return;
+  const yest=new Date(Date.now()-864e5).toLocaleDateString("en-CA",{timeZone:"Asia/Jerusalem"});
+  const sk={cur:(me.lastDaily===today||me.lastDaily===yest)?(pr?.daily_streak||0):0,best:pr?.best_streak||0};
   main.innerHTML=`<h2 class="sec" style="font-size:20px">🪙 ${t("wallet")}</h2>
   <div class="walletgrid"><div>${coinCardHTML(true)}<div class="dim" style="font-size:12px;margin-top:8px">${t("cardHint")}</div></div>
     <div style="display:grid;gap:12px;align-content:start">
-      <div class="panel"><h3 style="margin:0 0 6px;color:#fff">🎁 ${t("daily")}</h3><div class="mut" style="margin-bottom:8px">${t("dailyHint")}</div>
+      <div class="panel"><h3 style="margin:0 0 6px;color:#fff">🎁 ${t("daily")}</h3><div class="mut" style="margin-bottom:8px">${t("dailyHint2")}</div>
+        <div class="streak">${Array.from({length:7},(_,i)=>{const n=(sk.cur%7===0&&sk.cur&&claimed)?7:sk.cur%7;return `<span class="${i<n?"on":""} ${i===6?"big":""}">${i===6?"🎁":"🔥"}<small>${i+1}</small></span>`}).join("")}</div>
+        <div class="dim" style="font-size:12px;margin:6px 0 8px">🔥 ${t("streakN").replace("{n}",sk.cur)} · ${t("bestN").replace("{n}",sk.best)}</div>
         <button class="btn green" id="dly" ${claimed?"disabled":""}>${claimed?"✓ "+t("claimed"):"+10 🪙 "+t("claim")}</button></div>
       <div class="panel"><h3 style="margin:0 0 6px;color:#fff">🔑 ${t("redeem")}</h3>
         <form id="rdf" style="display:flex;gap:6px"><input class="inp" id="rdc" placeholder="XXXX-XXXX-XXXX" dir="ltr" maxlength="20" style="text-transform:uppercase"><button class="btn">${t("redeemBtn")}</button></form><div class="err" id="rde"></div></div>
@@ -1371,7 +1419,8 @@ async function walletView(main,stale){
   <h2 class="sec">${t("history")}</h2>
   <div class="panel" style="overflow-x:auto"><table class="table"><tbody>${(tx||[]).map(x=>`<tr><td>${t("tx_"+x.kind)||x.kind}${x.note?` · <span class="mut">${esc(x.note)}</span>`:""}</td>
     <td style="color:${x.amount>=0?"#a4d007":"#ff8a80"};white-space:nowrap" dir="ltr">${x.amount>=0?"+":""}${x.amount}</td><td class="dim hide" dir="ltr">${x.balance}</td><td class="dim" style="white-space:nowrap">${ago(x.created_at)}</td></tr>`).join("")||`<tr><td class="mut">—</td></tr>`}</tbody></table></div>`;
-  $("#dly").onclick=async e=>{e.target.disabled=true;const{data,error}=await sb.rpc("claim_daily");if(error){toast(errMsg(error));return}me.coins=data;toast("🎁 +10 🪙");route()};
+  $("#dly").onclick=async e=>{e.target.disabled=true;const before=me.coins;const{data,error}=await sb.rpc("claim_daily");if(error){toast(errMsg(error));return}
+    me.coins=data;const got=data-before;toast(got>10?"🎁🔥 +"+got+" 🪙 — "+t("streakBonus"):"🎁 +10 🪙");if(got>10)confetti();checkProgress();route()};
   $("#rdf").onsubmit=async e=>{e.preventDefault();const{data,error}=await sb.rpc("redeem_key",{p_code:$("#rdc").value});
     if(error){$("#rde").textContent=errMsg(error);return}toast("🔑 "+t("redeemed")+": "+data);coinBonusCheck();
     const l=await sb.from("library").select("game_id").eq("user_id",me.id);myLib=new Set((l.data||[]).map(r=>r.game_id));route()};
@@ -1724,10 +1773,9 @@ function verifyForm(box,s){
   `<div class="panel"><form class="form" id="vf" novalidate><h3 style="margin:0;color:#fff">3. ${t("s2")} · 2.0</h3>
     <div class="mut">${t("vprivacy")}</div>
     <div class="vsec">👤 ${t("vsecId")}</div>
-    <div class="two"><label>${t("vname")} *<input class="inp" id="vn" maxlength="100" autocomplete="name"></label>
-      <label>${t("vbirth")} *<input class="inp" id="vb" type="date" max="${new Date().toLocaleDateString("en-CA")}"></label></div>
-    <div class="two"><label>${t("vcountry")} *<input class="inp" id="vc" maxlength="60" autocomplete="country-name"></label>
-      <label>${t("vcity")} *<input class="inp" id="vct" maxlength="80"></label></div>
+    <div class="two"><label>${t("vnick")} *<input class="inp" id="vn" maxlength="100"></label>
+      <label>${t("vage")} *<input class="inp" id="va" type="number" min="9" max="120"></label></div>
+    <div class="two"><label>${t("vcountry")} *<input class="inp" id="vc" maxlength="60" autocomplete="country-name"></label><span></span></div>
     <div id="vparent" hidden class="extbox"><b>👪 ${t("vparentT")}</b><div class="hint">${t("vparentS")}</div>
       <label>${t("vparentEmail")} *<input class="inp" id="vpe" type="email" dir="ltr" maxlength="200"></label>
       <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="vpc"> ${t("vparentOk")}</label></div>
@@ -1743,14 +1791,14 @@ function verifyForm(box,s){
     <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="vtrue" style="margin-top:3px"> <span>${t("vtruth")}</span></label>
     ${etaHTML(new Date(),3,7)}<div class="err" id="ve"></div>
     <div><button class="btn green" id="vsb">${resub?t("sresubmit"):t("vsubmit")}</button></div></form></div>`;
-  const ageOf=()=>{const d=$("#vb").value;if(!d)return null;const b=new Date(d+"T12:00:00"),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n<new Date(n.getFullYear(),b.getMonth(),b.getDate()))a--;return a};
-  $("#vb").onchange=()=>{const a=ageOf();$("#vparent").hidden=!(a!==null&&a<16)};
+  const ageOf=()=>{const v=$("#va").value;return v===""?null:Math.floor(+v)};
+  $("#va").oninput=()=>{const a=ageOf();$("#vparent").hidden=!(a!==null&&a>=9&&a<16)};
   $("#vf").onsubmit=async e=>{e.preventDefault();const er=$("#ve"),b=$("#vsb");er.textContent="";const a=ageOf();
     const q=[1,2,3].map(i=>$("#vq"+i).value.trim());
-    const rec={studio_id:s.id,owner:me.id,full_name:$("#vn").value.trim(),country:$("#vc").value.trim(),city:$("#vct").value.trim(),birth_date:$("#vb").value||null,age:Math.max(9,a||9),
+    const rec={studio_id:s.id,owner:me.id,full_name:$("#vn").value.trim(),country:$("#vc").value.trim(),age:a||0,
       social_link:$("#vs").value.trim()||null,alt_answer:$("#valt").value.trim()||null,portfolio_url:$("#vpf").value.trim()||null,
-      human_text:q[0],answers:{why:q[0],experience:q[1],heard:q[2]},parent_email:$("#vpe").value.trim()||null,parent_consent:$("#vpc").checked};
-    if(rec.full_name.length<2||rec.country.length<2||rec.city.length<2||!rec.birth_date||q[0].length<20||q[1].length<20||q[2].length<3||(!rec.social_link&&!rec.alt_answer)){er.textContent=t("err_required");return}
+      human_text:q[0],answers:{why:q[0],experience:q[1],heard:q[2]},parent_email:a<16?($("#vpe").value.trim()||null):null,parent_consent:a<16&&$("#vpc").checked};
+    if(rec.full_name.length<2||rec.country.length<2||!a||q[0].length<20||q[1].length<20||q[2].length<3||(!rec.social_link&&!rec.alt_answer)){er.textContent=t("err_required");return}
     if(a<9){er.textContent=t("e_TOO_YOUNG");return}
     if(a<16&&(!rec.parent_email||!rec.parent_consent)){er.textContent=t("e_PARENT_CONSENT_REQUIRED");return}
     if(!$("#vtrue").checked){er.textContent=t("vtruthNeed");return}
@@ -1760,6 +1808,39 @@ function verifyForm(box,s){
     if(r.error){er.textContent=errMsg(r.error);b.disabled=false;return}
     toast(t("saved"));route()};
 }
+
+/* ============ v1.4: player levels, achievements, streaks, showcase, celebrations ============ */
+const levelOf=xp=>Math.floor(Math.sqrt((xp||0)/40))+1;
+const xpFor=l=>(l-1)*(l-1)*40;
+const RANKS=[[17,"rank_legend"],[12,"rank_champion"],[8,"rank_veteran"],[5,"rank_gamer"],[3,"rank_explorer"],[1,"rank_newcomer"]];
+const rankOf=l=>RANKS.find(([min])=>l>=min)[1];
+function levelHTML(xp,big){xp=xp||0;const l=levelOf(xp),a=xpFor(l),b=xpFor(l+1),pct=Math.max(2,Math.round((xp-a)/(b-a)*100));
+  return `<div class="lvl ${big?"big":""}"><span class="lvb">${l}</span><div><b>${t("levelN").replace("{n}",l)} · ${t(rankOf(l))}</b><div class="xpbar"><i style="width:${pct}%"></i></div><small>${xp.toLocaleString()} XP · ${t("xpToNext").replace("{n}",(b-xp).toLocaleString())}</small></div></div>`}
+// [id, icon, unlocked?(stats)]
+const ACHIEVEMENTS=[
+  ["first_game","🎮",s=>s.games>=1],["collector","📚",s=>s.games>=10],["hoarder","🏛️",s=>s.games>=50],
+  ["hour","⏱️",s=>s.minutes>=60],["marathon","🏃",s=>s.minutes>=600],["critic","✍️",s=>s.reviews>=1],["helpful","🤝",s=>s.helpful>=10],
+  ["supporter","💛",s=>s.purchases>=1],["wishful","♥",s=>s.wishes>=10],["fan","⭐",s=>s.follows>=5],
+  ["streak7","🔥",s=>s.best_streak>=7],["streak30","☄️",s=>s.best_streak>=30],["creator","🛠️",s=>s.dev_games>=1],
+  ["storyteller","📝",s=>s.devlogs>=3],["festival","🎪",s=>s.festivals>=1],["oldtimer","🕰️",s=>s.joined&&Date.now()-new Date(s.joined)>365*864e5]];
+const achUnlocked=s=>ACHIEVEMENTS.filter(([, ,f])=>f(s)).map(([id])=>id);
+function achievementsHTML(s){const got=new Set(achUnlocked(s));
+  return `<div class="achs">${ACHIEVEMENTS.map(([id,ic])=>`<div class="ach ${got.has(id)?"on":""}" title="${esc(t("ach_"+id+"_d"))}"><span>${ic}</span><b>${t("ach_"+id)}</b><small>${t("ach_"+id+"_d")}</small></div>`).join("")}</div>`}
+async function playerStats(uid){const{data}=await sb.rpc("player_stats",{p_user:uid});return data||{xp:0}}
+// celebrate: confetti (skipped when the player prefers reduced motion)
+function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const box=document.createElement("div");box.className="confetti";const cols=["#ffd76a","#66c0f4","#a4d007","#ff6b8a","#9b5cff","#fff"];
+  box.innerHTML=Array.from({length:90},(_,i)=>`<i style="left:${Math.random()*100}%;background:${cols[i%cols.length]};animation-delay:${Math.random()*.4}s;animation-duration:${1.6+Math.random()*1.4}s;transform:rotate(${Math.random()*360}deg)"></i>`).join("");
+  document.body.appendChild(box);setTimeout(()=>box.remove(),3400)}
+// new level / new achievements since the last visit → celebrate once
+async function checkProgress(){if(!me)return;const s=await playerStats(me.id);me.xp=s.xp||0;me.stats=s;renderHeader();
+  const lv=levelOf(me.xp),key="pp_prog_"+me.id;let prev={};try{prev=JSON.parse(lsGet(key)||"{}")}catch(e){}
+  const ach=achUnlocked(s),fresh=prev.ach?ach.filter(a=>!prev.ach.includes(a)):[];
+  if(prev.lv&&lv>prev.lv){confetti();toast("⬆️ "+t("levelUp").replace("{n}",lv))}
+  else if(fresh.length){confetti();toast("🏆 "+t("achUnlocked")+": "+fresh.map(a=>t("ach_"+a)).join(", "))}
+  lsSet(key,JSON.stringify({lv,ach}))}
+const fmtPlay=m=>m<60?t("minShort").replace("{n}",m):t("hourShort").replace("{h}",Math.floor(m/60)).replace("{m}",m%60);
+const ACCENTS=["#66c0f4","#9b5cff","#ff6b8a","#ffb648","#a4d007","#2ec4b6","#e84393","#d4af37"];
 
 /* ============ awards hall ============ */
 async function awardsView(main,stale){
@@ -1921,14 +2002,14 @@ en:{privacy:`<h1>Privacy Policy</h1><p class="dim">Last updated: ${LEGAL_UPDATED
 <li><b>Account:</b> email address, username, password (stored only as a secure hash by our login provider), and your optional avatar and bio.</li>
 <li><b>Store activity:</b> your library, wishlist, reviews, follows, Coins balance and history, purchases, redeemed keys, notifications and playtime (minutes, used for verified reviews).</li>
 <li><b>Developers:</b> studio details (name, support email, members, links, logo, banner) and the games, images and files you upload.</li>
-<li><b>Studio verification:</b> country, age, full name, a social link or alternative answer and a short text. This is visible only to the store admin and is <b>deleted automatically after 30 days</b>.</li>
+<li><b>Studio verification:</b> a name or nickname, age, country, a social link or alternative answer, an optional portfolio link and short answers about you (plus a parent's email for developers under 16). We don't ask for your address, city or date of birth. It's visible only to the store admin and is <b>deleted automatically 3 days after the review decision</b>.</li>
 <li><b>Device storage:</b> your language choice, your sign-in session and game saves are kept in your browser's local storage on your device.</li></ul>
 <h2>Why we use it</h2><p>To run your account, show the store, deliver games you own, process Coins transactions, review and approve studios and games, prevent abuse, and send you in-store notifications. We do not sell your information and we do not show ads.</p>
 <h2>What is public</h2><p>Your username, avatar, bio, reviews and the studios and games you publish are visible to everyone. Your email, Coins balance, Coin Card number, library, wishlist and verification details are not.</p>
 <h2>Services we use</h2><p>Supabase (database, login, file storage — servers in the EU), GitHub Pages (hosting the website), Google Fonts and jsDelivr (fonts and code libraries), and YouTube (only if you play a game trailer). These services process data under their own privacy policies.</p>
 <h2>Children</h2><p>Studios may be created from age 9. If you are under the age required in your country to agree to this policy on your own, use the store with a parent's or guardian's permission. A parent can ask us to delete a child's account at any time.</p>
 <h2>Your choices</h2><p>You can edit your profile and studio, delete reviews, games and notifications, and sign out at any time. To delete your account or get a copy of your data, email us and we will handle it within 30 days.</p>
-<h2>Security & retention</h2><p>Access to data is protected by database rules on the server. We keep account data while your account exists; verification data for 30 days; deleted content is removed from the store right away.</p>
+<h2>Security & retention</h2><p>Access to data is protected by database rules on the server. We keep account data while your account exists; verification data until 3 days after the review decision; deleted content is removed from the store right away.</p>
 <h2>Changes</h2><p>If this policy changes, we will update the date above and announce important changes in the store.</p>`,
 terms:`<h1>Terms of Use</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
 <p>By creating an account or using Man Studio Store you agree to these terms. If you don't agree, please don't use the store.</p>
@@ -1951,14 +2032,14 @@ he:{privacy:`<h1>מדיניות פרטיות</h1><p class="dim">עודכן לא�
 <li><b>חשבון:</b> כתובת אימייל, שם משתמש, סיסמה (נשמרת רק בצורה מוצפנת אצל ספק ההתחברות), ותמונה ותיאור לפי בחירתך.</li>
 <li><b>פעילות בחנות:</b> הספרייה, רשימת המשאלות, ביקורות, מעקבים, יתרת Coins והיסטוריה, קניות, קודים שמומשו, התראות וזמן משחק (בדקות, לצורך ביקורות מאומתות).</li>
 <li><b>מפתחים:</b> פרטי הסטודיו (שם, מייל תמיכה, חברים, קישורים, לוגו, באנר) והמשחקים, התמונות והקבצים שמעלים.</li>
-<li><b>אימות סטודיו:</b> מדינה, גיל, שם מלא, קישור לרשת חברתית או תשובה חלופית וטקסט קצר. רק מנהל החנות רואה את זה, והמידע <b>נמחק אוטומטית אחרי 30 יום</b>.</li>
+<li><b>אימות סטודיו:</b> שם או כינוי, גיל, מדינה, קישור לרשת חברתית או תשובה חלופית, קישור לתיק עבודות (לא חובה) ותשובות קצרות עליך (ומייל של הורה למפתחים מתחת לגיל 16). אנחנו לא מבקשים כתובת, עיר או תאריך לידה. רק מנהל החנות רואה את זה, והמידע <b>נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה</b>.</li>
 <li><b>אחסון במכשיר:</b> בחירת השפה, ההתחברות ושמירות של משחקים נשמרים בדפדפן במכשיר שלך.</li></ul>
 <h2>למה אנחנו משתמשים בזה</h2><p>כדי להפעיל את החשבון, להציג את החנות, לתת לך משחקים שבבעלותך, לבצע פעולות Coins, לבדוק ולאשר סטודיואים ומשחקים, למנוע ניצול לרעה ולשלוח התראות בתוך החנות. אנחנו לא מוכרים מידע ולא מציגים פרסומות.</p>
 <h2>מה גלוי לכולם</h2><p>שם המשתמש, התמונה, התיאור, הביקורות והסטודיואים והמשחקים שאתה מפרסם גלויים לכולם. האימייל, יתרת ה-Coins, מספר כרטיס ה-Coins, הספרייה, רשימת המשאלות ופרטי האימות — לא.</p>
 <h2>שירותים שאנחנו משתמשים בהם</h2><p>Supabase (מסד נתונים, התחברות ואחסון קבצים — שרתים באירופה), GitHub Pages (אחסון האתר), Google Fonts ו-jsDelivr (גופנים וספריות קוד), ו-YouTube (רק אם מפעילים טריילר). השירותים האלה מעבדים מידע לפי מדיניות הפרטיות שלהם.</p>
 <h2>ילדים</h2><p>אפשר לפתוח סטודיו מגיל 9. אם אתה מתחת לגיל שבו מותר במדינה שלך להסכים למדיניות הזו לבד, השתמש בחנות באישור הורה או אפוטרופוס. הורה יכול לבקש בכל זמן למחוק חשבון של ילד.</p>
 <h2>הבחירות שלך</h2><p>אפשר לערוך את הפרופיל והסטודיו, למחוק ביקורות, משחקים והתראות ולהתנתק בכל זמן. למחיקת החשבון או לקבלת עותק של המידע — שלחו לנו מייל ונטפל בזה תוך 30 יום.</p>
-<h2>אבטחה ושמירת מידע</h2><p>הגישה למידע מוגנת בכללים במסד הנתונים בשרת. מידע החשבון נשמר כל עוד החשבון קיים; מידע האימות — 30 יום; תוכן שנמחק יורד מהחנות מיד.</p>
+<h2>אבטחה ושמירת מידע</h2><p>הגישה למידע מוגנת בכללים במסד הנתונים בשרת. מידע החשבון נשמר כל עוד החשבון קיים; מידע האימות — עד 3 ימים אחרי החלטת הבדיקה; תוכן שנמחק יורד מהחנות מיד.</p>
 <h2>שינויים</h2><p>אם המדיניות משתנה, נעדכן את התאריך למעלה ונודיע בחנות על שינויים חשובים.</p>`,
 terms:`<h1>תנאי שימוש</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
 <p>כשפותחים חשבון או משתמשים ב-Man Studio Store מסכימים לתנאים האלה. אם אתה לא מסכים, אל תשתמש בחנות.</p>
@@ -2005,13 +2086,13 @@ async function bundlePage(main,id,stale){
 /* ============ library / wishlist ============ */
 async function libraryView(main,stale){
   setTitle(t("library"));if(needLogin())return;
-  const{data,error}=await sb.from("library").select("added_at,last_played,games("+LIST_COLS+")").eq("user_id",me.id).order("last_played",{ascending:false,nullsFirst:false}).order("added_at",{ascending:false});
+  const{data,error}=await sb.from("library").select("added_at,last_played,minutes_played,games("+LIST_COLS+")").eq("user_id",me.id).order("last_played",{ascending:false,nullsFirst:false}).order("added_at",{ascending:false});
   if(stale())return;if(error)throw error;
   const rows=(data||[]).filter(r=>r.games);
   const wn=await libraryNewsHTML(rows.map(r=>r.games.id));if(stale())return;
   main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("library")} <span class="mut">(${rows.length})</span></h2>${wn}`+
     (rows.length?`<div class="lib">${rows.map(r=>`<div class="card">${`<a href="#/app/${r.games.id}">`+coverHTML(r.games)+"</a>"}<div class="b"><div class="t">${esc(r.games.title)}</div>
-      <div class="dim" style="font-size:12px">${t("lastplayed")}: ${r.last_played?ago(r.last_played):t("never")}</div>
+      <div class="dim" style="font-size:12px">${t("lastplayed")}: ${r.last_played?ago(r.last_played):t("never")}${r.minutes_played?` · ⏱ ${fmtPlay(r.minutes_played)}`:""}</div>
       <div class="f"><a class="btn green sm" href="#/play/${r.games.id}">▶ ${t("play")}</a><button class="btn ghost sm" data-rm="${r.games.id}">${t("remove")}</button></div></div></div>`).join("")}</div>`
     :`<div class="empty"><b>${t("libempty")}</b>${t("libempty2")}<br><br><a class="btn" href="#/browse">${t("browse")}</a></div>`);
   main.onclick=async e=>{const id=e.target.dataset.rm;if(!id)return;const{error}=await sb.from("library").delete().eq("user_id",me.id).eq("game_id",id);if(error)return dbErr(error);myLib.delete(id);route()};
@@ -2030,7 +2111,7 @@ async function wishView(main,stale){
 
 /* ============ profile ============ */
 async function userView(main,username,stale){
-  const{data:p,error}=await sb.from("profiles").select("id,username,avatar_url,bio,created_at,is_admin").eq("username",username).maybeSingle();
+  const{data:p,error}=await sb.from("profiles").select("id,username,avatar_url,bio,created_at,is_admin,accent,showcase,daily_streak,best_streak").eq("username",username).maybeSingle();
   if(stale())return;if(error)throw error;
   if(!p){main.innerHTML=`<div class="empty"><b>${t("notfound")}</b></div>`;return}
   setTitle(p.username);
@@ -2038,10 +2119,17 @@ async function userView(main,username,stale){
     sb.from("reviews").select("id,recommended,body,created_at,games(id,title,cover_url)").eq("user_id",p.id).order("created_at",{ascending:false}).limit(30)]);
   if(stale())return;
   const mine=me&&me.id===p.id, games=gs.data||[], revs=(rs.data||[]).filter(r=>r.games);
-  main.innerHTML=`<div class="prof">${avatarHTML(p,96)}<div style="flex:1"><h1>${esc(p.username)} ${p.is_admin?`<span class="pill">${t("admin")}</span>`:""}</h1>
-    <div class="mut">${t("member")} ${fmtDate(p.created_at)}</div><div style="margin-top:8px;white-space:pre-wrap">${esc(p.bio||"")}</div></div>
+  const[st,show]=await Promise.all([playerStats(p.id),gamesByIds(p.showcase||[])]);if(stale())return;
+  const acc=/^#[0-9a-f]{6}$/i.test(p.accent||"")?p.accent:"#66c0f4",gotN=achUnlocked(st).length;
+  main.innerHTML=`<div class="pbanner" style="--acc:${acc}"></div>
+    <div class="prof pprof" style="--acc:${acc}"><div class="avring">${avatarHTML(p,96)}<span class="lvb">${levelOf(st.xp)}</span></div><div style="flex:1;min-width:0"><h1>${esc(p.username)} ${p.is_admin?`<span class="pill">${t("admin")}</span>`:""}</h1>
+    <div class="mut">${t("member")} ${fmtDate(p.created_at)}${p.daily_streak>1?` · 🔥 ${t("streakN").replace("{n}",p.daily_streak)}`:""}</div><div style="margin-top:8px;white-space:pre-wrap">${esc(p.bio||"")}</div>
+    ${levelHTML(st.xp,true)}</div>
     ${mine?`<button class="btn ghost" id="ep">${t("editprof")}</button>`:""}</div>
     <div id="epBox"></div>
+    <div class="pstats">${[["🎮",st.games,t("st_games")],["⏱️",fmtPlay(st.minutes||0),t("st_played")],["✍️",st.reviews,t("st_reviews")],["🔥",st.best_streak||0,t("st_streak")],["🏆",gotN+" / "+ACHIEVEMENTS.length,t("st_ach")]].map(([i,v,l])=>`<div><span>${i}</span><b>${v}</b><small>${l}</small></div>`).join("")}</div>
+    ${show.length?`<h2 class="sec">💎 ${t("showcaseT")}</h2><div class="grid showcase">${show.map(cardHTML).join("")}</div>`:""}
+    <h2 class="sec">🏆 ${t("achT")} <span class="mut">(${gotN}/${ACHIEVEMENTS.length})</span></h2>${achievementsHTML(st)}
     <h2 class="sec">${t("gamesby")} ${esc(p.username)} <span class="mut">(${games.length})</span></h2>
     ${games.length?`<div class="grid">${games.map(cardHTML).join("")}</div>`:`<div class="mut">—</div>`}
     <h2 class="sec">${t("revsby")} <span class="mut">(${revs.length})</span></h2>
@@ -2052,16 +2140,28 @@ async function userView(main,username,stale){
       <label>${t("username")}<input class="inp" id="pu" maxlength="32" value="${esc(p.username)}"></label>
       <label>${t("bio")}<textarea class="inp" id="pb" maxlength="500">${esc(p.bio||"")}</textarea></label>
       <label>${t("avatar")}<input type="file" id="pa" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+      <div>${t("accentT")}<div class="swatches">${ACCENTS.map(c=>`<button type="button" class="sw ${c===acc?"on":""}" data-c="${c}" style="background:${c}" aria-label="${c}"></button>`).join("")}<input type="color" id="pac" value="${acc}"></div></div>
+      <div>💎 ${t("showcaseT")} <span class="hint">(${t("showcaseHint")})</span><div class="descpick" id="pshow">${myLibGamesHTML(p.showcase||[])}</div></div>
       <div class="err" id="pe"></div><div><button class="btn" id="ps">${t("save")}</button></div></div>`;
+    document.querySelectorAll(".sw").forEach(b=>b.onclick=()=>{$("#pac").value=b.dataset.c;document.querySelectorAll(".sw").forEach(x=>x.classList.toggle("on",x===b))});
+    fillShowcasePicker(p.showcase||[]);
     $("#ps").onclick=async()=>{const u=$("#pu").value.trim();if(u.length<2){$("#pe").textContent=t("err_required");return}
       $("#ps").disabled=true;$("#pe").textContent="";
-      try{const upd={username:u,bio:$("#pb").value.trim()||null};
+      const pick=[...document.querySelectorAll("#pshow input:checked")].map(i=>i.value);if(pick.length>3){$("#pe").textContent=t("showcaseMax");$("#ps").disabled=false;return}
+      try{const upd={username:u,bio:$("#pb").value.trim()||null,accent:$("#pac").value,showcase:pick};
         const f=$("#pa").files[0];if(f)upd.avatar_url=await upload(f,"avatar",["image/png","image/jpeg","image/webp","image/gif"],3);
         const{error}=await sb.from("profiles").update(upd).eq("id",me.id);if(error)throw error;
         me.profile={...me.profile,...upd};toast(t("saved"));location.hash="#/user/"+encodeURIComponent(u);route();
       }catch(e){$("#pe").textContent=/duplicate|unique/i.test(e.message)?t("username")+" ✗":e.message;$("#ps").disabled=false}};
   };
 }
+
+// showcase picker: up to 3 games from your library
+function myLibGamesHTML(){return `<span class="mut">…</span>`}
+async function fillShowcasePicker(sel){const{data}=await sb.from("library").select("games(id,title)").eq("user_id",me.id);const box=$("#pshow");if(!box)return;
+  const l=(data||[]).map(r=>r.games).filter(Boolean);
+  box.innerHTML=l.map(g=>`<label><input type="checkbox" value="${g.id}" ${sel.includes(g.id)?"checked":""}> ${esc(g.title)}</label>`).join("")||`<span class="mut">${t("libempty")}</span>`;
+  box.onchange=()=>{const c=box.querySelectorAll("input:checked");box.querySelectorAll("input").forEach(i=>i.disabled=!i.checked&&c.length>=3)};box.onchange()}
 
 /* ============ uploads ============ */
 function storagePath(url){const m=String(url||"").match(/\/storage\/v1\/object\/public\/media\/(.+)$/);return m?decodeURIComponent(m[1]):null}
@@ -2453,12 +2553,12 @@ async function adminView(main,tab,stale){
     ${v?`<div class="kv2" style="margin-top:6px"><span>${t("vname")}</span><span>${esc(v.full_name)}</span><span>${t("vcountry")}</span><span>${esc(v.country)}</span>
     <span>${t("ageL")}</span><span>${v.age}</span><span>${t("socialL")}</span><span>${v.social_link&&okUrl(v.social_link)?`<a href="${esc(okUrl(v.social_link))}" target="_blank" rel="noopener" dir="ltr">${esc(v.social_link)}</a>`:"—"}</span>
     <span>${t("altL")}</span><span>${esc(v.alt_answer||"—")}</span><span>${t("humanL")}</span><span>${esc(v.human_text)}</span>
-    ${v.birth_date?`<span>${t("vbirth")}</span><span>${esc(v.birth_date)}</span>`:""}${v.city?`<span>${t("vcity")}</span><span>${esc(v.city)}</span>`:""}
+
     ${v.portfolio_url&&okUrl(v.portfolio_url)?`<span>${t("vportfolio")}</span><span><a href="${esc(okUrl(v.portfolio_url))}" target="_blank" rel="noopener" dir="ltr">${esc(v.portfolio_url)}</a></span>`:""}
     ${v.answers&&v.answers.experience?`<span>${t("vq2")}</span><span>${esc(v.answers.experience)}</span><span>${t("vq3")}</span><span>${esc(v.answers.heard||"")}</span>`:""}
     ${v.parent_email?`<span>👪 ${t("vparentEmail")}</span><span dir="ltr">${esc(v.parent_email)} ${v.parent_consent?"✓":"✗"}</span>`:""}
     <span>${t("agreeT")}</span><span>${s.agreement_version>=2?"✓ "+(s.agreed_at?fmtDate(s.agreed_at):""):"✗"}</span></div>
-    <div class="dim" style="font-size:11px;margin-top:6px">🔒 ${t("deletedIn").replace("{d}",fmtDate(new Date(new Date(v.created_at).getTime()+30*864e5)))}</div>`:`<div class="mut">—</div>`}</div>${acts("verify",s.id)}</div>`}).join("");
+    <div class="dim" style="font-size:11px;margin-top:6px">🔒 ${t("del3")}</div>`:`<div class="mut">—</div>`}</div>${acts("verify",s.id)}</div>`}).join("");
   else if(tab==="reports"){body=`${extra.copies.length?`<div class="panel"><h3 style="margin:0 0 6px;color:#fff">⚠️ ${t("copiesT")}</h3><div class="mut" style="margin-bottom:6px">${t("copiesS")}</div>
       ${extra.copies.map(c=>`<div class="colrow"><span><a href="#/app/${c.id}">${esc(c.title)}</a> (${esc(c.developer)}) = <a href="#/app/${c.copy_of}">${t("copyOpen")}</a></span>
         <button class="btn ghost sm" data-vis="${c.id}:${c.published?0:1}">${c.published?t("hideG"):t("showG")}</button></div>`).join("")}</div>`:""}
@@ -2671,7 +2771,7 @@ sb.auth.onAuthStateChange((ev,session)=>{
     if(ev==="TOKEN_REFRESHED")return;
     const prev=me&&me.id;await loadMe(session);
     if(ev==="PASSWORD_RECOVERY"){location.hash="#/reset";return}
-    if(!booted){booted=true;route();newsPopup();return}
+    if(!booted){booted=true;route();newsPopup();checkProgress();return}
     if((me&&me.id)!==prev)route();else renderHeader();
   },0);
 });
