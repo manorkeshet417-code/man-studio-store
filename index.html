@@ -298,7 +298,7 @@ textarea.inp{min-height:90px;resize:vertical}
 .catcard small{color:var(--mut);font-size:11.5px}.catname{display:inline-block;font-size:11px;color:#ffd76a;font-weight:700;letter-spacing:.03em}
 .agebadge{display:inline-grid;place-items:center;min-width:22px;height:18px;padding:0 4px;border-radius:3px;font-size:10.5px;font-weight:800;color:#fff;margin-inline-end:6px;vertical-align:middle}
 .agebadge.big{min-width:54px;height:54px;font-size:18px;border-radius:8px;margin:0}
-.agebadge.aall{background:#2e9e4f}.agebadge.a7{background:#7cb518}.agebadge.a12{background:#e0a100}.agebadge.a16{background:#e06400}.agebadge.a18{background:#d32f2f}
+.agebadge.aall{background:#2e9e4f}.agebadge.a3{background:#3aa04a}.agebadge.a10{background:#a8b400}.agebadge.a13{background:#e08a00}.agebadge.a15{background:#e07000}.agebadge.a17{background:#e04a1a}.agebadge.a7{background:#7cb518}.agebadge.a12{background:#e0a100}.agebadge.a16{background:#e06400}.agebadge.a18{background:#d32f2f}
 .agebox{display:flex;gap:12px;align-items:center;background:#0000004d;border-radius:4px;padding:10px 12px}.agebox b{color:#fff}
 .descs{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.descs span{font-size:12px;background:#ffffff14;border-radius:10px;padding:2px 9px;color:#c6d4df}
 .descpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:4px 12px;margin-top:8px;font-size:13px}.descpick label{display:flex;gap:6px;align-items:center}
@@ -333,6 +333,21 @@ textarea.inp{min-height:90px;resize:vertical}
 .gsdev{color:#ffe9a8;margin-top:4px}.gscats{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.gscats span{background:#000a;border:1px solid #ffd76a88;color:#ffe28a;border-radius:12px;padding:2px 10px;font-size:12px;font-weight:600}
 @media (max-width:700px){.gsin{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.goldspot,.gsglow,.gsstars i,.gslabel,.gstitle,.gotywin{animation:none}}
+.aq{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px 14px}.aq label{display:grid;gap:4px;font-size:13px}
+.aqres{display:flex;gap:12px;align-items:center;margin-top:12px;background:#0000004d;border-radius:4px;padding:10px 12px}.aqres b{color:#fff}
+.launchbox{background:linear-gradient(120deg,#1f3a55,#2a2547);border:1px solid #66c0f455;border-radius:6px;padding:14px 16px;margin-bottom:14px}.launchbox b{color:#fff;font-size:16px}
+.launchbox.ready{background:linear-gradient(120deg,#1f4a2c,#203a4a);border-color:#a4d00788}
+.cdown{font-family:ui-monospace,Consolas,monospace;font-size:26px;color:#fff;letter-spacing:.05em;margin:6px 0}
+.eabanner{background:#4a3f1f;border:1px solid #ffcf5a66;border-radius:6px;padding:12px 16px;margin-bottom:14px}.eabanner b{color:#ffe3a1}
+.eatag,.demotag{display:inline-block;font-size:10.5px;font-weight:700;border-radius:3px;padding:1px 6px;margin-inline-end:4px;vertical-align:middle}
+.eatag{background:#4a3f1f;color:#ffcf5a}.demotag{background:#1c4f6f;color:#9fd3ff}
+.demobox{background:linear-gradient(-60deg,#66c0f41a 5%,#1a9fff22 95%)}
+.clist div{font-size:13px;padding:2px 0}.clist .ok{color:#a4d007}.clist .no{color:#ff8a80}
+.steps.five{grid-template-columns:repeat(5,1fr)}@media (max-width:860px){.steps.five{grid-template-columns:1fr 1fr}}
+.rules{display:grid;gap:6px;background:#0000004d;border-radius:4px;padding:12px;font-size:13.5px}
+.agree fieldset{border:1px solid #ffffff1f;border-radius:4px;padding:8px 12px;display:grid;gap:4px}.agree legend{color:#fff;padding:0 6px}
+.agree fieldset label{display:flex;gap:8px;align-items:center;font-size:13.5px}
+.vsec{color:#fff;font-weight:600;border-bottom:1px solid #ffffff1f;padding-bottom:4px;margin-top:6px}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -416,10 +431,10 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 <script>
 /* ============ config ============ */
 const STORE_NAME = "Man Studio Store";
-const STORE_VERSION = "1.2";
+const STORE_VERSION = "1.3";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-23.2";
+const BUILD = "2026-11-26.1";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -523,13 +538,49 @@ downloads:"downloads",wishNotify:"Added — you'll get a notification on sales a
 cardHint:"Your personal virtual card. It's connected to your Coins balance and used at checkout.",daily:"Daily bonus",dailyHint:"Come back every day for free Coins.",
 claimed:"Claimed today",claim:"Claim",redeem:"Redeem a key",redeemBtn:"Redeem",coinsNote:"Coins are store credit for games, not real money. You start with 500, get 10 for every new game you add to your library, and 10 more every day.",
 history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx_purchase:"🛒 Purchase",tx_sale:"💰 Sale",tx_bundle:"📦 Bundle",tx_gift:"🎁 Gift",tx_key:"🔑 Key",tx_promotion:"🚀 Promotion",tx_install:"🎮 New game bonus",gotCoins:"+{n} 🪙 for a new game!",
-redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",newsT:"What's New",newsS:"Store updates, new features and announcements.",newsPost:"Post an update",newsPop:"What's new",newsAll:"All updates",gotIt:"Got it",nav_newsH:"Store updates & announcements",
+redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",age_3:"Ages 3+",age_10:"Ages 10+",age_13:"Ages 13+",age_15:"Ages 15+",age_17:"Ages 17+",d_drugs:"Drugs / alcohol",d_sexual:"Sexual content",d_discrimination:"Discrimination",
+ageQuizT:"Age rating questionnaire",ageQuizS:"Answer honestly about what's in your game — the rating and content warnings are calculated for you. You can only rate higher, never lower.",ageRaise:"Final rating (you can choose a higher one)",ageResult:"Result",noWarnings:"No content warnings",
+aq_violence:"Violence",aq_violence_none:"None",aq_violence_cartoon:"Cartoon / slapstick",aq_violence_fantasy:"Fantasy fighting, no injuries",aq_violence_realistic:"Realistic, no injuries shown",aq_violence_injuries:"Realistic with injuries",aq_violence_gore:"Graphic / gore",
+aq_blood:"Blood",aq_blood_none:"None",aq_blood_little:"A little",aq_blood_lots:"A lot",aq_blood_extreme:"Extreme gore",
+aq_fear:"Fear & horror",aq_fear_none:"None",aq_fear_mild:"Mildly spooky",aq_fear_scary:"Scary moments",aq_fear_horror:"Horror & jump scares",aq_fear_intense:"Intense, disturbing horror",
+aq_language:"Bad language",aq_language_none:"None",aq_language_mild:"Mild (\"damn\")",aq_language_moderate:"Moderate swearing",aq_language_strong:"Strong swearing",aq_language_slurs:"Slurs / hate speech",
+aq_sexual:"Romance & sexual content",aq_sexual_none:"None",aq_sexual_romance:"Romance, kissing",aq_sexual_suggestive:"Suggestive themes",aq_sexual_explicit:"Sexual content",
+aq_drugs:"Drugs, alcohol, tobacco",aq_drugs_none:"None",aq_drugs_mentioned:"Mentioned",aq_drugs_shown:"Shown",aq_drugs_used:"Used by the player",
+aq_gambling:"Gambling",aq_gambling_none:"None",aq_gambling_chance:"Games of chance (loot boxes, dice)",aq_gambling_casino:"Casino-style gambling",
+aq_themes:"Mature themes",aq_themes_none:"None",aq_themes_mature:"Death, crime, war, sad themes",aq_themes_discrimination:"Discrimination shown",
+aq_online:"Online chat with strangers",aq_online_no:"No",aq_online_chat:"Yes",aq_purchases:"Purchases inside the game",aq_purchases_no:"No",aq_purchases_yes:"Yes",
+launchIn:"Launch unlocks in {n} days",launchWhy:"Every approved game waits 7 days as \"Coming soon\" before it can launch — time to build a wishlist and catch problems.",autoOn:"Launches automatically as {a} when the wait ends.",autoOff:"You'll launch it yourself when the wait ends.",
+launchReady:"Ready to launch!",launchReadyS:"The 7-day wait is over. Choose how to launch your game.",launchFull:"Launch — full release",launchEA:"Launch in Early Access",launchQ:"Launch \"{t}\" now? Everyone who wishlisted it gets a notification.",launched:"Launched! 🎉",
+launchT:"Launch",launchFormS:"After approval every game waits 7 days as \"Coming soon\". Choose how it launches.",releaseAs:"Launch as",accessNow:"Access right now",acc_full:"Full release",acc_early_access:"Early Access",
+autoRelease:"Launch automatically when the 7 days are over",eaNote:"Early Access: what's done, what's coming, and for how long",eaNotePh:"The game is playable from start to finish. Coming: 2 new worlds and multiplayer. Planned full release in about 3 months.",
+eaShort:"Early Access",eaT:"Early Access",eaBannerT:"Early Access game",eaBannerS:"This game is still in development — it may change, and the developer wants your feedback.",
+demoT:"Demo",demoS:"A free demo anyone can play — even while the game is \"Coming soon\" or before buying.",demoNone:"No demo",demoShort:"Demo",demosT:"Demos",demoPlay:"Free demo",demoPlayS:"Try the game before you get it.",demoBtn:"Play demo",
+nav_demoH:"Try games for free",nav_eaH:"Games still in development",
+clT:"Store page checklist",clS:"A complete page is required before submitting.",cl_cover:"Cover image",cl_shots:"At least 2 screenshots",cl_desc:"Full description (120+ characters)",cl_short:"Short description (20+ characters)",cl_copyright:"Copyright holder",clFail:"Complete the store page checklist first.",
+stepAgree:"Developer agreement",stepLaunch:"Launch",hubS13:"Five steps: studio → agreement → verification → game submission → launch (after a 7-day wait).",launchRule:"After approval, every game waits 7 days as \"Coming soon\" before launch.",
+sFounded:"Founded (year)",sAbout:"About the studio",sAboutHint:"At least 50 characters — who you are and what you make.",sGenres:"Genres you make",sMore:"Fill in country, about (50+ characters) and 1–3 genres.",
+v2T:"Studio verification 2.0",v2S:"Store 1.3 has a new, more thorough verification. Every studio verifies again — your games stay in the store, you just can't submit new ones until you're done.",
+agreeT:"Developer agreement",agreeQuizS:"Read the rules, then answer the questions to show you understand them.",
+rule1:"Upload only games you made or have the rights to. Copies are removed and studios can be suspended.",rule2:"Every studio and game is reviewed (Sunday–Friday; Saturday closed, 5% Lucky Approval).",rule3:"After approval, a game waits 7 days as Coming soon before it can launch — full or Early Access.",
+rule4:"Fill in the age questionnaire honestly. Wrong ratings can get a game hidden.",rule5:"No malware, no stealing data, no hateful or illegal content.",rule6:"Rejected? You have 30 days to fix and resubmit. Appeals by email.",
+rule7:"Coins are store credit with no money value. Revenue: up to 50 → 80%, 50–200 → 75%, 200–500 → 70%, 500+ → 50%.",rule8:"Be respectful to players, reply to reviews, and keep your store page accurate.",
+ag_q1:"After your game is approved, when can it launch?",ag_q1a:"Right away",ag_q1b:"After 7 days as Coming soon",ag_q1c:"After 30 days",
+ag_q2:"What happens if you upload a game that isn't yours?",ag_q2a:"Nothing",ag_q2b:"Only a warning",ag_q2c:"It's removed and the studio can be suspended",
+ag_q3:"On which days are games reviewed?",ag_q3a:"Sunday–Friday (Saturday closed)",ag_q3b:"Every day",ag_q3c:"Only on weekends",
+ag_q4:"How should you set your game's age rating?",ag_q4a:"Pick the lowest so more people play",ag_q4b:"Answer the age questionnaire honestly",ag_q4c:"Leave it empty",
+ag_q5:"If your game is rejected, you have…",ag_q5a:"7 days to fix it",ag_q5b:"No second chance",ag_q5c:"30 days to fix and resubmit",
+ag_q6:"Coins are…",ag_q6a:"Store credit with no money value",ag_q6b:"Real money",ag_q6c:"Cryptocurrency",
+agreeConfirm:"I read and agree to the developer rules and the {t}.",agreeBtn:"Accept the agreement",agreeAll:"Answer every question and tick the box.",agreeWrong:"{n} answers aren't right — read the rules again and try once more.",agreeDone:"Agreement accepted",
+vsecId:"Identity",vbirth:"Date of birth",vcity:"City",vparentT:"Parent or guardian",vparentS:"Developers under 16 need a parent or guardian's consent.",vparentEmail:"Parent / guardian email",vparentOk:"My parent or guardian agrees that I publish games here",
+vsecPresence:"Online presence",vportfolio:"Portfolio / previous work (optional)",vsecHuman:"About you",vq1:"Why do you make games? (20+ characters)",vq2:"Your game-making experience (20+ characters)",vq3:"How did you hear about Man Studio Store?",
+vtruth:"Everything I wrote is true. I understand false details can get my studio suspended.",vtruthNeed:"Please confirm that the details are true.",
+e_WAIT_7_DAYS:"The 7-day wait isn't over yet.",e_NO_GAME_FILE:"Upload the game (or a link) before launching.",e_AGREEMENT_REQUIRED:"Accept the developer agreement first.",e_BIRTH_DATE_REQUIRED:"Date of birth is required.",e_TOO_YOUNG:"You must be at least 9 years old.",e_PARENT_CONSENT_REQUIRED:"Developers under 16 need a parent's email and consent.",newsT:"What's New",newsS:"Store updates, new features and announcements.",newsPost:"Post an update",newsPop:"What's new",newsAll:"All updates",gotIt:"Got it",nav_newsH:"Store updates & announcements",
 libNews:"What's new in your games",recentT:"Recently viewed",similarT:"More like this",
 trT:"Translations",trS:"Add your game page in other languages. Players see it in their own language automatically.",trAdd:"Add a language",trShown:"Shown in {l} (translated by the developer)",trOrig:"Shown in the original language",trOriginal:"Original",trAuto:"Translate to {l}",trDone:"Translated by your browser",trFail:"Translation isn't available here",
 clangT:"Game page language",clangS:"If a developer translated their page into this language, you'll see it in this language.",
 ageT:"Age rating",ageFormS:"Pick the minimum age and what players should know about.",ageNone:"Not rated",age_all:"All ages",age_7:"Ages 7+",age_12:"Ages 12+",age_16:"Ages 16+",age_18:"Adults 18+",
 d_violence:"Violence",d_blood:"Blood",d_fear:"Fear / horror",d_language:"Bad language",d_online:"Online interaction",d_gambling:"Gambling themes",d_mature:"Mature themes",d_purchases:"In-game purchases",
-ageGateT:"This game is for adults (18+)",ageGateS:"{t} is rated 18+. Please confirm you are 18 or older to continue.",ageYes:"I'm 18 or older",
+ageGateT:"This game is rated {a}",ageGateS:"{t} is rated {a}. Please confirm you are old enough to continue.",ageYes:"I'm old enough",
 ageFilterT:"Age filter",ageFilterS:"Hide games rated above an age (saved on this device).",ageShowAll:"Show all games",ageUpTo:"Show up to: {a}",
 copyT:"Copyright",copyS:"Who owns the game and how others may use it. If someone uploads an identical file, the store flags it automatically.",copyHolder:"Copyright holder",licenseT:"License",
 lic_all_rights:"All rights reserved",lic_cc_by:"Creative Commons BY",lic_cc_by_nc:"Creative Commons BY-NC",lic_open_source:"Open source",lic_other:"Other license",
@@ -605,13 +656,49 @@ downloads:"הורדות",wishNotify:"נוסף — תקבל התראה על מב�
 cardHint:"כרטיס וירטואלי אישי. מחובר ליתרת ה-Coins שלך ומשמש בקופה.",daily:"בונוס יומי",dailyHint:"חוזרים כל יום ומקבלים Coins בחינם.",
 claimed:"נאסף היום",claim:"אסוף",redeem:"מימוש קוד",redeemBtn:"ממש",coinsNote:"Coins הם קרדיט לחנות, לא כסף אמיתי. מתחילים עם 500, מקבלים 10 על כל משחק חדש שנכנס לספרייה, ועוד 10 כל יום.",
 history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:"🎁 בונוס יומי",tx_purchase:"🛒 קנייה",tx_sale:"💰 מכירה",tx_bundle:"📦 חבילה",tx_gift:"🎁 מתנה",tx_key:"🔑 קוד",tx_promotion:"🚀 קידום",tx_install:"🎮 בונוס משחק חדש",gotCoins:"+{n} 🪙 על משחק חדש!",
-redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",newsT:"מה חדש",newsS:"עדכוני חנות, פיצ'רים חדשים והכרזות.",newsPost:"פרסם עדכון",newsPop:"מה חדש",newsAll:"כל העדכונים",gotIt:"הבנתי",nav_newsH:"עדכוני חנות והכרזות",
+redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",age_3:"מגיל 3",age_10:"מגיל 10",age_13:"מגיל 13",age_15:"מגיל 15",age_17:"מגיל 17",d_drugs:"סמים / אלכוהול",d_sexual:"תוכן מיני",d_discrimination:"אפליה",
+ageQuizT:"שאלון דירוג גיל",ageQuizS:"עונים בכנות על מה שיש במשחק — הדירוג ואזהרות התוכן מחושבים בשבילך. אפשר רק להעלות את הדירוג, לא להוריד.",ageRaise:"דירוג סופי (אפשר לבחור גבוה יותר)",ageResult:"תוצאה",noWarnings:"אין אזהרות תוכן",
+aq_violence:"אלימות",aq_violence_none:"אין",aq_violence_cartoon:"מצוירת / קומית",aq_violence_fantasy:"קרבות פנטזיה בלי פציעות",aq_violence_realistic:"מציאותית, בלי פציעות",aq_violence_injuries:"מציאותית עם פציעות",aq_violence_gore:"גרפית / גור",
+aq_blood:"דם",aq_blood_none:"אין",aq_blood_little:"מעט",aq_blood_lots:"הרבה",aq_blood_extreme:"גור קיצוני",
+aq_fear:"פחד ואימה",aq_fear_none:"אין",aq_fear_mild:"קצת מפחיד",aq_fear_scary:"רגעים מפחידים",aq_fear_horror:"אימה וקפיצות בהלה",aq_fear_intense:"אימה קשה ומטרידה",
+aq_language:"שפה גסה",aq_language_none:"אין",aq_language_mild:"קלה",aq_language_moderate:"קללות בינוניות",aq_language_strong:"קללות חזקות",aq_language_slurs:"עלבונות גזעניים / שנאה",
+aq_sexual:"רומנטיקה ותוכן מיני",aq_sexual_none:"אין",aq_sexual_romance:"רומנטיקה, נשיקות",aq_sexual_suggestive:"רמזים",aq_sexual_explicit:"תוכן מיני",
+aq_drugs:"סמים, אלכוהול, טבק",aq_drugs_none:"אין",aq_drugs_mentioned:"מוזכרים",aq_drugs_shown:"מוצגים",aq_drugs_used:"השחקן משתמש בהם",
+aq_gambling:"הימורים",aq_gambling_none:"אין",aq_gambling_chance:"משחקי מזל (תיבות שלל, קוביות)",aq_gambling_casino:"הימורים בסגנון קזינו",
+aq_themes:"נושאים בוגרים",aq_themes_none:"אין",aq_themes_mature:"מוות, פשע, מלחמה, נושאים עצובים",aq_themes_discrimination:"מוצגת אפליה",
+aq_online:"צ'אט אונליין עם זרים",aq_online_no:"לא",aq_online_chat:"כן",aq_purchases:"רכישות בתוך המשחק",aq_purchases_no:"לא",aq_purchases_yes:"כן",
+launchIn:"ההשקה תיפתח בעוד {n} ימים",launchWhy:"כל משחק שאושר מחכה 7 ימים כ\"בקרוב\" לפני שאפשר להשיק — זמן לאסוף רשימות משאלות ולתפוס בעיות.",autoOn:"יושק אוטומטית כ{a} כשההמתנה תיגמר.",autoOff:"אתה תשיק בעצמך כשההמתנה תיגמר.",
+launchReady:"מוכן להשקה!",launchReadyS:"7 ימי ההמתנה נגמרו. בוחרים איך להשיק את המשחק.",launchFull:"השקה — גרסה מלאה",launchEA:"השקה בגישה מוקדמת",launchQ:"להשיק את \"{t}\" עכשיו? כל מי שהוסיף לרשימת המשאלות יקבל התראה.",launched:"הושק! 🎉",
+launchT:"השקה",launchFormS:"אחרי אישור כל משחק מחכה 7 ימים כ\"בקרוב\". בוחרים איך הוא יושק.",releaseAs:"להשיק כ",accessNow:"גישה כרגע",acc_full:"גרסה מלאה",acc_early_access:"גישה מוקדמת",
+autoRelease:"להשיק אוטומטית כש-7 הימים נגמרים",eaNote:"גישה מוקדמת: מה מוכן, מה בדרך ולכמה זמן",eaNotePh:"אפשר לשחק במשחק מההתחלה עד הסוף. בדרך: 2 עולמות חדשים ומשחק רב-משתתפים. גרסה מלאה בעוד כ-3 חודשים.",
+eaShort:"גישה מוקדמת",eaT:"גישה מוקדמת",eaBannerT:"משחק בגישה מוקדמת",eaBannerS:"המשחק עדיין בפיתוח — הוא יכול להשתנות, והמפתח רוצה את המשוב שלך.",
+demoT:"דמו",demoS:"דמו חינמי שכל אחד יכול לשחק — גם כשהמשחק \"בקרוב\" או לפני קנייה.",demoNone:"בלי דמו",demoShort:"דמו",demosT:"דמואים",demoPlay:"דמו חינמי",demoPlayS:"נסו את המשחק לפני שמשיגים אותו.",demoBtn:"שחק בדמו",
+nav_demoH:"נסו משחקים בחינם",nav_eaH:"משחקים שעדיין בפיתוח",
+clT:"רשימת בדיקה לדף החנות",clS:"צריך דף מלא לפני ההגשה.",cl_cover:"תמונת שער",cl_shots:"לפחות 2 צילומי מסך",cl_desc:"תיאור מלא (120+ תווים)",cl_short:"תיאור קצר (20+ תווים)",cl_copyright:"בעל הזכויות",clFail:"צריך להשלים קודם את רשימת הבדיקה של דף החנות.",
+stepAgree:"הסכם מפתחים",stepLaunch:"השקה",hubS13:"חמישה שלבים: סטודיו ← הסכם ← אימות ← הגשת משחק ← השקה (אחרי המתנה של 7 ימים).",launchRule:"אחרי אישור, כל משחק מחכה 7 ימים כ\"בקרוב\" לפני ההשקה.",
+sFounded:"שנת הקמה",sAbout:"על הסטודיו",sAboutHint:"לפחות 50 תווים — מי אתם ומה אתם יוצרים.",sGenres:"ז'אנרים שאתם יוצרים",sMore:"צריך למלא מדינה, \"על הסטודיו\" (50+ תווים) ו-1–3 ז'אנרים.",
+v2T:"אימות סטודיו 2.0",v2S:"בחנות 1.3 יש אימות חדש ויסודי יותר. כל סטודיו עובר אותו שוב — המשחקים שלך נשארים בחנות, רק אי אפשר להגיש חדשים עד שתסיים.",
+agreeT:"הסכם מפתחים",agreeQuizS:"קוראים את הכללים ועונים על השאלות כדי להראות שהבנתם.",
+rule1:"מעלים רק משחקים שיצרתם או שיש לכם זכויות עליהם. העתקות מוסרות וסטודיואים יכולים להיות מושעים.",rule2:"כל סטודיו ומשחק עוברים בדיקה (ראשון–שישי; שבת סגורה, 5% Lucky Approval).",rule3:"אחרי אישור, משחק מחכה 7 ימים כ\"בקרוב\" לפני שאפשר להשיק — מלא או בגישה מוקדמת.",
+rule4:"ממלאים את שאלון הגיל בכנות. דירוג לא נכון יכול להוביל להסתרת המשחק.",rule5:"בלי תוכנות זדוניות, בלי גניבת מידע, בלי תוכן שנאה או לא חוקי.",rule6:"נדחיתם? יש 30 יום לתקן ולהגיש שוב. עירעורים במייל.",
+rule7:"Coins הם קרדיט לחנות בלי ערך כספי. הכנסות: עד 50 ← 80%, 50–200 ← 75%, 200–500 ← 70%, 500+ ← 50%.",rule8:"מכבדים שחקנים, עונים לביקורות ושומרים על דף חנות מדויק.",
+ag_q1:"אחרי שהמשחק אושר, מתי אפשר להשיק אותו?",ag_q1a:"מיד",ag_q1b:"אחרי 7 ימים כ\"בקרוב\"",ag_q1c:"אחרי 30 יום",
+ag_q2:"מה קורה אם מעלים משחק שלא שלכם?",ag_q2a:"כלום",ag_q2b:"רק אזהרה",ag_q2c:"הוא מוסר והסטודיו יכול להיות מושעה",
+ag_q3:"באילו ימים בודקים משחקים?",ag_q3a:"ראשון–שישי (שבת סגורה)",ag_q3b:"כל יום",ag_q3c:"רק בסופי שבוע",
+ag_q4:"איך קובעים את דירוג הגיל של המשחק?",ag_q4a:"בוחרים את הנמוך ביותר כדי שיותר ישחקו",ag_q4b:"עונים בכנות על שאלון הגיל",ag_q4c:"משאירים ריק",
+ag_q5:"אם המשחק נדחה, יש לכם…",ag_q5a:"7 ימים לתקן",ag_q5b:"אין הזדמנות שנייה",ag_q5c:"30 יום לתקן ולהגיש שוב",
+ag_q6:"Coins הם…",ag_q6a:"קרדיט לחנות בלי ערך כספי",ag_q6b:"כסף אמיתי",ag_q6c:"מטבע קריפטו",
+agreeConfirm:"קראתי ואני מסכים לכללי המפתחים ול{t}.",agreeBtn:"אשר את ההסכם",agreeAll:"צריך לענות על כל השאלות ולסמן את התיבה.",agreeWrong:"{n} תשובות לא נכונות — קראו שוב את הכללים ונסו שוב.",agreeDone:"ההסכם אושר",
+vsecId:"זהות",vbirth:"תאריך לידה",vcity:"עיר",vparentT:"הורה או אפוטרופוס",vparentS:"מפתחים מתחת לגיל 16 צריכים הסכמה של הורה או אפוטרופוס.",vparentEmail:"מייל של הורה / אפוטרופוס",vparentOk:"ההורה או האפוטרופוס שלי מסכים שאפרסם כאן משחקים",
+vsecPresence:"נוכחות ברשת",vportfolio:"תיק עבודות / עבודות קודמות (לא חובה)",vsecHuman:"עליך",vq1:"למה אתה מפתח משחקים? (20+ תווים)",vq2:"הניסיון שלך ביצירת משחקים (20+ תווים)",vq3:"איך שמעת על Man Studio Store?",
+vtruth:"כל מה שכתבתי נכון. אני מבין שפרטים כוזבים יכולים להוביל להשעיית הסטודיו.",vtruthNeed:"צריך לאשר שהפרטים נכונים.",
+e_WAIT_7_DAYS:"7 ימי ההמתנה עוד לא נגמרו.",e_NO_GAME_FILE:"צריך להעלות את המשחק (או קישור) לפני ההשקה.",e_AGREEMENT_REQUIRED:"צריך לאשר קודם את הסכם המפתחים.",e_BIRTH_DATE_REQUIRED:"צריך תאריך לידה.",e_TOO_YOUNG:"צריך להיות לפחות בן 9.",e_PARENT_CONSENT_REQUIRED:"מפתחים מתחת לגיל 16 צריכים מייל והסכמה של הורה.",newsT:"מה חדש",newsS:"עדכוני חנות, פיצ'רים חדשים והכרזות.",newsPost:"פרסם עדכון",newsPop:"מה חדש",newsAll:"כל העדכונים",gotIt:"הבנתי",nav_newsH:"עדכוני חנות והכרזות",
 libNews:"מה חדש במשחקים שלך",recentT:"נצפו לאחרונה",similarT:"עוד משחקים כאלה",
 trT:"תרגומים",trS:"מוסיפים את דף המשחק בשפות נוספות. שחקנים יראו אותו בשפה שלהם אוטומטית.",trAdd:"הוסף שפה",trShown:"מוצג ב{l} (תורגם על ידי המפתח)",trOrig:"מוצג בשפת המקור",trOriginal:"מקור",trAuto:"תרגם ל{l}",trDone:"תורגם על ידי הדפדפן",trFail:"תרגום לא זמין כאן",
 clangT:"שפת דפי המשחקים",clangS:"אם מפתח תרגם את הדף שלו לשפה הזו, תראה אותו בשפה הזו.",
 ageT:"דירוג גיל",ageFormS:"בוחרים גיל מינימלי ומה שחקנים צריכים לדעת.",ageNone:"ללא דירוג",age_all:"לכל הגילאים",age_7:"מגיל 7",age_12:"מגיל 12",age_16:"מגיל 16",age_18:"מבוגרים 18+",
 d_violence:"אלימות",d_blood:"דם",d_fear:"פחד / אימה",d_language:"שפה גסה",d_online:"אינטראקציה אונליין",d_gambling:"נושאי הימורים",d_mature:"תכנים בוגרים",d_purchases:"רכישות במשחק",
-ageGateT:"המשחק הזה למבוגרים (18+)",ageGateS:"{t} מדורג 18+. צריך לאשר שאתה בן 18 ומעלה כדי להמשיך.",ageYes:"אני בן 18 ומעלה",
+ageGateT:"המשחק הזה מדורג {a}",ageGateS:"{t} מדורג {a}. צריך לאשר שאתה בגיל המתאים כדי להמשיך.",ageYes:"אני בגיל המתאים",
 ageFilterT:"סינון לפי גיל",ageFilterS:"הסתרת משחקים שמדורגים מעל גיל מסוים (נשמר במכשיר).",ageShowAll:"הצג את כל המשחקים",ageUpTo:"הצג עד: {a}",
 copyT:"זכויות יוצרים",copyS:"של מי המשחק ואיך אחרים מורשים להשתמש בו. אם מישהו מעלה קובץ זהה, החנות מסמנת את זה אוטומטית.",copyHolder:"בעל הזכויות",licenseT:"רישיון",
 lic_all_rights:"כל הזכויות שמורות",lic_cc_by:"Creative Commons BY",lic_cc_by_nc:"Creative Commons BY-NC",lic_open_source:"קוד פתוח",lic_other:"רישיון אחר",
@@ -764,7 +851,7 @@ function subnav(q=""){
       ${it("#/browse?sort=players","🔥",t("mostplayed"),t("nav_mostH"))}${it("#/browse?sort=rated","⭐",t("toprated"),t("nav_topH"))}</div>
     <div class="ddcol"><h5>${t("nav_deals")}</h5>
       ${it("#/browse?free=1","🆓",t("freeGames"),t("nav_freeH"))}${it("#/browse?sale=1","🏷️",t("specials"),t("nav_saleH"))}
-      ${it("#/browse?soon=1","🕒",t("soon"),t("nav_soonH"))}${it("#","🎲",t("surpriseS"),t("nav_surpH"),"data-surprise")}</div>
+      ${it("#/browse?soon=1","🕒",t("soon"),t("nav_soonH"))}${it("#/browse?demo=1","🎮",t("demosT"),t("nav_demoH"))}${it("#/browse?ea=1","🧪",t("eaT"),t("nav_eaH"))}${it("#","🎲",t("surpriseS"),t("nav_surpH"),"data-surprise")}</div>
     <div class="ddcol genrecol"><h5>${t("genre")}</h5><div class="gl">${GENRES.map(g=>`<a href="#/browse?genre=${g}" role="menuitem">${esc(gname(g))}</a>`).join("")}</div></div>`;
   const community=`<div class="ddcol">${it("#/devlogs","📝",t("devlogs"),t("nav_devlogH"))}${it("#/festivals","🎪",t("festivals"),t("nav_festH"))}
       ${it("#/awards","🏆",t("awardsT"),t("nav_awardsH"))}${it("#/news","📰",t("newsT"),t("nav_newsH"))}</div>`;
@@ -802,6 +889,7 @@ async function route(){
       case "browse": await browseView(main,q,stale);break;
       case "app": await gameView(main,parts[1],stale);break;
       case "play": await gameView(main,parts[1],stale);if(!stale())playGame(parts[1]);break;
+      case "demo": await gameView(main,parts[1],stale);if(!stale())playDemo(parts[1]);break;
       case "library": await libraryView(main,stale);break;
       case "wishlist": await wishView(main,stale);break;
       case "user": await userView(main,decodeURIComponent(parts[1]||""),stale);break;
@@ -833,8 +921,8 @@ async function route(){
 function setTitle(s){document.title=s?s+" — "+STORE_NAME:STORE_NAME}
 
 /* ============ store home ============ */
-const GAME_COLS="id,owner,developer,title,short_desc,description,genre,tags,cover_url,screenshots,trailer_url,play_kind,min_reqs,published,players,wishes,review_count,positive_count,created_at,updated_at,studio_id,review_status,reject_reason,submitted_at,reviewed_at,fix_deadline,lucky,file_name,file_size,coming_soon,release_date,price,sale_pct,sale_start,sale_end,promoted_until,version,sales_count,coins_earned,release_precision,age_rating,age_descriptors,translations,copyright_holder,license,copy_of";
-const LIST_COLS="id,title,developer,short_desc,genre,tags,cover_url,screenshots,players,review_count,positive_count,created_at,owner,coming_soon,release_date,wishes,price,sale_pct,sale_start,sale_end,promoted_until,studio_id,version,release_precision,age_rating";
+const GAME_COLS="id,owner,developer,title,short_desc,description,genre,tags,cover_url,screenshots,trailer_url,play_kind,min_reqs,published,players,wishes,review_count,positive_count,created_at,updated_at,studio_id,review_status,reject_reason,submitted_at,reviewed_at,fix_deadline,lucky,file_name,file_size,coming_soon,release_date,price,sale_pct,sale_start,sale_end,promoted_until,version,sales_count,coins_earned,release_precision,age_rating,age_descriptors,translations,copyright_holder,license,copy_of,age_answers,access_type,ea_note,demo_kind,demo_url,demo_file_name,release_ready_at,auto_release,release_as";
+const LIST_COLS="id,title,developer,short_desc,genre,tags,cover_url,screenshots,players,review_count,positive_count,created_at,owner,coming_soon,release_date,wishes,price,sale_pct,sale_start,sale_end,promoted_until,studio_id,version,release_precision,age_rating,access_type,demo_kind,release_ready_at";
 function soonDate(g){const p=g.release_precision||"day";if(p==="tba"||!g.release_date)return t("tba");
   const d=new Date(g.release_date+"T12:00:00"),y=d.getFullYear();
   if(p==="year")return String(y);if(p==="quarter")return "Q"+(Math.floor(d.getMonth()/3)+1)+" "+y;
@@ -872,7 +960,7 @@ async function storeView(main,stale){
     live().order("promoted_until",{ascending:false,nullsFirst:false}).order("players",{ascending:false}).limit(10),
     live().eq("coming_soon",false).gte("created_at",since30).order("players",{ascending:false}).limit(8),
     live().eq("coming_soon",false).not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n).limit(8),
-    live().eq("coming_soon",true).order("release_date",{ascending:true,nullsFirst:false}).limit(8),
+    live().eq("coming_soon",true).order("release_ready_at",{ascending:true,nullsFirst:false}).order("release_date",{ascending:true,nullsFirst:false}).limit(8),
     sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image").order("created_at",{ascending:false}).limit(20),
     sb.from("bundles").select("id,title,price,game_ids,studio_id").eq("published",true).order("created_at",{ascending:false}).limit(6),
     sb.rpc("trending_ids",{p_limit:8}),
@@ -892,7 +980,9 @@ async function storeView(main,stale){
   const ag=id=>awardGames.find(g=>g.id===id);
   const bundles=bd.data||[];
   const fests=(fs.data||[]).filter(f=>festState(f)!=="ended");
-  const[spot,recent]=await Promise.all([spotlightHTML(),gamesByIds(recentIds().slice(0,6))]);if(stale())return;
+  const[spot,recent,dm,eaq]=await Promise.all([spotlightHTML(),gamesByIds(recentIds().slice(0,6)),live().not("demo_kind","is",null).order("players",{ascending:false}).limit(4),
+    live().eq("access_type","early_access").eq("coming_soon",false).order("players",{ascending:false}).limit(4)]);if(stale())return;
+  const hx={demos:dm.data||[],ea:eaq.data||[]};
   main.innerHTML=subnav()+`
     ${spot?`<div class="spots">${spot}</div>`:""}
     ${fests.length?`<div style="display:grid;gap:10px;margin-bottom:6px">${fests.map(f=>festBannerHTML(f,festState(f)==="live")).join("")}</div>`:""}
@@ -908,6 +998,8 @@ async function storeView(main,stale){
     <div class="rows">${newPop.map(rowHTML).join("")}</div>`:""}
     ${sp.data.length?`<h2 class="sec">🏷️ ${t("specials")}<a href="#/browse?sale=1">${t("seeall")}</a></h2><div class="grid">${sp.data.map(cardHTML).join("")}</div>`:""}
     ${bundles.length?`<h2 class="sec">📦 ${t("bundles")}</h2><div class="grid">${bundles.map(bundleCardHTML).join("")}</div>`:""}
+    ${hx.demos.length?`<h2 class="sec">🎮 ${t("demosT")}<a href="#/browse?demo=1">${t("seeall")}</a></h2><div class="grid">${hx.demos.map(cardHTML).join("")}</div>`:""}
+    ${hx.ea.length?`<h2 class="sec">🧪 ${t("eaT")}<a href="#/browse?ea=1">${t("seeall")}</a></h2><div class="grid">${hx.ea.map(cardHTML).join("")}</div>`:""}
     ${cs.data.length?`<h2 class="sec">🕒 ${t("soon")}<a href="#/browse?soon=1">${t("seeall")}</a></h2><div class="grid">${cs.data.map(cardHTML).join("")}</div>`:""}
     <div class="cta"><div><h3>${t("ctaT")}</h3><div class="mut">${t("ctaS")}</div></div><a class="btn green" href="#/publish">${t("ctaB")}</a></div>
     <h2 class="sec">${t("bygenre")}</h2>
@@ -927,9 +1019,9 @@ async function storeView(main,stale){
   const restart=()=>{clearInterval(timer);if(feat.length>1)timer=setInterval(()=>{if(stale()||!document.body.contains($("#heroBox")))return clearInterval(timer);showHero(hi+1)},6000)};
   showHero(0);restart();
 }
-function rowHTML(g){return `<a class="row" href="#/app/${g.id}">${coverHTML(g)}<div><div class="t">${ageBadgeHTML(g)}${esc(g.title)} ${promoHTML(g)}</div><div>${tagsHTML(g,3)}</div><div>${rvHTML(g)}</div></div>
+function rowHTML(g){return `<a class="row" href="#/app/${g.id}">${coverHTML(g)}<div><div class="t">${ageBadgeHTML(g)}${esc(g.title)} ${promoHTML(g)} ${tagsExtraHTML(g)}</div><div>${tagsHTML(g,3)}</div><div>${rvHTML(g)}</div></div>
   <div class="meta">${priceTag(g)}<div class="dim" style="font-size:12px;margin-top:6px">${g.coming_soon?soonDate(g):esc(gname(g.genre))}</div></div></a>`}
-function cardHTML(g){return `<a class="card" href="#/app/${g.id}">${coverHTML(g)}<div class="b"><div class="t">${ageBadgeHTML(g)}${esc(g.title)}</div>
+function cardHTML(g){return `<a class="card" href="#/app/${g.id}">${coverHTML(g)}<div class="b"><div class="t">${ageBadgeHTML(g)}${esc(g.title)}</div>${tagsExtraHTML(g)?`<div>${tagsExtraHTML(g)}</div>`:""}
   <div class="mut" style="font-size:12px">${esc(g.developer)} · ${esc(gname(g.genre))} ${promoHTML(g)}</div><div>${rvHTML(g)}</div>
   <div class="f"><span class="dim" style="font-size:12px">${g.coming_soon?soonDate(g):(g.players||0).toLocaleString()+" "+t("players")}</span>${priceTag(g)}</div></div></a>`}
 function bundleCardHTML(b){const h=hash(b.title)%360;return `<a class="card" href="#/bundle/${b.id}"><div class="cover" style="background:linear-gradient(135deg,hsl(${h} 60% 30%),hsl(${(h+70)%360} 70% 16%))"><div class="gen" style="font-size:22px">📦 ${esc(b.title)}</div></div>
@@ -938,19 +1030,21 @@ function bundleCardHTML(b){const h=hash(b.title)%360;return `<a class="card" hre
 /* ============ browse ============ */
 async function browseView(main,q,stale){
   const genre=q.get("genre")||"",sort=q.get("sort")||"new",term=(q.get("q")||"").trim(),tag=(q.get("tag")||"").trim();
-  const soonOnly=q.get("soon")==="1",saleOnly=q.get("sale")==="1",freeOnly=q.get("free")==="1";
-  const heading=term?`"${term}"`:tag?"#"+tag:genre?gname(genre):soonOnly?t("soon"):saleOnly?t("specials"):freeOnly?t("freeGames"):t("browse");
+  const soonOnly=q.get("soon")==="1",saleOnly=q.get("sale")==="1",freeOnly=q.get("free")==="1",demoOnly=q.get("demo")==="1",eaOnly=q.get("ea")==="1";
+  const heading=term?`"${term}"`:tag?"#"+tag:genre?gname(genre):soonOnly?t("soon"):saleOnly?t("specials"):freeOnly?t("freeGames"):demoOnly?t("demosT"):eaOnly?t("eaT"):t("browse");
   setTitle(heading);
   let qy=ageFilter(sb.from("games").select(LIST_COLS,{count:"exact"}).eq("published",true).eq("review_status","approved"));
   if(genre)qy=qy.eq("genre",genre);
   if(tag)qy=qy.contains("tags",[tag]);
   if(soonOnly)qy=qy.eq("coming_soon",true);
   if(freeOnly)qy=qy.eq("price",0).eq("coming_soon",false);
+  if(demoOnly)qy=qy.not("demo_kind","is",null);
+  if(eaOnly)qy=qy.eq("access_type","early_access").eq("coming_soon",false);
   if(saleOnly){const n=nowISO();qy=qy.not("sale_pct","is",null).lte("sale_start",n).gt("sale_end",n)}
   if(term){const s=term.replace(/[,()%*\\.:"']/g," ").trim();if(s)qy=qy.or(`title.ilike.%${s}%,developer.ilike.%${s}%,short_desc.ilike.%${s}%`)}
   qy=sort==="players"?qy.order("players",{ascending:false}):sort==="rated"?qy.order("positive_count",{ascending:false}).order("review_count",{ascending:true}):sort==="name"?qy.order("title"):sort==="price"?qy.order("price"):qy.order("created_at",{ascending:false});
   const {data,count,error}=await qy.limit(60);if(stale())return;if(error)throw error;
-  const link=(o)=>{const p=new URLSearchParams({...(genre&&{genre}),...(term&&{q:term}),...(tag&&{tag}),...(sort!=="new"&&{sort}),...(soonOnly&&{soon:"1"}),...(saleOnly&&{sale:"1"}),...(freeOnly&&{free:"1"}),...o});for(const[k,v]of[...p])if(!v)p.delete(k);return "#/browse"+(p.toString()?"?"+p:"")};
+  const link=(o)=>{const p=new URLSearchParams({...(genre&&{genre}),...(term&&{q:term}),...(tag&&{tag}),...(sort!=="new"&&{sort}),...(soonOnly&&{soon:"1"}),...(saleOnly&&{sale:"1"}),...(freeOnly&&{free:"1"}),...(demoOnly&&{demo:"1"}),...(eaOnly&&{ea:"1"}),...o});for(const[k,v]of[...p])if(!v)p.delete(k);return "#/browse"+(p.toString()?"?"+p:"")};
   main.innerHTML=subnav(term)+`<div class="bwrap"><div>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap"><b style="color:#fff;font-size:18px">${esc(heading)}</b>
       <span class="mut">${count||0} ${t("results")}</span>${tag?`<a class="btn ghost sm" href="${link({tag:""})}">✕ #${esc(tag)}</a>`:""}
@@ -958,7 +1052,7 @@ async function browseView(main,q,stale){
       <select id="sort" style="width:auto">${[["new","s_new"],["players","s_players"],["rated","s_rated"],["price","s_price"],["name","s_name"]].map(([v,k])=>`<option value="${v}" ${v===sort?"selected":""}>${t(k)}</option>`).join("")}</select></label></div>
     ${data.length?`<div class="rows" style="border-radius:3px">${data.map(rowHTML).join("")}</div>`:`<div class="empty"><b>${t("noresults")}</b></div>`}
   </div><aside class="filters"><div class="panel"><h4>${t("show")}</h4>
-    <a href="${link({soon:"",sale:"",free:""})}" class="${!soonOnly&&!saleOnly&&!freeOnly?"on":""}">${t("browse")}</a><a href="${link({soon:"",sale:"",free:"1"})}" class="${freeOnly?"on":""}">🆓 ${t("freeGames")}</a><a href="${link({soon:"",free:"",sale:"1"})}" class="${saleOnly?"on":""}">🏷️ ${t("specials")}</a><a href="${link({sale:"",free:"",soon:"1"})}" class="${soonOnly?"on":""}">🕒 ${t("soon")}</a></div>
+    <a href="${link({soon:"",sale:"",free:""})}" class="${!soonOnly&&!saleOnly&&!freeOnly?"on":""}">${t("browse")}</a><a href="${link({soon:"",sale:"",free:"1"})}" class="${freeOnly?"on":""}">🆓 ${t("freeGames")}</a><a href="${link({soon:"",free:"",sale:"1"})}" class="${saleOnly?"on":""}">🏷️ ${t("specials")}</a><a href="${link({sale:"",free:"",soon:"1"})}" class="${soonOnly?"on":""}">🕒 ${t("soon")}</a><a href="${link({demo:demoOnly?"":"1"})}" class="${demoOnly?"on":""}">🎮 ${t("demosT")}</a><a href="${link({ea:eaOnly?"":"1"})}" class="${eaOnly?"on":""}">🧪 ${t("eaT")}</a></div>
     <div class="panel"><h4>${t("genre")}</h4>
     <a href="${link({genre:""})}" class="${!genre?"on":""}">${t("anygenre")}</a>${GENRES.map(g=>`<a href="${link({genre:g})}" class="${g===genre?"on":""}">${esc(gname(g))}</a>`).join("")}</div></aside></div>`;
   bindSubnav();$("#sort").onchange=e=>location.hash=link({sort:e.target.value==="new"?"":e.target.value});
@@ -1032,8 +1126,8 @@ async function gameView(main,id,stale){
   if(stale())return;
   const revs=rr.data||[],updates=ur.data||[],awards=ar.data||[],bundles=br.data||[],collabs=cor.data||[];
   // age check before showing an 18+ game
-  if(g.age_rating==="18"&&lsGet("pp_age18")!=="1"&&!(me&&(me.id===g.owner||me.profile.is_admin))){setTitle(g.title);main.innerHTML=subnav()+ageGateHTML(g);bindSubnav();
-    $("#ageOk").onclick=()=>{lsSet("pp_age18","1");route()};return}
+  if(["17","18"].includes(g.age_rating)&&lsGet("pp_age"+g.age_rating)!=="1"&&lsGet("pp_age18")!=="1"&&!(me&&(me.id===g.owner||me.profile.is_admin))){setTitle(g.title);main.innerHTML=subnav()+ageGateHTML(g);bindSubnav();
+    $("#ageOk").onclick=()=>{lsSet("pp_age"+g.age_rating,"1");route()};return}
   rememberViewed(g.id);
   // the developer's own translation for the viewer's language (or one they picked on this page)
   const orig={title:g.title,short_desc:g.short_desc,description:g.description},trs=g.translations||{},trLangs=Object.keys(trs);
@@ -1054,7 +1148,7 @@ async function gameView(main,id,stale){
   main.innerHTML=subnav()+`
   <div class="crumbs"><a href="#/browse">${t("browse")}</a> › <a href="#/browse?genre=${encodeURIComponent(g.genre)}">${esc(gname(g.genre))}</a> › ${esc(g.title)}</div>
   <h1 class="gtitle">${esc(g.title)} ${!g.published?`<span class="pill off">${t("hidden")}</span>`:""} ${promoHTML(g)}
-    ${isOwner||isAdmin?`<a class="btn ghost sm" href="#/edit/${g.id}">✎ ${t("edit")}</a>`:""}${g.lucky?` <span class="pill luck">${t("lucky")}</span>`:""}</h1>
+    ${tagsExtraHTML(g)}${isOwner||isAdmin?`<a class="btn ghost sm" href="#/edit/${g.id}">✎ ${t("edit")}</a>`:""}${g.lucky?` <span class="pill luck">${t("lucky")}</span>`:""}</h1>
   ${gameFests.length?`<div class="awardline">${gameFests.map(f=>`<a class="atag big" style="background:${esc(f.theme)};color:#fff" href="#/fest/${f.id}">🎪 ${esc(f.title)}${festState(f)==="live"?" · "+t("f_live"):""}</a>`).join("")}</div>`:""}
   ${awards.length?`<div class="awardline">${awards.map(a=>`<span class="atag big">${a.category?`🏅 ${esc(a.category)} · ${t(a.kind)}`:`🏆 ${t(a.kind)}`} · ${esc(periodLabel(a))}</span>`).join("")}</div>`:""}
   ${(isOwner||isAdmin)&&g.review_status!=="approved"?`<div style="margin-bottom:12px">${gameStatusHTML(g)}${isAdmin?`<a class="btn sm" style="margin-top:8px" href="#/admin/games">${t("adminT")}</a>`:""}</div>`:""}
@@ -1069,6 +1163,8 @@ async function gameView(main,id,stale){
       ${g.coming_soon?"":`<span>${t("players")}</span><span>${(g.players||0).toLocaleString()}</span>`}</div>
       <div>${(g.tags||[]).slice(0,10).map(x=>`<a class="tag" href="#/browse?tag=${encodeURIComponent(x)}">${esc(x)}</a>`).join("")}</div></div></div>
   <div class="gbody"><div>
+    ${g.access_type==="early_access"&&!g.coming_soon?`<div class="eabanner"><b>🧪 ${t("eaBannerT")}</b><div class="mut">${t("eaBannerS")}</div>${g.ea_note?`<div class="about" style="margin-top:6px">${esc(g.ea_note)}</div>`:""}</div>`:""}
+    ${launchBoxHTML(g,isOwner)}
     ${g.coming_soon?`<div class="buybox soonbuy"><h3>🕒 ${t("soon")}: ${esc(g.title)}</h3>
       <div class="mut">${t("release")}: <b style="color:#fff">${soonDate(g)}</b>${daysLeft(g)!==null?` · ${daysLeft(g)?t("daysleft").replace("{n}",daysLeft(g)):t("anyday")}`:""}</div>
       <div class="mut" style="margin-top:4px">${t("soonwish")}</div>
@@ -1080,6 +1176,8 @@ async function gameView(main,id,stale){
       ${g.play_kind==="download"?`<div class="dim" style="font-size:12px;margin-top:6px">🪟 Windows · ${esc(g.file_name||"")}${g.file_size?" · "+fmtSize(g.file_size):""}<br>${t("smartscreen")}</div>`:""}
       ${extHost?`<div class="dim" style="font-size:12px;margin-top:6px">↗ ${t("extFrom")} <b>${esc(extHost)}</b></div>`:""}
       <div class="act"><span class="price">${paid?(owned?t("owned"):coins(g.price)):t("free")}</span><button class="btn green" id="playBtn">${playLabel}</button></div></div>`}
+    ${g.demo_kind&&g.demo_url?`<div class="buybox demobox"><h3>🎮 ${t("demoPlay")}</h3><div class="mut">${t("demoPlayS")}</div>
+      <div class="act"><span class="price">${t("free")}</span><a class="btn green" href="#/demo/${g.id}">${g.demo_kind==="download"?"⬇":"▶"} ${t("demoBtn")}</a></div></div>`:""}
     ${bundles.length?bundles.map(b=>`<div class="buybox" style="padding-bottom:30px"><h3>📦 ${t("buy")} ${esc(b.title)}</h3><div class="mut">${b.game_ids.length} ${t("games")}</div>
       <div class="act"><span class="price">${coins(b.price)}</span><a class="btn green" href="#/bundle/${b.id}">${t("viewBundle")}</a></div></div>`).join(""):""}
     ${(dlr.data||[]).length?`<div class="hd">📝 ${t("devlogs")}</div><div class="grid">${dlr.data.map(devlogCardHTML).join("")}</div>`:""}
@@ -1118,6 +1216,7 @@ async function gameView(main,id,stale){
     document.querySelectorAll("#th button").forEach(b=>b.classList.toggle("on",+b.dataset.i===i))};
   showMedia(0);
   if($("#th"))$("#th").onclick=e=>{const b=e.target.closest("button");if(b)showMedia(+b.dataset.i)};
+  bindLaunch();
   if($("#gdl"))$("#gdl").onclick=async()=>devlogForm(await loadStudio(),null,g.id);
   if($("#playBtn"))$("#playBtn").onclick=()=>{location.hash="#/play/"+g.id};
   if($("#buyBtn"))$("#buyBtn").onclick=()=>openCheckout({kind:"game",id:g.id,title:g.title,price:effPrice(g),list:g.price});
@@ -1365,13 +1464,13 @@ const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}},lsSet=
 function contentLang(){return lsGet("pp_clang")||((navigator.language||"en").slice(0,2).toLowerCase())}
 const pageLangChoice=new Map(); // per game, this session: "orig" or a language code
 
-const AGES=["all","7","12","16","18"];
-const AGE_DESC=["violence","blood","fear","language","online","gambling","mature","purchases"];
+const AGES=["all","3","7","10","12","13","15","16","17","18"];
+const AGE_DESC=["violence","blood","fear","language","sexual","drugs","discrimination","online","gambling","mature","purchases"];
 function ageBadgeHTML(g,big){const a=g.age_rating;if(!a)return "";
   return `<span class="agebadge a${a} ${big?"big":""}" title="${esc(t("age_"+a))}">${a==="all"?(big?"ALL":"A"):a+"+"}</span>`}
 // hide games above the age a player picked in Settings
 function ageFilter(q){const m=lsGet("pp_agemax");if(!m)return q;const ok=AGES.slice(0,AGES.indexOf(m)+1);return q.or(`age_rating.is.null,age_rating.in.(${ok.join(",")})`)}
-function ageGateHTML(g){return `<div class="agegate">${ageBadgeHTML(g,true)}<h2>${t("ageGateT")}</h2><p class="mut">${t("ageGateS").replace("{t}",esc(g.title))}</p>
+function ageGateHTML(g){return `<div class="agegate">${ageBadgeHTML(g,true)}<h2>${t("ageGateT").replace("{a}",g.age_rating+"+")}</h2><p class="mut">${t("ageGateS").replace("{t}",esc(g.title)).replace("{a}",g.age_rating+"+")}</p>
   ${(g.age_descriptors||[]).length?`<div class="descs">${g.age_descriptors.map(d=>`<span>${t("d_"+d)}</span>`).join("")}</div>`:""}
   <div class="acts" style="justify-content:center"><a class="btn ghost" href="#/">${t("back")}</a><button class="btn green" id="ageOk">${t("ageYes")}</button></div></div>`}
 
@@ -1509,6 +1608,158 @@ async function libraryNewsHTML(ids){if(!ids.length)return "";
     ...(d.data||[]).map(x=>({at:x.created_at,html:`<a href="#/devlog/${x.id}" class="wnitem"><span class="wnic">📝</span><span><b>${esc(x.games?.title||"")}</b><small>${esc(x.title)}</small></span><span class="dim">${ago(x.created_at)}</span></a>`}))]
     .sort((a,b)=>new Date(b.at)-new Date(a.at)).slice(0,8);
   return items.length?`<div class="panel wn"><h3 style="margin:0 0 6px;color:#fff">🔄 ${t("libNews")}</h3>${items.map(i=>i.html).join("")}</div>`:""}
+
+/* ============ v1.3: age questionnaire, launch wait, demos, early access, verification 2.0 ============ */
+const AGE_NUM={all:0,"3":3,"7":7,"10":10,"12":12,"13":13,"15":15,"16":16,"17":17,"18":18};
+// each answer: [key, minimum age, descriptors it adds]
+const AGE_Q=[
+  ["violence",[["none",0],["cartoon",7,["violence"]],["fantasy",10,["violence"]],["realistic",13,["violence"]],["injuries",16,["violence"]],["gore",18,["violence","blood"]]]],
+  ["blood",[["none",0],["little",12,["blood"]],["lots",16,["blood"]],["extreme",18,["blood"]]]],
+  ["fear",[["none",0],["mild",7,["fear"]],["scary",12,["fear"]],["horror",15,["fear"]],["intense",17,["fear"]]]],
+  ["language",[["none",0],["mild",10,["language"]],["moderate",13,["language"]],["strong",16,["language"]],["slurs",18,["language","discrimination"]]]],
+  ["sexual",[["none",0],["romance",7],["suggestive",13,["sexual"]],["explicit",18,["sexual"]]]],
+  ["drugs",[["none",0],["mentioned",12,["drugs"]],["shown",16,["drugs"]],["used",18,["drugs"]]]],
+  ["gambling",[["none",0],["chance",12,["gambling"]],["casino",18,["gambling"]]]],
+  ["themes",[["none",0],["mature",15,["mature"]],["discrimination",16,["discrimination"]]]],
+  ["online",[["no",0],["chat",0,["online"]]]],
+  ["purchases",[["no",0],["yes",0,["purchases"]]]]];
+function ageFromAnswers(ans){let max=0;const d=new Set();
+  for(const[q,opts]of AGE_Q){const o=opts.find(x=>x[0]===ans[q]);if(!o)continue;max=Math.max(max,o[1]);(o[2]||[]).forEach(x=>d.add(x))}
+  const r=AGES.find(a=>AGE_NUM[a]>=max)||"18";return{rating:max===0?"all":r,desc:[...d]}}
+function ageQuizHTML(g){const ans=g.age_answers||{};
+  return `<div class="trbox agequiz"><b>🔞 ${t("ageQuizT")}</b><div class="hint" style="margin:4px 0 10px">${t("ageQuizS")}</div>
+    <div class="aq">${AGE_Q.map(([q,opts])=>`<label><span>${t("aq_"+q)}</span><select data-aq="${q}">${opts.map(o=>`<option value="${o[0]}" ${(ans[q]||opts[0][0])===o[0]?"selected":""}>${t("aq_"+q+"_"+o[0])}</option>`).join("")}</select></label>`).join("")}</div>
+    <div class="aqres" id="aqres"></div>
+    <label style="margin-top:8px">${t("ageRaise")}<select id="fage"></select></label></div>`}
+function bindAgeQuiz(g){
+  const read=()=>Object.fromEntries([...document.querySelectorAll("[data-aq]")].map(s=>[s.dataset.aq,s.value]));
+  const paint=()=>{const r=ageFromAnswers(read()),cur=$("#fage").value||g.age_rating||"";
+    $("#aqres").innerHTML=`${ageBadgeHTML({age_rating:r.rating},true)}<div><b>${t("ageResult")}: ${t("age_"+r.rating)}</b><div class="descs">${r.desc.map(d=>`<span>${t("d_"+d)}</span>`).join("")||`<span>${t("noWarnings")}</span>`}</div></div>`;
+    const ok=AGES.filter(a=>AGE_NUM[a]>=AGE_NUM[r.rating]);
+    $("#fage").innerHTML=ok.map(a=>`<option value="${a}" ${a===(ok.includes(cur)?cur:r.rating)?"selected":""}>${t("age_"+a)}${a===r.rating?" ✓":""}</option>`).join("")};
+  document.querySelectorAll("[data-aq]").forEach(s=>s.onchange=paint);paint();
+  return()=>{const ans=read(),r=ageFromAnswers(ans);return{age_answers:ans,age_rating:$("#fage").value||r.rating,age_descriptors:r.desc}}}
+
+// ---------- launch: 7-day wait, full release or early access ----------
+const daysUntil=d=>Math.max(0,Math.ceil((new Date(d)-Date.now())/864e5));
+const launchLocked=g=>!!(g.coming_soon&&g.release_ready_at&&new Date(g.release_ready_at)>new Date());
+function launchBoxHTML(g,isOwner){
+  if(!g.coming_soon||g.review_status!=="approved")return "";
+  if(launchLocked(g))return `<div class="launchbox"><b>🔒 ${t("launchIn").replace("{n}",daysUntil(g.release_ready_at))}</b><div class="mut">${t("launchWhy")}</div>
+    <div class="cdown" data-until="${esc(g.release_ready_at)}"></div>${isOwner?`<div class="dim" style="font-size:12px">${g.auto_release?t("autoOn").replace("{a}",t("acc_"+g.release_as)):t("autoOff")}</div>`:""}</div>`;
+  if(!isOwner)return "";
+  return `<div class="launchbox ready"><b>🚀 ${t("launchReady")}</b><div class="mut">${t("launchReadyS")}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn green" data-launch="full" data-gid="${g.id}" data-title="${esc(g.title)}">🚀 ${t("launchFull")}</button><button class="btn" data-launch="early_access" data-gid="${g.id}" data-title="${esc(g.title)}">🧪 ${t("launchEA")}</button></div></div>`}
+function bindLaunch(){document.querySelectorAll("[data-launch]").forEach(b=>b.onclick=async()=>{if(!await confirmBox(t("launchQ").replace("{t}",b.dataset.title)))return;
+  const{error}=await sb.from("games").update({coming_soon:false,access_type:b.dataset.launch}).eq("id",b.dataset.gid);if(error)return toast(errMsg(error));toast("🚀 "+t("launched"));route()});
+  const tick=()=>document.querySelectorAll(".cdown").forEach(el=>{const ms=new Date(el.dataset.until)-Date.now();if(ms<=0){el.textContent="";return}
+    const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;el.textContent=`${d}d ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`});
+  tick();clearInterval(window._cdT);window._cdT=setInterval(()=>{if(!document.querySelector(".cdown"))return clearInterval(window._cdT);tick()},1000)}
+function launchFormHTML(g){
+  return `<div class="trbox"><b>🚀 ${t("launchT")}</b><div class="hint" style="margin:4px 0 8px">${t("launchFormS")}</div>
+    <div class="two"><label>${t("releaseAs")}<select id="frel"><option value="full" ${g.release_as!=="early_access"?"selected":""}>${t("acc_full")}</option><option value="early_access" ${g.release_as==="early_access"?"selected":""}>🧪 ${t("acc_early_access")}</option></select></label>
+      ${!g.coming_soon&&g.id?`<label>${t("accessNow")}<select id="facc"><option value="full" ${g.access_type!=="early_access"?"selected":""}>${t("acc_full")}</option><option value="early_access" ${g.access_type==="early_access"?"selected":""}>🧪 ${t("acc_early_access")}</option></select></label>`:"<span></span>"}</div>
+    <label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" id="fauto" ${g.auto_release!==false?"checked":""}> ${t("autoRelease")}</label>
+    <label id="feaw" style="margin-top:8px">🧪 ${t("eaNote")}<textarea class="inp" id="fea" maxlength="3000" style="min-height:70px" placeholder="${t("eaNotePh")}">${esc(g.ea_note||"")}</textarea></label></div>`}
+
+// ---------- demo ----------
+function demoFormHTML(g){const k=g.demo_kind||"";
+  return `<div class="trbox"><b>🎮 ${t("demoT")}</b><div class="hint" style="margin:4px 0 8px">${t("demoS")}</div>
+    <div class="seg">${[["","demoNone"],["html","f_html"],["download","f_exe"],["link","f_link"]].map(([v,l])=>`<label><input type="radio" name="dk" value="${v}" ${k===v?"checked":""}> ${t(l)}</label>`).join("")}</div>
+    <div id="dkF" style="margin-top:8px"><input type="file" id="dfile" accept=".html,.htm,.exe,.zip">${g.demo_url&&k!=="link"?`<span class="hint">${t("curfile")}: ${esc(g.demo_file_name||"✓")} ${t("keep")}</span>`:""}</div>
+    <input class="inp" id="dlink" dir="ltr" maxlength="500" placeholder="https://…" value="${k==="link"?esc(g.demo_url||""):""}" style="margin-top:8px"></div>`}
+function bindDemoForm(){const sync=()=>{const k=document.querySelector("input[name=dk]:checked").value;$("#dkF").hidden=!(k==="html"||k==="download");$("#dlink").hidden=k!=="link";
+  $("#dfile").accept=k==="html"?".html,.htm":".exe,.zip"};document.querySelectorAll("input[name=dk]").forEach(r=>r.onchange=sync);sync()}
+async function readDemo(g){const k=document.querySelector("input[name=dk]:checked").value;
+  if(!k)return{demo_kind:null,demo_url:null,demo_file_name:null};
+  if(k==="link"){const raw=$("#dlink").value.trim(),u=okUrl(raw);if(!u||!/^https?:/i.test(raw))throw new Error(t("err_badurl")+" (demo)");return{demo_kind:"link",demo_url:u,demo_file_name:null}}
+  const f=$("#dfile").files[0];
+  if(!f){if(g.demo_kind===k&&g.demo_url)return{demo_kind:k,demo_url:g.demo_url,demo_file_name:g.demo_file_name};throw new Error(t("err_required")+": demo")}
+  if(f.size>50*1048576)throw new Error(t("err_big")+" (50MB) — "+t("f_toobig"));
+  const url=k==="html"?await upload(f,"demo",["text/html"],50):await upload(f,"demo",["application/octet-stream","application/zip"],50);
+  return{demo_kind:k,demo_url:url,demo_file_name:f.name.slice(0,200)}}
+async function playDemo(id){
+  const{data:g}=await sb.from("games").select("id,title,demo_kind,demo_url,demo_file_name").eq("id",id).maybeSingle();
+  if(!g||!g.demo_url){location.replace("#/app/"+id);return}
+  if(g.demo_kind==="link"){window.open(okUrl(g.demo_url),"_blank","noopener");location.replace("#/app/"+id);return}
+  if(g.demo_kind==="download"){const sp=storagePath(g.demo_url);const u=sp?sb.storage.from("media").getPublicUrl(sp,{download:g.demo_file_name||true}).data.publicUrl:okUrl(g.demo_url);
+    const a=document.createElement("a");a.href=u;a.rel="noopener";document.body.appendChild(a);a.click();a.remove();toast("⬇ "+t("demoT"));location.replace("#/app/"+id);return}
+  playerEl=document.createElement("div");playerEl.className="player";playerGame="demo-"+g.id;
+  playerEl.innerHTML=`<div class="bar2"><b>🎮 ${t("demoT")} · ${esc(g.title)}</b><button class="btn ghost sm" id="fsBtn">⛶ ${t("fullscreen")}</button><button class="btn sm" id="pcBtn">✕ ${t("close")}</button></div><div id="pbody" style="flex:1;display:flex">${loading()}</div>`;
+  document.body.appendChild(playerEl);$("#pcBtn").onclick=()=>closePlayer();
+  try{const res=await fetch(okUrl(g.demo_url));if(!res.ok)throw new Error(res.status);const html=await res.text();if(playerGame!=="demo-"+g.id)return;
+    const fr=document.createElement("iframe");fr.setAttribute("sandbox","allow-scripts allow-pointer-lock allow-modals allow-forms allow-popups allow-downloads");
+    fr.setAttribute("allow","fullscreen; gamepad; autoplay");fr.allowFullscreen=true;fr.title=g.title;fr.srcdoc=saveShim("demo-"+g.id)+html;
+    $("#pbody").innerHTML="";$("#pbody").appendChild(fr);fr.focus();$("#fsBtn").onclick=()=>(fr.requestFullscreen?fr.requestFullscreen():playerEl.requestFullscreen()).catch(()=>{})}
+  catch(e){$("#pbody").innerHTML=`<div class="empty" style="margin:auto"><b>${t("loadfail")}</b></div>`}}
+const tagsExtraHTML=g=>`${g.access_type==="early_access"&&!g.coming_soon?`<span class="eatag">🧪 ${t("eaShort")}</span>`:""}${g.demo_kind?`<span class="demotag">🎮 ${t("demoShort")}</span>`:""}`;
+
+// ---------- pre-submission checklist ----------
+function checklist(){const shots=document.querySelectorAll("#shp img").length,hasCover=!!($("#fc")?.files[0]||document.querySelector("#fc")?.parentElement.querySelector(".prevs img"));
+  return [["cover",hasCover],["shots",shots>=2],["desc",($("#fdesc")?.value.trim().length||0)>=120],["short",($("#fs")?.value.trim().length||0)>=20],["copyright",!!$("#fcop")?.value.trim()]]}
+function checklistHTML(){const c=checklist();return `<div class="trbox clist"><b>✅ ${t("clT")}</b><div class="hint" style="margin:4px 0 6px">${t("clS")}</div>
+  ${c.map(([k,ok])=>`<div class="${ok?"ok":"no"}">${ok?"✓":"✗"} ${t("cl_"+k)}</div>`).join("")}</div>`}
+
+// ---------- studio verification 2.0 ----------
+const AGREE_Q=[["q1",["a","b","c"]],["q2",["a","b","c"]],["q3",["a","b","c"]],["q4",["a","b","c"]],["q5",["a","b","c"]],["q6",["a","b","c"]]];
+function agreementForm(box,s){
+  box.innerHTML=`${s.verify_version===1?`<div class="status wait" style="margin-bottom:12px"><h3>🛡️ ${t("v2T")}</h3><div>${t("v2S")}</div></div>`:""}
+  <div class="panel"><form class="form agree" id="agf" novalidate style="max-width:none"><h3 style="margin:0;color:#fff">2. ${t("agreeT")}</h3>
+    <div class="rules">${[1,2,3,4,5,6,7,8].map(i=>`<div>📜 ${t("rule"+i)}</div>`).join("")}</div>
+    <div class="mut">${t("agreeQuizS")}</div>
+    ${AGREE_Q.map(([q,opts],i)=>`<fieldset><legend>${i+1}. ${t("ag_"+q)}</legend>${opts.map(o=>`<label><input type="radio" name="${q}" value="${o}"> ${t("ag_"+q+o)}</label>`).join("")}</fieldset>`).join("")}
+    <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="agok" style="margin-top:3px"> <span>${t("agreeConfirm").replace("{t}",`<a href="#/terms" target="_blank">${t("termsT")}</a>`)}</span></label>
+    <div class="err" id="age"></div><div><button class="btn green" id="ags">🤝 ${t("agreeBtn")}</button></div></form></div>`;
+  $("#agf").onsubmit=async e=>{e.preventDefault();const er=$("#age");er.textContent="";
+    const ans=Object.fromEntries(AGREE_Q.map(([q])=>[q,document.querySelector(`input[name=${q}]:checked`)?.value||""]));
+    if(Object.values(ans).some(v=>!v)||!$("#agok").checked){er.textContent=t("agreeAll");return}
+    $("#ags").disabled=true;const{data,error}=await sb.rpc("accept_agreement",{p_answers:ans});$("#ags").disabled=false;
+    if(error){er.textContent=errMsg(error);return}if(data>0){er.textContent=t("agreeWrong").replace("{n}",data);return}
+    toast("🤝 "+t("agreeDone"));route()};
+}
+function verifyForm(box,s){
+  const resub=s.verify_status==="rejected";
+  box.innerHTML=(resub?`<div class="status bad" style="margin-bottom:12px"><h3>${t("s2")} — ${t("rejectedL")}</h3><div><span class="dim">${t("reasonL")}:</span> ${esc(s.verify_reason||"")}</div>${fixLine(s.verify_fix_deadline)}</div>`
+    :s.verify_version===1?`<div class="status wait" style="margin-bottom:12px"><h3>🛡️ ${t("v2T")}</h3><div>${t("v2S")}</div></div>`:"")+
+  `<div class="panel"><form class="form" id="vf" novalidate><h3 style="margin:0;color:#fff">3. ${t("s2")} · 2.0</h3>
+    <div class="mut">${t("vprivacy")}</div>
+    <div class="vsec">👤 ${t("vsecId")}</div>
+    <div class="two"><label>${t("vname")} *<input class="inp" id="vn" maxlength="100" autocomplete="name"></label>
+      <label>${t("vbirth")} *<input class="inp" id="vb" type="date" max="${new Date().toLocaleDateString("en-CA")}"></label></div>
+    <div class="two"><label>${t("vcountry")} *<input class="inp" id="vc" maxlength="60" autocomplete="country-name"></label>
+      <label>${t("vcity")} *<input class="inp" id="vct" maxlength="80"></label></div>
+    <div id="vparent" hidden class="extbox"><b>👪 ${t("vparentT")}</b><div class="hint">${t("vparentS")}</div>
+      <label>${t("vparentEmail")} *<input class="inp" id="vpe" type="email" dir="ltr" maxlength="200"></label>
+      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="vpc"> ${t("vparentOk")}</label></div>
+    <div class="vsec">🌐 ${t("vsecPresence")}</div>
+    <label>${t("vsocial")}<input class="inp" id="vs" dir="ltr" maxlength="500" placeholder="https://…"></label>
+    <div class="mut" style="text-align:center">${t("vor")}</div>
+    <label>${t("valt")}<textarea class="inp" id="valt" maxlength="1000" style="min-height:60px"></textarea></label>
+    <label>${t("vportfolio")}<input class="inp" id="vpf" dir="ltr" maxlength="500" placeholder="https://…"></label>
+    <div class="vsec">✍️ ${t("vsecHuman")}</div>
+    <label>${t("vq1")} *<textarea class="inp" id="vq1" maxlength="600" style="min-height:60px"></textarea></label>
+    <label>${t("vq2")} *<textarea class="inp" id="vq2" maxlength="600" style="min-height:60px"></textarea></label>
+    <label>${t("vq3")} *<textarea class="inp" id="vq3" maxlength="300" style="min-height:50px"></textarea></label>
+    <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="vtrue" style="margin-top:3px"> <span>${t("vtruth")}</span></label>
+    ${etaHTML(new Date(),3,7)}<div class="err" id="ve"></div>
+    <div><button class="btn green" id="vsb">${resub?t("sresubmit"):t("vsubmit")}</button></div></form></div>`;
+  const ageOf=()=>{const d=$("#vb").value;if(!d)return null;const b=new Date(d+"T12:00:00"),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n<new Date(n.getFullYear(),b.getMonth(),b.getDate()))a--;return a};
+  $("#vb").onchange=()=>{const a=ageOf();$("#vparent").hidden=!(a!==null&&a<16)};
+  $("#vf").onsubmit=async e=>{e.preventDefault();const er=$("#ve"),b=$("#vsb");er.textContent="";const a=ageOf();
+    const q=[1,2,3].map(i=>$("#vq"+i).value.trim());
+    const rec={studio_id:s.id,owner:me.id,full_name:$("#vn").value.trim(),country:$("#vc").value.trim(),city:$("#vct").value.trim(),birth_date:$("#vb").value||null,age:Math.max(9,a||9),
+      social_link:$("#vs").value.trim()||null,alt_answer:$("#valt").value.trim()||null,portfolio_url:$("#vpf").value.trim()||null,
+      human_text:q[0],answers:{why:q[0],experience:q[1],heard:q[2]},parent_email:$("#vpe").value.trim()||null,parent_consent:$("#vpc").checked};
+    if(rec.full_name.length<2||rec.country.length<2||rec.city.length<2||!rec.birth_date||q[0].length<20||q[1].length<20||q[2].length<3||(!rec.social_link&&!rec.alt_answer)){er.textContent=t("err_required");return}
+    if(a<9){er.textContent=t("e_TOO_YOUNG");return}
+    if(a<16&&(!rec.parent_email||!rec.parent_consent)){er.textContent=t("e_PARENT_CONSENT_REQUIRED");return}
+    if(!$("#vtrue").checked){er.textContent=t("vtruthNeed");return}
+    for(const u of[rec.social_link,rec.portfolio_url])if(u&&!okUrl(u)){er.textContent=t("err_badurl");return}
+    b.disabled=true;
+    const r=await sb.from("studio_verifications").upsert(rec,{onConflict:"studio_id"});
+    if(r.error){er.textContent=errMsg(r.error);b.disabled=false;return}
+    toast(t("saved"));route()};
+}
 
 /* ============ awards hall ============ */
 async function awardsView(main,stale){
@@ -1872,15 +2123,16 @@ async function formView(main,id,stale){
     <div class="two"><label>${t("f_price")}<input class="inp" type="number" id="fpr" min="0" max="100000" step="1" value="${g.price||0}"><span class="hint" id="fprh"></span></label>
       <label>${t("version")}<input class="inp" id="fver" maxlength="30" dir="ltr" placeholder="1.0" value="${esc(g.version||"")}"><span class="hint">${t("f_verhint")}</span></label></div>
     <label>${t("f_reqs")}<textarea class="inp" id="fr" maxlength="2000" style="min-height:60px">${esc(g.min_reqs||"")}</textarea></label>
-    <div class="trbox"><b>🔞 ${t("ageT")}</b><div class="hint" style="margin:4px 0 8px">${t("ageFormS")}</div>
-      <div class="two"><label>${t("ageT")}<select id="fage"><option value="">${t("ageNone")}</option>${AGES.map(a=>`<option value="${a}" ${g.age_rating===a?"selected":""}>${t("age_"+a)}</option>`).join("")}</select></label><span></span></div>
-      <div class="descpick">${AGE_DESC.map(d=>`<label><input type="checkbox" value="${d}" ${(g.age_descriptors||[]).includes(d)?"checked":""}> ${t("d_"+d)}</label>`).join("")}</div></div>
+    ${ageQuizHTML(g)}
+    ${launchFormHTML(g)}
+    ${demoFormHTML(g)}
     <div class="trbox"><b>© ${t("copyT")}</b><div class="hint" style="margin:4px 0 8px">${t("copyS")}</div>
       <div class="two"><label>${t("copyHolder")}<input class="inp" id="fcop" maxlength="120" value="${esc(g.copyright_holder||g.developer||"")}"></label>
         <label>${t("licenseT")}<select id="flic">${LICENSES.map(l=>`<option value="${l}" ${(g.license||"all_rights")===l?"selected":""}>${t("lic_"+l)}</option>`).join("")}</select></label></div></div>
     ${translationsEditorHTML(g.translations)}
     <div id="colBox"></div>
     <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="fp" ${g.published?"checked":""}> ${t("f_pub")}</label>
+    ${!id||rejectedOpen?`<div id="clBox"></div>`:""}
     <div class="err" id="fe"></div>
     <div style="display:flex;gap:10px"><button class="btn green" id="fsv">${rejectedOpen?t("resubmitBtn"):id?t("f_saveedit"):t("f_save")}</button>${id?`<a class="btn ghost" href="#/app/${g.id}">${t("cancel")}</a>`:""}</div>
   </form></div>`;
@@ -1892,6 +2144,9 @@ async function formView(main,id,stale){
   document.querySelectorAll("input[name=pk]").forEach(r=>r.onchange=syncPk);
   $("#fx").onchange=bigCheck;$("#fh").onchange=bigCheck;
   bindTranslationsEditor();
+  const ageVals=bindAgeQuiz(g);bindDemoForm();
+  const syncEA=()=>{$("#feaw").hidden=$("#frel").value!=="early_access"&&!($("#facc")&&$("#facc").value==="early_access")};$("#frel").onchange=syncEA;if($("#facc"))$("#facc").onchange=syncEA;syncEA();
+  const paintCL=()=>{const b=$("#clBox");if(b)b.innerHTML=checklistHTML()};paintCL();$("#gf").addEventListener("input",paintCL);$("#gf").addEventListener("change",paintCL);
   if(id&&g.review_status==="approved"){collabEditorHTML(g).then(h=>{if(stale())return;$("#colBox").innerHTML=h;bindCollabEditor(g)})}
   const syncPrice=()=>{const p=Math.max(0,Math.floor(+$("#fpr").value||0));$("#fprh").textContent=p?t("f_pricehint").replace("{p}",Math.round(devShare(p)*100)).replace("{c}",Math.floor(p*devShare(p))):t("free")};
   syncPrice();$("#fpr").oninput=syncPrice;
@@ -1917,6 +2172,7 @@ async function formView(main,id,stale){
       if(exeFile.size>50*1048576){err.textContent=t("err_big")+" (50MB) — "+t("f_toobig");return}}
     if(kind==="link"&&!/^https?:\/\//i.test(link)&&!(soon&&!link)){err.textContent=t("err_badurl");return}
     const yt=$("#fy").value.trim();if(yt&&!ytId(yt)){err.textContent=t("err_badurl")+" (YouTube)";return}
+    if((!id||rejectedOpen)&&checklist().some(([,ok])=>!ok)){err.textContent=t("clFail");$("#clBox").scrollIntoView({behavior:"smooth",block:"center"});return}
     btn.disabled=true;btn.textContent=t("uploading");
     try{
       const rec={title,short_desc:short,description:$("#fdesc").value.trim(),genre:$("#fg").value,
@@ -1924,8 +2180,9 @@ async function formView(main,id,stale){
         trailer_url:yt||null,min_reqs:$("#fr").value.trim()||null,published:$("#fp").checked,play_kind:kind,
         coming_soon:soon,release_date:soon?relDate():(g.release_date||null),release_precision:soon?$("#frp").value:(g.release_precision||"day"),
         price:Math.max(0,Math.min(100000,Math.floor(+$("#fpr").value||0))),version:$("#fver").value.trim()||null,
-        age_rating:$("#fage").value||null,age_descriptors:[...document.querySelectorAll(".descpick input:checked")].map(i=>i.value),
+        ...ageVals(),release_as:$("#frel").value,auto_release:$("#fauto").checked,ea_note:$("#fea").value.trim()||null,...($("#facc")?{access_type:$("#facc").value}:{}),
         copyright_holder:$("#fcop").value.trim()||null,license:$("#flic").value,translations:readTranslations()};
+      Object.assign(rec,await readDemo(g));
       const cf=$("#fc").files[0];if(cf)rec.cover_url=await upload(cf,"cover",IMG,5);
       const up=[];for(const f of newShots)up.push(await upload(f,"shot",IMG,5));rec.screenshots=[...shots,...up].slice(0,8);
       rec.file_name=null;rec.file_size=null;
@@ -1974,6 +2231,8 @@ async function dashView(main,stale){
    (data.length?`<div class="panel" style="overflow-x:auto"><table class="table"><thead><tr><th></th><th>${t("f_title")}</th><th>${t("status")}</th><th class="hide">${t("price")}</th><th class="hide">${t("downloads")}</th><th class="hide">${t("sales")}</th><th class="hide">${t("earned")}</th><th class="hide">${t("reviews")}</th><th>${t("actions")}</th></tr></thead><tbody>
    ${data.map(g=>`<tr><td><a href="#/app/${g.id}">${coverHTML(g)}</a></td><td><a href="#/app/${g.id}" style="color:#fff;font-weight:600">${esc(g.title)}</a><div class="dim" style="font-size:12px">${g.version?"v"+esc(g.version)+" · ":""}${fmtDate(g.created_at)}</div></td>
      <td>${reviewPill(g)}${g.coming_soon?` <span class="pill wait">🕒 ${t("soon")}</span>`:""}${g.review_status==="approved"&&!g.published?` <span class="pill off">${t("hidden")}</span>`:""}
+       ${launchLocked(g)?` <span class="pill wait">🔒 ${t("launchIn").replace("{n}",daysUntil(g.release_ready_at))}</span>`:g.coming_soon&&g.review_status==="approved"&&g.release_ready_at?` <a class="pill" href="#/app/${g.id}">🚀 ${t("launchReady")}</a>`:""}
+       ${g.access_type==="early_access"&&!g.coming_soon?` <span class="pill wait">🧪 ${t("eaShort")}</span>`:""}
        ${onSale(g)?` <span class="pill wait">🏷️ -${g.sale_pct}%</span>`:""}${isPromoted(g)?` <span class="promo">${t("promoted")}</span>`:""}
        ${g.review_status==="rejected"?`<div style="font-size:12px;margin-top:4px;max-width:260px"><span class="dim">${t("reasonL")}:</span> ${esc(g.reject_reason||"")}<br>${fixLine(g.fix_deadline)}</div>`:""}</td>
      <td class="hide">${g.price?coins(g.price):t("free")}</td><td class="hide">${g.players}</td><td class="hide">${g.sales_count}</td><td class="hide">${coins(g.coins_earned)}</td><td class="hide">${rvHTML(g)}</td>
@@ -2077,7 +2336,7 @@ function fixLine(deadline){
 }
 function errMsg(e){const m=(e&&e.message)||"";
   for(const c of["SHABBAT_CLOSED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
-    "OWN_GAME","NOT_OWNED","NOT_AVAILABLE","PLAY_10_MIN","ALREADY_CLAIMED","BAD_KEY","KEY_USED","BUNDLE_SAME_STUDIO","NO_USER","NOT_YOUR_GAME"])if(m.includes(c))return t("e_"+c);
+    "OWN_GAME","NOT_OWNED","NOT_AVAILABLE","WAIT_7_DAYS","NO_GAME_FILE","AGREEMENT_REQUIRED","BIRTH_DATE_REQUIRED","TOO_YOUNG","PARENT_CONSENT_REQUIRED","PLAY_10_MIN","ALREADY_CLAIMED","BAD_KEY","KEY_USED","BUNDLE_SAME_STUDIO","NO_USER","NOT_YOUR_GAME"])if(m.includes(c))return t("e_"+c);
   if(/bundles_price_check/.test(m))return t("bundleRule");
   if(/games_sale_window|sale_pct_check/.test(m))return t("saleHint");
   if(/studios_name_lower|duplicate key.*studios/i.test(m))return t("e_name_taken");
@@ -2104,26 +2363,29 @@ const PLATFORMS=["none","itch","steam","gplay","appstore","gamejolt","other"];
 async function hubView(main,stale){
   setTitle(t("publish"));if(needLogin())return;
   const s=await loadStudio();if(stale())return;
-  const st=[ // state of each step: done | cur | bad | ""
-    !s?"cur":s.status==="approved"?"done":s.status==="rejected"?"bad":"cur",
-    !s||s.status!=="approved"?"":s.verify_status==="verified"?"done":s.verify_status==="rejected"?"bad":"cur",
-    s&&s.verify_status==="verified"?"cur":"", ""];
-  const sub=[s?(s.status==="approved"?t("approvedL"):s.status==="rejected"?t("rejectedL"):t("pendingL")):"",
-    s&&s.status==="approved"?(s.verify_status==="verified"?t("approvedL"):s.verify_status==="rejected"?t("rejectedL"):s.verify_status==="pending"?t("pendingL"):""):"","",""];
-  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("hubT")}${s&&s.verify_status==="verified"?`<a href="#/dashboard">${t("mygames")}</a>`:""}</h2>
-    <div class="mut" style="margin-bottom:10px">${t("hubS")}</div>
-    <div class="steps">${[1,2,3,4].map(i=>`<div class="step ${st[i-1]}"><span class="n">${i} / 4</span><b>${t("s"+i)}</b><span class="mut">${sub[i-1]||""}</span></div>`).join("")}</div>
+  const okStudio=s&&s.status==="approved",okAgree=okStudio&&s.agreement_version>=2,okVerify=okAgree&&s.verify_status==="verified"&&s.verify_version>=2;
+  let waiting=[];if(okVerify){const{data}=await sb.from("games").select(GAME_COLS).eq("owner",me.id).eq("coming_soon",true).eq("review_status","approved").not("release_ready_at","is",null);if(stale())return;waiting=data||[]}
+  const steps=[["s1",!s?"cur":okStudio?"done":s.status==="rejected"?"bad":"cur"],
+    ["stepAgree",!okStudio?"":okAgree?"done":"cur"],
+    ["s2",!okAgree?"":okVerify?"done":s.verify_status==="rejected"?"bad":"cur"],
+    ["s3",okVerify?"cur":""],["stepLaunch",okVerify&&waiting.length?"cur":""]];
+  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("hubT")}${okVerify?`<a href="#/dashboard">${t("mygames")}</a>`:""}</h2>
+    <div class="mut" style="margin-bottom:10px">${t("hubS13")}</div>
+    <div class="steps five">${steps.map(([k,st],i)=>`<div class="step ${st}"><span class="n">${i+1} / 5</span><b>${t(k)}</b></div>`).join("")}</div>
     ${isShabbat()?`<div class="banner">${t("shabbat")}</div>`:""}
     <div id="hb"></div>`;
   const hb=$("#hb");
   if(!s||(s.status==="rejected"&&s.fix_deadline&&new Date(s.fix_deadline)>new Date()))return studioForm(hb,s);
   if(s.status==="pending")return hb.innerHTML=`<div class="status wait"><h3>${esc(s.name)} — ${t("pendingL")}</h3>${etaHTML(s.submitted_at,3,4)}<div class="mut">${t("schedule")}</div></div>`;
   if(s.status==="rejected")return hb.innerHTML=`<div class="status bad"><h3>${esc(s.name)} — ${t("rejectedL")}</h3><div><span class="dim">${t("reasonL")}:</span> ${esc(s.reject_reason||"")}</div>${fixLine(s.fix_deadline)}</div>`;
-  if(s.verify_status==="none"||(s.verify_status==="rejected"&&s.verify_fix_deadline&&new Date(s.verify_fix_deadline)>new Date()))return verifyForm(hb,s);
+  if(!okAgree)return agreementForm(hb,s);
+  if(s.verify_status==="none"||(s.verify_status==="verified"&&s.verify_version<2)||(s.verify_status==="rejected"&&s.verify_fix_deadline&&new Date(s.verify_fix_deadline)>new Date()))return verifyForm(hb,s);
   if(s.verify_status==="pending")return hb.innerHTML=`<div class="status wait"><h3>${t("s2")} — ${t("pendingL")}</h3>${etaHTML(s.verify_submitted_at,3,7)}<div class="mut">${t("schedule")}</div></div>`;
   if(s.verify_status==="rejected")return hb.innerHTML=`<div class="status bad"><h3>${t("s2")} — ${t("rejectedL")}</h3><div><span class="dim">${t("reasonL")}:</span> ${esc(s.verify_reason||"")}</div>${fixLine(s.verify_fix_deadline)}</div>`;
-  hb.innerHTML=`<div class="status ok"><h3>${esc(s.name)} — ${t("verified")}</h3><div>${t("s3T")}. ${t("s3S")}</div><div class="mut">${t("s4S")}</div><div class="mut">${t("schedule")}</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px"><a class="btn green" href="#/submit">+ ${t("newsub")}</a><a class="btn ghost" href="#/dashboard">${t("mygames")}</a></div></div>`;
+  hb.innerHTML=`<div class="status ok"><h3>${esc(s.name)} — ${t("verified")}</h3><div>${t("s3T")}. ${t("s3S")}</div><div class="mut">${t("launchRule")}</div><div class="mut">${t("schedule")}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px"><a class="btn green" href="#/submit">+ ${t("newsub")}</a><a class="btn ghost" href="#/dashboard">${t("mygames")}</a></div></div>
+    ${waiting.length?`<h2 class="sec">🚀 ${t("stepLaunch")}</h2>${waiting.map(g=>`<div class="panel" style="margin-bottom:10px"><a href="#/app/${g.id}" style="color:#fff;font-weight:600">${esc(g.title)}</a>${launchBoxHTML(g,true)}</div>`).join("")}`:""}`;
+  bindLaunch();
 }
 function studioForm(box,s){
   const resub=!!s;
@@ -2135,12 +2397,21 @@ function studioForm(box,s){
       <label>${t("sgpy")}<input class="inp" id="sg" type="number" min="0" max="1000" value="${s?.games_per_year??""}"></label></div>
     <div class="two"><label>${t("sprev")}<select id="sp">${PLATFORMS.map(p=>`<option value="${p}" ${p===(s?.prev_platform||"none")?"selected":""}>${t("p_"+p)}</option>`).join("")}</select></label>
       <label id="splw">${t("sprevLink")}<input class="inp" id="spl" dir="ltr" maxlength="500" placeholder="https://…" value="${esc(s?.prev_link||"")}"></label></div>
+    <div class="two"><label>${t("vcountry")} *<input class="inp" id="sco" maxlength="60" value="${esc(s?.country||"")}"></label>
+      <label>${t("sFounded")}<input class="inp" id="sfy" type="number" min="1970" max="2100" value="${s?.founded_year||new Date().getFullYear()}"></label></div>
+    <label>${t("website")}<input class="inp" id="sweb" dir="ltr" maxlength="300" placeholder="https://…" value="${esc(s?.website||"")}"></label>
+    <label>${t("sAbout")} *<textarea class="inp" id="sab" maxlength="3000" style="min-height:90px">${esc(s?.about||"")}</textarea><span class="hint">${t("sAboutHint")}</span></label>
+    <div>${t("sGenres")} <span class="hint">(1–3)</span><div class="descpick" id="sgen">${GENRES.map(x=>`<label><input type="checkbox" value="${x}" ${(s?.genres||[]).includes(x)?"checked":""}> ${esc(gname(x))}</label>`).join("")}</div></div>
     ${etaHTML(new Date(),3,4)}<div class="err" id="ste"></div>
     <div><button class="btn green" id="sts">${resub?t("sresubmit"):t("ssubmit")}</button></div></form></div>`;
   const sync=()=>$("#splw").hidden=$("#sp").value==="none";sync();$("#sp").onchange=sync;
   $("#stf").onsubmit=async e=>{e.preventDefault();const er=$("#ste"),b=$("#sts");er.textContent="";
     const rec={name:$("#sn").value.trim(),support_email:$("#se").value.trim(),members:+$("#sm").value||0,
-      games_per_year:$("#sg").value===""?null:+$("#sg").value,prev_platform:$("#sp").value,prev_link:$("#sp").value==="none"?null:($("#spl").value.trim()||null)};
+      games_per_year:$("#sg").value===""?null:+$("#sg").value,prev_platform:$("#sp").value,prev_link:$("#sp").value==="none"?null:($("#spl").value.trim()||null),
+      country:$("#sco").value.trim(),founded_year:+$("#sfy").value||null,website:$("#sweb").value.trim()||null,about:$("#sab").value.trim(),
+      genres:[...document.querySelectorAll("#sgen input:checked")].map(i=>i.value)};
+    if(rec.country.length<2||rec.about.length<50||!rec.genres.length||rec.genres.length>3){er.textContent=t("sMore");return}
+    if(rec.website&&!okUrl(rec.website)){er.textContent=t("err_badurl");return}
     if(rec.name.length<2||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(rec.support_email)||rec.members<1){er.textContent=t("err_required");return}
     if(rec.prev_link&&!okUrl(rec.prev_link)){er.textContent=t("err_badurl");return}
     b.disabled=true;
@@ -2148,33 +2419,6 @@ function studioForm(box,s){
     if(r.error){er.textContent=errMsg(r.error);b.disabled=false;return}
     toast(t("saved"));route()};
 }
-function verifyForm(box,s){
-  const resub=s.verify_status==="rejected";
-  box.innerHTML=(resub?`<div class="status bad" style="margin-bottom:12px"><h3>${t("s2")} — ${t("rejectedL")}</h3><div><span class="dim">${t("reasonL")}:</span> ${esc(s.verify_reason||"")}</div>${fixLine(s.verify_fix_deadline)}</div>`
-    :`<div class="status ok" style="margin-bottom:12px"><h3>${esc(s.name)} — ${t("approvedL")} ✓</h3></div>`)+
-  `<div class="panel"><form class="form" id="vf" novalidate><h3 style="margin:0;color:#fff">2. ${t("s2")}</h3>
-    <div class="mut">${t("vprivacy")}</div>
-    <div class="two"><label>${t("vname")} *<input class="inp" id="vn" maxlength="100" autocomplete="name"></label>
-      <label>${t("vcountry")} *<input class="inp" id="vc" maxlength="60" autocomplete="country-name"></label></div>
-    <div class="two"><label>${t("vage")} *<input class="inp" id="va" type="number" min="9" max="120"></label><span></span></div>
-    <label>${t("vsocial")}<input class="inp" id="vs" dir="ltr" maxlength="500" placeholder="https://…"></label>
-    <div class="mut" style="text-align:center">${t("vor")}</div>
-    <label>${t("valt")}<textarea class="inp" id="valt" maxlength="1000" style="min-height:60px"></textarea></label>
-    <label>${t("vhuman")} *<textarea class="inp" id="vh" maxlength="600" rows="2" style="min-height:60px"></textarea></label>
-    ${etaHTML(new Date(),3,7)}<div class="err" id="ve"></div>
-    <div><button class="btn green" id="vsb">${resub?t("sresubmit"):t("vsubmit")}</button></div></form></div>`;
-  $("#vf").onsubmit=async e=>{e.preventDefault();const er=$("#ve"),b=$("#vsb");er.textContent="";
-    const rec={studio_id:s.id,owner:me.id,full_name:$("#vn").value.trim(),country:$("#vc").value.trim(),age:+$("#va").value||0,
-      social_link:$("#vs").value.trim()||null,alt_answer:$("#valt").value.trim()||null,human_text:$("#vh").value.trim()};
-    if(rec.full_name.length<2||rec.country.length<2||rec.human_text.length<10||(!rec.social_link&&!rec.alt_answer)){er.textContent=t("err_required");return}
-    if(rec.age<9){er.textContent=t("vage");return}
-    if(rec.social_link&&!okUrl(rec.social_link)){er.textContent=t("err_badurl");return}
-    b.disabled=true;
-    const r=await sb.from("studio_verifications").upsert(rec,{onConflict:"studio_id"});
-    if(r.error){er.textContent=errMsg(r.error);b.disabled=false;return}
-    toast(t("saved"));route()};
-}
-
 /* ============ admin panel ============ */
 async function adminView(main,tab,stale){
   setTitle(t("adminT"));if(needLogin())return;
@@ -2208,7 +2452,12 @@ async function adminView(main,tab,stale){
     return `<div class="qcard"><div>${avatarHTML({username:s.name},64)}</div><div><h4>${esc(s.name)}</h4>${when(s.verify_submitted_at)}
     ${v?`<div class="kv2" style="margin-top:6px"><span>${t("vname")}</span><span>${esc(v.full_name)}</span><span>${t("vcountry")}</span><span>${esc(v.country)}</span>
     <span>${t("ageL")}</span><span>${v.age}</span><span>${t("socialL")}</span><span>${v.social_link&&okUrl(v.social_link)?`<a href="${esc(okUrl(v.social_link))}" target="_blank" rel="noopener" dir="ltr">${esc(v.social_link)}</a>`:"—"}</span>
-    <span>${t("altL")}</span><span>${esc(v.alt_answer||"—")}</span><span>${t("humanL")}</span><span>${esc(v.human_text)}</span></div>
+    <span>${t("altL")}</span><span>${esc(v.alt_answer||"—")}</span><span>${t("humanL")}</span><span>${esc(v.human_text)}</span>
+    ${v.birth_date?`<span>${t("vbirth")}</span><span>${esc(v.birth_date)}</span>`:""}${v.city?`<span>${t("vcity")}</span><span>${esc(v.city)}</span>`:""}
+    ${v.portfolio_url&&okUrl(v.portfolio_url)?`<span>${t("vportfolio")}</span><span><a href="${esc(okUrl(v.portfolio_url))}" target="_blank" rel="noopener" dir="ltr">${esc(v.portfolio_url)}</a></span>`:""}
+    ${v.answers&&v.answers.experience?`<span>${t("vq2")}</span><span>${esc(v.answers.experience)}</span><span>${t("vq3")}</span><span>${esc(v.answers.heard||"")}</span>`:""}
+    ${v.parent_email?`<span>👪 ${t("vparentEmail")}</span><span dir="ltr">${esc(v.parent_email)} ${v.parent_consent?"✓":"✗"}</span>`:""}
+    <span>${t("agreeT")}</span><span>${s.agreement_version>=2?"✓ "+(s.agreed_at?fmtDate(s.agreed_at):""):"✗"}</span></div>
     <div class="dim" style="font-size:11px;margin-top:6px">🔒 ${t("deletedIn").replace("{d}",fmtDate(new Date(new Date(v.created_at).getTime()+30*864e5)))}</div>`:`<div class="mut">—</div>`}</div>${acts("verify",s.id)}</div>`}).join("");
   else if(tab==="reports"){body=`${extra.copies.length?`<div class="panel"><h3 style="margin:0 0 6px;color:#fff">⚠️ ${t("copiesT")}</h3><div class="mut" style="margin-bottom:6px">${t("copiesS")}</div>
       ${extra.copies.map(c=>`<div class="colrow"><span><a href="#/app/${c.id}">${esc(c.title)}</a> (${esc(c.developer)}) = <a href="#/app/${c.copy_of}">${t("copyOpen")}</a></span>
@@ -2388,7 +2637,7 @@ function settingsView(main){
     <div class="panel"><h3>🌐 ${t("clangT")}</h3><div class="mut">${t("clangS")}</div>
       <select id="clang" style="margin-top:8px;max-width:260px">${CONTENT_LANGS.map(([c,n])=>`<option value="${c}" ${contentLang()===c?"selected":""}>${n}</option>`).join("")}</select></div>
     <div class="panel"><h3>🔞 ${t("ageFilterT")}</h3><div class="mut">${t("ageFilterS")}</div>
-      <select id="agemax" style="margin-top:8px;max-width:260px"><option value="">${t("ageShowAll")}</option>${AGES.slice(0,4).map(a=>`<option value="${a}" ${lsGet("pp_agemax")===a?"selected":""}>${t("ageUpTo").replace("{a}",t("age_"+a))}</option>`).join("")}</select></div>
+      <select id="agemax" style="margin-top:8px;max-width:260px"><option value="">${t("ageShowAll")}</option>${AGES.slice(0,-1).map(a=>`<option value="${a}" ${lsGet("pp_agemax")===a?"selected":""}>${t("ageUpTo").replace("{a}",t("age_"+a))}</option>`).join("")}</select></div>
     <div class="panel"><h3>${t("account")}</h3>
       ${me?`<div class="mut">${t("signedAs")} <b style="color:#fff">${esc(me.profile.username)}</b> · <span dir="ltr">${esc(me.email||"")}</span></div>
         <form class="form" id="cp" style="margin-top:12px"><label>${t("changepass")}<input class="inp" id="cpn" type="password" minlength="6" autocomplete="new-password" dir="ltr" placeholder="${t("newpass")}" required></label>
