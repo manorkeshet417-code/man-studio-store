@@ -14,13 +14,14 @@
 <meta property="og:url" content="https://manorkeshet417-code.github.io/man-studio-store/">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Man Studio Store","url":"https://manorkeshet417-code.github.io/man-studio-store/","inLanguage":["en","he"]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="vendor/supabase.min.js"></script>
 <style>
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/rubik-hebrew-0.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/rubik-latin-ext-1.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/rubik-latin-2.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 :root{
   --top:#171a21; --bg:#1b2838; --bg2:#16202d; --panel:#213246; --panel2:#2a475e; --line:#2f4a63;
-  --fg:#e6edf3; --mut:#8f98a0; --dim:#5f6b78; --acc:#66c0f4; --acc2:#1a9fff;
+  --fg:#e6edf3; --mut:#8f98a0; --dim:#8593a1; --acc:#66c0f4; --acc2:#1a9fff;
   --buy1:#75b022; --buy2:#588a1b; --pos:#66c0f4; --mix:#b9a074; --neg:#c35c2c; --bad:#e2534b;
   color-scheme:dark;
 }
@@ -406,6 +407,12 @@ body.maint header,body.maint .subnav,body.maint footer .flinks{display:none!impo
 .maintbox{max-width:620px;margin:60px auto;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:34px 24px}
 .maintbox .mi{font-size:64px;line-height:1}.maintbox h1{color:#fff;font-size:26px;margin:14px 0 6px}.maintbox p{color:#c6d4df;margin:0}.maintbox .msep{height:1px;background:var(--line);margin:22px 0}
 #maintBar{background:#7a4b00;color:#fff;text-align:center;padding:6px 10px;font-size:13px;position:relative;z-index:50}#maintBar a{color:#ffd76a;margin-inline-start:8px}
+.skip{position:absolute;inset-inline-start:8px;top:-60px;z-index:999;background:#fff;color:#000;padding:8px 12px;border-radius:4px;font-weight:600}.skip:focus{top:8px}
+:focus-visible{outline:3px solid #ffd76a!important;outline-offset:2px}
+#main:focus{outline:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+.ccvirtual{font-size:10px;letter-spacing:.06em;opacity:.85;margin-top:4px}
+.termsov{position:fixed;inset:0;background:#000c;z-index:1000;display:grid;place-items:center;padding:16px}.termsov .dlg{max-width:520px}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -482,17 +489,19 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
     <div class="hr" id="hr"></div>
   </div>
 </header>
-<main class="wrap" id="main"></main>
-<footer><div class="wrap"><span id="foot1"></span><a id="footDl" href="downloads/ManStudioStore.exe" download></a><span class="flinks"><a href="#/news" id="fNews"></a> · <a href="#/privacy" id="fPriv"></a> · <a href="#/terms" id="fTerms"></a></span><span id="foot2"></span></div></footer>
+<a class="skip" href="#main" onclick="event.preventDefault();document.getElementById('main').focus()">Skip to content · דלג לתוכן</a>
+<main class="wrap" id="main" tabindex="-1"></main>
+<footer><div class="wrap"><span id="foot1"></span><a id="footDl" href="downloads/ManStudioStore.exe" download></a><span class="flinks"><a href="#/news" id="fNews"></a> · <a href="#/privacy" id="fPriv"></a> · <a href="#/terms" id="fTerms"></a> · <a href="#/accessibility" id="fAcc"></a></span><span id="foot2"></span></div></footer>
 <div id="toast" role="status"></div>
 
 <script>
 /* ============ config ============ */
 const STORE_NAME = "Man Studio Store";
 const STORE_VERSION = "1.4.5";
+const TERMS_VERSION = "2026-11-27";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-27.13";
+const BUILD = "2026-11-27.14";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -572,7 +581,7 @@ p_none:"No, this is my first time",p_itch:"itch.io",p_steam:"Steam",p_gplay:"Goo
 ssubmit:"Send studio for review",sresubmit:"Fix & send again",reviewTime:"Review time: {a}–{b} business days",expected:"Expected answer by {d}",
 pendingL:"Waiting for review",approvedL:"Approved",rejectedL:"Rejected",reasonL:"Reason",fixBy:"You have until {d} to fix and resubmit.",
 fixClosed:"The 30-day fix window has ended. You can appeal by email:",appealL:"Appeals",
-vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",aiT:"Automatic content review",aiPend:"checking… (usually 1–3 minutes)",aiOk:"nothing problematic found in the text and code ✓ (a person still reviews it and the images)",aiFlag:"a person needs to take a closer look",aiReject:"serious problem found — rejected automatically",aiErr:"not available — checked by a person only",aiAge:"Suggested age rating",e_AI_PENDING:"The AI content review isn't finished yet — try again in a few minutes.",e_AI_REJECTED:"The AI content review rejected this game. The developer must fix it and resubmit.",maintT:"Maintenance",maintOn:"Maintenance mode is ON — the store is closed to everyone except admins.",maintOpen:"Reopen in the admin panel",maintClosed:"Store is closed (maintenance)",maintLive:"Store is open",maintReopen:"Reopen the store",maintClose:"Close the store for maintenance",srcT:"Source code (required for Windows games)",srcS:"Upload a .zip of your game's project/source files. Only the store admins (and you) can see it — it's scanned for viruses and never shared with players. Max 50 MB.",srcNeed:"Windows games need their source code: upload a .zip of your project.",srcZip:"The source code must be a .zip file.",srcDl:"Download source code",srcNone:"No source code was uploaded.",scanT:"Security scan",scanPend:"scanning… (usually a few minutes)",scanClean:"clean ✓",scanSusp:"needs a closer look",scanBad:"dangerous content found — rejected automatically",scanErr:"automatic scan unavailable — checked manually",scanNone:"No files to scan",e_SOURCE_REQUIRED:"Windows games need their source code: upload a .zip of your project.",e_BAD_SOURCE:"That source code file doesn't belong to you.",e_SCAN_PENDING:"The security scan isn't finished yet — try again in a few minutes.",e_SCAN_MALICIOUS:"The security scan found dangerous content in this game.",holT:"Holidays & closed days",holClosed:"Fully closed",holNoCount:"Not counted",holClosedS:"no approvals at all (not even Lucky Approval), and the day doesn't count toward review times.",holNoCountS:"approvals can still happen, but the day doesn't count as a business day.",holClosedB:"approvals are fully closed today.",holNoCountB:"approvals are open, but today doesn't count as a business day.",holNone:"No special days coming up.",holAdd:"Add a holiday or closed day",holFrom:"From",holTo:"To (optional)",holKind:"Type",holAddBtn:"Add",e_HOLIDAY_CLOSED:"Holiday — approvals are fully closed today.",dlStarted:"Download started",dlInLib:"It's in your library — you can download it again any time.",dlOwnGame:"This is your own game — developers get their games for free.",dlReceipt:"Your receipt is in",rcKind_free:"free game",rcKind_developer:"developer copy",rcKind_key:"redeemed key",rcOwned:"In your library · yours forever",dlHowT:"How to install:",dlHow1:"Open your Downloads folder (or click the file at the bottom/top of the window).",dlHow2:"Double-click the file (if it's a .zip — extract it first, then open the .exe).",dlNoStart:"Download didn't start?",dlAgain:"Click here to download again",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
+vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",yourAge:"Your age",ageHint13:"You must be 13 or older. If you're under 18, a parent or guardian must agree to the Terms for you.",e_TOO_YOUNG_13:"Sorry — you must be at least 13 years old to create an account.",signupBlocked:"Couldn't create the account. Check your age (13+), that you agreed to the Terms, and that the username doesn't pretend to be someone else.",e_TERMS_REQUIRED:"Please agree to the Terms of Use and Privacy Policy.",e_CONTENT_BLOCKED:"This text isn't allowed (adult content, hate, bullying, scams or pretending to be someone else). Please change it.",tgT:"Updated Terms of Use",tgS:"We updated our Terms of Use and Privacy Policy. Please read and accept them to keep using the store.",tgAccept:"Accept and continue",delAccT:"Delete my account",delAccS:"Deletes your profile, library, reviews, receipts, Coins, studio, games and uploaded files. This can't be undone.",delAccWarn:"⚠️ Everything is deleted permanently — games you own and your Coins can't be recovered.",delAccType:"Type your username {u} to confirm:",delAccDone:"Your account was deleted.",e_CONFIRM_MISMATCH:"The username doesn't match.",e_ADMIN_CANT_DELETE:"The admin account can't be deleted from here.",parT:"Parent approval",parS:"Your child (username {u}, studio {s}) wants to publish their own games on Man Studio Store — a free indie game store with no real money. Developers under 16 need a parent's approval.",parRead:"Before approving, you can read:",parAgree:"I'm the parent / guardian and I approve",parIgnore:"If you don't approve, just close this page — nothing will happen.",parDone:"Thank you! Your approval was saved.",e_BAD_LINK:"This link isn't valid or has expired.",e_PARENT_NOT_CONFIRMED:"The parent hasn't confirmed by email yet.",parStatus:"Parent approval",pst_confirmed:"✓ confirmed by email",pst_sent:"📧 email sent — waiting",pst_error:"⚠️ email failed — contact the developer",pst_not_sent:"⏳ email not sent yet (email not set up?)",ccVirtual:"VIRTUAL CARD · NOT A CREDIT CARD · NO REAL MONEY",textSize:"Text size",textSizeS:"Make all text in the store bigger.",accT:"Accessibility",aiT:"Automatic content review",aiPend:"checking… (usually 1–3 minutes)",aiOk:"nothing problematic found in the text and code ✓ (a person still reviews it and the images)",aiFlag:"a person needs to take a closer look",aiReject:"serious problem found — rejected automatically",aiErr:"not available — checked by a person only",aiAge:"Suggested age rating",e_AI_PENDING:"The AI content review isn't finished yet — try again in a few minutes.",e_AI_REJECTED:"The AI content review rejected this game. The developer must fix it and resubmit.",maintT:"Maintenance",maintOn:"Maintenance mode is ON — the store is closed to everyone except admins.",maintOpen:"Reopen in the admin panel",maintClosed:"Store is closed (maintenance)",maintLive:"Store is open",maintReopen:"Reopen the store",maintClose:"Close the store for maintenance",srcT:"Source code (required for Windows games)",srcS:"Upload a .zip of your game's project/source files. Only the store admins (and you) can see it — it's scanned for viruses and never shared with players. Max 50 MB.",srcNeed:"Windows games need their source code: upload a .zip of your project.",srcZip:"The source code must be a .zip file.",srcDl:"Download source code",srcNone:"No source code was uploaded.",scanT:"Security scan",scanPend:"scanning… (usually a few minutes)",scanClean:"clean ✓",scanSusp:"needs a closer look",scanBad:"dangerous content found — rejected automatically",scanErr:"automatic scan unavailable — checked manually",scanNone:"No files to scan",e_SOURCE_REQUIRED:"Windows games need their source code: upload a .zip of your project.",e_BAD_SOURCE:"That source code file doesn't belong to you.",e_SCAN_PENDING:"The security scan isn't finished yet — try again in a few minutes.",e_SCAN_MALICIOUS:"The security scan found dangerous content in this game.",holT:"Holidays & closed days",holClosed:"Fully closed",holNoCount:"Not counted",holClosedS:"no approvals at all (not even Lucky Approval), and the day doesn't count toward review times.",holNoCountS:"approvals can still happen, but the day doesn't count as a business day.",holClosedB:"approvals are fully closed today.",holNoCountB:"approvals are open, but today doesn't count as a business day.",holNone:"No special days coming up.",holAdd:"Add a holiday or closed day",holFrom:"From",holTo:"To (optional)",holKind:"Type",holAddBtn:"Add",e_HOLIDAY_CLOSED:"Holiday — approvals are fully closed today.",dlStarted:"Download started",dlInLib:"It's in your library — you can download it again any time.",dlOwnGame:"This is your own game — developers get their games for free.",dlReceipt:"Your receipt is in",rcKind_free:"free game",rcKind_developer:"developer copy",rcKind_key:"redeemed key",rcOwned:"In your library · yours forever",dlHowT:"How to install:",dlHow1:"Open your Downloads folder (or click the file at the bottom/top of the window).",dlHow2:"Double-click the file (if it's a .zip — extract it first, then open the .exe).",dlNoStart:"Download didn't start?",dlAgain:"Click here to download again",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
 vname:"Full name",vhuman:"Human check: write two short lines about why you make games",vprivacy:"🔒 We ask for as little as possible. Only the store admin sees it, it's never public, and it's deleted automatically 3 days after the review decision.",vsubmit:"Send verification",
 verified:"Studio verified ✓",s3T:"You can submit games now",s3S:"Every game gets a quality, content and bug check before launch.",newsub:"Submit a new game",
 s4S:"After approval the game launches in the store for everyone.",
@@ -599,7 +608,7 @@ history:"History",tx_welcome:"🎉 Welcome bonus",tx_daily:"🎁 Daily bonus",tx
 redeemed:"Redeemed",clearAll:"Clear all",open:"Open",noNotes:"No notifications yet",nextBadge:"{n} more downloads to the {b} badge",blueS:"blue ✔",devlogs:"Devlogs",devlog:"Devlog",srT:"Studio review",srS:"The last check before you can publish: tell us about your first game and how your studio will work. A person reviews it — up to 7 business days (Sunday–Friday).",srPrivacy:"No personal details here — only questions about your studio and your game.",srFirst:"Your first game",srTitle:"Game title",srPitch:"What is the game about?",srPitchPh:"The idea, how you play, what makes it special…",srPitchHint:"At least 80 characters.",srProof:"Link that shows your work",srProofHint:"A trailer, screenshots, a demo, an itch.io page or a repo.",srTeamT:"Your team & plans",srRoles:"Who does what in the studio?",srRolesPh:"e.g. Me — code and art. A friend — music.",srSupport:"How will you support players?",srSupportPh:"Bug fixes, answering reviews, updates…",srContent:"How will you keep your games safe and fair?",srContentPh:"Age rating, your own art and music, no stolen content…",srSend:"Send for review",srShort:"Some answers are too short.",srEta:"Expected by",hubS145:"Six steps to publish: studio → agreement → verification 3.0 → studio review (up to 7 business days) → submit → launch. In 1.4.5 every studio starts again from the developer agreement.",
 joinT:"Festival settings",joinS:"",fDevs:"Developers in this festival",fNoDevs:"No developers joined yet.",fGames:"Submitted games",fSubOpens:"Game submissions open",fSubClosed:"Game submissions are closed.",fSubFrom:"Submissions open",fSubTill:"Submissions close",fSubmit:"Submit game",fSubmitted:"Your game is in the festival!",fDevOnly:"Only developers can join festivals.",fLeaveNote:"Your submitted games will be removed too.",atOpens:"Joining opens",atCloses:"Joining closes",atCount:"Joined",atYouIn:"You joined this festival!",atRemind:"Submit your game when submissions open. We'll notify you when the festival starts.",atCancel:"Leave the festival",atConfirm:"I confirm that I'll take part in this festival.",atRegister:"Join",atNeedConfirm:"Tick the box to confirm your participation.",atDone:"You joined!",atClosed:"Joining is closed.",atOpensOn:"Joining opens",atOpenTill:"Join until",atCap:"Max participants",atNoLimit:"No limit",atHint:"Developers can join any time until the festival ends. Games can only be submitted between the submission dates.",atBefore:"Joining must open before the festival starts (and close after it opens).",fModeT:"Festival type",fMode:"Who takes part",fm_games:"Games (developers submit games)",fm_attend:"Registration only (players sign up)",fm_both:"Both",e_FESTIVAL_FULL:"This festival is full.",e_VERIFY_FIRST:"Finish studio verification first.",
 gaT:"Game Awards {y}",gaS:"Every winner and nominee of the year, in every category.",gaWinner:"Winner",gaNominees:"Nominees:",gaSoon:"Winner coming soon",nomT:"Nominees",nomS:"Add nominees to a category. They appear on the Game Awards page of that year; the category winner is set below.",nomAdd:"Add nominee",
-rcT:"Receipts",rcS:"A receipt for every game in your library — bought, free or your own. Once you buy a game — alone or in a bundle — it's yours forever; you never pay for it again.",rcItem:"Item",rcDate:"Date",rcCard:"Card",rcBuyer:"Buyer",rcId:"Purchase ID",rcPaid:"Paid · owned forever",rcNone:"No purchases yet",rcPrint:"Print",rcRestore:"Restore access",rcRestored:"Restored {n} games to your library.",rmOwned:"You own this game. Removing it only hides it from your library — you can add it back for free any time (Receipts → Restore access).",vnick:"Name or nickname",del3:"Deleted automatically 3 days after your decision.",
+rcT:"Receipts",rcS:"A receipt for every game in your library — bought, free or your own. Once you buy a game — alone or in a bundle — it's yours forever; you never pay for it again.",rcItem:"Item",rcDate:"Date",rcCard:"Virtual Coins card",rcBuyer:"Buyer",rcId:"Purchase ID",rcPaid:"Paid · owned forever",rcNone:"No purchases yet",rcPrint:"Print",rcRestore:"Restore access",rcRestored:"Restored {n} games to your library.",rmOwned:"You own this game. Removing it only hides it from your library — you can add it back for free any time (Receipts → Restore access).",vnick:"Name or nickname",del3:"Deleted automatically 3 days after your decision.",
 levelN:"Level {n}",xpToNext:"{n} XP to the next level",levelUp:"Level up! You're now level {n}",achUnlocked:"Achievement unlocked",
 rank_newcomer:"Newcomer",rank_explorer:"Explorer",rank_gamer:"Gamer",rank_veteran:"Veteran",rank_champion:"Champion",rank_legend:"Legend",
 streakN:"{n}-day streak",bestN:"best {n}",dailyHint2:"Come back every day: +10 Coins, and every 7th day in a row a +50 bonus.",streakBonus:"streak bonus!",tx_streak:"🔥 Streak bonus",
@@ -643,10 +652,10 @@ ag_q4:"How should you set your game's age rating?",ag_q4a:"Pick the lowest so mo
 ag_q5:"If your game is rejected, you have…",ag_q5a:"7 days to fix it",ag_q5b:"No second chance",ag_q5c:"30 days to fix and resubmit",
 ag_q6:"Coins are…",ag_q6a:"Store credit with no money value",ag_q6b:"Real money",ag_q6c:"Cryptocurrency",
 agreeConfirm:"I read and agree to the developer rules and the {t}.",agreeBtn:"Accept the agreement",agreeAll:"Answer every question and tick the box.",agreeWrong:"{n} answers aren't right — read the rules again and try once more.",agreeDone:"Agreement accepted",
-vsecId:"Identity",vbirth:"Date of birth",vcity:"City",vparentT:"Parent or guardian",vparentS:"Developers under 16 need a parent or guardian's consent.",vparentEmail:"Parent / guardian email",vparentOk:"My parent or guardian agrees that I publish games here",
+vsecId:"Identity",vbirth:"Date of birth",vcity:"City",vparentT:"Parent or guardian",vparentS:"Developers under 16 need a parent or guardian's approval. We'll email your parent a link to confirm — your studio can be verified only after they click it. Their email is deleted within 14 days.",vparentEmail:"Parent / guardian email",vparentOk:"My parent or guardian agrees that I publish games here",
 vsecPresence:"Online presence",vportfolio:"Portfolio / previous work (optional)",vsecHuman:"About you",vq1:"Why do you make games? (20+ characters)",vq2:"Your game-making experience (20+ characters)",vq3:"How did you hear about Man Studio Store?",
 vtruth:"Everything I wrote is true. I understand false details can get my studio suspended.",vtruthNeed:"Please confirm that the details are true.",
-e_WAIT_7_DAYS:"The 7-day wait isn't over yet.",e_NO_GAME_FILE:"Upload the game (or a link) before launching.",e_AGREEMENT_REQUIRED:"Accept the developer agreement first.",e_BIRTH_DATE_REQUIRED:"Date of birth is required.",e_TOO_YOUNG:"You must be at least 9 years old.",e_PARENT_CONSENT_REQUIRED:"Developers under 16 need a parent's email and consent.",newsT:"What's New",newsS:"Store updates, new features and announcements.",newsPost:"Post an update",newsPop:"What's new",newsAll:"All updates",gotIt:"Got it",nav_newsH:"Store updates & announcements",
+e_WAIT_7_DAYS:"The 7-day wait isn't over yet.",e_NO_GAME_FILE:"Upload the game (or a link) before launching.",e_AGREEMENT_REQUIRED:"Accept the developer agreement first.",e_BIRTH_DATE_REQUIRED:"Date of birth is required.",e_TOO_YOUNG:"You must be at least 13 years old.",e_PARENT_CONSENT_REQUIRED:"Developers under 16 need a parent's email and consent.",newsT:"What's New",newsS:"Store updates, new features and announcements.",newsPost:"Post an update",newsPop:"What's new",newsAll:"All updates",gotIt:"Got it",nav_newsH:"Store updates & announcements",
 libNews:"What's new in your games",recentT:"Recently viewed",similarT:"More like this",
 trT:"Translations",trS:"Add your game page in other languages. Players see it in their own language automatically.",trAdd:"Add a language",trShown:"Shown in {l} (translated by the developer)",trOrig:"Shown in the original language",trOriginal:"Original",trAuto:"Translate to {l}",trDone:"Translated by your browser",trFail:"Translation isn't available here",
 clangT:"Game page language",clangS:"If a developer translated their page into this language, you'll see it in this language.",
@@ -704,7 +713,7 @@ p_none:"לא, זו הפעם הראשונה",p_itch:"itch.io",p_steam:"Steam",p_g
 ssubmit:"שלח סטודיו לבדיקה",sresubmit:"תקן ושלח שוב",reviewTime:"זמן בדיקה: {a}–{b} ימי עסקים",expected:"תשובה צפויה עד {d}",
 pendingL:"ממתין לבדיקה",approvedL:"אושר",rejectedL:"נדחה",reasonL:"סיבה",fixBy:"יש לך עד {d} לתקן ולשלוח שוב.",
 fixClosed:"חלון התיקון של 30 יום הסתיים. אפשר לערער במייל:",appealL:"עירעורים",
-vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",aiT:"בדיקת תוכן אוטומטית",aiPend:"בודק… (בדרך כלל 1–3 דקות)",aiOk:"לא נמצא שום דבר בעייתי בטקסט ובקוד ✓ (אדם עדיין בודק אותו ואת התמונות)",aiFlag:"אדם צריך לבדוק מקרוב",aiReject:"נמצאה בעיה חמורה — נדחה אוטומטית",aiErr:"לא זמין — נבדק רק על ידי אדם",aiAge:"דירוג גיל מוצע",e_AI_PENDING:"בדיקת התוכן של ה-AI עוד לא הסתיימה — נסה שוב בעוד כמה דקות.",e_AI_REJECTED:"בדיקת התוכן של ה-AI דחתה את המשחק. המפתח צריך לתקן ולשלוח שוב.",maintT:"שיפוצים",maintOn:"מצב שיפוצים פעיל — החנות סגורה לכולם חוץ ממנהלים.",maintOpen:"לפתיחה בפאנל הניהול",maintClosed:"החנות סגורה (שיפוצים)",maintLive:"החנות פתוחה",maintReopen:"פתח את החנות מחדש",maintClose:"סגור את החנות לשיפוצים",srcT:"קוד המקור (חובה במשחקי Windows)",srcS:"מעלים קובץ .zip עם קבצי הפרויקט/הקוד של המשחק. רק מנהלי החנות (ואתה) רואים אותו — הוא נסרק לווירוסים ואף פעם לא משותף עם שחקנים. עד 50MB.",srcNeed:"משחקי Windows צריכים את קוד המקור: העלה קובץ .zip של הפרויקט.",srcZip:"קוד המקור חייב להיות קובץ .zip.",srcDl:"הורד את קוד המקור",srcNone:"לא הועלה קוד מקור.",scanT:"בדיקת אבטחה",scanPend:"נסרק… (בדרך כלל כמה דקות)",scanClean:"נקי ✓",scanSusp:"צריך בדיקה מקרוב",scanBad:"נמצא תוכן מסוכן — נדחה אוטומטית",scanErr:"הסריקה האוטומטית לא זמינה — נבדק ידנית",scanNone:"אין קבצים לסריקה",e_SOURCE_REQUIRED:"משחקי Windows צריכים את קוד המקור: העלה קובץ .zip של הפרויקט.",e_BAD_SOURCE:"קובץ הקוד הזה לא שייך לך.",e_SCAN_PENDING:"בדיקת האבטחה עוד לא הסתיימה — נסה שוב בעוד כמה דקות.",e_SCAN_MALICIOUS:"בדיקת האבטחה מצאה תוכן מסוכן במשחק הזה.",holT:"חגים וימים סגורים",holClosed:"סגור הרמטית",holNoCount:"לא נספר",holClosedS:"אין שום אישורים (גם לא Lucky Approval), והיום לא נספר בזמני הבדיקה.",holNoCountS:"אפשר עדיין לאשר, אבל היום לא נחשב יום עסקים.",holClosedB:"האישורים סגורים הרמטית היום.",holNoCountB:"האישורים פתוחים, אבל היום לא נחשב יום עסקים.",holNone:"אין ימים מיוחדים בקרוב.",holAdd:"הוספת חג או יום סגור",holFrom:"מתאריך",holTo:"עד תאריך (לא חובה)",holKind:"סוג",holAddBtn:"הוסף",e_HOLIDAY_CLOSED:"חג — האישורים סגורים הרמטית היום.",dlStarted:"ההורדה התחילה",dlInLib:"המשחק בספרייה שלך — אפשר להוריד אותו שוב מתי שרוצים.",dlOwnGame:"זה המשחק שלך — מפתחים מקבלים את המשחקים שלהם בחינם.",dlReceipt:"הקבלה שלך נמצאת ב",rcKind_free:"משחק חינמי",rcKind_developer:"עותק מפתח",rcKind_key:"קוד שמומש",rcOwned:"בספרייה שלך · שלך לתמיד",dlHowT:"איך מתקינים:",dlHow1:"פותחים את תיקיית ההורדות (Downloads), או לוחצים על הקובץ בחלון.",dlHow2:"לוחצים פעמיים על הקובץ (אם זה .zip — קודם מחלצים, ואז פותחים את ה-.exe).",dlNoStart:"ההורדה לא התחילה?",dlAgain:"לחץ כאן להוריד שוב",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
+vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",yourAge:"הגיל שלך",ageHint13:"צריך להיות בן 13 ומעלה. מתחת לגיל 18, הורה או אפוטרופוס צריך להסכים לתנאים בשבילך.",e_TOO_YOUNG_13:"מצטערים — צריך להיות לפחות בן 13 כדי לפתוח חשבון.",signupBlocked:"לא הצלחנו לפתוח את החשבון. בדוק את הגיל (13+), שהסכמת לתנאים, ושהשם לא מתחזה למישהו אחר.",e_TERMS_REQUIRED:"צריך להסכים לתנאי השימוש ולמדיניות הפרטיות.",e_CONTENT_BLOCKED:"הטקסט הזה אסור (תוכן למבוגרים, שנאה, בריונות, הונאה או התחזות). צריך לשנות אותו.",tgT:"תנאי השימוש עודכנו",tgS:"עדכנו את תנאי השימוש ואת מדיניות הפרטיות. צריך לקרוא ולאשר אותם כדי להמשיך להשתמש בחנות.",tgAccept:"אשר והמשך",delAccT:"מחק את החשבון שלי",delAccS:"מוחק את הפרופיל, הספרייה, הביקורות, הקבלות, ה-Coins, הסטודיו, המשחקים והקבצים שהעלית. אי אפשר לבטל את זה.",delAccWarn:"⚠️ הכול נמחק לתמיד — אי אפשר לשחזר משחקים שבבעלותך או Coins.",delAccType:"כתוב את שם המשתמש שלך {u} כדי לאשר:",delAccDone:"החשבון שלך נמחק.",e_CONFIRM_MISMATCH:"שם המשתמש לא תואם.",e_ADMIN_CANT_DELETE:"אי אפשר למחוק את חשבון המנהל מכאן.",parT:"אישור הורה",parS:"הילד/ה שלך (שם משתמש {u}, סטודיו {s}) רוצה לפרסם משחקים משלו/ה ב-Man Studio Store — חנות משחקי אינדי חינמית בלי כסף אמיתי. מפתחים מתחת לגיל 16 צריכים אישור של הורה.",parRead:"לפני האישור אפשר לקרוא:",parAgree:"אני ההורה / האפוטרופוס ואני מאשר/ת",parIgnore:"אם אתם לא מאשרים, פשוט סגרו את הדף — שום דבר לא יקרה.",parDone:"תודה! האישור שלך נשמר.",e_BAD_LINK:"הקישור לא תקין או שפג תוקפו.",e_PARENT_NOT_CONFIRMED:"ההורה עוד לא אישר במייל.",parStatus:"אישור הורה",pst_confirmed:"✓ אושר במייל",pst_sent:"📧 המייל נשלח — מחכים",pst_error:"⚠️ שליחת המייל נכשלה — פנה למפתח",pst_not_sent:"⏳ המייל עוד לא נשלח (המייל לא מוגדר?)",ccVirtual:"כרטיס וירטואלי · לא כרטיס אשראי · בלי כסף אמיתי",textSize:"גודל טקסט",textSizeS:"מגדיל את כל הטקסט בחנות.",accT:"נגישות",aiT:"בדיקת תוכן אוטומטית",aiPend:"בודק… (בדרך כלל 1–3 דקות)",aiOk:"לא נמצא שום דבר בעייתי בטקסט ובקוד ✓ (אדם עדיין בודק אותו ואת התמונות)",aiFlag:"אדם צריך לבדוק מקרוב",aiReject:"נמצאה בעיה חמורה — נדחה אוטומטית",aiErr:"לא זמין — נבדק רק על ידי אדם",aiAge:"דירוג גיל מוצע",e_AI_PENDING:"בדיקת התוכן של ה-AI עוד לא הסתיימה — נסה שוב בעוד כמה דקות.",e_AI_REJECTED:"בדיקת התוכן של ה-AI דחתה את המשחק. המפתח צריך לתקן ולשלוח שוב.",maintT:"שיפוצים",maintOn:"מצב שיפוצים פעיל — החנות סגורה לכולם חוץ ממנהלים.",maintOpen:"לפתיחה בפאנל הניהול",maintClosed:"החנות סגורה (שיפוצים)",maintLive:"החנות פתוחה",maintReopen:"פתח את החנות מחדש",maintClose:"סגור את החנות לשיפוצים",srcT:"קוד המקור (חובה במשחקי Windows)",srcS:"מעלים קובץ .zip עם קבצי הפרויקט/הקוד של המשחק. רק מנהלי החנות (ואתה) רואים אותו — הוא נסרק לווירוסים ואף פעם לא משותף עם שחקנים. עד 50MB.",srcNeed:"משחקי Windows צריכים את קוד המקור: העלה קובץ .zip של הפרויקט.",srcZip:"קוד המקור חייב להיות קובץ .zip.",srcDl:"הורד את קוד המקור",srcNone:"לא הועלה קוד מקור.",scanT:"בדיקת אבטחה",scanPend:"נסרק… (בדרך כלל כמה דקות)",scanClean:"נקי ✓",scanSusp:"צריך בדיקה מקרוב",scanBad:"נמצא תוכן מסוכן — נדחה אוטומטית",scanErr:"הסריקה האוטומטית לא זמינה — נבדק ידנית",scanNone:"אין קבצים לסריקה",e_SOURCE_REQUIRED:"משחקי Windows צריכים את קוד המקור: העלה קובץ .zip של הפרויקט.",e_BAD_SOURCE:"קובץ הקוד הזה לא שייך לך.",e_SCAN_PENDING:"בדיקת האבטחה עוד לא הסתיימה — נסה שוב בעוד כמה דקות.",e_SCAN_MALICIOUS:"בדיקת האבטחה מצאה תוכן מסוכן במשחק הזה.",holT:"חגים וימים סגורים",holClosed:"סגור הרמטית",holNoCount:"לא נספר",holClosedS:"אין שום אישורים (גם לא Lucky Approval), והיום לא נספר בזמני הבדיקה.",holNoCountS:"אפשר עדיין לאשר, אבל היום לא נחשב יום עסקים.",holClosedB:"האישורים סגורים הרמטית היום.",holNoCountB:"האישורים פתוחים, אבל היום לא נחשב יום עסקים.",holNone:"אין ימים מיוחדים בקרוב.",holAdd:"הוספת חג או יום סגור",holFrom:"מתאריך",holTo:"עד תאריך (לא חובה)",holKind:"סוג",holAddBtn:"הוסף",e_HOLIDAY_CLOSED:"חג — האישורים סגורים הרמטית היום.",dlStarted:"ההורדה התחילה",dlInLib:"המשחק בספרייה שלך — אפשר להוריד אותו שוב מתי שרוצים.",dlOwnGame:"זה המשחק שלך — מפתחים מקבלים את המשחקים שלהם בחינם.",dlReceipt:"הקבלה שלך נמצאת ב",rcKind_free:"משחק חינמי",rcKind_developer:"עותק מפתח",rcKind_key:"קוד שמומש",rcOwned:"בספרייה שלך · שלך לתמיד",dlHowT:"איך מתקינים:",dlHow1:"פותחים את תיקיית ההורדות (Downloads), או לוחצים על הקובץ בחלון.",dlHow2:"לוחצים פעמיים על הקובץ (אם זה .zip — קודם מחלצים, ואז פותחים את ה-.exe).",dlNoStart:"ההורדה לא התחילה?",dlAgain:"לחץ כאן להוריד שוב",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
 vname:"שם מלא",vhuman:"בדיקת אנושיות: כתוב שתי שורות קצרות למה אתה מפתח משחקים",vprivacy:"🔒 אנחנו מבקשים כמה שפחות. רק מנהל החנות רואה את זה, זה אף פעם לא ציבורי, וזה נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה.",vsubmit:"שלח לאימות",
 verified:"הסטודיו מאומת ✓",s3T:"אפשר להגיש משחקים",s3S:"כל משחק עובר בדיקת איכות, תכנים ובאגים לפני הפרסום.",newsub:"הגש משחק חדש",
 s4S:"אחרי אישור המשחק עולה רשמית לחנות לכולם.",
@@ -731,7 +740,7 @@ history:"היסטוריה",tx_welcome:"🎉 בונוס הצטרפות",tx_daily:
 redeemed:"מומש",clearAll:"נקה הכל",open:"פתח",noNotes:"אין התראות עדיין",nextBadge:"עוד {n} הורדות לתג {b}",blueS:"✔ הכחול",devlogs:"דבלוגים",devlog:"דבלוג",srT:"בדיקת סטודיו",srS:"הבדיקה האחרונה לפני שאפשר לפרסם: ספרו לנו על המשחק הראשון ואיך הסטודיו יעבוד. אדם בודק — עד 7 ימי עסקים (ראשון–שישי).",srPrivacy:"אין כאן פרטים אישיים — רק שאלות על הסטודיו והמשחק.",srFirst:"המשחק הראשון שלכם",srTitle:"שם המשחק",srPitch:"על מה המשחק?",srPitchPh:"הרעיון, איך משחקים, מה מיוחד בו…",srPitchHint:"לפחות 80 תווים.",srProof:"קישור שמראה את העבודה",srProofHint:"טריילר, צילומי מסך, דמו, דף itch.io או ריפו.",srTeamT:"הצוות והתוכניות",srRoles:"מי עושה מה בסטודיו?",srRolesPh:"למשל: אני — קוד וגרפיקה. חבר — מוזיקה.",srSupport:"איך תתמכו בשחקנים?",srSupportPh:"תיקוני באגים, מענה לביקורות, עדכונים…",srContent:"איך תשמרו שהמשחקים יהיו בטוחים והוגנים?",srContentPh:"דירוג גיל, גרפיקה ומוזיקה שלכם, בלי תוכן גנוב…",srSend:"שלח לבדיקה",srShort:"חלק מהתשובות קצרות מדי.",srEta:"צפוי עד",hubS145:"שישה שלבים לפרסום: סטודיו ← הסכם ← אימות 3.0 ← בדיקת סטודיו (עד 7 ימי עסקים) ← הגשה ← השקה. בגרסה 1.4.5 כל סטודיו מתחיל מחדש מהסכם המפתחים.",
 joinT:"הגדרות הפסטיבל",joinS:"",fDevs:"מפתחים בפסטיבל",fNoDevs:"עוד לא הצטרפו מפתחים.",fGames:"משחקים שהוגשו",fSubOpens:"הגשת משחקים נפתחת",fSubClosed:"הגשת המשחקים סגורה.",fSubFrom:"פתיחת ההגשות",fSubTill:"סגירת ההגשות",fSubmit:"הגש משחק",fSubmitted:"המשחק שלך בפסטיבל!",fDevOnly:"רק מפתחים יכולים להצטרף לפסטיבלים.",fLeaveNote:"גם המשחקים שהגשת יוסרו.",atOpens:"ההצטרפות נפתחת",atCloses:"ההצטרפות נסגרת",atCount:"הצטרפו",atYouIn:"הצטרפת לפסטיבל!",atRemind:"מגישים משחק כשההגשות נפתחות. נשלח לך התראה כשהפסטיבל מתחיל.",atCancel:"עזוב את הפסטיבל",atConfirm:"אני מאשר/ת שאשתתף בפסטיבל הזה.",atRegister:"הצטרף",atNeedConfirm:"צריך לסמן את התיבה כדי לאשר השתתפות.",atDone:"הצטרפת!",atClosed:"ההצטרפות סגורה.",atOpensOn:"ההצטרפות נפתחת",atOpenTill:"אפשר להצטרף עד",atCap:"מקסימום משתתפים",atNoLimit:"בלי הגבלה",atHint:"מפתחים יכולים להצטרף מתי שרוצים עד סוף הפסטיבל. משחקים מגישים רק בין תאריכי ההגשה.",atBefore:"ההצטרפות חייבת להיפתח לפני תחילת הפסטיבל (ולהיסגר אחרי שנפתחה).",fModeT:"סוג הפסטיבל",fMode:"מי משתתף",fm_games:"משחקים (מפתחים מגישים משחקים)",fm_attend:"הרשמה בלבד (שחקנים נרשמים)",fm_both:"שניהם",e_FESTIVAL_FULL:"הפסטיבל מלא.",e_VERIFY_FIRST:"צריך לסיים קודם את אימות הסטודיו.",
 gaT:"Game Awards {y}",gaS:"כל הזוכים והמועמדים של השנה, בכל הקטגוריות.",gaWinner:"זוכה",gaNominees:"מועמדים:",gaSoon:"הזוכה יוכרז בקרוב",nomT:"מועמדים",nomS:"מוסיפים מועמדים לקטגוריה. הם מופיעים בדף ה-Game Awards של אותה שנה; הזוכה בקטגוריה נקבע למטה.",nomAdd:"הוסף מועמד",
-rcT:"קבלות",rcS:"קבלה על כל משחק בספרייה — שקנית, חינמי או שלך. ברגע שקנית משחק — לבד או בחבילה — הוא שלך לתמיד, ולא משלמים עליו שוב.",rcItem:"פריט",rcDate:"תאריך",rcCard:"כרטיס",rcBuyer:"קונה",rcId:"מספר רכישה",rcPaid:"שולם · שלך לתמיד",rcNone:"אין רכישות עדיין",rcPrint:"הדפס",rcRestore:"שחזר גישה",rcRestored:"{n} משחקים שוחזרו לספרייה.",rmOwned:"המשחק הזה שלך. ההסרה רק מסתירה אותו מהספרייה — אפשר להחזיר אותו בחינם מתי שרוצים (קבלות ← שחזר גישה).",vnick:"שם או כינוי",del3:"נמחק אוטומטית 3 ימים אחרי ההחלטה שלך.",
+rcT:"קבלות",rcS:"קבלה על כל משחק בספרייה — שקנית, חינמי או שלך. ברגע שקנית משחק — לבד או בחבילה — הוא שלך לתמיד, ולא משלמים עליו שוב.",rcItem:"פריט",rcDate:"תאריך",rcCard:"כרטיס Coins וירטואלי",rcBuyer:"קונה",rcId:"מספר רכישה",rcPaid:"שולם · שלך לתמיד",rcNone:"אין רכישות עדיין",rcPrint:"הדפס",rcRestore:"שחזר גישה",rcRestored:"{n} משחקים שוחזרו לספרייה.",rmOwned:"המשחק הזה שלך. ההסרה רק מסתירה אותו מהספרייה — אפשר להחזיר אותו בחינם מתי שרוצים (קבלות ← שחזר גישה).",vnick:"שם או כינוי",del3:"נמחק אוטומטית 3 ימים אחרי ההחלטה שלך.",
 levelN:"רמה {n}",xpToNext:"עוד {n} XP לרמה הבאה",levelUp:"עלית רמה! אתה עכשיו ברמה {n}",achUnlocked:"הישג חדש",
 rank_newcomer:"חדש",rank_explorer:"חוקר",rank_gamer:"גיימר",rank_veteran:"ותיק",rank_champion:"אלוף",rank_legend:"אגדה",
 streakN:"רצף של {n} ימים",bestN:"שיא {n}",dailyHint2:"חוזרים כל יום: +10 Coins, וכל יום שביעי ברצף בונוס של +50.",streakBonus:"בונוס רצף!",tx_streak:"🔥 בונוס רצף",
@@ -775,10 +784,10 @@ ag_q4:"איך קובעים את דירוג הגיל של המשחק?",ag_q4a:"ב
 ag_q5:"אם המשחק נדחה, יש לכם…",ag_q5a:"7 ימים לתקן",ag_q5b:"אין הזדמנות שנייה",ag_q5c:"30 יום לתקן ולהגיש שוב",
 ag_q6:"Coins הם…",ag_q6a:"קרדיט לחנות בלי ערך כספי",ag_q6b:"כסף אמיתי",ag_q6c:"מטבע קריפטו",
 agreeConfirm:"קראתי ואני מסכים לכללי המפתחים ול{t}.",agreeBtn:"אשר את ההסכם",agreeAll:"צריך לענות על כל השאלות ולסמן את התיבה.",agreeWrong:"{n} תשובות לא נכונות — קראו שוב את הכללים ונסו שוב.",agreeDone:"ההסכם אושר",
-vsecId:"זהות",vbirth:"תאריך לידה",vcity:"עיר",vparentT:"הורה או אפוטרופוס",vparentS:"מפתחים מתחת לגיל 16 צריכים הסכמה של הורה או אפוטרופוס.",vparentEmail:"מייל של הורה / אפוטרופוס",vparentOk:"ההורה או האפוטרופוס שלי מסכים שאפרסם כאן משחקים",
+vsecId:"זהות",vbirth:"תאריך לידה",vcity:"עיר",vparentT:"הורה או אפוטרופוס",vparentS:"מפתחים מתחת לגיל 16 צריכים אישור של הורה או אפוטרופוס. נשלח להורה מייל עם קישור לאישור — אפשר לאמת את הסטודיו רק אחרי שהוא ילחץ עליו. המייל שלו נמחק תוך 14 יום.",vparentEmail:"מייל של הורה / אפוטרופוס",vparentOk:"ההורה או האפוטרופוס שלי מסכים שאפרסם כאן משחקים",
 vsecPresence:"נוכחות ברשת",vportfolio:"תיק עבודות / עבודות קודמות (לא חובה)",vsecHuman:"עליך",vq1:"למה אתה מפתח משחקים? (20+ תווים)",vq2:"הניסיון שלך ביצירת משחקים (20+ תווים)",vq3:"איך שמעת על Man Studio Store?",
 vtruth:"כל מה שכתבתי נכון. אני מבין שפרטים כוזבים יכולים להוביל להשעיית הסטודיו.",vtruthNeed:"צריך לאשר שהפרטים נכונים.",
-e_WAIT_7_DAYS:"7 ימי ההמתנה עוד לא נגמרו.",e_NO_GAME_FILE:"צריך להעלות את המשחק (או קישור) לפני ההשקה.",e_AGREEMENT_REQUIRED:"צריך לאשר קודם את הסכם המפתחים.",e_BIRTH_DATE_REQUIRED:"צריך תאריך לידה.",e_TOO_YOUNG:"צריך להיות לפחות בן 9.",e_PARENT_CONSENT_REQUIRED:"מפתחים מתחת לגיל 16 צריכים מייל והסכמה של הורה.",newsT:"מה חדש",newsS:"עדכוני חנות, פיצ'רים חדשים והכרזות.",newsPost:"פרסם עדכון",newsPop:"מה חדש",newsAll:"כל העדכונים",gotIt:"הבנתי",nav_newsH:"עדכוני חנות והכרזות",
+e_WAIT_7_DAYS:"7 ימי ההמתנה עוד לא נגמרו.",e_NO_GAME_FILE:"צריך להעלות את המשחק (או קישור) לפני ההשקה.",e_AGREEMENT_REQUIRED:"צריך לאשר קודם את הסכם המפתחים.",e_BIRTH_DATE_REQUIRED:"צריך תאריך לידה.",e_TOO_YOUNG:"צריך להיות לפחות בן 13.",e_PARENT_CONSENT_REQUIRED:"מפתחים מתחת לגיל 16 צריכים מייל והסכמה של הורה.",newsT:"מה חדש",newsS:"עדכוני חנות, פיצ'רים חדשים והכרזות.",newsPost:"פרסם עדכון",newsPop:"מה חדש",newsAll:"כל העדכונים",gotIt:"הבנתי",nav_newsH:"עדכוני חנות והכרזות",
 libNews:"מה חדש במשחקים שלך",recentT:"נצפו לאחרונה",similarT:"עוד משחקים כאלה",
 trT:"תרגומים",trS:"מוסיפים את דף המשחק בשפות נוספות. שחקנים יראו אותו בשפה שלהם אוטומטית.",trAdd:"הוסף שפה",trShown:"מוצג ב{l} (תורגם על ידי המפתח)",trOrig:"מוצג בשפת המקור",trOriginal:"מקור",trAuto:"תרגם ל{l}",trDone:"תורגם על ידי הדפדפן",trFail:"תרגום לא זמין כאן",
 clangT:"שפת דפי המשחקים",clangS:"אם מפתח תרגם את הדף שלו לשפה הזו, תראה אותו בשפה הזו.",
@@ -874,7 +883,7 @@ async function loadMe(session){
   if(!session){me=null;myLib=new Set();myWish=new Set();myFollows=new Set();return}
   const uid=session.user.id;
   const [p,l,w,fl]=await Promise.all([
-    sb.from("profiles").select("id,username,avatar_url,bio,is_admin,created_at").eq("id",uid).maybeSingle(),
+    sb.from("profiles").select("id,username,avatar_url,bio,is_admin,created_at,terms_version").eq("id",uid).maybeSingle(),
     sb.from("library").select("game_id").eq("user_id",uid),
     sb.from("wishlist").select("game_id").eq("user_id",uid),
     sb.from("follows").select("studio_id").eq("user_id",uid)]);
@@ -923,7 +932,7 @@ function renderHeader(){
       :`<a class="btn green sm" href="#/login">${t("login")}</a>`);
   if(me){$("#ub").onclick=e=>{if(e.target.closest("#um a"))return;$("#um").hidden=!$("#um").hidden};
     $("#lo").onclick=async e=>{e.stopPropagation();await sb.auth.signOut();location.hash="#/"}}
-  $("#foot1").textContent="© "+new Date().getFullYear()+" "+STORE_NAME+" — "+t("foot1");$("#foot2").textContent=t("foot2");$("#footDl").textContent="🪟 "+t("dlApp");$("#fPriv").textContent=t("privacyT");$("#fTerms").textContent=t("termsT");$("#fNews").textContent="📰 v"+STORE_VERSION+" · "+t("newsT");
+  $("#foot1").textContent="© "+new Date().getFullYear()+" "+STORE_NAME+" — "+t("foot1");$("#foot2").textContent=t("foot2");$("#footDl").textContent="🪟 "+t("dlApp");$("#fPriv").textContent=t("privacyT");if($("#fAcc"))$("#fAcc").textContent="♿ "+t("accT");$("#fTerms").textContent=t("termsT");$("#fNews").textContent="📰 v"+STORE_VERSION+" · "+t("newsT");
 }
 document.addEventListener("click",e=>{const m=$("#um");if(m&&!e.target.closest("#ub"))m.hidden=true;if(!e.target.closest("#burger"))$("#nav").classList.remove("open")});
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
@@ -966,6 +975,19 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenus()});
 let rid=0;
 let MAINT=false;
 async function loadSettings(){const{data}=await sb.from("store_settings").select("maintenance").eq("id",1).maybeSingle();MAINT=!!(data&&data.maintenance)}
+function termsGate(){if(document.querySelector(".termsov"))return;const adm=!!(me.profile&&me.profile.is_admin);
+  const o=document.createElement("div");o.className="termsov";
+  o.innerHTML=`<div class="dlg" role="dialog" aria-modal="true" aria-labelledby="tgH"><h3 id="tgH" style="margin:0 0 8px">📜 ${t("tgT")}</h3><div class="mut" style="margin-bottom:10px">${t("tgS")}</div>
+    ${adm?"":`<label class="form" style="gap:5px;max-width:none">${t("yourAge")} *<input class="inp" id="tgAge" type="number" min="1" max="120" style="max-width:120px"><span class="hint">${t("ageHint13")}</span></label>`}
+    <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-top:8px"><input type="checkbox" id="tgOk" style="margin-top:3px"><span>${t("agree").replace("{t}",`<a href="#/terms" target="_blank">${t("termsT")}</a>`).replace("{p}",`<a href="#/privacy" target="_blank">${t("privacyT")}</a>`)}</span></label>
+    <div class="err" id="tgE"></div><div class="acts" style="margin-top:10px"><button class="btn ghost" id="tgOut">${t("logout")}</button><button class="btn green" id="tgGo">✓ ${t("tgAccept")}</button></div></div>`;
+  document.body.appendChild(o);setTimeout(()=>{(o.querySelector("#tgAge")||o.querySelector("#tgOk")).focus()},50);
+  o.querySelector("#tgOut").onclick=async()=>{await sb.auth.signOut();o.remove();location.hash="#/"};
+  o.querySelector("#tgGo").onclick=async e=>{const er=o.querySelector("#tgE");er.textContent="";const a=adm?null:Math.floor(+o.querySelector("#tgAge").value);
+    if(!adm&&!a){er.textContent=t("yourAge")+" — "+t("err_required");return}if(!adm&&a<13){er.textContent=t("e_TOO_YOUNG_13");return}
+    if(!o.querySelector("#tgOk").checked){er.textContent=t("mustAgree");return}
+    e.target.disabled=true;const{error}=await sb.rpc("accept_terms",{p_version:TERMS_VERSION,p_age:a});if(error){er.textContent=errMsg(error);e.target.disabled=false;return}
+    me.profile.terms_version=TERMS_VERSION;o.remove();toast("✓ "+t("saved"))}}
 function maintView(){document.body.classList.add("maint");closePlayer(true);
   $("#main").innerHTML=`<div class="maintbox"><div class="mi">🔧</div>
     <h1>The store is under maintenance</h1><p>Man Studio Store is closed for renovations. There is no access to the store until further notice.<br>Thank you for your patience!</p>
@@ -977,8 +999,9 @@ async function route(){
   const my=++rid, raw=(location.hash||"#/").slice(1)||"/";
   const [path,qs]=raw.split("?"), q=new URLSearchParams(qs||""), parts=path.split("/").filter(Boolean);
   const isAdm=!!(me&&me.profile&&me.profile.is_admin);
-  if(MAINT&&!isAdm&&!["login","reset","privacy","terms"].includes(parts[0]||"")){maintView();return}
+  if(MAINT&&!isAdm&&!["login","reset","privacy","terms","accessibility","parent"].includes(parts[0]||"")){maintView();return}
   document.body.classList.toggle("maint",MAINT&&!isAdm);
+  if(me&&me.profile&&me.profile.terms_version!==TERMS_VERSION&&!["terms","privacy","accessibility"].includes(parts[0]||""))termsGate();
   let mb=document.getElementById("maintBar");if(MAINT&&isAdm){if(!mb){mb=document.createElement("div");mb.id="maintBar";document.body.prepend(mb)}
     mb.innerHTML=`🔧 ${t("maintOn")} <a href="#/admin">${t("maintOpen")}</a>`}else if(mb)mb.remove();
   renderHeader();closePlayer(true);
@@ -1015,6 +1038,8 @@ async function route(){
       case "holidays": await holidaysView(main,stale);break;
       case "devlog": await devlogPage(main,parts[1],stale);break;
       case "privacy": legalView(main,"privacy");break;
+      case "accessibility": legalView(main,"access");break;
+      case "parent": await parentView(main,q,stale);break;
       case "terms": legalView(main,"terms");break;
       default: main.innerHTML=`<div class="empty"><b>${t("notfound")}</b><a href="#/">${t("back")}</a></div>`;
     }
@@ -1191,7 +1216,7 @@ function openShare(path,title){
 }
 function cardNum(c,full){c=String(c||"");return full?c.replace(/(\d{4})(?=\d)/g,"$1 "):"•••• "+c.slice(-4)}
 function coinCardHTML(full){return `<div class="ccard"><div class="cc1"><b>MAN STUDIO</b><span>COIN CARD</span></div><div class="chip"></div>
-  <div class="ccn" dir="ltr">${cardNum(me.card,full)}</div><div class="cc2"><span>${esc(me.profile.username)}</span><span>${coins(me.coins)}</span></div></div>`}
+  <div class="ccn" dir="ltr">${cardNum(me.card,full)}</div><div class="cc2"><span>${esc(me.profile.username)}</span><span>${coins(me.coins)}</span></div><div class="ccvirtual">${t("ccVirtual")}</div></div>`}
 async function openCheckout(item){ // item: {kind:'game'|'bundle', id, title, price, list}
   if(needLogin())return;await refreshWallet();
   const after=me.coins-item.price,ok=after>=0;
@@ -1867,7 +1892,7 @@ function verifyForm(box,s){
     <div class="mut">${t("vprivacy")}</div>
     <div class="vsec">👤 ${t("vsecId")}</div>
     <div class="two"><label>${t("vnick")} *<input class="inp" id="vn" maxlength="100"></label>
-      <label>${t("vage")} *<input class="inp" id="va" type="number" min="9" max="120"></label></div>
+      <label>${t("vage")} *<input class="inp" id="va" type="number" min="13" max="120"></label></div>
     <div class="two"><label>${t("vcountry")} *<input class="inp" id="vc" maxlength="60" autocomplete="country-name"></label><span></span></div>
     <div id="vparent" hidden class="extbox"><b>👪 ${t("vparentT")}</b><div class="hint">${t("vparentS")}</div>
       <label>${t("vparentEmail")} *<input class="inp" id="vpe" type="email" dir="ltr" maxlength="200"></label>
@@ -1889,7 +1914,7 @@ function verifyForm(box,s){
     const up=()=>{const n=el.value.trim().length;c.textContent=n+" / 20";c.style.color=n>=20?"#a4d007":"";if(n>=20)el.classList.remove("bad")};el.addEventListener("input",up);up()});
   document.querySelectorAll("#vf .inp").forEach(el=>el.addEventListener("input",()=>el.classList.remove("bad")));
   const ageOf=()=>{const v=$("#va").value;return v===""?null:Math.floor(+v)};
-  $("#va").oninput=()=>{const a=ageOf();$("#vparent").hidden=!(a!==null&&a>=9&&a<16)};
+  $("#va").oninput=()=>{const a=ageOf();$("#vparent").hidden=!(a!==null&&a>=13&&a<16)};
   $("#vf").onsubmit=async e=>{e.preventDefault();const er=$("#ve"),b=$("#vsb");er.textContent="";const a=ageOf();
     const q=[1,2,3].map(i=>$("#vq"+i).value.trim());
     const rec={studio_id:s.id,owner:me.id,full_name:$("#vn").value.trim(),country:$("#vc").value.trim(),age:a||0,
@@ -1901,7 +1926,7 @@ function verifyForm(box,s){
     if(miss.length){miss.forEach(([,id])=>$("#"+id).classList.add("bad"));if(miss.some(x=>x[1]==="vs"))$("#valt").classList.add("bad");
       er.innerHTML=`${t("err_required")}:<br>${miss.map(([,,k])=>"• "+esc(t(k).replace(/\s*\(20\+.*?\)/,"")+(["vq1","vq2"].includes(k)?" — "+t("vMin20"):""))).join("<br>")}`;
       $("#"+miss[0][1]).scrollIntoView({behavior:"smooth",block:"center"});$("#"+miss[0][1]).focus();return}
-    if(a<9){er.textContent=t("e_TOO_YOUNG");return}
+    if(a<13){er.textContent=t("e_TOO_YOUNG");return}
     if(a<16&&(!rec.parent_email||!rec.parent_consent)){er.textContent=t("e_PARENT_CONSENT_REQUIRED");return}
     if(!$("#vtrue").checked){er.textContent=t("vtruthNeed");return}
     for(const u of[rec.social_link,rec.portfolio_url])if(u&&!okUrl(u)){er.textContent=t("err_badurl");return}
@@ -2245,16 +2270,16 @@ en:{privacy:`<h1>Privacy Policy</h1><p class="dim">Last updated: ${LEGAL_UPDATED
 <li><b>Supabase</b> — database, login and file storage (servers in the EU).</li>
 <li><b>VirusTotal</b> (a Google service) — automatic malware scanning. Game files, demo files and game links uploaded by developers are sent to VirusTotal. Files sent there may become available to VirusTotal's security community. <b>Source code is never uploaded</b>: only its digital fingerprint (hash) is checked.</li>
 <li><b>Automatic content review</b> runs on our own server with an internal checker (rules and a small built-in AI model). The title, descriptions, tags and HTML game code of submitted games are checked there for copyright problems, unsafe content, scams and malicious code. <b>Nothing is sent to an outside AI service.</b></li>
-<li><b>GitHub Pages</b> (hosting the website), <b>Google Fonts</b> and <b>jsDelivr</b> (fonts and code libraries), <b>Google Search</b> (the public store pages are indexed), and <b>YouTube</b> (only if you play a game trailer).</li></ul>
+<li><b>GitHub Pages</b> (hosting the website — the fonts and code libraries are hosted together with it, so no other font or code service is contacted), <b>Google Search</b> (the public store pages are indexed), <b>Gmail</b> (only to send a parent-approval email), and <b>YouTube</b> (only if you play a game trailer).</li></ul>
 <p>These services process data under their own privacy policies. We share information with authorities only when the law requires it, or to protect users from serious harm.</p>
-<h2>5. Children</h2><p>If you are under 18 (or under the age of adulthood in your country), you may use the store only with the permission of a parent or guardian, who agrees to these policies for you. Studios may be created from age 9; developers under 16 need a parent's email and consent. A parent can ask us to see or delete a child's data at any time.</p>
-<h2>6. Your rights</h2><p>You can edit your profile and studio, delete reviews, games and notifications, and sign out at any time. You may ask to see, correct, export or delete your data by email; we answer within 30 days. Some records (for example receipts or records of rule-breaking) may be kept as long as needed for security or legal reasons.</p>
+<h2>5. Children</h2><p>Accounts and studios are for ages 13 and up; we ask your age when you sign up and keep only an age group (13–15, 16–17 or 18+). If you are under 18 (or under the age of adulthood in your country), you may use the store only with the permission of a parent or guardian, who agrees to these policies for you. Developers under 16 need a parent's approval: we send the parent one email with a confirmation link, and the parent's email address is deleted within 14 days. A parent can ask us to see or delete a child's data at any time.</p>
+<h2>6. Your rights</h2><p>You can edit your profile and studio, delete reviews, games and notifications, sign out, and <b>delete your whole account in Settings</b> at any time. You may ask to see, correct, export or delete your data by email; we answer within 30 days. Some records (for example receipts or records of rule-breaking) may be kept as long as needed for security or legal reasons.</p>
 <h2>7. Security & retention</h2><p>Access to data is protected by rules on the server, private files are stored in private storage, and uploads are scanned for malware. No system is 100% secure, so please use a strong, unique password. We keep account data while your account exists; verification data until 3 days after the review decision; deleted content is removed from the store right away and from backups over time.</p>
 <h2>8. Changes</h2><p>If this policy changes, we will update the date above and announce important changes in the store.</p>`,
 terms:`<h1>Terms of Use</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
 <p>These terms are an agreement between you and Man Studio Store ("we", "the store"). By creating an account, downloading or playing a game, or publishing content, you agree to these terms and to the <a href="#/privacy">Privacy Policy</a>. If you don't agree, please don't use the store.</p>
-<h2>1. Who can use the store</h2><p>If you are under 18 (or under the age of adulthood in your country), a parent or guardian must agree to these terms for you and is responsible for your use of the store. Studios may be created from age 9, with a parent's consent under 16.</p>
-<h2>2. Accounts</h2><p>Keep your password safe and your information accurate. You are responsible for what happens in your account. One person may not use several accounts to cheat (for example, to farm Coins, reviews or votes). We may suspend or close accounts that break these terms.</p>
+<h2>1. Who can use the store</h2><p>You must be <b>at least 13 years old</b> to create an account. If you are under 18 (or under the age of adulthood in your country), a parent or guardian must agree to these terms for you and is responsible for your use of the store. Studios may be created from age 13; developers under 16 need a parent's approval, which the parent gives by clicking a link we email them. Children under 13 may browse the store without an account.</p>
+<h2>2. Accounts</h2><p>Keep your password safe and your information accurate. You are responsible for what happens in your account. One person may not use several accounts to cheat (for example, to farm Coins, reviews or votes). We may suspend or close accounts that break these terms. You can delete your account at any time in Settings. Usernames, studio names, bios, reviews and devlogs are checked automatically, and text with adult content, hate, bullying, scams or impersonation is blocked.</p>
 <h2>3. Coins</h2><p>Coins are virtual store credit. They have <b>no cash value</b>, cannot be bought, sold, exchanged, transferred or withdrawn for real money, and are not property. New accounts start with 500 Coins and get 10 Coins the first time each game enters their library. We may change Coin rewards and prices, and correct balances obtained by mistake, bugs or abuse. Purchases with Coins are final; a game you bought stays yours and you never pay for it again.</p>
 <h2>4. The store is a platform</h2><p>Games, demos, devlogs and studio pages are created by <b>independent developers</b>, not by us. Each developer is solely responsible for their content. Reviewing a game, scanning it, giving it an award or promoting it does not mean we endorse it, guarantee it or take responsibility for it. You receive a personal, non-transferable right to play the games in your library; it does not give you ownership of the game.</p>
 <h2>5. Downloads & security</h2><p>Every uploaded game file is scanned automatically for malware (with VirusTotal and our own checks) and reviewed by a person, and Windows games must include their source code. Still, <b>no scan or review can guarantee that a file is completely safe</b>. Downloaded games (EXE/ZIP) run on your own computer <b>at your own risk</b>: keep an up-to-date antivirus and back up important files. Please report anything suspicious right away from the game page; we may remove a game at any time to protect players.</p>
@@ -2290,16 +2315,16 @@ he:{privacy:`<h1>מדיניות פרטיות</h1><p class="dim">עודכן לא�
 <li><b>Supabase</b> — מסד נתונים, התחברות ואחסון קבצים (שרתים באירופה).</li>
 <li><b>VirusTotal</b> (שירות של Google) — סריקה אוטומטית לתוכנות זדוניות. קבצי משחקים, קבצי דמו וקישורים למשחקים שמפתחים מעלים נשלחים ל-VirusTotal, וקבצים שנשלחים לשם עלולים להיות זמינים לקהילת האבטחה של VirusTotal. <b>קוד המקור אף פעם לא נשלח</b>: נבדקת רק "טביעת האצבע" הדיגיטלית שלו (hash).</li>
 <li><b>בדיקת תוכן אוטומטית</b> רצה בשרת שלנו עם בודק פנימי (כללים ומודל AI קטן מובנה). השם, התיאורים, התגיות וקוד ה-HTML של משחקים שהוגשו נבדקים שם לבעיות זכויות יוצרים, תוכן לא בטוח, הונאות וקוד זדוני. <b>שום דבר לא נשלח לשירות AI חיצוני.</b></li>
-<li><b>GitHub Pages</b> (אחסון האתר), <b>Google Fonts</b> ו-<b>jsDelivr</b> (גופנים וספריות קוד), <b>חיפוש Google</b> (הדפים הציבוריים של החנות מופיעים בחיפוש) ו-<b>YouTube</b> (רק אם מפעילים טריילר).</li></ul>
+<li><b>GitHub Pages</b> (אחסון האתר — הגופנים וספריות הקוד מאוחסנים יחד איתו, כך שלא פונים לשום שירות גופנים או קוד אחר), <b>חיפוש Google</b> (הדפים הציבוריים של החנות מופיעים בחיפוש), <b>Gmail</b> (רק כדי לשלוח מייל לאישור הורה) ו-<b>YouTube</b> (רק אם מפעילים טריילר).</li></ul>
 <p>השירותים האלה מעבדים מידע לפי מדיניות הפרטיות שלהם. אנחנו משתפים מידע עם רשויות רק כשהחוק מחייב, או כדי להגן על משתמשים מפגיעה חמורה.</p>
-<h2>5. ילדים</h2><p>אם אתה מתחת לגיל 18 (או מתחת לגיל הבגרות במדינה שלך), מותר להשתמש בחנות רק באישור הורה או אפוטרופוס, שמסכים למדיניות בשבילך. אפשר לפתוח סטודיו מגיל 9; מפתחים מתחת לגיל 16 צריכים מייל והסכמה של הורה. הורה יכול לבקש לראות או למחוק את המידע של הילד בכל זמן.</p>
-<h2>6. הזכויות שלך</h2><p>אפשר לערוך את הפרופיל והסטודיו, למחוק ביקורות, משחקים והתראות ולהתנתק בכל זמן. אפשר לבקש במייל לראות, לתקן, לייצא או למחוק את המידע שלך; נענה תוך 30 יום. חלק מהרשומות (למשל קבלות או תיעוד של הפרת כללים) עשויות להישמר כל עוד צריך מסיבות אבטחה או מסיבות חוקיות.</p>
+<h2>5. ילדים</h2><p>חשבונות וסטודיואים הם מגיל 13 ומעלה; אנחנו שואלים את הגיל בהרשמה ושומרים רק קבוצת גיל (13–15, 16–17 או 18+). אם אתה מתחת לגיל 18 (או מתחת לגיל הבגרות במדינה שלך), מותר להשתמש בחנות רק באישור הורה או אפוטרופוס, שמסכים למדיניות בשבילך. מפתחים מתחת לגיל 16 צריכים אישור של הורה: אנחנו שולחים להורה מייל אחד עם קישור לאישור, וכתובת המייל של ההורה נמחקת תוך 14 יום. הורה יכול לבקש לראות או למחוק את המידע של הילד בכל זמן.</p>
+<h2>6. הזכויות שלך</h2><p>אפשר לערוך את הפרופיל והסטודיו, למחוק ביקורות, משחקים והתראות, להתנתק, ו<b>למחוק את כל החשבון בהגדרות</b> בכל זמן. אפשר לבקש במייל לראות, לתקן, לייצא או למחוק את המידע שלך; נענה תוך 30 יום. חלק מהרשומות (למשל קבלות או תיעוד של הפרת כללים) עשויות להישמר כל עוד צריך מסיבות אבטחה או מסיבות חוקיות.</p>
 <h2>7. אבטחה ושמירת מידע</h2><p>הגישה למידע מוגנת בכללים בשרת, קבצים פרטיים נשמרים באחסון פרטי, וכל קובץ שמועלה נסרק לתוכנות זדוניות. אף מערכת לא מאובטחת ב-100%, אז כדאי להשתמש בסיסמה חזקה וייחודית. מידע החשבון נשמר כל עוד החשבון קיים; מידע האימות עד 3 ימים אחרי החלטת הבדיקה; תוכן שנמחק יורד מהחנות מיד, ומהגיבויים עם הזמן.</p>
 <h2>8. שינויים</h2><p>אם המדיניות משתנה, נעדכן את התאריך למעלה ונודיע בחנות על שינויים חשובים.</p>`,
 terms:`<h1>תנאי שימוש</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
 <p>התנאים האלה הם הסכם בינך לבין Man Studio Store ("אנחנו", "החנות"). כשפותחים חשבון, מורידים או משחקים במשחק, או מפרסמים תוכן, מסכימים לתנאים האלה ול<a href="#/privacy">מדיניות הפרטיות</a>. אם אתה לא מסכים, אל תשתמש בחנות.</p>
-<h2>1. מי יכול להשתמש בחנות</h2><p>אם אתה מתחת לגיל 18 (או מתחת לגיל הבגרות במדינה שלך), הורה או אפוטרופוס צריך להסכים לתנאים בשבילך, והוא אחראי לשימוש שלך בחנות. אפשר לפתוח סטודיו מגיל 9, ומתחת לגיל 16 צריך הסכמה של הורה.</p>
-<h2>2. חשבונות</h2><p>שמור על הסיסמה ועל פרטים נכונים. אתה אחראי למה שקורה בחשבון שלך. אסור לאדם אחד להשתמש בכמה חשבונות כדי לרמות (למשל לצבור Coins, ביקורות או הצבעות). אנחנו רשאים להשעות או לסגור חשבונות שמפרים את התנאים.</p>
+<h2>1. מי יכול להשתמש בחנות</h2><p>צריך להיות <b>לפחות בן 13</b> כדי לפתוח חשבון. אם אתה מתחת לגיל 18 (או מתחת לגיל הבגרות במדינה שלך), הורה או אפוטרופוס צריך להסכים לתנאים בשבילך, והוא אחראי לשימוש שלך בחנות. אפשר לפתוח סטודיו מגיל 13; מפתחים מתחת לגיל 16 צריכים אישור של הורה, שההורה נותן בלחיצה על קישור שאנחנו שולחים לו במייל. ילדים מתחת לגיל 13 יכולים לגלוש בחנות בלי חשבון.</p>
+<h2>2. חשבונות</h2><p>שמור על הסיסמה ועל פרטים נכונים. אתה אחראי למה שקורה בחשבון שלך. אסור לאדם אחד להשתמש בכמה חשבונות כדי לרמות (למשל לצבור Coins, ביקורות או הצבעות). אנחנו רשאים להשעות או לסגור חשבונות שמפרים את התנאים. אפשר למחוק את החשבון בכל זמן בהגדרות. שמות משתמש, שמות סטודיו, תיאורים, ביקורות ודבלוגים נבדקים אוטומטית, וטקסט עם תוכן למבוגרים, שנאה, בריונות, הונאה או התחזות נחסם.</p>
 <h2>3. Coins</h2><p>Coins הם קרדיט וירטואלי לחנות. <b>אין להם ערך כספי</b>, אי אפשר לקנות, למכור, להחליף, להעביר או למשוך אותם בכסף אמיתי, והם לא רכוש. חשבון חדש מתחיל עם 500 Coins ומקבל 10 Coins בפעם הראשונה שכל משחק נכנס לספרייה. אנחנו רשאים לשנות פרסים ומחירים ב-Coins ולתקן יתרות שהתקבלו בטעות, בגלל באג או משימוש לרעה. רכישות ב-Coins סופיות; משחק שקנית נשאר שלך ולא משלמים עליו שוב.</p>
 <h2>4. החנות היא פלטפורמה</h2><p>המשחקים, הדמואים, הדבלוגים ודפי הסטודיו נוצרים על ידי <b>מפתחים עצמאיים</b>, לא על ידינו. כל מפתח אחראי לבדו לתוכן שלו. זה שבדקנו משחק, סרקנו אותו, נתנו לו פרס או קידמנו אותו לא אומר שאנחנו ממליצים עליו, מבטיחים אותו או אחראים לו. אתה מקבל זכות אישית שאי אפשר להעביר לשחק במשחקים שבספרייה שלך; היא לא נותנת לך בעלות על המשחק.</p>
 <h2>5. הורדות ואבטחה</h2><p>כל קובץ משחק שמועלה נסרק אוטומטית לתוכנות זדוניות (עם VirusTotal ועם בדיקות שלנו) ונבדק על ידי אדם, ומשחקי Windows חייבים לכלול את קוד המקור. ובכל זאת, <b>אף סריקה ואף בדיקה לא יכולות להבטיח שקובץ בטוח לגמרי</b>. משחקים שמורידים (EXE/ZIP) רצים על המחשב שלך <b>באחריותך</b>: כדאי להשתמש באנטי-וירוס מעודכן ולגבות קבצים חשובים. אם משהו נראה חשוד, דווח מיד מדף המשחק; אנחנו רשאים להוריד משחק בכל זמן כדי להגן על השחקנים.</p>
@@ -2321,9 +2346,42 @@ terms:`<h1>תנאי שימוש</h1><p class="dim">עודכן לאחרונה: ${L
 <h2>12. שינויים, סיום ועוד</h2><p>אנחנו רשאים לשנות את החנות, התנאים או הכללים בכל זמן; התאריך למעלה מראה את הגרסה האחרונה, והמשך השימוש בחנות אומר שאתה מקבל את השינויים. אנחנו רשאים להשעות או להפסיק גישה למי שמפר את התנאים. אתה יכול להפסיק להשתמש בחנות בכל זמן. על התנאים חלים חוקי מדינת ישראל, וסכסוכים יידונו בבתי המשפט המוסמכים בישראל. אם חלק מהתנאים יימצא לא תקף, השאר נשאר בתוקף. אם לא אכפנו כלל, זה לא אומר שוויתרנו עליו.</p>
 <h2>13. יצירת קשר</h2><p>שאלות, דיווחים, תלונות על זכויות יוצרים ועירעורים: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>`}
 };
-function legalView(main,kind){setTitle(t(kind==="privacy"?"privacyT":"termsT"));
+LEGAL.en.access=`<h1>Accessibility Statement</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
+<p>Man Studio Store wants everyone — including people with disabilities — to be able to use the store. We work to meet the Israeli Standard IS 5568 (based on WCAG 2.0, level AA) as far as we can, and we keep improving.</p>
+<h2>What we did</h2><ul>
+<li>Full keyboard navigation with a clearly visible focus frame, and a "Skip to content" link at the top of every page.</li>
+<li>A text size setting (Settings → Text size, up to 150%).</li>
+<li>Improved color contrast for text.</li>
+<li>Text descriptions (alt text) for game covers and images, and labels for buttons and fields for screen readers.</li>
+<li>Animations are turned off when your device asks for reduced motion.</li>
+<li>Popups close with the Esc key.</li>
+<li>English and Hebrew, with a correct right-to-left layout in Hebrew.</li></ul>
+<h2>Known limitations</h2><p>Games in the store are made by independent developers, and many of them are not fully accessible — the store can't control their content. Some older parts of the store may not yet fully meet the standard; we are working on them.</p>
+<h2>Contact us about accessibility</h2><p>If something is hard to use, or you need help or an accessible alternative, contact our accessibility contact person (Man Studio) at <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>. Please describe the problem and the page. We will answer within 14 days.</p>`;LEGAL.he.access=`<h1>הצהרת נגישות</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
+<p>Man Studio Store רוצה שכולם — כולל אנשים עם מוגבלות — יוכלו להשתמש בחנות. אנחנו פועלים לעמוד בתקן הישראלי ת"י 5568 (המבוסס על WCAG 2.0 ברמה AA) ככל האפשר, וממשיכים לשפר.</p>
+<h2>מה עשינו</h2><ul>
+<li>ניווט מלא במקלדת עם מסגרת פוקוס ברורה, וקישור "דלג לתוכן" בראש כל דף.</li>
+<li>הגדרת גודל טקסט (הגדרות ← גודל טקסט, עד 150%).</li>
+<li>ניגודיות צבעים משופרת לטקסט.</li>
+<li>תיאורי טקסט (טקסט חלופי) לתמונות השער ולתמונות, ותוויות לכפתורים ולשדות עבור קוראי מסך.</li>
+<li>אנימציות נכבות כשהמכשיר מבקש להפחית תנועה.</li>
+<li>חלונות קופצים נסגרים במקש Esc.</li>
+<li>עברית ואנגלית, עם תצוגה נכונה מימין לשמאל בעברית.</li></ul>
+<h2>מגבלות ידועות</h2><p>המשחקים בחנות נוצרים על ידי מפתחים עצמאיים, ורבים מהם לא נגישים לגמרי — החנות לא יכולה לשלוט בתוכן שלהם. ייתכן שחלקים ישנים בחנות עוד לא עומדים בתקן במלואו; אנחנו עובדים עליהם.</p>
+<h2>פנייה בנושא נגישות</h2><p>אם משהו קשה לשימוש, או שאתם צריכים עזרה או חלופה נגישה, פנו לרכז הנגישות (Man Studio) במייל <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>. תארו את הבעיה ואת הדף. נענה תוך 14 יום.</p>`;
+function legalView(main,kind){setTitle(t(kind==="privacy"?"privacyT":kind==="access"?"accT":"termsT"));
   main.innerHTML=`<article class="legal panel">${LEGAL[lang][kind]}</article><div class="dim" style="font-size:12px;margin-top:8px;text-align:center">
-    <a href="#/privacy">${t("privacyT")}</a> · <a href="#/terms">${t("termsT")}</a></div>`}
+    <a href="#/privacy">${t("privacyT")}</a> · <a href="#/terms">${t("termsT")}</a> · <a href="#/accessibility">${t("accT")}</a></div>`}
+async function parentView(main,q,stale){setTitle(t("parT"));const tok=q.get("t")||"";
+  if(!/^[0-9a-f-]{36}$/i.test(tok)){main.innerHTML=`<div class="empty"><b>${t("e_BAD_LINK")}</b></div>`;return}
+  const{data,error}=await sb.rpc("parent_consent_info",{p_token:tok});if(stale())return;const c=(data||[])[0];
+  if(error||!c){main.innerHTML=`<div class="empty"><b>${t("e_BAD_LINK")}</b></div>`;return}
+  main.innerHTML=`<div class="maintbox" style="text-align:start"><div class="mi" style="text-align:center">👪</div><h1 style="text-align:center">${t("parT")}</h1>
+    <p>${t("parS").replace("{u}",`<b>${esc(c.child_name||"")}</b>`).replace("{s}",`<b>${esc(c.studio_name||"")}</b>`)}</p>
+    <p class="dim" style="margin-top:8px">${t("parRead")} <a href="#/terms">${t("termsT")}</a> · <a href="#/privacy">${t("privacyT")}</a></p>
+    <div id="parBox" style="margin-top:14px;text-align:center">${c.confirmed?`<div class="status ok"><b>✓ ${t("parDone")}</b></div>`:`<button class="btn green" id="parOk">✓ ${t("parAgree")}</button><div class="dim" style="font-size:12px;margin-top:8px">${t("parIgnore")}</div>`}</div></div>`;
+  const b=$("#parOk");if(b)b.onclick=async()=>{b.disabled=true;const r=await sb.rpc("confirm_parent",{p_token:tok});if(r.error){toast(errMsg(r.error));b.disabled=false;return}
+    $("#parBox").innerHTML=`<div class="status ok"><b>✓ ${t("parDone")}</b></div>`}}
 
 /* ============ bundle page ============ */
 async function bundlePage(main,id,stale){
@@ -2723,7 +2781,7 @@ function fixLine(deadline){
   return `<span>${t("fixClosed")} <a href="mailto:${APPEAL_EMAIL}" dir="ltr">${APPEAL_EMAIL}</a></span>`;
 }
 function errMsg(e){const m=(e&&e.message)||"";
-  for(const c of["SHABBAT_CLOSED","HOLIDAY_CLOSED","SOURCE_REQUIRED","BAD_SOURCE","SCAN_PENDING","SCAN_MALICIOUS","AI_PENDING","AI_REJECTED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
+  for(const c of["TERMS_REQUIRED","TOO_YOUNG_13","CONTENT_BLOCKED","PARENT_NOT_CONFIRMED","BAD_LINK","CONFIRM_MISMATCH","ADMIN_CANT_DELETE","SHABBAT_CLOSED","HOLIDAY_CLOSED","SOURCE_REQUIRED","BAD_SOURCE","SCAN_PENDING","SCAN_MALICIOUS","AI_PENDING","AI_REJECTED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
     "OWN_GAME","NOT_OWNED","NOT_AVAILABLE","WAIT_7_DAYS","NO_GAME_FILE","VERIFY_FIRST","FESTIVAL_FULL","AGREEMENT_REQUIRED","BIRTH_DATE_REQUIRED","TOO_YOUNG","PARENT_CONSENT_REQUIRED","PLAY_10_MIN","ALREADY_CLAIMED","BAD_KEY","KEY_USED","BUNDLE_SAME_STUDIO","NO_USER","NOT_YOUR_GAME"])if(m.includes(c))return t("e_"+c);
   if(/bundles_price_check/.test(m))return t("bundleRule");
   if(/games_sale_window|sale_pct_check/.test(m))return t("saleHint");
@@ -2858,7 +2916,7 @@ async function adminView(main,tab,stale){
 
     ${v.portfolio_url&&okUrl(v.portfolio_url)?`<span>${t("vportfolio")}</span><span><a href="${esc(okUrl(v.portfolio_url))}" target="_blank" rel="noopener" dir="ltr">${esc(v.portfolio_url)}</a></span>`:""}
     ${v.answers&&v.answers.experience?`<span>${t("vq2")}</span><span>${esc(v.answers.experience)}</span><span>${t("vq3")}</span><span>${esc(v.answers.heard||"")}</span>`:""}
-    ${v.parent_email?`<span>👪 ${t("vparentEmail")}</span><span dir="ltr">${esc(v.parent_email)} ${v.parent_consent?"✓":"✗"}</span>`:""}
+    ${v.parent_email?`<span>👪 ${t("vparentEmail")}</span><span dir="ltr">${esc(v.parent_email)} ${v.parent_consent?"✓":"✗"}</span><span>👪 ${t("parStatus")}</span><span data-pstat="${s.id}">…</span>`:""}
     <span>${t("agreeT")}</span><span>${s.agreement_version>=3?"✓ "+(s.agreed_at?fmtDate(s.agreed_at):""):"✗"}</span></div>
     <div class="dim" style="font-size:11px;margin-top:6px">🔒 ${t("del3")}</div>`:`<div class="mut">—</div>`}</div>${acts("verify",s.id)}</div>`}).join("");
   else if(tab==="reports"){body=`${extra.copies.length?`<div class="panel"><h3 style="margin:0 0 6px;color:#fff">⚠️ ${t("copiesT")}</h3><div class="mut" style="margin-bottom:6px">${t("copiesS")}</div>
@@ -2990,6 +3048,7 @@ async function adminView(main,tab,stale){
     $("#awk").onchange=()=>{const k=$("#awk").value,n=new Date();$("#awp").value=k==="gotw"?isoWeek(n):k==="gotm"?n.toLocaleDateString("en-CA").slice(0,7):String(n.getFullYear());
       if(k==="goty_world")$("#awx").checked=true;syncExt()};
     $("#awx").onchange=syncExt;syncExt()}
+  document.querySelectorAll("[data-pstat]").forEach(async el=>{const{data}=await sb.rpc("parent_status",{p_studio:el.dataset.pstat});el.textContent=t("pst_"+(data||"not_sent"))});
   const mt=$("#maintTgl");if(mt)mt.onclick=async()=>{if(!await confirmBox(MAINT?t("maintReopen")+"?":t("maintClose")+"?"))return;
     const{error}=await sb.from("store_settings").update({maintenance:!MAINT,updated_at:new Date().toISOString()}).eq("id",1);if(error)return dbErr(error);await loadSettings();toast("🔧 "+t("saved"));route()};
   if(tab==="holidays"){$("#hds").onclick=async e=>{const a=$("#hd1").value,b=$("#hd2").value||a,ne=$("#hne").value.trim(),nh=$("#hnh").value.trim(),er=$("#hde");er.textContent="";
@@ -3051,6 +3110,7 @@ function authView(main,q){
     <form class="panel" id="af">
       ${mode==="up"?`<label class="form" style="gap:5px">${t("username")}<input class="inp" id="au" maxlength="32" autocomplete="username" required></label>`:""}
       <label class="form" style="gap:5px">${mode==="in"?t("loginField"):t("email")}<input class="inp" id="ae" type="${mode==="in"?"text":"email"}" autocomplete="${mode==="in"?"username":"email"}" dir="ltr" required></label>
+      ${mode==="up"?`<label class="form" style="gap:5px">${t("yourAge")} *<input class="inp" id="aage" type="number" min="1" max="120" required style="max-width:120px"><span class="hint">${t("ageHint13")}</span></label>`:""}
       ${mode==="up"?`<label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" id="agr" style="margin-top:3px"><span>${t("agree").replace("{t}",`<a href="#/terms" target="_blank">${t("termsT")}</a>`).replace("{p}",`<a href="#/privacy" target="_blank">${t("privacyT")}</a>`)}</span></label>`:""}
       ${mode!=="forgot"?`<label class="form" style="gap:5px">${t("password")}<input class="inp" id="ap" type="password" minlength="6" autocomplete="${mode==="up"?"new-password":"current-password"}" dir="ltr" required></label>`:""}
       <div class="err" id="aerr"></div>
@@ -3069,8 +3129,10 @@ function authView(main,q){
             const j=await r.json().catch(()=>({error:t("err_generic")}));if(!r.ok||j.error)throw new Error(j.error||t("err_generic"));
             const{error}=await sb.auth.setSession({access_token:j.access_token,refresh_token:j.refresh_token});if(error)throw error}
           toast(t("welcome"));location.hash=next}
-        else if(mode==="up"){const u=$("#au").value.trim();if(u.length<2)throw new Error(t("err_required"));if(!$("#agr").checked)throw new Error(t("mustAgree"));
-          const{data,error}=await sb.auth.signUp({email,password:pw,options:{data:{username:u},emailRedirectTo:location.href.split("#")[0]}});if(error)throw error;
+        else if(mode==="up"){const u=$("#au").value.trim();if(u.length<2)throw new Error(t("err_required"));const age=Math.floor(+$("#aage").value);if(!age)throw new Error(t("yourAge")+" — "+t("err_required"));if(age<13)throw new Error(t("e_TOO_YOUNG_13"));
+          if(!$("#agr").checked)throw new Error(t("mustAgree"));
+          const{data,error}=await sb.auth.signUp({email,password:pw,options:{data:{username:u,age:String(age),terms_version:TERMS_VERSION},emailRedirectTo:location.href.split("#")[0]}});
+          if(error)throw new Error(/database error/i.test(error.message)?t("signupBlocked"):error.message);
           if(data.session){toast(t("welcome"));location.hash=next}else{er.style.color="#a4d007";er.textContent=t("checkmail");mode="in"}}
         else{const{error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.href.split("#")[0]});if(error)throw error;er.style.color="#a4d007";er.textContent=t("resetSent")}
       }catch(ex){er.textContent=ex.message}b.disabled=false};
@@ -3090,6 +3152,8 @@ function settingsView(main){
       </div></div>
     <div class="panel"><h3>🌐 ${t("clangT")}</h3><div class="mut">${t("clangS")}</div>
       <select id="clang" style="margin-top:8px;max-width:260px">${CONTENT_LANGS.map(([c,n])=>`<option value="${c}" ${contentLang()===c?"selected":""}>${n}</option>`).join("")}</select></div>
+    <div class="panel"><h3>🔠 ${t("textSize")}</h3><div class="mut">${t("textSizeS")}</div>
+      <select id="tzoom" style="margin-top:8px;max-width:260px">${[["1","100%"],["1.15","115%"],["1.3","130%"],["1.5","150%"]].map(([v,l])=>`<option value="${v}" ${(lsGet("pp_zoom")||"1")===v?"selected":""}>${l}</option>`).join("")}</select></div>
     <div class="panel"><h3>🔞 ${t("ageFilterT")}</h3><div class="mut">${t("ageFilterS")}</div>
       <select id="agemax" style="margin-top:8px;max-width:260px"><option value="">${t("ageShowAll")}</option>${AGES.slice(0,-1).map(a=>`<option value="${a}" ${lsGet("pp_agemax")===a?"selected":""}>${t("ageUpTo").replace("{a}",t("age_"+a))}</option>`).join("")}</select></div>
     <div class="panel"><h3>${t("account")}</h3>
@@ -3098,16 +3162,28 @@ function settingsView(main){
         <div class="err" id="cpe"></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">${t("savepass")}</button>
         <a class="btn ghost" href="#/user/${encodeURIComponent(me.profile.username)}">${t("editprof")}</a>
-        <button type="button" class="btn red" id="slo">${t("logout")}</button></div></form>`
+        <button type="button" class="btn red" id="slo">${t("logout")}</button></div></form>
+        ${me.profile.is_admin?"":`<div style="margin-top:16px;border-top:1px solid var(--line);padding-top:12px"><b style="color:#ff8a80">🗑️ ${t("delAccT")}</b><div class="mut" style="font-size:13px">${t("delAccS")}</div>
+          <button type="button" class="btn red sm" id="delAcc" style="margin-top:8px">${t("delAccT")}</button></div>`}`
       :`<div class="mut">${t("notSigned")}</div><a class="btn green" style="margin-top:10px" href="#/login?next=%23%2Fsettings">${t("login")}</a>`}
     </div></div>`;
   $("#clang").onchange=e=>{lsSet("pp_clang",e.target.value);toast("🌐 "+t("saved"))};
+  $("#tzoom").onchange=e=>{lsSet("pp_zoom",e.target.value);document.body.style.zoom=e.target.value};
   $("#agemax").onchange=e=>{e.target.value?lsSet("pp_agemax",e.target.value):(()=>{try{localStorage.removeItem("pp_agemax")}catch(x){}})();toast("🔞 "+t("saved"))};
   $("#langs").onclick=e=>{const b=e.target.closest("button");if(b&&b.dataset.l!==lang)setLang(b.dataset.l)};
   if(me){
     $("#cp").onsubmit=async e=>{e.preventDefault();const{error}=await sb.auth.updateUser({password:$("#cpn").value});
       if(error){$("#cpe").textContent=error.message;return}$("#cpn").value="";toast(t("passSaved"))};
     $("#slo").onclick=async()=>{await sb.auth.signOut();location.hash="#/"};
+    if($("#delAcc"))$("#delAcc").onclick=()=>{const m=modal("🗑️ "+t("delAccT"),`<div class="mut">${t("delAccS")}</div><div class="status bad" style="margin-top:8px">${t("delAccWarn")}</div>
+      <label class="form" style="gap:5px;max-width:none;margin-top:10px">${t("delAccType").replace("{u}",`<b>${esc(me.profile.username)}</b>`)}<input class="inp" id="daU" autocomplete="off"></label>
+      <div class="err" id="daE"></div><div class="acts"><button class="btn ghost" data-x>${t("cancel")}</button><button class="btn red" id="daGo">${t("delAccT")}</button></div>`);
+      m.el.querySelector("#daGo").onclick=async e=>{const er=m.el.querySelector("#daE");er.textContent="";const v=m.el.querySelector("#daU").value.trim();
+        if(v.toLowerCase()!==me.profile.username.toLowerCase()){er.textContent=t("e_CONFIRM_MISMATCH");return}
+        e.target.disabled=true;try{const{data:ss}=await sb.auth.getSession();
+          const r=await fetch(SB_URL+"/functions/v1/delete-account",{method:"POST",headers:{"Content-Type":"application/json",apikey:SB_KEY,Authorization:"Bearer "+ss.session.access_token},body:JSON.stringify({confirm:v})});
+          const j=await r.json().catch(()=>({}));if(!r.ok||!j.ok)throw new Error(t("e_"+(j.error||""))!=="e_"+(j.error||"")?t("e_"+j.error):(j.error||t("err_generic")));
+          await sb.auth.signOut();m.close();location.hash="#/";toast("🗑️ "+t("delAccDone"))}catch(ex){er.textContent=ex.message;e.target.disabled=false}}};
   }
 }
 function resetView(main){
@@ -3130,6 +3206,8 @@ sb.auth.onAuthStateChange((ev,session)=>{
   },0);
 });
 window.addEventListener("hashchange",()=>{if(booted)route()});
+document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;const ovs=[...document.querySelectorAll(".ov")];const o=ovs[ovs.length-1];if(o&&o.querySelector("[data-x]"))o.remove()});
+(()=>{const z=lsGet("pp_zoom");if(z)document.body.style.zoom=z})();
 </script>
 </body>
 </html>
