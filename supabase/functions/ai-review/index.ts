@@ -7,6 +7,7 @@
 // Everything the developer wrote (texts, code) is passed as DATA, never as instructions.
 import Anthropic from "npm:@anthropic-ai/sdk";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.4";
+import { internalReview } from "./internal.ts";
 
 const KEY = Deno.env.get("ANTHROPIC_API_KEY") || "";
 const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, { auth: { persistSession: false } });
@@ -80,14 +81,7 @@ async function buildContent(g: any, withImages: boolean): Promise<Anthropic.Beta
     const imgs = [g.cover_url, ...(g.screenshots || [])].filter((u: string) => /^https:\/\//.test(u || "")).slice(0, 4);
     for (const u of imgs) blocks.push({ type: "image", source: { type: "url", url: u } });
   }
-  let code = "";
-  for (const [kind, url] of [[g.play_kind, g.play_url], [g.demo_kind, g.demo_url]]) {
-    if (kind !== "html") continue;
-    const ref = storageRef(url);
-    if (!ref) continue;
-    const { data } = await sb.storage.from(ref.bucket).download(ref.path);
-    if (data) { const t = await data.text(); code += `\n--- ${url === g.play_url ? "game" : "demo"} HTML (${t.length} chars${t.length > MAX_CODE_CHARS ? ", first " + MAX_CODE_CHARS + " shown" : ""}) ---\n` + t.slice(0, MAX_CODE_CHARS); }
-  }
+  const code = await gameCode(g);
   const info = {
     title: g.title, studio: g.developer, genre: g.genre, tags: g.tags, short_description: g.short_desc, description: g.description,
     declared_age_rating: g.age_rating, content_descriptors: g.age_descriptors, copyright_holder: g.copyright_holder, license: g.license,
@@ -97,6 +91,18 @@ async function buildContent(g: any, withImages: boolean): Promise<Anthropic.Beta
   };
   blocks.push({ type: "text", text: `<submission>\n${esc(JSON.stringify(info, null, 1))}${code ? "\n" + esc(code) : ""}\n</submission>\n\nReview this submission and answer with the JSON verdict.` });
   return blocks;
+}
+
+async function gameCode(g: any): Promise<string> {
+  let code = "";
+  for (const [kind, url] of [[g.play_kind, g.play_url], [g.demo_kind, g.demo_url]]) {
+    if (kind !== "html") continue;
+    const ref = storageRef(url);
+    if (!ref) continue;
+    const { data } = await sb.storage.from(ref.bucket).download(ref.path);
+    if (data) { const t = await data.text(); code += `\n--- ${url === g.play_url ? "game" : "demo"} HTML (${t.length} chars${t.length > MAX_CODE_CHARS ? ", first " + MAX_CODE_CHARS + " shown" : ""}) ---\n` + t.slice(0, MAX_CODE_CHARS); }
+  }
+  return code;
 }
 
 async function review(client: Anthropic, g: any) {
@@ -127,6 +133,9 @@ async function review(client: Anthropic, g: any) {
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return json({});
+  // test mode: check sample text with the internal checker (nothing is saved)
+  const body = await req.json().catch(() => ({}));
+  if (body && body.debug && typeof body.debug === "object") return json(await internalReview(body.debug, String(body.debug.code || "")));
   const { data: last } = await sb.from("games").select("ai_claimed_at").not("ai_claimed_at", "is", null).order("ai_claimed_at", { ascending: false }).limit(1);
   if (last?.[0] && Date.now() - +new Date(last[0].ai_claimed_at) < 20000) return json({ ok: true, skipped: "busy" });
 
@@ -141,21 +150,17 @@ Deno.serve(async (req) => {
     .eq("id", g.id).in("ai_status", ["pending", "reviewing"]).select("id");
   if (!claimed?.length) return json({ ok: true, skipped: "taken" });
 
-  if (!KEY) {
-    await sb.from("games").update({ ai_status: "error", ai_detail: { summary_en: "AI review is not set up yet (no API key) — checked by a person only.", summary_he: "בדיקת ה-AI עוד לא מוגדרת (אין מפתח) — נבדק רק על ידי אדם." }, ai_reviewed_at: new Date().toISOString() }).eq("id", g.id);
-    return json({ ok: true, id: g.id, status: "error", reason: "no key" });
-  }
-
   try {
-    const client = new Anthropic({ apiKey: KEY });
-    const v = await review(client, g);
+    // no key → the free internal checker (rules + small built-in model); with a key → Claude
+    const v: any = KEY ? await review(new Anthropic({ apiKey: KEY }), g) : await internalReview(g, await gameCode(g));
+    const usedModel = KEY ? MODEL : "internal (rules + gte-small)";
     const autoReject = v.decision === "reject" && v.confidence === "high";
     const status = autoReject ? "reject" : v.decision === "ok" ? "ok" : "flag";
-    const upd: Record<string, unknown> = { ai_status: status, ai_detail: { ...v, model: MODEL }, ai_reviewed_at: new Date().toISOString() };
+    const upd: Record<string, unknown> = { ai_status: status, ai_detail: { ...v, model: usedModel }, ai_reviewed_at: new Date().toISOString() };
     if (autoReject && g.review_status !== "rejected") {
       const reasons = (v.issues || []).filter((i: any) => i.severity !== "low").map((i: any) => `• ${i.category}: ${i.explanation}`).join("\n");
       Object.assign(upd, { review_status: "rejected", published: false, reviewed_at: new Date().toISOString(),
-        reject_reason: `Automatic content review (AI):\n${v.summary_en}\n${reasons}\n\n${v.summary_he}`.slice(0, 2000),
+        reject_reason: `Automatic content review:\n${v.summary_en}\n${reasons}\n\n${v.summary_he}`.slice(0, 2000),
         fix_deadline: new Date(Date.now() + 30 * 864e5).toISOString() });
       await sb.from("notifications").insert({ user_id: g.owner, kind: "review", title: "⛔ " + g.title + " — content review", body: (v.summary_he + " · " + v.summary_en).slice(0, 400), link: "#/edit/" + g.id });
     }
