@@ -501,7 +501,7 @@ const STORE_VERSION = "1.4.5";
 const TERMS_VERSION = "2026-11-27";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-27.14";
+const BUILD = "2026-11-27.15";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -989,10 +989,10 @@ function termsGate(){if(document.querySelector(".termsov"))return;const adm=!!(m
     e.target.disabled=true;const{error}=await sb.rpc("accept_terms",{p_version:TERMS_VERSION,p_age:a});if(error){er.textContent=errMsg(error);e.target.disabled=false;return}
     me.profile.terms_version=TERMS_VERSION;o.remove();toast("✓ "+t("saved"))}}
 function maintView(){document.body.classList.add("maint");closePlayer(true);
-  $("#main").innerHTML=`<div class="maintbox"><div class="mi">🔧</div>
-    <h1>The store is under maintenance</h1><p>Man Studio Store is closed for renovations. There is no access to the store until further notice.<br>Thank you for your patience!</p>
+  $("#main").innerHTML=`<div class="maintbox"><div class="mi">🔒</div>
+    <h1>The store is closed</h1><p>Man Studio Store is closing permanently until further notice, due to internal reasons.<br>Thank you to everyone who played and published here.</p>
     <div class="msep"></div>
-    <h1 dir="rtl">החנות נכנסה לשיפוצים</h1><p dir="rtl">Man Studio Store סגורה לשיפוצים. לא תהיה גישה לחנות עד הודעה חדשה.<br>תודה על הסבלנות!</p>
+    <h1 dir="rtl">החנות נסגרת</h1><p dir="rtl">Man Studio Store נסגרת לצמיתות עד הודעה חדשה, עקב סיבות פנימיות.<br>תודה לכל מי ששיחק ופרסם כאן.</p>
     <p class="dim" style="margin-top:18px">✉ <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a></p>
     <p style="margin-top:14px;font-size:12px"><a class="dim" href="#/login">Admin sign in</a> · <a class="dim" href="#/privacy">Privacy</a> · <a class="dim" href="#/terms">Terms</a></p></div>`}
 async function route(){
