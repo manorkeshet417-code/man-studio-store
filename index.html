@@ -401,6 +401,7 @@ textarea.inp{min-height:90px;resize:vertical}
 .holist{display:grid;gap:6px}.holrow{display:grid;grid-template-columns:170px 1fr auto auto;gap:10px;align-items:center;background:#0000004d;border-radius:6px;padding:8px 12px;border-inline-start:4px solid #66c0f4}
 .holrow.closed{border-inline-start-color:#ff6b6b}.holrow b{color:#fff}.holrow .hd{color:#c6d4df;font-size:13px}.holrow .hk{font-size:12px;color:var(--mut)}
 @media (max-width:600px){.holrow{grid-template-columns:1fr auto}.holrow .hd{grid-column:1/-1}}
+.scanbox pre{white-space:pre-wrap;font-family:inherit;font-size:12px;margin:6px 0 0;color:#c6d4df}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -487,7 +488,7 @@ const STORE_NAME = "Man Studio Store";
 const STORE_VERSION = "1.4.5";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-27.9";
+const BUILD = "2026-11-27.10";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -567,7 +568,7 @@ p_none:"No, this is my first time",p_itch:"itch.io",p_steam:"Steam",p_gplay:"Goo
 ssubmit:"Send studio for review",sresubmit:"Fix & send again",reviewTime:"Review time: {a}–{b} business days",expected:"Expected answer by {d}",
 pendingL:"Waiting for review",approvedL:"Approved",rejectedL:"Rejected",reasonL:"Reason",fixBy:"You have until {d} to fix and resubmit.",
 fixClosed:"The 30-day fix window has ended. You can appeal by email:",appealL:"Appeals",
-vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",holT:"Holidays & closed days",holClosed:"Fully closed",holNoCount:"Not counted",holClosedS:"no approvals at all (not even Lucky Approval), and the day doesn't count toward review times.",holNoCountS:"approvals can still happen, but the day doesn't count as a business day.",holClosedB:"approvals are fully closed today.",holNoCountB:"approvals are open, but today doesn't count as a business day.",holNone:"No special days coming up.",holAdd:"Add a holiday or closed day",holFrom:"From",holTo:"To (optional)",holKind:"Type",holAddBtn:"Add",e_HOLIDAY_CLOSED:"Holiday — approvals are fully closed today.",dlStarted:"Download started",dlInLib:"It's in your library — you can download it again any time.",dlOwnGame:"This is your own game — developers get their games for free.",dlReceipt:"Your receipt is in",rcKind_free:"free game",rcKind_developer:"developer copy",rcKind_key:"redeemed key",rcOwned:"In your library · yours forever",dlHowT:"How to install:",dlHow1:"Open your Downloads folder (or click the file at the bottom/top of the window).",dlHow2:"Double-click the file (if it's a .zip — extract it first, then open the .exe).",dlNoStart:"Download didn't start?",dlAgain:"Click here to download again",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
+vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",srcT:"Source code (required for Windows games)",srcS:"Upload a .zip of your game's project/source files. Only the store admins (and you) can see it — it's scanned for viruses and never shared with players. Max 50 MB.",srcNeed:"Windows games need their source code: upload a .zip of your project.",srcZip:"The source code must be a .zip file.",srcDl:"Download source code",srcNone:"No source code was uploaded.",scanT:"Security scan",scanPend:"scanning… (usually a few minutes)",scanClean:"clean ✓",scanSusp:"needs a closer look",scanBad:"dangerous content found — rejected automatically",scanErr:"automatic scan unavailable — checked manually",scanNone:"No files to scan",e_SOURCE_REQUIRED:"Windows games need their source code: upload a .zip of your project.",e_BAD_SOURCE:"That source code file doesn't belong to you.",e_SCAN_PENDING:"The security scan isn't finished yet — try again in a few minutes.",e_SCAN_MALICIOUS:"The security scan found dangerous content in this game.",holT:"Holidays & closed days",holClosed:"Fully closed",holNoCount:"Not counted",holClosedS:"no approvals at all (not even Lucky Approval), and the day doesn't count toward review times.",holNoCountS:"approvals can still happen, but the day doesn't count as a business day.",holClosedB:"approvals are fully closed today.",holNoCountB:"approvals are open, but today doesn't count as a business day.",holNone:"No special days coming up.",holAdd:"Add a holiday or closed day",holFrom:"From",holTo:"To (optional)",holKind:"Type",holAddBtn:"Add",e_HOLIDAY_CLOSED:"Holiday — approvals are fully closed today.",dlStarted:"Download started",dlInLib:"It's in your library — you can download it again any time.",dlOwnGame:"This is your own game — developers get their games for free.",dlReceipt:"Your receipt is in",rcKind_free:"free game",rcKind_developer:"developer copy",rcKind_key:"redeemed key",rcOwned:"In your library · yours forever",dlHowT:"How to install:",dlHow1:"Open your Downloads folder (or click the file at the bottom/top of the window).",dlHow2:"Double-click the file (if it's a .zip — extract it first, then open the .exe).",dlNoStart:"Download didn't start?",dlAgain:"Click here to download again",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
 vname:"Full name",vhuman:"Human check: write two short lines about why you make games",vprivacy:"🔒 We ask for as little as possible. Only the store admin sees it, it's never public, and it's deleted automatically 3 days after the review decision.",vsubmit:"Send verification",
 verified:"Studio verified ✓",s3T:"You can submit games now",s3S:"Every game gets a quality, content and bug check before launch.",newsub:"Submit a new game",
 s4S:"After approval the game launches in the store for everyone.",
@@ -699,7 +700,7 @@ p_none:"לא, זו הפעם הראשונה",p_itch:"itch.io",p_steam:"Steam",p_g
 ssubmit:"שלח סטודיו לבדיקה",sresubmit:"תקן ושלח שוב",reviewTime:"זמן בדיקה: {a}–{b} ימי עסקים",expected:"תשובה צפויה עד {d}",
 pendingL:"ממתין לבדיקה",approvedL:"אושר",rejectedL:"נדחה",reasonL:"סיבה",fixBy:"יש לך עד {d} לתקן ולשלוח שוב.",
 fixClosed:"חלון התיקון של 30 יום הסתיים. אפשר לערער במייל:",appealL:"עירעורים",
-vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",holT:"חגים וימים סגורים",holClosed:"סגור הרמטית",holNoCount:"לא נספר",holClosedS:"אין שום אישורים (גם לא Lucky Approval), והיום לא נספר בזמני הבדיקה.",holNoCountS:"אפשר עדיין לאשר, אבל היום לא נחשב יום עסקים.",holClosedB:"האישורים סגורים הרמטית היום.",holNoCountB:"האישורים פתוחים, אבל היום לא נחשב יום עסקים.",holNone:"אין ימים מיוחדים בקרוב.",holAdd:"הוספת חג או יום סגור",holFrom:"מתאריך",holTo:"עד תאריך (לא חובה)",holKind:"סוג",holAddBtn:"הוסף",e_HOLIDAY_CLOSED:"חג — האישורים סגורים הרמטית היום.",dlStarted:"ההורדה התחילה",dlInLib:"המשחק בספרייה שלך — אפשר להוריד אותו שוב מתי שרוצים.",dlOwnGame:"זה המשחק שלך — מפתחים מקבלים את המשחקים שלהם בחינם.",dlReceipt:"הקבלה שלך נמצאת ב",rcKind_free:"משחק חינמי",rcKind_developer:"עותק מפתח",rcKind_key:"קוד שמומש",rcOwned:"בספרייה שלך · שלך לתמיד",dlHowT:"איך מתקינים:",dlHow1:"פותחים את תיקיית ההורדות (Downloads), או לוחצים על הקובץ בחלון.",dlHow2:"לוחצים פעמיים על הקובץ (אם זה .zip — קודם מחלצים, ואז פותחים את ה-.exe).",dlNoStart:"ההורדה לא התחילה?",dlAgain:"לחץ כאן להוריד שוב",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
+vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",srcT:"קוד המקור (חובה במשחקי Windows)",srcS:"מעלים קובץ .zip עם קבצי הפרויקט/הקוד של המשחק. רק מנהלי החנות (ואתה) רואים אותו — הוא נסרק לווירוסים ואף פעם לא משותף עם שחקנים. עד 50MB.",srcNeed:"משחקי Windows צריכים את קוד המקור: העלה קובץ .zip של הפרויקט.",srcZip:"קוד המקור חייב להיות קובץ .zip.",srcDl:"הורד את קוד המקור",srcNone:"לא הועלה קוד מקור.",scanT:"בדיקת אבטחה",scanPend:"נסרק… (בדרך כלל כמה דקות)",scanClean:"נקי ✓",scanSusp:"צריך בדיקה מקרוב",scanBad:"נמצא תוכן מסוכן — נדחה אוטומטית",scanErr:"הסריקה האוטומטית לא זמינה — נבדק ידנית",scanNone:"אין קבצים לסריקה",e_SOURCE_REQUIRED:"משחקי Windows צריכים את קוד המקור: העלה קובץ .zip של הפרויקט.",e_BAD_SOURCE:"קובץ הקוד הזה לא שייך לך.",e_SCAN_PENDING:"בדיקת האבטחה עוד לא הסתיימה — נסה שוב בעוד כמה דקות.",e_SCAN_MALICIOUS:"בדיקת האבטחה מצאה תוכן מסוכן במשחק הזה.",holT:"חגים וימים סגורים",holClosed:"סגור הרמטית",holNoCount:"לא נספר",holClosedS:"אין שום אישורים (גם לא Lucky Approval), והיום לא נספר בזמני הבדיקה.",holNoCountS:"אפשר עדיין לאשר, אבל היום לא נחשב יום עסקים.",holClosedB:"האישורים סגורים הרמטית היום.",holNoCountB:"האישורים פתוחים, אבל היום לא נחשב יום עסקים.",holNone:"אין ימים מיוחדים בקרוב.",holAdd:"הוספת חג או יום סגור",holFrom:"מתאריך",holTo:"עד תאריך (לא חובה)",holKind:"סוג",holAddBtn:"הוסף",e_HOLIDAY_CLOSED:"חג — האישורים סגורים הרמטית היום.",dlStarted:"ההורדה התחילה",dlInLib:"המשחק בספרייה שלך — אפשר להוריד אותו שוב מתי שרוצים.",dlOwnGame:"זה המשחק שלך — מפתחים מקבלים את המשחקים שלהם בחינם.",dlReceipt:"הקבלה שלך נמצאת ב",rcKind_free:"משחק חינמי",rcKind_developer:"עותק מפתח",rcKind_key:"קוד שמומש",rcOwned:"בספרייה שלך · שלך לתמיד",dlHowT:"איך מתקינים:",dlHow1:"פותחים את תיקיית ההורדות (Downloads), או לוחצים על הקובץ בחלון.",dlHow2:"לוחצים פעמיים על הקובץ (אם זה .zip — קודם מחלצים, ואז פותחים את ה-.exe).",dlNoStart:"ההורדה לא התחילה?",dlAgain:"לחץ כאן להוריד שוב",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
 vname:"שם מלא",vhuman:"בדיקת אנושיות: כתוב שתי שורות קצרות למה אתה מפתח משחקים",vprivacy:"🔒 אנחנו מבקשים כמה שפחות. רק מנהל החנות רואה את זה, זה אף פעם לא ציבורי, וזה נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה.",vsubmit:"שלח לאימות",
 verified:"הסטודיו מאומת ✓",s3T:"אפשר להגיש משחקים",s3S:"כל משחק עובר בדיקת איכות, תכנים ובאגים לפני הפרסום.",newsub:"הגש משחק חדש",
 s4S:"אחרי אישור המשחק עולה רשמית לחנות לכולם.",
@@ -1005,7 +1006,7 @@ async function route(){
 function setTitle(s){document.title=s?s+" — "+STORE_NAME:STORE_NAME}
 
 /* ============ store home ============ */
-const GAME_COLS="id,owner,developer,title,short_desc,description,genre,tags,cover_url,screenshots,trailer_url,play_kind,min_reqs,published,players,wishes,review_count,positive_count,created_at,updated_at,studio_id,review_status,reject_reason,submitted_at,reviewed_at,fix_deadline,lucky,file_name,file_size,coming_soon,release_date,price,sale_pct,sale_start,sale_end,promoted_until,version,sales_count,coins_earned,release_precision,age_rating,age_descriptors,translations,copyright_holder,license,copy_of,age_answers,access_type,ea_note,demo_kind,demo_url,demo_file_name,release_ready_at,auto_release,release_as";
+const GAME_COLS="scan_status,scan_detail,scanned_at,source_name,source_size,id,owner,developer,title,short_desc,description,genre,tags,cover_url,screenshots,trailer_url,play_kind,min_reqs,published,players,wishes,review_count,positive_count,created_at,updated_at,studio_id,review_status,reject_reason,submitted_at,reviewed_at,fix_deadline,lucky,file_name,file_size,coming_soon,release_date,price,sale_pct,sale_start,sale_end,promoted_until,version,sales_count,coins_earned,release_precision,age_rating,age_descriptors,translations,copyright_holder,license,copy_of,age_answers,access_type,ea_note,demo_kind,demo_url,demo_file_name,release_ready_at,auto_release,release_as";
 const LIST_COLS="id,title,developer,short_desc,genre,tags,cover_url,screenshots,players,review_count,positive_count,created_at,owner,coming_soon,release_date,wishes,price,sale_pct,sale_start,sale_end,promoted_until,studio_id,version,release_precision,age_rating,access_type,demo_kind,release_ready_at";
 function soonDate(g){const p=g.release_precision||"day";if(p==="tba"||!g.release_date)return t("tba");
   const d=new Date(g.release_date+"T12:00:00"),y=d.getFullYear();
@@ -1240,6 +1241,7 @@ async function gameView(main,id,stale){
     ${tagsExtraHTML(g)}${isOwner||isAdmin?`<a class="btn ghost sm" href="#/edit/${g.id}">✎ ${t("edit")}</a>`:""}${g.lucky?` <span class="pill luck">${t("lucky")}</span>`:""}</h1>
   ${gameFests.length?`<div class="awardline">${gameFests.map(f=>`<a class="atag big" style="background:${esc(f.theme)};color:#fff" href="#/fest/${f.id}">🎪 ${esc(f.title)}${festState(f)==="live"?" · "+t("f_live"):""}</a>`).join("")}</div>`:""}
   ${awards.length?`<div class="awardline">${awards.map(a=>`<span class="atag big">${a.category?`🏅 ${esc(a.category)} · ${t(a.kind)}`:`🏆 ${t(a.kind)}`} · ${esc(periodLabel(a))}</span>`).join("")}</div>`:""}
+  ${(isOwner||isAdmin)&&g.scan_status&&g.scan_status!=="none"?`<div style="margin-bottom:12px">${scanHTML(g)}${isAdmin&&g.source_name?`<button class="btn ghost sm" style="margin-top:6px" onclick="openSource('${g.id}')">🔐 ${t("srcDl")}</button>`:""}</div>`:""}
   ${(isOwner||isAdmin)&&g.review_status!=="approved"?`<div style="margin-bottom:12px">${gameStatusHTML(g)}${isAdmin?`<a class="btn sm" style="margin-top:8px" href="#/admin/games">${t("adminT")}</a>`:""}</div>`:""}
   <div class="gtop"><div class="media"><div class="main" id="mm"></div>
     ${media.length>1?`<div class="thumbs" id="th">${media.map((m,i)=>`<button data-i="${i}" aria-label="${i+1}">${m.yt?`<img src="https://i.ytimg.com/vi/${m.yt}/mqdefault.jpg" alt=""><span class="yt">▶</span>`:`<img src="${esc(m.img)}" alt="" loading="lazy">`}</button>`).join("")}</div>`:""}</div>
@@ -1591,6 +1593,18 @@ function reportForm(g){if(needLogin())return;
     e.target.disabled=true;const{error}=await sb.from("reports").insert({game_id:g.id,reporter:me.id,reason:m.el.querySelector("#rr").value,original_url:o||null,details:d});
     if(error){m.el.querySelector("#re").textContent=errMsg(error);e.target.disabled=false;return}m.close();toast("🚩 "+t("reportThanks"))};
 }
+function scanHTML(g){if(!g||!g.scan_status||g.scan_status==="none")return "";
+  const m={pending:["wait","🛡️",t("scanPend")],scanning:["wait","🛡️",t("scanPend")],clean:["ok","🛡️",t("scanClean")],suspicious:["wait","⚠️",t("scanSusp")],malicious:["bad","⛔",t("scanBad")],error:["wait","🛡️",t("scanErr")]}[g.scan_status];
+  if(!m)return "";
+  return `<div class="status ${m[0]} scanbox"><b>${m[1]} ${t("scanT")}: ${m[2]}</b>${g.scan_detail&&g.scan_status!=="clean"?`<pre>${esc(g.scan_detail)}</pre>`:""}${g.scanned_at?`<div class="dim" style="font-size:11px">${fmtDate(g.scanned_at)}</div>`:""}</div>`}
+async function uploadSource(file){
+  if(!/\.zip$/i.test(file.name))throw new Error(t("srcZip"));
+  if(file.size>50*1048576)throw new Error(t("err_big")+" (50MB): "+file.name);
+  const path=`${me.id}/src-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}.zip`;
+  const{error}=await sb.storage.from("sources").upload(path,file,{contentType:"application/zip",upsert:false});if(error)throw error;return path}
+async function openSource(gid){const{data:path,error}=await sb.rpc("game_source",{p_game:gid});if(error)return dbErr(error);if(!path){toast(t("srcNone"));return}
+  const r=await sb.storage.from("sources").createSignedUrl(path,300,{download:true});if(r.error)return dbErr(r.error);
+  const a=document.createElement("a");a.href=r.data.signedUrl;a.rel="noopener";document.body.appendChild(a);a.click();a.remove()}
 async function sha256(file){try{const b=await crypto.subtle.digest("SHA-256",await file.arrayBuffer());return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){return null}}
 
 // ---- translations in the game form ----
@@ -2189,68 +2203,95 @@ async function surprise(){const{data}=await live("id").eq("coming_soon",false).l
   const l=data||[];if(!l.length)return toast(t("noresults"));location.hash="#/app/"+l[Math.floor(Math.random()*l.length)].id}
 
 /* ============ privacy policy / terms of use ============ */
-const LEGAL_UPDATED="2026-11-20";
+const LEGAL_UPDATED="2026-11-27";
 const LEGAL={
 en:{privacy:`<h1>Privacy Policy</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
-<p>This policy explains what information Man Studio Store ("we", "the store") collects, why, and what you can do about it. Contact: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>
-<h2>What we collect</h2><ul>
+<p>This policy explains what information Man Studio Store ("we", "the store") collects, why, who we share it with, and what you can do about it. Contact: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>
+<h2>1. What we collect</h2><ul>
 <li><b>Account:</b> email address, username, password (stored only as a secure hash by our login provider), and your optional avatar and bio.</li>
-<li><b>Store activity:</b> your library, wishlist, reviews, follows, Coins balance and history, purchases, redeemed keys, notifications and playtime (minutes, used for verified reviews).</li>
-<li><b>Developers:</b> studio details (name, support email, members, links, logo, banner) and the games, images and files you upload.</li>
-<li><b>Studio verification:</b> a name or nickname, age, country, a social link or alternative answer, an optional portfolio link and short answers about you (plus a parent's email for developers under 16). We don't ask for your address, city or date of birth. It's visible only to the store admin and is <b>deleted automatically 3 days after the review decision</b>.</li>
+<li><b>Store activity:</b> your library, wishlist, reviews, follows, Coins balance and history, purchases and receipts, redeemed keys, festival participation, notifications and playtime (minutes, used for verified reviews).</li>
+<li><b>Developers:</b> studio details (name, support email, members, links, logo, banner), the studio review answers, and the games, images, files and source code you upload.</li>
+<li><b>Studio verification:</b> a name or nickname, age, country, a social link or alternative answer, an optional portfolio link and short answers about you (plus a parent's email for developers under 16). We don't ask for your address, city, date of birth or ID documents. It's visible only to the store admin and is <b>deleted automatically 3 days after the review decision</b>.</li>
+<li><b>Security scan results:</b> the result of the automatic malware scan of uploaded games (clean / suspicious / malicious and the reason).</li>
 <li><b>Device storage:</b> your language choice, your sign-in session and game saves are kept in your browser's local storage on your device.</li></ul>
-<h2>Why we use it</h2><p>To run your account, show the store, deliver games you own, process Coins transactions, review and approve studios and games, prevent abuse, and send you in-store notifications. We do not sell your information and we do not show ads.</p>
-<h2>What is public</h2><p>Your username, avatar, bio, reviews and the studios and games you publish are visible to everyone. Your email, Coins balance, Coin Card number, library, wishlist and verification details are not.</p>
-<h2>Services we use</h2><p>Supabase (database, login, file storage — servers in the EU), GitHub Pages (hosting the website), Google Fonts and jsDelivr (fonts and code libraries), and YouTube (only if you play a game trailer). These services process data under their own privacy policies.</p>
-<h2>Children</h2><p>Studios may be created from age 9. If you are under the age required in your country to agree to this policy on your own, use the store with a parent's or guardian's permission. A parent can ask us to delete a child's account at any time.</p>
-<h2>Your choices</h2><p>You can edit your profile and studio, delete reviews, games and notifications, and sign out at any time. To delete your account or get a copy of your data, email us and we will handle it within 30 days.</p>
-<h2>Security & retention</h2><p>Access to data is protected by database rules on the server. We keep account data while your account exists; verification data until 3 days after the review decision; deleted content is removed from the store right away.</p>
-<h2>Changes</h2><p>If this policy changes, we will update the date above and announce important changes in the store.</p>`,
+<h2>2. Why we use it</h2><p>To run your account, show the store, deliver games you own, process Coins transactions and receipts, review studios and games, keep players safe from malware, prevent fraud and abuse, enforce our Terms of Use, and send you in-store notifications. We do not sell your information, we do not show ads and we do not use your data for profiling.</p>
+<h2>3. What is public</h2><p>Your username, avatar, bio, reviews, festival participation and the studios and games you publish are visible to everyone. Your email, Coins balance, Coin Card number, receipts, library, wishlist, verification details and source code are not.</p>
+<h2>4. Services we use</h2><ul>
+<li><b>Supabase</b> — database, login and file storage (servers in the EU).</li>
+<li><b>VirusTotal</b> (a Google service) — automatic malware scanning. Game files, demo files and game links uploaded by developers are sent to VirusTotal. Files sent there may become available to VirusTotal's security community. <b>Source code is never uploaded</b>: only its digital fingerprint (hash) is checked.</li>
+<li><b>GitHub Pages</b> (hosting the website), <b>Google Fonts</b> and <b>jsDelivr</b> (fonts and code libraries), <b>Google Search</b> (the public store pages are indexed), and <b>YouTube</b> (only if you play a game trailer).</li></ul>
+<p>These services process data under their own privacy policies. We share information with authorities only when the law requires it, or to protect users from serious harm.</p>
+<h2>5. Children</h2><p>If you are under 18 (or under the age of adulthood in your country), you may use the store only with the permission of a parent or guardian, who agrees to these policies for you. Studios may be created from age 9; developers under 16 need a parent's email and consent. A parent can ask us to see or delete a child's data at any time.</p>
+<h2>6. Your rights</h2><p>You can edit your profile and studio, delete reviews, games and notifications, and sign out at any time. You may ask to see, correct, export or delete your data by email; we answer within 30 days. Some records (for example receipts or records of rule-breaking) may be kept as long as needed for security or legal reasons.</p>
+<h2>7. Security & retention</h2><p>Access to data is protected by rules on the server, private files are stored in private storage, and uploads are scanned for malware. No system is 100% secure, so please use a strong, unique password. We keep account data while your account exists; verification data until 3 days after the review decision; deleted content is removed from the store right away and from backups over time.</p>
+<h2>8. Changes</h2><p>If this policy changes, we will update the date above and announce important changes in the store.</p>`,
 terms:`<h1>Terms of Use</h1><p class="dim">Last updated: ${LEGAL_UPDATED}</p>
-<p>By creating an account or using Man Studio Store you agree to these terms. If you don't agree, please don't use the store.</p>
-<h2>Accounts</h2><p>Keep your password safe and your information accurate. One person may not use accounts to cheat (for example, to farm Coins or reviews). We may suspend accounts that break these terms.</p>
-<h2>Coins</h2><p>Coins are virtual store credit. They have <b>no cash value</b>, cannot be bought, sold, exchanged or withdrawn for real money, and exist only inside the store. New accounts start with 500 Coins and get 10 Coins the first time each game enters their library (once per game). Balances may be corrected if they were obtained by mistake or abuse. Purchases with Coins are final.</p>
-<h2>Games you get</h2><p>Games are made by independent developers. You receive a personal right to play the games in your library; it does not give you ownership of the game. Downloaded games (EXE/ZIP) run on your own computer at your own responsibility.</p>
-<h2>Publishing (developers)</h2><ul>
-<li>You must own or have the rights to everything you upload: code, art, music, names and trademarks.</li>
-<li>No malware, no stolen or copied games, no illegal, hateful, sexual or extremely violent content, and nothing that collects other people's data without permission.</li>
-<li>Every studio and game is reviewed before publishing. Reviews take place Sunday–Friday; Saturday is closed (with a 5% Lucky Approval chance). We may reject, hide or remove content that breaks these rules.</li>
+<p>These terms are an agreement between you and Man Studio Store ("we", "the store"). By creating an account, downloading or playing a game, or publishing content, you agree to these terms and to the <a href="#/privacy">Privacy Policy</a>. If you don't agree, please don't use the store.</p>
+<h2>1. Who can use the store</h2><p>If you are under 18 (or under the age of adulthood in your country), a parent or guardian must agree to these terms for you and is responsible for your use of the store. Studios may be created from age 9, with a parent's consent under 16.</p>
+<h2>2. Accounts</h2><p>Keep your password safe and your information accurate. You are responsible for what happens in your account. One person may not use several accounts to cheat (for example, to farm Coins, reviews or votes). We may suspend or close accounts that break these terms.</p>
+<h2>3. Coins</h2><p>Coins are virtual store credit. They have <b>no cash value</b>, cannot be bought, sold, exchanged, transferred or withdrawn for real money, and are not property. New accounts start with 500 Coins and get 10 Coins the first time each game enters their library. We may change Coin rewards and prices, and correct balances obtained by mistake, bugs or abuse. Purchases with Coins are final; a game you bought stays yours and you never pay for it again.</p>
+<h2>4. The store is a platform</h2><p>Games, demos, devlogs and studio pages are created by <b>independent developers</b>, not by us. Each developer is solely responsible for their content. Reviewing a game, scanning it, giving it an award or promoting it does not mean we endorse it, guarantee it or take responsibility for it. You receive a personal, non-transferable right to play the games in your library; it does not give you ownership of the game.</p>
+<h2>5. Downloads & security</h2><p>Every uploaded game file is scanned automatically for malware (with VirusTotal and our own checks) and reviewed by a person, and Windows games must include their source code. Still, <b>no scan or review can guarantee that a file is completely safe</b>. Downloaded games (EXE/ZIP) run on your own computer <b>at your own risk</b>: keep an up-to-date antivirus and back up important files. Please report anything suspicious right away from the game page; we may remove a game at any time to protect players.</p>
+<h2>6. Rules for developers</h2><ul>
+<li>You must own or have permission for everything you upload: code, art, music, sounds, fonts, names, logos and trademarks.</li>
+<li><b>Forbidden:</b> malware, viruses, miners, spyware, anything that harms devices or steals data; stolen or copied games; illegal, hateful, sexual or extremely violent content; scams and phishing; collecting other people's data without permission.</li>
+<li>Windows games (EXE/ZIP) must include a .zip of their source code. It is stored privately, seen only by you and the store admins, used only to check the game's safety and authenticity, and never shared with players. It is not uploaded to outside services.</li>
+<li>Every studio and game is reviewed before publishing and re-scanned whenever its files change. Reviews take place Sunday–Friday (Saturday and some holidays are closed). We may reject, hide or remove content that breaks these rules; files flagged as malicious are rejected and removed automatically.</li>
 <li>If rejected, you have 30 days to fix and resubmit. Appeals: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</li>
-<li>You keep the rights to your game and give the store permission to show, distribute and promote it in the store.</li>
+<li>You keep all rights to your game. You give the store a free, worldwide, non-exclusive license to host, scan, show, distribute and promote it (including screenshots and trailers) for as long as it is in the store, and for a reasonable time after removal for backups and records.</li>
+<li>You promise that your content follows these rules and the law, and you agree to <b>take responsibility for, and cover the costs of, any claim made against the store because of your content</b> (for example a copyright claim or damage caused by your file).</li>
 <li>Revenue share in Coins: up to 50 Coins — 80% to you; 50–200 — 75%; 200–500 — 70%; over 500 — 50%. Promotion costs 500 Coins for 7 days. Bundles: your own games only, priced above 25 Coins.</li></ul>
-<h2>Reviews & community</h2><p>Be respectful. Reviews must be honest and about the game; you can review a game after playing it for at least 10 minutes. No spam, harassment or personal information about others.</p>
-<h2>Availability</h2><p>The store is provided "as is". We work to keep it running and safe but cannot promise it will always be available or error-free, and we are not responsible for games made by third parties, to the extent allowed by law.</p>
-<h2>Contact</h2><p>Questions, reports and appeals: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>. We may update these terms; the date above shows the latest version.</p>`},
+<h2>7. Copyright complaints</h2><p>If you believe content in the store infringes your rights, email <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a> with: the link to the content, proof that you own the rights, your contact details, and a statement that the information is true. We will review it quickly and remove or hide content when appropriate. The developer may answer with a counter-notice. Accounts that repeatedly infringe will be closed.</p>
+<h2>8. Reviews & community</h2><p>Be respectful. Reviews must be honest and about the game; you can review a game after playing it for at least 10 minutes. No spam, harassment, threats, impersonation or personal information about others. We may remove content that breaks these rules.</p>
+<h2>9. No warranties</h2><p>The store is free and provided <b>"as is" and "as available"</b>, without warranties of any kind, to the fullest extent permitted by law. We don't promise that the store, its games or its files will always be available, error-free, secure or virus-free, or that content is accurate.</p>
+<h2>10. Limitation of liability</h2><p>To the fullest extent permitted by law, Man Studio Store and the people who run it are <b>not liable</b> for any indirect, incidental or consequential damage, or for loss of data, devices, Coins, profits or reputation, arising from the use of the store or of games, files and content made by others. Since the store is free, our total liability for any claim is limited to the amount you paid us in real money in the last 12 months (which is zero). Nothing in these terms limits liability that cannot be limited by law.</p>
+<h2>11. Your responsibility</h2><p>You agree to cover any claim, damage or cost caused to the store because you broke these terms or the law, or because of content you uploaded.</p>
+<h2>12. Changes, ending & other</h2><p>We may change the store, these terms or the rules at any time; the date above shows the latest version, and continuing to use the store means you accept the changes. We may suspend or end access for anyone who breaks these terms. You can stop using the store at any time. These terms are governed by the laws of the State of Israel, and disputes will be heard by the competent courts in Israel. If any part of these terms is found invalid, the rest stays in force. Not enforcing a rule doesn't mean we give it up.</p>
+<h2>13. Contact</h2><p>Questions, reports, copyright complaints and appeals: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>`},
 he:{privacy:`<h1>מדיניות פרטיות</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
-<p>המדיניות מסבירה איזה מידע Man Studio Store ("אנחנו", "החנות") אוסף, למה, ומה אפשר לעשות לגביו. יצירת קשר: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>
-<h2>מה אנחנו אוספים</h2><ul>
-<li><b>חשבון:</b> כתובת אימייל, שם משתמש, סיסמה (נשמרת רק בצורה מוצפנת אצל ספק ההתחברות), ותמונה ותיאור לפי בחירתך.</li>
-<li><b>פעילות בחנות:</b> הספרייה, רשימת המשאלות, ביקורות, מעקבים, יתרת Coins והיסטוריה, קניות, קודים שמומשו, התראות וזמן משחק (בדקות, לצורך ביקורות מאומתות).</li>
-<li><b>מפתחים:</b> פרטי הסטודיו (שם, מייל תמיכה, חברים, קישורים, לוגו, באנר) והמשחקים, התמונות והקבצים שמעלים.</li>
-<li><b>אימות סטודיו:</b> שם או כינוי, גיל, מדינה, קישור לרשת חברתית או תשובה חלופית, קישור לתיק עבודות (לא חובה) ותשובות קצרות עליך (ומייל של הורה למפתחים מתחת לגיל 16). אנחנו לא מבקשים כתובת, עיר או תאריך לידה. רק מנהל החנות רואה את זה, והמידע <b>נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה</b>.</li>
+<p>המדיניות מסבירה איזה מידע Man Studio Store ("אנחנו", "החנות") אוסף, למה, עם מי הוא משותף, ומה אפשר לעשות לגביו. יצירת קשר: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>
+<h2>1. מה אנחנו אוספים</h2><ul>
+<li><b>חשבון:</b> כתובת אימייל, שם משתמש, סיסמה (נשמרת רק בצורה מוצפנת אצל ספק ההתחברות), ותמונה ותיאור אם הוספת.</li>
+<li><b>פעילות בחנות:</b> הספרייה, רשימת המשאלות, ביקורות, מעקבים, יתרת Coins והיסטוריה, רכישות וקבלות, קודים שמומשו, השתתפות בפסטיבלים, התראות וזמן משחק (בדקות, לביקורות מאומתות).</li>
+<li><b>מפתחים:</b> פרטי הסטודיו (שם, מייל תמיכה, חברים, קישורים, לוגו, באנר), התשובות לבדיקת הסטודיו, והמשחקים, התמונות, הקבצים וקוד המקור שמעלים.</li>
+<li><b>אימות סטודיו:</b> שם או כינוי, גיל, מדינה, קישור לרשת חברתית או תשובה חלופית, קישור לתיק עבודות (לא חובה) ותשובות קצרות עליך (ומייל של הורה למפתחים מתחת לגיל 16). אנחנו לא מבקשים כתובת, עיר, תאריך לידה או תעודות. רק מנהל החנות רואה את זה, והמידע <b>נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה</b>.</li>
+<li><b>תוצאות סריקת אבטחה:</b> התוצאה של הסריקה האוטומטית לתוכנות זדוניות במשחקים שהועלו (נקי / חשוד / מסוכן והסיבה).</li>
 <li><b>אחסון במכשיר:</b> בחירת השפה, ההתחברות ושמירות של משחקים נשמרים בדפדפן במכשיר שלך.</li></ul>
-<h2>למה אנחנו משתמשים בזה</h2><p>כדי להפעיל את החשבון, להציג את החנות, לתת לך משחקים שבבעלותך, לבצע פעולות Coins, לבדוק ולאשר סטודיואים ומשחקים, למנוע ניצול לרעה ולשלוח התראות בתוך החנות. אנחנו לא מוכרים מידע ולא מציגים פרסומות.</p>
-<h2>מה גלוי לכולם</h2><p>שם המשתמש, התמונה, התיאור, הביקורות והסטודיואים והמשחקים שאתה מפרסם גלויים לכולם. האימייל, יתרת ה-Coins, מספר כרטיס ה-Coins, הספרייה, רשימת המשאלות ופרטי האימות — לא.</p>
-<h2>שירותים שאנחנו משתמשים בהם</h2><p>Supabase (מסד נתונים, התחברות ואחסון קבצים — שרתים באירופה), GitHub Pages (אחסון האתר), Google Fonts ו-jsDelivr (גופנים וספריות קוד), ו-YouTube (רק אם מפעילים טריילר). השירותים האלה מעבדים מידע לפי מדיניות הפרטיות שלהם.</p>
-<h2>ילדים</h2><p>אפשר לפתוח סטודיו מגיל 9. אם אתה מתחת לגיל שבו מותר במדינה שלך להסכים למדיניות הזו לבד, השתמש בחנות באישור הורה או אפוטרופוס. הורה יכול לבקש בכל זמן למחוק חשבון של ילד.</p>
-<h2>הבחירות שלך</h2><p>אפשר לערוך את הפרופיל והסטודיו, למחוק ביקורות, משחקים והתראות ולהתנתק בכל זמן. למחיקת החשבון או לקבלת עותק של המידע — שלחו לנו מייל ונטפל בזה תוך 30 יום.</p>
-<h2>אבטחה ושמירת מידע</h2><p>הגישה למידע מוגנת בכללים במסד הנתונים בשרת. מידע החשבון נשמר כל עוד החשבון קיים; מידע האימות — עד 3 ימים אחרי החלטת הבדיקה; תוכן שנמחק יורד מהחנות מיד.</p>
-<h2>שינויים</h2><p>אם המדיניות משתנה, נעדכן את התאריך למעלה ונודיע בחנות על שינויים חשובים.</p>`,
+<h2>2. למה אנחנו משתמשים בזה</h2><p>כדי להפעיל את החשבון, להציג את החנות, לתת לך משחקים שבבעלותך, לנהל Coins וקבלות, לבדוק סטודיואים ומשחקים, לשמור על השחקנים מתוכנות זדוניות, למנוע הונאות ושימוש לרעה, לאכוף את תנאי השימוש ולשלוח התראות בחנות. אנחנו לא מוכרים את המידע שלך, לא מציגים פרסומות ולא בונים עליך פרופיל.</p>
+<h2>3. מה גלוי לכולם</h2><p>שם המשתמש, התמונה, התיאור, הביקורות, ההשתתפות בפסטיבלים והסטודיואים והמשחקים שאתה מפרסם גלויים לכולם. האימייל, יתרת ה-Coins, מספר הכרטיס, הקבלות, הספרייה, רשימת המשאלות, פרטי האימות וקוד המקור — לא.</p>
+<h2>4. שירותים שאנחנו משתמשים בהם</h2><ul>
+<li><b>Supabase</b> — מסד נתונים, התחברות ואחסון קבצים (שרתים באירופה).</li>
+<li><b>VirusTotal</b> (שירות של Google) — סריקה אוטומטית לתוכנות זדוניות. קבצי משחקים, קבצי דמו וקישורים למשחקים שמפתחים מעלים נשלחים ל-VirusTotal, וקבצים שנשלחים לשם עלולים להיות זמינים לקהילת האבטחה של VirusTotal. <b>קוד המקור אף פעם לא נשלח</b>: נבדקת רק "טביעת האצבע" הדיגיטלית שלו (hash).</li>
+<li><b>GitHub Pages</b> (אחסון האתר), <b>Google Fonts</b> ו-<b>jsDelivr</b> (גופנים וספריות קוד), <b>חיפוש Google</b> (הדפים הציבוריים של החנות מופיעים בחיפוש) ו-<b>YouTube</b> (רק אם מפעילים טריילר).</li></ul>
+<p>השירותים האלה מעבדים מידע לפי מדיניות הפרטיות שלהם. אנחנו משתפים מידע עם רשויות רק כשהחוק מחייב, או כדי להגן על משתמשים מפגיעה חמורה.</p>
+<h2>5. ילדים</h2><p>אם אתה מתחת לגיל 18 (או מתחת לגיל הבגרות במדינה שלך), מותר להשתמש בחנות רק באישור הורה או אפוטרופוס, שמסכים למדיניות בשבילך. אפשר לפתוח סטודיו מגיל 9; מפתחים מתחת לגיל 16 צריכים מייל והסכמה של הורה. הורה יכול לבקש לראות או למחוק את המידע של הילד בכל זמן.</p>
+<h2>6. הזכויות שלך</h2><p>אפשר לערוך את הפרופיל והסטודיו, למחוק ביקורות, משחקים והתראות ולהתנתק בכל זמן. אפשר לבקש במייל לראות, לתקן, לייצא או למחוק את המידע שלך; נענה תוך 30 יום. חלק מהרשומות (למשל קבלות או תיעוד של הפרת כללים) עשויות להישמר כל עוד צריך מסיבות אבטחה או מסיבות חוקיות.</p>
+<h2>7. אבטחה ושמירת מידע</h2><p>הגישה למידע מוגנת בכללים בשרת, קבצים פרטיים נשמרים באחסון פרטי, וכל קובץ שמועלה נסרק לתוכנות זדוניות. אף מערכת לא מאובטחת ב-100%, אז כדאי להשתמש בסיסמה חזקה וייחודית. מידע החשבון נשמר כל עוד החשבון קיים; מידע האימות עד 3 ימים אחרי החלטת הבדיקה; תוכן שנמחק יורד מהחנות מיד, ומהגיבויים עם הזמן.</p>
+<h2>8. שינויים</h2><p>אם המדיניות משתנה, נעדכן את התאריך למעלה ונודיע בחנות על שינויים חשובים.</p>`,
 terms:`<h1>תנאי שימוש</h1><p class="dim">עודכן לאחרונה: ${LEGAL_UPDATED}</p>
-<p>כשפותחים חשבון או משתמשים ב-Man Studio Store מסכימים לתנאים האלה. אם אתה לא מסכים, אל תשתמש בחנות.</p>
-<h2>חשבונות</h2><p>שמור על הסיסמה ועל פרטים נכונים. אסור להשתמש בחשבונות כדי לרמות (למשל לצבור Coins או ביקורות). אנחנו רשאים להשעות חשבון שמפר את התנאים.</p>
-<h2>Coins</h2><p>Coins הם קרדיט וירטואלי לחנות. <b>אין להם ערך כספי</b>, אי אפשר לקנות, למכור, להחליף או למשוך אותם תמורת כסף אמיתי, והם קיימים רק בתוך החנות. חשבון חדש מתחיל עם 500 Coins ומקבל 10 Coins בפעם הראשונה שכל משחק נכנס לספרייה (פעם אחת לכל משחק). יתרה שהושגה בטעות או בניצול לרעה עשויה להיות מתוקנת. קניות ב-Coins הן סופיות.</p>
-<h2>משחקים שמקבלים</h2><p>המשחקים נוצרים על ידי מפתחים עצמאיים. אתה מקבל זכות אישית לשחק במשחקים שבספרייה שלך; זה לא הופך אותך לבעלים של המשחק. משחקים שמורידים (EXE/ZIP) רצים על המחשב שלך באחריותך.</p>
-<h2>פרסום (מפתחים)</h2><ul>
-<li>חייבות להיות לך הזכויות על כל מה שאתה מעלה: קוד, גרפיקה, מוזיקה, שמות וסימני מסחר.</li>
-<li>בלי תוכנות זדוניות, בלי משחקים גנובים או מועתקים, בלי תוכן לא חוקי, שנאה, מיני או אלים מאוד, ובלי איסוף מידע של אחרים בלי רשות.</li>
-<li>כל סטודיו ומשחק עוברים בדיקה לפני פרסום. בדיקות מתבצעות בימים ראשון–שישי; שבת סגורה (עם סיכוי של 5% ל-Lucky Approval). אנחנו רשאים לדחות, להסתיר או להסיר תוכן שמפר את הכללים.</li>
+<p>התנאים האלה הם הסכם בינך לבין Man Studio Store ("אנחנו", "החנות"). כשפותחים חשבון, מורידים או משחקים במשחק, או מפרסמים תוכן, מסכימים לתנאים האלה ול<a href="#/privacy">מדיניות הפרטיות</a>. אם אתה לא מסכים, אל תשתמש בחנות.</p>
+<h2>1. מי יכול להשתמש בחנות</h2><p>אם אתה מתחת לגיל 18 (או מתחת לגיל הבגרות במדינה שלך), הורה או אפוטרופוס צריך להסכים לתנאים בשבילך, והוא אחראי לשימוש שלך בחנות. אפשר לפתוח סטודיו מגיל 9, ומתחת לגיל 16 צריך הסכמה של הורה.</p>
+<h2>2. חשבונות</h2><p>שמור על הסיסמה ועל פרטים נכונים. אתה אחראי למה שקורה בחשבון שלך. אסור לאדם אחד להשתמש בכמה חשבונות כדי לרמות (למשל לצבור Coins, ביקורות או הצבעות). אנחנו רשאים להשעות או לסגור חשבונות שמפרים את התנאים.</p>
+<h2>3. Coins</h2><p>Coins הם קרדיט וירטואלי לחנות. <b>אין להם ערך כספי</b>, אי אפשר לקנות, למכור, להחליף, להעביר או למשוך אותם בכסף אמיתי, והם לא רכוש. חשבון חדש מתחיל עם 500 Coins ומקבל 10 Coins בפעם הראשונה שכל משחק נכנס לספרייה. אנחנו רשאים לשנות פרסים ומחירים ב-Coins ולתקן יתרות שהתקבלו בטעות, בגלל באג או משימוש לרעה. רכישות ב-Coins סופיות; משחק שקנית נשאר שלך ולא משלמים עליו שוב.</p>
+<h2>4. החנות היא פלטפורמה</h2><p>המשחקים, הדמואים, הדבלוגים ודפי הסטודיו נוצרים על ידי <b>מפתחים עצמאיים</b>, לא על ידינו. כל מפתח אחראי לבדו לתוכן שלו. זה שבדקנו משחק, סרקנו אותו, נתנו לו פרס או קידמנו אותו לא אומר שאנחנו ממליצים עליו, מבטיחים אותו או אחראים לו. אתה מקבל זכות אישית שאי אפשר להעביר לשחק במשחקים שבספרייה שלך; היא לא נותנת לך בעלות על המשחק.</p>
+<h2>5. הורדות ואבטחה</h2><p>כל קובץ משחק שמועלה נסרק אוטומטית לתוכנות זדוניות (עם VirusTotal ועם בדיקות שלנו) ונבדק על ידי אדם, ומשחקי Windows חייבים לכלול את קוד המקור. ובכל זאת, <b>אף סריקה ואף בדיקה לא יכולות להבטיח שקובץ בטוח לגמרי</b>. משחקים שמורידים (EXE/ZIP) רצים על המחשב שלך <b>באחריותך</b>: כדאי להשתמש באנטי-וירוס מעודכן ולגבות קבצים חשובים. אם משהו נראה חשוד, דווח מיד מדף המשחק; אנחנו רשאים להוריד משחק בכל זמן כדי להגן על השחקנים.</p>
+<h2>6. כללים למפתחים</h2><ul>
+<li>חייבות להיות לך הזכויות או הרשות לכל מה שאתה מעלה: קוד, גרפיקה, מוזיקה, צלילים, גופנים, שמות, לוגואים וסימני מסחר.</li>
+<li><b>אסור:</b> וירוסים ותוכנות זדוניות, כורים, רוגלות, כל דבר שפוגע במכשירים או גונב מידע; משחקים גנובים או מועתקים; תוכן לא חוקי, שנאה, מיני או אלים מאוד; הונאות ופישינג; איסוף מידע על אנשים בלי רשות.</li>
+<li>משחקי Windows (EXE/ZIP) חייבים לכלול קובץ .zip של קוד המקור. הוא נשמר באחסון פרטי, רק אתה ומנהלי החנות רואים אותו, הוא משמש רק לבדוק שהמשחק בטוח ואמיתי, והוא אף פעם לא משותף עם שחקנים ולא נשלח לשירותים חיצוניים.</li>
+<li>כל סטודיו ומשחק נבדקים לפני פרסום, וכל פעם שהקבצים משתנים הם נסרקים מחדש. הבדיקות בימים ראשון–שישי (שבת וחלק מהחגים סגורים). אנחנו רשאים לדחות, להסתיר או להוריד תוכן שמפר את הכללים; קבצים שזוהו כמסוכנים נדחים ונמחקים אוטומטית.</li>
 <li>אם נדחית, יש 30 יום לתקן ולשלוח שוב. עירעורים: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</li>
-<li>הזכויות על המשחק נשארות שלך, ואתה נותן לחנות רשות להציג, להפיץ ולקדם אותו בחנות.</li>
+<li>כל הזכויות על המשחק נשארות שלך. אתה נותן לחנות רישיון חינמי, עולמי ולא בלעדי לאחסן, לסרוק, להציג, להפיץ ולקדם אותו (כולל צילומי מסך וטריילרים) כל עוד הוא בחנות, ולזמן סביר אחרי שהוא יורד, לגיבויים ולתיעוד.</li>
+<li>אתה מתחייב שהתוכן שלך עומד בכללים ובחוק, ומסכים <b>לקחת אחריות ולשאת בהוצאות של כל תביעה שתוגש נגד החנות בגלל התוכן שלך</b> (למשל תביעת זכויות יוצרים או נזק שנגרם מקובץ שלך).</li>
 <li>חלוקת הכנסות ב-Coins: עד 50 Coins — 80% לך; 50–200 — 75%; 200–500 — 70%; מעל 500 — 50%. קידום עולה 500 Coins ל-7 ימים. חבילות: רק משחקים שלך, במחיר מעל 25 Coins.</li></ul>
-<h2>ביקורות וקהילה</h2><p>מתנהגים בכבוד. ביקורות צריכות להיות כנות ועל המשחק; אפשר לכתוב ביקורת אחרי לפחות 10 דקות משחק. בלי ספאם, הטרדות או מידע אישי על אחרים.</p>
-<h2>זמינות</h2><p>החנות ניתנת "כמו שהיא". אנחנו עובדים כדי שתעבוד ותהיה בטוחה, אבל לא יכולים להבטיח שתהיה זמינה תמיד או בלי תקלות, ואיננו אחראים למשחקים של צד שלישי, ככל שהחוק מאפשר.</p>
-<h2>יצירת קשר</h2><p>שאלות, דיווחים ועירעורים: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>. התנאים עשויים להתעדכן; התאריך למעלה מראה את הגרסה האחרונה.</p>`}};
+<h2>7. תלונות על זכויות יוצרים</h2><p>אם אתה חושב שתוכן בחנות מפר את הזכויות שלך, שלח מייל ל-<a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a> עם: הקישור לתוכן, הוכחה שהזכויות שלך, פרטי קשר, והצהרה שהמידע נכון. נבדוק מהר ונסיר או נסתיר תוכן כשצריך. המפתח יכול להשיב בהודעת נגד. חשבונות שמפרים זכויות שוב ושוב ייסגרו.</p>
+<h2>8. ביקורות וקהילה</h2><p>מתנהגים בכבוד. ביקורות צריכות להיות כנות ועל המשחק; אפשר לכתוב ביקורת אחרי לפחות 10 דקות משחק. בלי ספאם, הטרדות, איומים, התחזות או פרטים אישיים של אחרים. אנחנו רשאים להסיר תוכן שמפר את הכללים.</p>
+<h2>9. בלי התחייבות</h2><p>החנות חינמית וניתנת <b>"כמו שהיא" ו"כפי שהיא זמינה"</b>, בלי שום התחייבות, ככל שהחוק מתיר. אנחנו לא מבטיחים שהחנות, המשחקים או הקבצים יהיו תמיד זמינים, בלי תקלות, מאובטחים או בלי וירוסים, או שהתוכן מדויק.</p>
+<h2>10. הגבלת אחריות</h2><p>ככל שהחוק מתיר, Man Studio Store והאנשים שמפעילים אותה <b>לא אחראים</b> לשום נזק עקיף, מקרי או תוצאתי, או לאובדן מידע, מכשירים, Coins, רווחים או מוניטין, שנגרם מהשימוש בחנות או במשחקים, קבצים ותוכן של אחרים. מכיוון שהחנות חינמית, האחריות הכוללת שלנו בכל תביעה מוגבלת לסכום שילמת לנו בכסף אמיתי ב-12 החודשים האחרונים (כלומר אפס). שום דבר בתנאים לא מגביל אחריות שהחוק לא מאפשר להגביל.</p>
+<h2>11. האחריות שלך</h2><p>אתה מסכים לשאת בכל תביעה, נזק או הוצאה שנגרמו לחנות כי הפרת את התנאים או את החוק, או בגלל תוכן שהעלית.</p>
+<h2>12. שינויים, סיום ועוד</h2><p>אנחנו רשאים לשנות את החנות, התנאים או הכללים בכל זמן; התאריך למעלה מראה את הגרסה האחרונה, והמשך השימוש בחנות אומר שאתה מקבל את השינויים. אנחנו רשאים להשעות או להפסיק גישה למי שמפר את התנאים. אתה יכול להפסיק להשתמש בחנות בכל זמן. על התנאים חלים חוקי מדינת ישראל, וסכסוכים יידונו בבתי המשפט המוסמכים בישראל. אם חלק מהתנאים יימצא לא תקף, השאר נשאר בתוקף. אם לא אכפנו כלל, זה לא אומר שוויתרנו עליו.</p>
+<h2>13. יצירת קשר</h2><p>שאלות, דיווחים, תלונות על זכויות יוצרים ועירעורים: <a href="mailto:${APPEAL_EMAIL}">${APPEAL_EMAIL}</a>.</p>`}
+};
 function legalView(main,kind){setTitle(t(kind==="privacy"?"privacyT":"termsT"));
   main.innerHTML=`<article class="legal panel">${LEGAL[lang][kind]}</article><div class="dim" style="font-size:12px;margin-top:8px;text-align:center">
     <a href="#/privacy">${t("privacyT")}</a> · <a href="#/terms">${t("termsT")}</a></div>`}
@@ -2411,6 +2452,8 @@ async function formView(main,id,stale){
       <div class="seg"><label><input type="radio" name="pk" value="html" ${g.play_kind==="html"?"checked":""}> ${t("f_html")}</label><label><input type="radio" name="pk" value="download" ${g.play_kind==="download"?"checked":""}> ${t("f_exe")}</label><label><input type="radio" name="pk" value="link" ${g.play_kind==="link"?"checked":""}> ${t("f_link")}</label></div></div>
     <label id="pkD">${t("f_exe")} ${g.play_kind==="download"&&g.play_url?t("keep"):""}<input type="file" id="fx" accept=".exe,.zip"><span class="hint">${t("f_exehint")}</span>
       ${g.play_kind==="download"&&g.file_name?`<span class="hint">${t("curfile")}: ${esc(g.file_name)} (${fmtSize(g.file_size)})</span>`:""}</label>
+    <div id="srcBox" class="extbox" hidden><b>🔐 ${t("srcT")} *</b><span class="hint">${t("srcS")}</span>
+      <input type="file" id="fsrc" accept=".zip,application/zip">${g.source_name?`<span class="hint">${t("curfile")}: ${esc(g.source_name)} (${fmtSize(g.source_size)}) — ${t("keep")}</span>`:""}</div>
     <label id="pkH">${t("f_html")} ${g.play_kind==="html"&&g.play_url?t("keep"):""}<input type="file" id="fh" accept=".html,.htm,text/html"><span class="hint">${t("f_htmlhint")}</span>
       ${g.play_kind==="html"&&g.play_url?`<span class="hint">${t("curfile")}: ✓</span>`:""}</label>
     <label id="pkL">${t("f_link")}<input class="inp" id="fl" dir="ltr" placeholder="https://…" value="${g.play_kind==="link"?esc(g.play_url||""):""}"><span class="hint">${t("f_linkhint")}</span>
@@ -2439,6 +2482,8 @@ async function formView(main,id,stale){
   const syncPk=()=>{$("#pkH").hidden=pk()!=="html";$("#pkL").hidden=pk()!=="link";$("#pkD").hidden=pk()!=="download"};syncPk();
   document.querySelectorAll("input[name=pk]").forEach(r=>r.onchange=syncPk);
   $("#fx").onchange=bigCheck;$("#fh").onchange=bigCheck;
+  const needSrc=()=>pk()==="download"||(document.querySelector("input[name=dk]:checked")||{}).value==="download";
+  const syncSrc=()=>{$("#srcBox").hidden=!needSrc()};$("#gf").addEventListener("change",syncSrc);syncSrc();
   bindTranslationsEditor();
   const ageVals=bindAgeQuiz(g);bindDemoForm();
   const syncEA=()=>{$("#feaw").hidden=$("#frel").value!=="early_access"&&!($("#facc")&&$("#facc").value==="early_access")};$("#frel").onchange=syncEA;if($("#facc"))$("#facc").onchange=syncEA;syncEA();
@@ -2467,6 +2512,9 @@ async function formView(main,id,stale){
     if(exeFile&&kind==="download"){if(!/\.(exe|zip)$/i.test(exeFile.name)){err.textContent=t("err_type");return}
       if(exeFile.size>50*1048576){err.textContent=t("err_big")+" (50MB) — "+t("f_toobig");return}}
     if(kind==="link"&&!/^https?:\/\//i.test(link)&&!(soon&&!link)){err.textContent=t("err_badurl");return}
+    const srcFile=$("#fsrc").files[0],hasBuild=(kind==="download"&&(exeFile||g.play_url))||((document.querySelector("input[name=dk]:checked")||{}).value==="download");
+    if(hasBuild&&!srcFile&&!g.source_name){err.textContent=t("srcNeed");$("#srcBox").scrollIntoView({behavior:"smooth",block:"center"});return}
+    if(srcFile&&!/\.zip$/i.test(srcFile.name)){err.textContent=t("srcZip");return}
     const yt=$("#fy").value.trim();if(yt&&!ytId(yt)){err.textContent=t("err_badurl")+" (YouTube)";return}
     if((!id||rejectedOpen)&&checklist().some(([,ok])=>!ok)){err.textContent=t("clFail");$("#clBox").scrollIntoView({behavior:"smooth",block:"center"});return}
     btn.disabled=true;btn.textContent=t("uploading");
@@ -2482,6 +2530,8 @@ async function formView(main,id,stale){
       const cf=$("#fc").files[0];if(cf)rec.cover_url=await upload(cf,"cover",IMG,5);
       const up=[];for(const f of newShots)up.push(await upload(f,"shot",IMG,5));rec.screenshots=[...shots,...up].slice(0,8);
       rec.file_name=null;rec.file_size=null;
+      let oldSrc=null;if(srcFile){if(id){const o=await sb.rpc("game_source",{p_game:id});oldSrc=o.data||null}
+        rec.source_path=await uploadSource(srcFile);rec.source_name=srcFile.name.slice(0,200);rec.source_size=srcFile.size}
       if(kind==="html"){rec.play_url=htmlFile?await upload(htmlFile,"game",["text/html"],50):g.play_url;if(htmlFile)rec.file_hash=await sha256(htmlFile)}
       else if(kind==="download"){
         if(exeFile){rec.play_url=await upload(exeFile,"build",["application/octet-stream","application/zip"],50);rec.file_name=exeFile.name.slice(0,200);rec.file_size=exeFile.size;rec.file_hash=await sha256(exeFile)}
@@ -2496,6 +2546,8 @@ async function formView(main,id,stale){
       const old=[];if(id){if(cf&&g.cover_url)old.push(g.cover_url);if(g.play_kind!=="link"&&g.play_url&&g.play_url!==rec.play_url)old.push(g.play_url);
         for(const s of g.screenshots||[])if(!rec.screenshots.includes(s))old.push(s)}
       const op=old.map(storagePath).filter(Boolean);if(op.length)sb.storage.from("media").remove(op).catch(()=>{});
+      if(oldSrc&&oldSrc!==rec.source_path)sb.storage.from("sources").remove([oldSrc]).catch(()=>{});
+      sb.functions.invoke("scan-games",{body:{}}).catch(()=>{});
       toast(id&&!rejectedOpen?t("saved"):t("published"));location.hash=id?"#/app/"+res.data.id:"#/dashboard";
     }catch(ex){console.error(ex);err.textContent=errMsg(ex);btn.disabled=false;btn.textContent=rejectedOpen?t("resubmitBtn"):id?t("f_saveedit"):t("f_save")}
   };
@@ -2642,7 +2694,7 @@ function fixLine(deadline){
   return `<span>${t("fixClosed")} <a href="mailto:${APPEAL_EMAIL}" dir="ltr">${APPEAL_EMAIL}</a></span>`;
 }
 function errMsg(e){const m=(e&&e.message)||"";
-  for(const c of["SHABBAT_CLOSED","HOLIDAY_CLOSED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
+  for(const c of["SHABBAT_CLOSED","HOLIDAY_CLOSED","SOURCE_REQUIRED","BAD_SOURCE","SCAN_PENDING","SCAN_MALICIOUS","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
     "OWN_GAME","NOT_OWNED","NOT_AVAILABLE","WAIT_7_DAYS","NO_GAME_FILE","VERIFY_FIRST","FESTIVAL_FULL","AGREEMENT_REQUIRED","BIRTH_DATE_REQUIRED","TOO_YOUNG","PARENT_CONSENT_REQUIRED","PLAY_10_MIN","ALREADY_CLAIMED","BAD_KEY","KEY_USED","BUNDLE_SAME_STUDIO","NO_USER","NOT_YOUR_GAME"])if(m.includes(c))return t("e_"+c);
   if(/bundles_price_check/.test(m))return t("bundleRule");
   if(/games_sale_window|sale_pct_check/.test(m))return t("saleHint");
@@ -2865,7 +2917,8 @@ async function adminView(main,tab,stale){
     <div class="acts"><a class="btn ghost sm" href="#/app/${g.id}">${t("openGame")}</a><button class="btn ghost sm" data-vis="${g.id}:${g.published?0:1}">${g.published?t("hideG"):t("showG")}</button><button class="btn red sm" data-del="${g.id}">${t("delete")}</button></div></div>`).join("");
   else body=pg.data.map(g=>`<div class="qcard"><a href="#/app/${g.id}">${coverHTML(g)}</a><div><h4>${esc(g.title)}</h4><div class="mut">${esc(g.developer)} · ${esc(gname(g.genre))}</div>${when(g.submitted_at)}
     <div style="margin-top:6px;font-size:13px">${esc(g.short_desc)}</div>${g.reject_reason?`<div class="dim" style="font-size:12px;margin-top:4px">↻ ${t("reasonL")}: ${esc(g.reject_reason)}</div>`:""}
-    <div style="margin-top:8px;display:flex;gap:6px"><a class="btn ghost sm" href="#/app/${g.id}">${t("about")}</a><a class="btn ghost sm" href="#/play/${g.id}">▶ ${t("play")}</a></div></div>${acts("game",g.id)}</div>`).join("");
+    <div style="margin-top:8px">${scanHTML(g)||`<div class="dim" style="font-size:12px">🛡️ ${t("scanNone")}</div>`}</div>
+    <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><a class="btn ghost sm" href="#/app/${g.id}">${t("about")}</a><a class="btn ghost sm" href="#/play/${g.id}">▶ ${t("play")}</a>${g.source_name?`<button class="btn ghost sm" onclick="openSource('${g.id}')">🔐 ${t("srcDl")} <span class="dim">(${fmtSize(g.source_size)})</span></button>`:""}</div></div>${acts("game",g.id)}</div>`).join("");
   main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("adminT")}</h2>${reviewBanner()}
     <div class="tabsb">${tabs.map(([k,l,n])=>`<button class="${k===tab?"on":""}" data-tab="${k}">${l}${n?`<span class="badgeN">${n}</span>`:""}</button>`).join("")}</div>
     <div class="rows" style="gap:10px;padding:12px">${body||`<div class="empty">${t("nothing")}</div>`}</div>`;
