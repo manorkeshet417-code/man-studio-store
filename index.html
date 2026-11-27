@@ -389,6 +389,9 @@ textarea.inp{min-height:90px;resize:vertical}
 .inp.bad{border-color:#ff6b6b!important;box-shadow:0 0 0 2px #ff6b6b44}
 .festdevs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.festdevs a{display:flex;align-items:center;gap:8px;background:#0000004d;border:1px solid #ffffff1a;border-radius:24px;padding:4px 12px 4px 4px;color:#fff}
 .festdevs a:hover{border-color:#66c0f4}
+.holist{display:grid;gap:6px}.holrow{display:grid;grid-template-columns:170px 1fr auto auto;gap:10px;align-items:center;background:#0000004d;border-radius:6px;padding:8px 12px;border-inline-start:4px solid #66c0f4}
+.holrow.closed{border-inline-start-color:#ff6b6b}.holrow b{color:#fff}.holrow .hd{color:#c6d4df;font-size:13px}.holrow .hk{font-size:12px;color:var(--mut)}
+@media (max-width:600px){.holrow{grid-template-columns:1fr auto}.holrow .hd{grid-column:1/-1}}
 .legal{max-width:820px;margin:20px auto 0;line-height:1.7;color:#c6d4df}.legal h1{color:#fff;margin-top:0}.legal h2{color:#fff;font-size:17px;margin:22px 0 6px}
 .legal ul{padding-inline-start:22px}.flinks{font-size:12px}
 .bighelp{margin-top:8px;background:#66c0f40f;border:1px solid #66c0f433;border-radius:4px;padding:8px 12px}
@@ -475,7 +478,7 @@ const STORE_NAME = "Man Studio Store";
 const STORE_VERSION = "1.4.5";
 // GitHub Pages lets browsers keep the page for 10 minutes. version.txt is read past the cache,
 // and if a newer build is online the page reloads itself once with a fresh URL.
-const BUILD = "2026-11-27.8";
+const BUILD = "2026-11-27.9";
 (async()=>{try{
   const v=(await (await fetch("version.txt?t="+Date.now(),{cache:"no-store"})).text()).trim();
   if(v&&v!==BUILD&&new URLSearchParams(location.search).get("v")!==v){
@@ -555,11 +558,11 @@ p_none:"No, this is my first time",p_itch:"itch.io",p_steam:"Steam",p_gplay:"Goo
 ssubmit:"Send studio for review",sresubmit:"Fix & send again",reviewTime:"Review time: {a}–{b} business days",expected:"Expected answer by {d}",
 pendingL:"Waiting for review",approvedL:"Approved",rejectedL:"Rejected",reasonL:"Reason",fixBy:"You have until {d} to fix and resubmit.",
 fixClosed:"The 30-day fix window has ended. You can appeal by email:",appealL:"Appeals",
-vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",dlStarted:"Download started",dlInLib:"It's in your library — you can download it again any time.",dlOwnGame:"This is your own game — developers get their games for free.",dlReceipt:"Your receipt is in",rcKind_free:"free game",rcKind_developer:"developer copy",rcKind_key:"redeemed key",rcOwned:"In your library · yours forever",dlHowT:"How to install:",dlHow1:"Open your Downloads folder (or click the file at the bottom/top of the window).",dlHow2:"Double-click the file (if it's a .zip — extract it first, then open the .exe).",dlNoStart:"Download didn't start?",dlAgain:"Click here to download again",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
+vcountry:"Country / region",vage:"Age (9+)",vsocial:"Link to a social network",vor:"— or —",holT:"Holidays & closed days",holClosed:"Fully closed",holNoCount:"Not counted",holClosedS:"no approvals at all (not even Lucky Approval), and the day doesn't count toward review times.",holNoCountS:"approvals can still happen, but the day doesn't count as a business day.",holClosedB:"approvals are fully closed today.",holNoCountB:"approvals are open, but today doesn't count as a business day.",holNone:"No special days coming up.",holAdd:"Add a holiday or closed day",holFrom:"From",holTo:"To (optional)",holKind:"Type",holAddBtn:"Add",e_HOLIDAY_CLOSED:"Holiday — approvals are fully closed today.",dlStarted:"Download started",dlInLib:"It's in your library — you can download it again any time.",dlOwnGame:"This is your own game — developers get their games for free.",dlReceipt:"Your receipt is in",rcKind_free:"free game",rcKind_developer:"developer copy",rcKind_key:"redeemed key",rcOwned:"In your library · yours forever",dlHowT:"How to install:",dlHow1:"Open your Downloads folder (or click the file at the bottom/top of the window).",dlHow2:"Double-click the file (if it's a .zip — extract it first, then open the .exe).",dlNoStart:"Download didn't start?",dlAgain:"Click here to download again",stAward:"Studio award",stToggle:"Studio award (Best Studio) — the winner is a studio",stPick:"Studio",vOneOf:"Social link or the alternative question (one of the two)",vMin20:"at least 20 characters",valt:"Alternative question: describe the first game you made (or are making) and how long it took",
 vname:"Full name",vhuman:"Human check: write two short lines about why you make games",vprivacy:"🔒 We ask for as little as possible. Only the store admin sees it, it's never public, and it's deleted automatically 3 days after the review decision.",vsubmit:"Send verification",
 verified:"Studio verified ✓",s3T:"You can submit games now",s3S:"Every game gets a quality, content and bug check before launch.",newsub:"Submit a new game",
 s4S:"After approval the game launches in the store for everyone.",
-schedule:"Reviews happen Sunday–Friday. Saturday is Shabbat — closed, with a 5% Lucky Approval chance 🍀",
+schedule:"Reviews happen Sunday–Friday. Saturday is Shabbat — closed, with a 5% Lucky Approval chance 🍀 Some holidays are closed or don't count as business days.",
 shabbat:"Shabbat — the review team is resting. Approvals are back on Sunday (5% Lucky Approval runs automatically 🍀).",
 lucky:"Lucky Approval 🍀",g_pending:"Waiting for review",g_approved:"Live",g_rejected:"Rejected",resubmitBtn:"Save & resubmit for review",
 adminT:"Admin panel",a_studios:"Studios",a_verif:"Verification",a_games:"Games",a_all:"All games",approve:"Approve",reject:"Reject",
@@ -687,11 +690,11 @@ p_none:"לא, זו הפעם הראשונה",p_itch:"itch.io",p_steam:"Steam",p_g
 ssubmit:"שלח סטודיו לבדיקה",sresubmit:"תקן ושלח שוב",reviewTime:"זמן בדיקה: {a}–{b} ימי עסקים",expected:"תשובה צפויה עד {d}",
 pendingL:"ממתין לבדיקה",approvedL:"אושר",rejectedL:"נדחה",reasonL:"סיבה",fixBy:"יש לך עד {d} לתקן ולשלוח שוב.",
 fixClosed:"חלון התיקון של 30 יום הסתיים. אפשר לערער במייל:",appealL:"עירעורים",
-vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",dlStarted:"ההורדה התחילה",dlInLib:"המשחק בספרייה שלך — אפשר להוריד אותו שוב מתי שרוצים.",dlOwnGame:"זה המשחק שלך — מפתחים מקבלים את המשחקים שלהם בחינם.",dlReceipt:"הקבלה שלך נמצאת ב",rcKind_free:"משחק חינמי",rcKind_developer:"עותק מפתח",rcKind_key:"קוד שמומש",rcOwned:"בספרייה שלך · שלך לתמיד",dlHowT:"איך מתקינים:",dlHow1:"פותחים את תיקיית ההורדות (Downloads), או לוחצים על הקובץ בחלון.",dlHow2:"לוחצים פעמיים על הקובץ (אם זה .zip — קודם מחלצים, ואז פותחים את ה-.exe).",dlNoStart:"ההורדה לא התחילה?",dlAgain:"לחץ כאן להוריד שוב",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
+vcountry:"מדינה / אזור",vage:"גיל (9 ומעלה)",vsocial:"קישור לרשת חברתית",vor:"— או —",holT:"חגים וימים סגורים",holClosed:"סגור הרמטית",holNoCount:"לא נספר",holClosedS:"אין שום אישורים (גם לא Lucky Approval), והיום לא נספר בזמני הבדיקה.",holNoCountS:"אפשר עדיין לאשר, אבל היום לא נחשב יום עסקים.",holClosedB:"האישורים סגורים הרמטית היום.",holNoCountB:"האישורים פתוחים, אבל היום לא נחשב יום עסקים.",holNone:"אין ימים מיוחדים בקרוב.",holAdd:"הוספת חג או יום סגור",holFrom:"מתאריך",holTo:"עד תאריך (לא חובה)",holKind:"סוג",holAddBtn:"הוסף",e_HOLIDAY_CLOSED:"חג — האישורים סגורים הרמטית היום.",dlStarted:"ההורדה התחילה",dlInLib:"המשחק בספרייה שלך — אפשר להוריד אותו שוב מתי שרוצים.",dlOwnGame:"זה המשחק שלך — מפתחים מקבלים את המשחקים שלהם בחינם.",dlReceipt:"הקבלה שלך נמצאת ב",rcKind_free:"משחק חינמי",rcKind_developer:"עותק מפתח",rcKind_key:"קוד שמומש",rcOwned:"בספרייה שלך · שלך לתמיד",dlHowT:"איך מתקינים:",dlHow1:"פותחים את תיקיית ההורדות (Downloads), או לוחצים על הקובץ בחלון.",dlHow2:"לוחצים פעמיים על הקובץ (אם זה .zip — קודם מחלצים, ואז פותחים את ה-.exe).",dlNoStart:"ההורדה לא התחילה?",dlAgain:"לחץ כאן להוריד שוב",stAward:"פרס סטודיו",stToggle:"פרס לסטודיו (הסטודיו הכי טוב) — הזוכה הוא סטודיו",stPick:"סטודיו",vOneOf:"קישור לרשת חברתית או שאלת האימות החלופית (אחד מהשניים)",vMin20:"לפחות 20 תווים",valt:"שאלת אימות חלופית: תאר את המשחק הראשון שבנית (או בונה) וכמה זמן זה לקח",
 vname:"שם מלא",vhuman:"בדיקת אנושיות: כתוב שתי שורות קצרות למה אתה מפתח משחקים",vprivacy:"🔒 אנחנו מבקשים כמה שפחות. רק מנהל החנות רואה את זה, זה אף פעם לא ציבורי, וזה נמחק אוטומטית 3 ימים אחרי החלטת הבדיקה.",vsubmit:"שלח לאימות",
 verified:"הסטודיו מאומת ✓",s3T:"אפשר להגיש משחקים",s3S:"כל משחק עובר בדיקת איכות, תכנים ובאגים לפני הפרסום.",newsub:"הגש משחק חדש",
 s4S:"אחרי אישור המשחק עולה רשמית לחנות לכולם.",
-schedule:"בדיקות מתבצעות בימים ראשון–שישי. שבת סגורה, עם סיכוי של 5% ל-Lucky Approval 🍀",
+schedule:"בדיקות מתבצעות בימים ראשון–שישי. שבת סגורה, עם סיכוי של 5% ל-Lucky Approval 🍀 בחלק מהחגים סגור או שהיום לא נספר כיום עסקים.",
 shabbat:"שבת — צוות הבדיקה נח. האישורים חוזרים ביום ראשון (5% Lucky Approval רץ אוטומטית 🍀).",
 lucky:"Lucky Approval 🍀",g_pending:"ממתין לבדיקה",g_approved:"באוויר",g_rejected:"נדחה",resubmitBtn:"שמור ושלח שוב לבדיקה",
 adminT:"פאנל ניהול",a_studios:"סטודיואים",a_verif:"אימותים",a_games:"משחקים",a_all:"כל המשחקים",approve:"אשר",reject:"דחה",
@@ -981,6 +984,7 @@ async function route(){
       case "awards": if(parts[1])await awardsYearView(main,parts[1],stale);else await awardsView(main,stale);break;
       case "news": await newsView(main,stale);break;
       case "receipts": await receiptsView(main,stale);break;
+      case "holidays": await holidaysView(main,stale);break;
       case "devlog": await devlogPage(main,parts[1],stale);break;
       case "privacy": legalView(main,"privacy");break;
       case "terms": legalView(main,"terms");break;
@@ -1995,6 +1999,17 @@ async function receiptsView(main,stale){
     const l=await sb.from("library").select("game_id").eq("user_id",me.id);myLib=new Set((l.data||[]).map(r=>r.game_id));toast("🔄 "+t("rcRestored").replace("{n}",n||0))};
 }
 
+/* ============ holidays: closed days and days that don't count ============ */
+async function holidaysView(main,stale){
+  setTitle(t("holT"));await loadHolidays();if(stale())return;
+  const today=dayKey(new Date()),list=[...HOLIDAYS.values()].filter(h=>h.day>=today);
+  const row=h=>{const d=new Date(h.day+"T12:00:00");return `<div class="holrow ${h.kind}"><span class="hd">${d.toLocaleDateString(lang==="he"?"he-IL":"en-US",{weekday:"short",day:"numeric",month:"short",year:"numeric"})}</span><b>${esc(hname(h))}</b><span class="hk">${h.kind==="closed"?"🔒 "+t("holClosed"):"⏸️ "+t("holNoCount")}</span></div>`};
+  main.innerHTML=subnav()+`<h2 class="sec" style="font-size:20px">🕎 ${t("holT")}</h2>
+    <div class="panel" style="display:grid;gap:6px;margin-bottom:12px"><div>🔒 <b style="color:#fff">${t("holClosed")}</b> — ${t("holClosedS")}</div><div>⏸️ <b style="color:#fff">${t("holNoCount")}</b> — ${t("holNoCountS")}</div><div class="mut">${t("schedule")}</div></div>
+    ${reviewBanner()}<div class="holist">${list.map(row).join("")||`<div class="empty"><b>${t("holNone")}</b></div>`}</div>`;
+  bindSubnav();
+}
+
 /* ============ awards hall ============ */
 async function awardsView(main,stale){
   setTitle(t("awardsT"));
@@ -2493,7 +2508,7 @@ async function dashView(main,stale){
     coins:stats.reduce((a,r)=>a+ +r.coins,0),earned:data.reduce((a,g)=>a+g.coins_earned,0),wish:data.reduce((a,g)=>a+g.wishes,0)};
   const approved=data.filter(g=>g.review_status==="approved");
   main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("mygames")}${studio?` · <a href="#/studio/${studio.id}" style="border:0;padding:0;font-size:14px">${esc(studio.name)} ${badgeHTML(studio.downloads)}</a>`:""}<a href="#/publish" style="background:var(--buy2)">+ ${t("publish")}</a>${studio&&studio.status==="approved"?`<a href="#" id="dnd">📝 ${t("newDevlog")}</a>`:""}</h2>`+
-   (isShabbat()&&data.some(g=>g.review_status==="pending")?`<div class="banner">${t("shabbat")}</div>`:"")+
+   (data.some(g=>g.review_status==="pending")?reviewBanner():"")+
    `<div class="stats"><div><b>${tot.dl.toLocaleString()}</b><span>${t("downloads")}</span></div><div><b>${tot.sales.toLocaleString()}</b><span>${t("sales")}</span></div>
      <div><b>${coins(tot.earned)}</b><span>${t("earned")}</span></div><div><b>${tot.wish.toLocaleString()}</b><span>${t("wishlist")}</span></div>
      <div><b>${coins(me.coins)}</b><span>${t("balance")}</span></div></div>
@@ -2600,14 +2615,25 @@ function bundleForm(studio,games){
 /* ============ review helpers ============ */
 function ilNow(){return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Jerusalem"}))}
 const isShabbat=()=>ilNow().getDay()===6;
-function addBiz(date,n){const d=new Date(date);let k=0;while(k<n){d.setDate(d.getDate()+1);if(d.getDay()!==6)k++}return d}
+let HOLIDAYS=new Map();
+const dayKey=d=>new Date(d).toLocaleDateString("en-CA",{timeZone:"Asia/Jerusalem"});
+async function loadHolidays(){const from=new Date(Date.now()-40*864e5).toISOString().slice(0,10);
+  const{data}=await sb.from("store_holidays").select("day,kind,name_en,name_he").gte("day",from).order("day");HOLIDAYS=new Map((data||[]).map(h=>[h.day,h]))}
+const hname=h=>lang==="he"?h.name_he:h.name_en;
+const holidayToday=()=>HOLIDAYS.get(dayKey(new Date()));
+const closedToday=()=>{const h=holidayToday();return h&&h.kind==="closed"?h:null};
+function reviewBanner(){const h=holidayToday();
+  if(h&&h.kind==="closed")return `<div class="banner">🔒 ${esc(hname(h))} — ${t("holClosedB")} <a href="#/holidays">${t("holT")}</a></div>`;
+  if(isShabbat())return `<div class="banner">${t("shabbat")}</div>`;
+  if(h)return `<div class="banner" style="background:#2a3f5a;color:#c6d4df">⏸️ ${esc(hname(h))} — ${t("holNoCountB")} <a href="#/holidays">${t("holT")}</a></div>`;return ""}
+function addBiz(date,n){const d=new Date(date);let k=0;while(k<n){d.setDate(d.getDate()+1);if(d.getDay()!==6&&!HOLIDAYS.has(dayKey(d)))k++}return d}
 function etaHTML(from,a,b){return `<div class="mut">${t("reviewTime").replace("{a}",a).replace("{b}",b)} · ${t("expected").replace("{d}",fmtDate(addBiz(from,b)))}</div>`}
 function fixLine(deadline){
   if(deadline&&new Date(deadline)>new Date())return `<span>${t("fixBy").replace("{d}",fmtDate(deadline))}</span>`;
   return `<span>${t("fixClosed")} <a href="mailto:${APPEAL_EMAIL}" dir="ltr">${APPEAL_EMAIL}</a></span>`;
 }
 function errMsg(e){const m=(e&&e.message)||"";
-  for(const c of["SHABBAT_CLOSED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
+  for(const c of["SHABBAT_CLOSED","HOLIDAY_CLOSED","FIX_WINDOW_CLOSED","STUDIO_NOT_VERIFIED","REASON_REQUIRED","ALREADY_SUBMITTED","NOT_ENOUGH_COINS","BAD_CARD","ALREADY_OWNED",
     "OWN_GAME","NOT_OWNED","NOT_AVAILABLE","WAIT_7_DAYS","NO_GAME_FILE","VERIFY_FIRST","FESTIVAL_FULL","AGREEMENT_REQUIRED","BIRTH_DATE_REQUIRED","TOO_YOUNG","PARENT_CONSENT_REQUIRED","PLAY_10_MIN","ALREADY_CLAIMED","BAD_KEY","KEY_USED","BUNDLE_SAME_STUDIO","NO_USER","NOT_YOUR_GAME"])if(m.includes(c))return t("e_"+c);
   if(/bundles_price_check/.test(m))return t("bundleRule");
   if(/games_sale_window|sale_pct_check/.test(m))return t("saleHint");
@@ -2643,9 +2669,9 @@ async function hubView(main,stale){
     ["srT",!okV?"":okVerify?"done":s.review2_status==="rejected"?"bad":"cur"],
     ["s3",okVerify?"cur":""],["stepLaunch",okVerify&&waiting.length?"cur":""]];
   main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("hubT")}${okVerify?`<a href="#/dashboard">${t("mygames")}</a>`:""}</h2>
-    <div class="mut" style="margin-bottom:10px">${t("hubS145")}</div>
+    <div class="mut" style="margin-bottom:10px">${t("hubS145")} <a href="#/holidays">🕎 ${t("holT")}</a></div>
     <div class="steps six">${steps.map(([k,st],i)=>`<div class="step ${st}"><span class="n">${i+1} / 6</span><b>${t(k)}</b></div>`).join("")}</div>
-    ${isShabbat()?`<div class="banner">${t("shabbat")}</div>`:""}
+    ${reviewBanner()}
     <div id="hb"></div>`;
   const hb=$("#hb");
   if(!s||(s.status==="rejected"&&s.fix_deadline&&new Date(s.fix_deadline)>new Date()))return studioForm(hb,s);
@@ -2707,13 +2733,14 @@ async function adminView(main,tab,stale){
   const sr2=await sb.from("studios").select("*,profiles!studios_owner_fkey(username),studio_reviews(*)").eq("review2_status","pending").order("review2_submitted_at");if(stale())return;
   let all=null;if(tab==="all"){const r=await sb.from("games").select(GAME_COLS).order("created_at",{ascending:false}).limit(200);if(stale())return;if(r.error)throw r.error;all=r.data}
   adminCount=ps.data.length+pv.data.length+pg.data.length+(sr2.data||[]).length;renderHeader();
-  const shab=isShabbat(),dis=shab?"disabled":"";
+  const shab=isShabbat()||!!closedToday(),dis=shab?"disabled":"";
   const orc=await sb.from("reports").select("id",{count:"exact",head:true}).eq("status","open");const openReports=orc.count||0;if(stale())return;
   const tabs=[["games",t("a_games"),pg.data.length],["studios",t("a_studios"),ps.data.length],["verif",t("a_verif"),pv.data.length],["studrev","🧭 "+t("srT"),(sr2.data||[]).length],["all",t("a_all"),0],
-    ["awards","🏆 GOTM/GOTY",0],["mail","✉ "+t("a_mail"),0],["coins","🪙 Coins",0],["fests","🎪 "+t("festivals"),0],["reports","🚩 "+t("reports"),openReports]];
+    ["awards","🏆 GOTM/GOTY",0],["mail","✉ "+t("a_mail"),0],["coins","🪙 Coins",0],["fests","🎪 "+t("festivals"),0],["holidays","🕎 "+t("holT"),0],["reports","🚩 "+t("reports"),openReports]];
   let extra=null;
   if(tab==="reports"){const[r,cp]=await Promise.all([sb.from("reports").select("*,games(id,title,developer,published),profiles!reports_reporter_fkey(username)").order("status").order("created_at",{ascending:false}).limit(100),
       sb.from("games").select("id,title,developer,copy_of,published").not("copy_of","is",null)]);if(stale())return;extra={reports:r.data||[],copies:cp.data||[]}}
+  if(tab==="holidays"){const r=await sb.from("store_holidays").select("*").gte("day",new Date(Date.now()-60*864e5).toISOString().slice(0,10)).order("day");if(stale())return;extra={hol:r.data||[]}}
   if(tab==="fests"){const r=await sb.from("festivals").select("*").order("starts_at",{ascending:false});if(stale())return;extra={fests:r.data||[]}}
   if(tab==="awards"){const[a,gl]=await Promise.all([sb.from("awards").select("kind,period,game_id,ext_title,ext_url,ext_developer,ext_image,games(title)").order("period",{ascending:false}),
     live("id,title").eq("coming_soon",false).order("title")]);if(stale())return;extra={awards:a.data||[],games:gl.data||[]};
@@ -2809,6 +2836,12 @@ async function adminView(main,tab,stale){
         <div class="err" id="ce3"></div><div><button class="btn green" id="cs3">🏅 ${t("addCat")}</button></div></div>
       ${extra.cats.map(c=>`<div class="row" style="grid-template-columns:1fr auto"><div><span class="atag">🏅 ${esc(c.category)}</span> <b style="color:#fff">${c.studio_id?"🏢 ":""}${esc(c.studios?.name||c.games?.title||c.ext_title||"")}</b>${c.ext_title?` <span class="extl">↗ ${t("extGame")}</span>`:""} <span class="mut">${t(c.kind)} · ${esc(c.period)}</span></div>
         <span style="display:flex;gap:6px"><button class="btn ghost sm" data-spot="cat|${c.id}">🌟 ${c.spotlight_until&&new Date(c.spotlight_until)>new Date()?fmtDate(c.spotlight_until):t("spotBtn")}</button><button class="btn red sm" data-delcat="${c.id}">${t("delete")}</button></span></div>`).join("")}`}
+  else if(tab==="holidays")body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">🕎 ${t("holAdd")}</h3><div class="mut">${t("holClosed")}: ${t("holClosedS")}<br>${t("holNoCount")}: ${t("holNoCountS")}</div>
+      <div class="two"><label>${t("holFrom")} *<input class="inp" type="date" id="hd1"></label><label>${t("holTo")}<input class="inp" type="date" id="hd2"></label></div>
+      <label>${t("holKind")}<select id="hk"><option value="closed">🔒 ${t("holClosed")}</option><option value="nocount">⏸️ ${t("holNoCount")}</option></select></label>
+      <div class="two"><label>Name (English) *<input class="inp" id="hne" maxlength="80" dir="ltr"></label><label>שם (עברית) *<input class="inp" id="hnh" maxlength="80" dir="rtl"></label></div>
+      <div class="err" id="hde"></div><div><button class="btn green" id="hds">🕎 ${t("holAddBtn")}</button></div></div>
+    <div class="holist" style="margin-top:10px">${extra.hol.map(h=>`<div class="holrow ${h.kind}"><span class="hd">${esc(h.day)}</span><b>${esc(h.name_en)} · ${esc(h.name_he)}</b><span class="hk">${h.kind==="closed"?"🔒 "+t("holClosed"):"⏸️ "+t("holNoCount")}</span><button class="btn red sm" data-delhol="${h.day}">✕</button></div>`).join("")}</div>`;
   else if(tab==="mail")body=`<div class="panel form" style="max-width:none"><h3 style="margin:0;color:#fff">✉ ${t("mailT")}</h3><div class="mut">${t("mailHint")}</div>
       <label>${t("subject")} *<input class="inp" id="mt" maxlength="200"></label><label>${t("message")}<textarea class="inp" id="mb" maxlength="5000" style="min-height:160px"></textarea></label>
       <div class="err" id="me"></div><div><button class="btn green" id="ms">✉ ${t("sendAll")}</button></div></div>`;
@@ -2824,7 +2857,7 @@ async function adminView(main,tab,stale){
   else body=pg.data.map(g=>`<div class="qcard"><a href="#/app/${g.id}">${coverHTML(g)}</a><div><h4>${esc(g.title)}</h4><div class="mut">${esc(g.developer)} · ${esc(gname(g.genre))}</div>${when(g.submitted_at)}
     <div style="margin-top:6px;font-size:13px">${esc(g.short_desc)}</div>${g.reject_reason?`<div class="dim" style="font-size:12px;margin-top:4px">↻ ${t("reasonL")}: ${esc(g.reject_reason)}</div>`:""}
     <div style="margin-top:8px;display:flex;gap:6px"><a class="btn ghost sm" href="#/app/${g.id}">${t("about")}</a><a class="btn ghost sm" href="#/play/${g.id}">▶ ${t("play")}</a></div></div>${acts("game",g.id)}</div>`).join("");
-  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("adminT")}</h2>${shab?`<div class="banner">${t("shabbat")}</div>`:""}
+  main.innerHTML=`<h2 class="sec" style="font-size:20px">${t("adminT")}</h2>${reviewBanner()}
     <div class="tabsb">${tabs.map(([k,l,n])=>`<button class="${k===tab?"on":""}" data-tab="${k}">${l}${n?`<span class="badgeN">${n}</span>`:""}</button>`).join("")}</div>
     <div class="rows" style="gap:10px;padding:12px">${body||`<div class="empty">${t("nothing")}</div>`}</div>`;
   if(tab==="awards"&&$("#aws"))$("#aws").onclick=async()=>{const k=$("#awk").value,p=$("#awp").value.trim();
@@ -2864,6 +2897,13 @@ async function adminView(main,tab,stale){
     $("#awk").onchange=()=>{const k=$("#awk").value,n=new Date();$("#awp").value=k==="gotw"?isoWeek(n):k==="gotm"?n.toLocaleDateString("en-CA").slice(0,7):String(n.getFullYear());
       if(k==="goty_world")$("#awx").checked=true;syncExt()};
     $("#awx").onchange=syncExt;syncExt()}
+  if(tab==="holidays"){$("#hds").onclick=async e=>{const a=$("#hd1").value,b=$("#hd2").value||a,ne=$("#hne").value.trim(),nh=$("#hnh").value.trim(),er=$("#hde");er.textContent="";
+      if(!a||ne.length<2||nh.length<2||b<a){er.textContent=t("err_required");return}
+      const rows=[];for(let d=new Date(a+"T12:00:00");dayKey(d)<=b&&rows.length<60;d.setDate(d.getDate()+1))rows.push({day:dayKey(d),kind:$("#hk").value,name_en:ne,name_he:nh});
+      e.target.disabled=true;const{error}=await sb.from("store_holidays").upsert(rows,{onConflict:"day"});if(error){er.textContent=errMsg(error);e.target.disabled=false;return}
+      await loadHolidays();toast("🕎 "+t("saved"));route()};
+    {const hl=document.querySelector(".holist");if(hl)hl.onclick=async e=>{const b=e.target.closest("[data-delhol]");if(!b)return;if(!await confirmBox(t("delete")+" "+b.dataset.delhol+"?"))return;
+      const{error}=await sb.from("store_holidays").delete().eq("day",b.dataset.delhol);if(error)return dbErr(error);await loadHolidays();route()}}}
   if(tab==="fests"&&$("#fmode")){const sm=()=>{const m=$("#fmode").value;$("#fatt").hidden=m==="games"};$("#fmode").onchange=sm;sm()}
   if(tab==="fests")$("#fsave").onclick=async e=>{const ti=$("#ftt").value.trim(),ss=$("#fss").value===new Date().toLocaleDateString("en-CA")?new Date():new Date($("#fss").value+"T00:00:00"),su=new Date($("#fsu").value+"T23:59:00"),st=new Date($("#fst").value+"T00:00:00"),en=new Date($("#fen").value+"T23:59:00");
     if(ti.length<2||isNaN(su)||isNaN(st)||isNaN(en)){$("#fe2").textContent=t("err_required");return}
@@ -2990,7 +3030,7 @@ sb.auth.onAuthStateChange((ev,session)=>{
     if(ev==="TOKEN_REFRESHED")return;
     const prev=me&&me.id;await loadMe(session);
     if(ev==="PASSWORD_RECOVERY"){location.hash="#/reset";return}
-    if(!booted){booted=true;route();newsPopup();checkProgress();return}
+    if(!booted){booted=true;await loadHolidays().catch(()=>{});route();newsPopup();checkProgress();return}
     if((me&&me.id)!==prev)route();else renderHeader();
   },0);
 });
